@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consumer Theory — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA;
+    --paper-raised:#FFFDF8;
+    --ink:#22303F;
+    --ink-soft:#4C5A68;
+    --rule:#D8CFBC;
+    --oxblood:#7C2E2E;
+    --oxblood-soft:#F1DCDC;
+    --teal:#2C6E64;
+    --teal-soft:#DCEBE6;
+    --gold:#A9793B;
+    --gold-soft:#F1E5CE;
+    --slate:#3E5C76;
+    --slate-soft:#E2E8EF;
+    --good:#2C6E64;
+    --bad:#7C2E2E;
+    --radius:3px;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{
+    font-family:'Newsreader',Georgia,serif;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--oxblood);}
+  code, .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- Layout shell ---------- */
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{
+    width:250px; flex-shrink:0;
+    position:sticky; top:0; align-self:flex-start;
+    height:100vh; overflow-y:auto;
+    padding:28px 18px 40px 24px;
+    border-right:1px solid var(--rule);
+  }
+  nav.toc .toc-title{
+    font-family:'Newsreader',serif; font-size:1.05rem; font-weight:600;
+    margin:0 0 4px; color:var(--oxblood);
+  }
+  nav.toc .toc-sub{font-size:.72rem; color:var(--ink-soft); margin-bottom:18px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc a{
+    display:block; text-decoration:none; color:var(--ink-soft);
+    font-size:.87rem; padding:6px 8px 6px 0; border-left:2px solid transparent;
+    padding-left:10px;
+  }
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+
+  .hero{
+    padding:56px 56px 40px;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper-raised);
+  }
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.7rem; margin:.3em 0 .2em; line-height:1.08;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:640px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{
+    background:var(--slate-soft); color:var(--slate); font-size:.75rem;
+    padding:4px 10px; border-radius:20px; font-weight:600;
+  }
+
+  section.block{padding:38px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.9rem; margin:0 0 6px;}
+  h3{font-size:1.28rem; margin:1.6em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.02rem; margin:1.3em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+
+  .lead-p{font-size:1.05rem; color:var(--ink-soft); max-width:680px;}
+
+  /* ---------- Boxes ---------- */
+  .box{
+    border:1px solid var(--rule); border-radius:var(--radius);
+    background:var(--paper-raised); padding:18px 20px; margin:18px 0;
+  }
+  .box.formula{
+    border-left:4px solid var(--oxblood); background:var(--oxblood-soft);
+    font-family:'JetBrains Mono',monospace; font-size:.95rem;
+  }
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.75rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+
+  /* ---------- Tables ---------- */
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  caption{text-align:left; font-size:.8rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+
+  /* ---------- Diagram card ---------- */
+  .diagram{
+    border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised);
+    padding:16px; margin:20px 0; text-align:center;
+  }
+  .diagram figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+
+  /* ---------- Pills / chips row ---------- */
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.85rem;}
+
+  /* ---------- MCQ ---------- */
+  details.q{
+    border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised);
+    margin:10px 0; padding:12px 16px;
+  }
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+
+  /* misc */
+  .divider-label{
+    text-align:center; margin:34px 0 18px; position:relative; color:var(--gold);
+    font-family:'Newsreader',serif; font-style:italic; font-size:1rem;
+  }
+  .divider-label:before, .divider-label:after{
+    content:""; display:inline-block; width:60px; height:1px; background:var(--rule);
+    vertical-align:middle; margin:0 12px;
+  }
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+
+  @media(max-width:900px){
+    nav.toc{display:none;}
+    .hero, section.block{padding:28px 22px;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Consumer Theory</div>
+  <div class="toc-sub">CUET PG · Microeconomics</div>
+  <ol>
+    <li><a href="#s1">Meaning &amp; Approaches</a></li>
+    <li><a href="#s2">Theory of Demand</a></li>
+    <li><a href="#s3">Cardinal Utility Analysis</a></li>
+    <li><a href="#s4">Indifference Curve Analysis</a></li>
+    <li><a href="#s5">Consumer's Equilibrium (IC)</a></li>
+    <li><a href="#s6">Income &amp; Substitution Effects</a></li>
+    <li><a href="#s7">ICC, PCC &amp; Engel Curve</a></li>
+    <li><a href="#s8">Giffen Paradox</a></li>
+    <li><a href="#s9">Revealed Preference Theory</a></li>
+    <li><a href="#s10">Consumer Surplus</a></li>
+    <li><a href="#s11">Master Comparison Table</a></li>
+    <li><a href="#s12">Formula Sheet</a></li>
+    <li><a href="#s13">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">MICROECONOMICS · UNIT: CONSUMER BEHAVIOUR</div>
+    <h1>Consumer Theory</h1>
+    <p class="lede">Demand · Utility Analysis · Indifference Curves · Revealed Preference Theory · Consumer Surplus — the complete tangency-to-welfare pipeline of how a rational consumer decides what to buy, and how economists model it.</p>
+    <div class="tags">
+      <span class="tag">Marshall</span><span class="tag">Hicks–Allen</span><span class="tag">Samuelson</span>
+      <span class="tag">CUET PG COQP10</span><span class="tag">High-weightage topic</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — ORIENTATION</div>
+    <h2 class="sec-title">Meaning &amp; the Three Approaches</h2>
+    <p class="lead-p">Consumer behaviour theory asks one question: <em>how does a rational, utility-maximising consumer allocate a limited income across goods to get the most satisfaction?</em> Three successive schools answered it — each fixing a weakness of the one before.</p>
+
+    <div class="grid2">
+      <div class="box definition">
+        <div class="label">Approach 1 — Cardinal Utility</div>
+        Alfred Marshall (1890). Utility is <strong>measurable</strong> in cardinal numbers (units called "utils"). Consumer equalises marginal utility per rupee across goods.
+      </div>
+      <div class="box definition">
+        <div class="label">Approach 2 — Ordinal Utility (Indifference Curves)</div>
+        Hicks &amp; Allen (1934). Utility cannot be measured, only <strong>ranked/ordered</strong> ("I prefer A to B"). Consumer reaches tangency of budget line and indifference curve.
+      </div>
+    </div>
+    <div class="box definition">
+      <div class="label">Approach 3 — Revealed Preference Theory</div>
+      Paul Samuelson (1938), refined by Houthakker. Drops utility altogether — infers preferences purely from <strong>observed market choices</strong>, assuming only behavioural consistency.
+    </div>
+
+    <table>
+      <caption>Table 1.1 — Evolutionary snapshot</caption>
+      <thead><tr><th>Feature</th><th>Cardinal (Marshall)</th><th>Ordinal / IC (Hicks)</th><th>Revealed Preference (Samuelson)</th></tr></thead>
+      <tbody>
+        <tr><td>Utility measurability</td><td>Cardinal (numbers)</td><td>Ordinal (ranking)</td><td>Not required at all</td></tr>
+        <tr><td>Data needed</td><td>Introspection / util numbers</td><td>Preference map (hypothetical)</td><td>Actual observed purchase behaviour</td></tr>
+        <tr><td>Core tool</td><td>Marginal Utility (MU)</td><td>Indifference Curve + Budget Line</td><td>Price–income budget sets &amp; choices</td></tr>
+        <tr><td>Equilibrium condition</td><td>MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub></td><td>MRS<sub>xy</sub> = P<sub>x</sub>/P<sub>y</sub></td><td>Chosen bundle never "revealed inferior" to another affordable bundle</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — FOUNDATION</div>
+    <h2 class="sec-title">Theory of Demand</h2>
+
+    <div class="box definition">
+      <div class="label">Demand (economic sense)</div>
+      Demand = Desire + Ability to pay + Willingness to pay, at a given price, in a given time period. Mere "wants" are not demand.
+    </div>
+
+    <h3>Determinants of demand</h3>
+    <ul>
+      <li>Price of the good itself (P<sub>x</sub>)</li>
+      <li>Prices of related goods — substitutes (P<sub>s</sub>) and complements (P<sub>c</sub>)</li>
+      <li>Income of the consumer (Y)</li>
+      <li>Tastes &amp; preferences (T)</li>
+      <li>Consumer's expectations of future prices</li>
+      <li>Number of consumers in the market (for market demand)</li>
+    </ul>
+    <div class="box formula">
+      <div class="label">Generalised Demand Function</div>
+      Q<sub>dx</sub> = f(P<sub>x</sub>, P<sub>s</sub>, P<sub>c</sub>, Y, T, E)
+    </div>
+
+    <h3>The Law of Demand</h3>
+    <p><span class="keyword">Statement:</span> Other things remaining constant (<em>ceteris paribus</em>), the quantity demanded of a good varies <strong>inversely</strong> with its price.</p>
+
+    <h4>Why does the demand curve slope downward?</h4>
+    <ul>
+      <li><strong>Law of Diminishing Marginal Utility</strong> — each extra unit gives less satisfaction, so consumer pays less for it</li>
+      <li><strong>Income effect</strong> — a price fall raises real income, so more is bought</li>
+      <li><strong>Substitution effect</strong> — the good becomes relatively cheaper than substitutes</li>
+      <li><strong>New buyers</strong> enter the market at a lower price</li>
+      <li><strong>Multiple uses</strong> of a commodity get activated as price falls</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="270" x2="520" y2="270" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="270" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="530" y="275" font-size="13" fill="#22303F">Qty</text>
+        <text x="35" y="30" font-size="13" fill="#22303F">Price</text>
+        <path d="M 90 60 C 220 120, 340 180, 480 250" fill="none" stroke="#7C2E2E" stroke-width="2.5"/>
+        <text x="486" y="248" font-size="13" fill="#7C2E2E" font-style="italic">D</text>
+        <!-- movement along curve -->
+        <circle cx="180" cy="100" r="4" fill="#3E5C76"/>
+        <circle cx="330" cy="176" r="4" fill="#3E5C76"/>
+        <line x1="180" y1="100" x2="180" y2="270" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <line x1="330" y1="176" x2="330" y2="270" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <line x1="60" y1="100" x2="180" y2="100" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <line x1="60" y1="176" x2="330" y2="176" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="150" y="90" font-size="12" fill="#3E5C76">A</text>
+        <text x="300" y="166" font-size="12" fill="#3E5C76">B</text>
+        <!-- shift arrow -->
+        <path d="M 250 150 C 260 130, 280 125, 300 120" fill="none" stroke="#2C6E64" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <path d="M 90 60 C 220 110, 340 160, 480 220" fill="none" stroke="#2C6E64" stroke-width="2" stroke-dasharray="6 4" opacity="0.85"/>
+        <text x="486" y="218" font-size="13" fill="#2C6E64" font-style="italic">D₁ (shift)</text>
+      </svg>
+      <figcaption>Fig 2.1 — Movement along the curve (A→B, due to <strong>own price change</strong>) vs. a rightward <strong>shift</strong> of the whole curve (due to income, tastes, or related-good prices).</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 2.1 — Movement vs. Shift</caption>
+      <thead><tr><th></th><th>Movement along the curve</th><th>Shift of the curve</th></tr></thead>
+      <tbody>
+        <tr><td>Cause</td><td>Change in own price</td><td>Change in any <em>other</em> determinant (income, tastes, related prices)</td></tr>
+        <tr><td>Terminology</td><td>"Change / Extension &amp; Contraction in Quantity Demanded"</td><td>"Change / Increase &amp; Decrease in Demand"</td></tr>
+        <tr><td>Curve itself</td><td>Same curve, different point</td><td>Entirely new curve</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box warn">
+      <div class="label">Exceptions to the Law of Demand (upward-sloping demand)</div>
+      <ul style="margin:0;">
+        <li><strong>Giffen goods</strong> — inferior goods with a very high proportion of income spent on them (Sir Robert Giffen; classic: bread among poor 19th-century English labourers)</li>
+        <li><strong>Veblen / conspicuous consumption goods</strong> — diamonds, luxury cars; demand rises with price as a status signal</li>
+        <li><strong>Speculative goods</strong> — shares, real estate: price rise triggers expectation of further rise → more buying</li>
+        <li><strong>Necessities</strong> — life-saving drugs, salt: near-zero elasticity, quantity barely changes with price</li>
+        <li><strong>Ignorance / fashion effect</strong> — price mistaken as a proxy for quality</li>
+      </ul>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      CUET PG loves testing the difference between "change in demand" (shift) vs "change in quantity demanded" (movement) with assertion–reason or match-the-following formats. Also watch for Giffen vs Veblen distinction — Giffen is about <em>inferior necessities among the poor</em>; Veblen is about <em>luxury/status goods</em>.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — CARDINAL APPROACH</div>
+    <h2 class="sec-title">Cardinal Utility Analysis (Marshall)</h2>
+
+    <h3>Assumptions</h3>
+    <ul>
+      <li>Utility is cardinally measurable (in "utils"), like weight or height</li>
+      <li>Marginal utility of money remains constant (money itself is not subject to diminishing utility over the relevant range)</li>
+      <li>Utility is additive: TU = U<sub>1</sub> + U<sub>2</sub> + ... + U<sub>n</sub> (independent utilities)</li>
+      <li>Consumer is rational and aims to maximise total utility</li>
+      <li>Diminishing marginal utility holds</li>
+    </ul>
+
+    <h3>Total Utility (TU) &amp; Marginal Utility (MU)</h3>
+    <div class="box formula">
+      <div class="label">Definitions</div>
+      TU<sub>n</sub> = U<sub>1</sub> + U<sub>2</sub> + ... + U<sub>n</sub> &nbsp;&nbsp;|&nbsp;&nbsp; MU<sub>n</sub> = TU<sub>n</sub> − TU<sub>n−1</sub> &nbsp;&nbsp;|&nbsp;&nbsp; MU = ΔTU / ΔQ
+    </div>
+
+    <table>
+      <caption>Table 3.1 — Worked schedule (units of a good consumed by one person in a sitting)</caption>
+      <thead><tr><th>Units</th><th>Total Utility (TU)</th><th>Marginal Utility (MU)</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num">20</td><td class="num">20</td></tr>
+        <tr><td class="num">2</td><td class="num">36</td><td class="num">16</td></tr>
+        <tr><td class="num">3</td><td class="num">48</td><td class="num">12</td></tr>
+        <tr><td class="num">4</td><td class="num">56</td><td class="num">8</td></tr>
+        <tr><td class="num">5</td><td class="num">60</td><td class="num">4</td></tr>
+        <tr><td class="num">6</td><td class="num">60</td><td class="num">0</td></tr>
+        <tr><td class="num">7</td><td class="num">56</td><td class="num">−4</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="580" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="180" x2="580" y2="180" stroke="#D8CFBC" stroke-width="1"/>
+        <text x="586" y="284" font-size="12" fill="#22303F">Units</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Utility</text>
+        <text x="35" y="184" font-size="10" fill="#8B93A1">0</text>
+        <!-- TU curve rises then falls -->
+        <path d="M 60 280 C 140 130, 260 60, 340 55 C 420 52, 480 90, 540 180" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <text x="545" y="160" font-size="13" fill="#2C6E64" font-style="italic">TU</text>
+        <!-- MU curve declining, crossing zero under TU peak -->
+        <path d="M 60 100 C 160 150, 260 178, 340 180 C 420 182, 480 220, 540 260" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="545" y="264" font-size="13" fill="#7C2E2E" font-style="italic">MU</text>
+        <circle cx="340" cy="55" r="4" fill="#2C6E64"/>
+        <line x1="340" y1="55" x2="340" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <circle cx="340" cy="180" r="4" fill="#7C2E2E"/>
+        <text x="300" y="300" font-size="11" fill="#3E5C76">TU peaks exactly where MU = 0</text>
+      </svg>
+      <figcaption>Fig 3.1 — Relationship between TU and MU: as long as MU &gt; 0, TU rises; when MU = 0, TU is at its maximum; when MU &lt; 0, TU falls.</figcaption>
+    </div>
+
+    <h3>Law of Diminishing Marginal Utility (LDMU)</h3>
+    <div class="box definition">
+      <div class="label">Statement (Gossen's First Law)</div>
+      As a consumer takes successive units of a commodity, the marginal utility derived from each additional unit goes on <strong>diminishing</strong>, other things (income, tastes, no time gap) remaining constant.
+    </div>
+    <h4>Assumptions of LDMU</h4>
+    <ul>
+      <li>Units of the good are standard/identical</li>
+      <li>Consumption is continuous — no long time gap between units</li>
+      <li>Consumer's income, taste, and habits stay unchanged</li>
+      <li>Rationality of the consumer</li>
+    </ul>
+    <h4>Exceptions</h4>
+    <ul>
+      <li>Money — its marginal utility is assumed constant / diminishes very slowly</li>
+      <li>Hobbies/collections — e.g., stamp or coin collecting (MU may rise with more units, up to a point)</li>
+      <li>First few units of alcohol/addictive goods (in some formulations MU initially rises)</li>
+    </ul>
+
+    <h3>Law of Equi-Marginal Utility (Gossen's Second Law / Law of Substitution)</h3>
+    <div class="box definition">
+      <div class="label">Statement</div>
+      A consumer with a fixed income allocates it across goods such that the <strong>marginal utility per rupee spent</strong> is equal across all goods, and equal to the marginal utility of money.
+    </div>
+    <div class="box formula">
+      <div class="label">Condition for consumer's equilibrium (cardinal)</div>
+      MU<sub>x</sub> / P<sub>x</sub> &nbsp;=&nbsp; MU<sub>y</sub> / P<sub>y</sub> &nbsp;=&nbsp; ... &nbsp;=&nbsp; MU<sub>m</sub> (marginal utility of money)<br>
+      subject to budget constraint: &nbsp; P<sub>x</sub>·X + P<sub>y</sub>·Y = M (income)
+    </div>
+    <p class="small">Intuition: if MU<sub>x</sub>/P<sub>x</sub> &gt; MU<sub>y</sub>/P<sub>y</sub>, the consumer gets more "utility per rupee" from X, so she shifts spending toward X. As she buys more X, MU<sub>x</sub> falls (LDMU); as she buys less Y, MU<sub>y</sub> rises — until the ratios equalise.</p>
+
+    <h3>Deriving the demand curve (Marshallian method)</h3>
+    <p>Since MU<sub>x</sub> itself declines as more X is consumed (LDMU), and equilibrium requires MU<sub>x</sub> = P<sub>x</sub> × MU<sub>m</sub> (with MU<sub>m</sub> constant), a fall in P<sub>x</sub> requires a <em>higher</em> MU<sub>x</sub> to restore equality — which only happens at a <em>lower</em> quantity of X consumed being pushed back up... in short: lower P<sub>x</sub> ⇒ consumer buys more X until MU<sub>x</sub> falls enough to match. Thus the individual's MU curve <em>is</em>, in effect, the demand curve (rescaled by MU<sub>m</sub>).</p>
+
+    <h3>Criticisms of the Cardinal Approach</h3>
+    <ul>
+      <li>Utility is <strong>psychological</strong> and cannot really be measured in cardinal numbers — utils are fictitious units</li>
+      <li>Assumes constant marginal utility of money — unrealistic, since money is also a good subject to diminishing utility</li>
+      <li>Assumes independent utilities (additivity) — ignores that goods are often complements/substitutes whose utilities are interdependent</li>
+      <li>Introspective method is unscientific</li>
+      <li>Cannot explain consumer behaviour with two or more goods analysed simultaneously as elegantly as IC analysis</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — ORDINAL APPROACH</div>
+    <h2 class="sec-title">Indifference Curve (IC) Analysis</h2>
+    <p class="lead-p">Developed by <strong>J.R. Hicks and R.G.D. Allen (1934)</strong> to overcome cardinal measurability. Utility only needs to be <em>ranked</em>, not measured.</p>
+
+    <div class="box definition">
+      <div class="label">Indifference Curve</div>
+      The locus of all combinations of two goods (X, Y) that give the consumer the <strong>same level of total satisfaction</strong>, such that they are indifferent between any two points on it.
+    </div>
+    <div class="box definition">
+      <div class="label">Indifference Map</div>
+      A family/set of indifference curves, each representing a different (higher or lower) level of satisfaction. Curves farther from the origin represent higher utility.
+    </div>
+
+    <h3>Assumptions of IC analysis</h3>
+    <ul>
+      <li><strong>Rationality</strong> — consumer maximises satisfaction</li>
+      <li><strong>Ordinal utility</strong> — can rank bundles, not measure exact utility</li>
+      <li><strong>Consistency</strong> — if A ≻ B, then B cannot ≻ A in the same period</li>
+      <li><strong>Transitivity</strong> — if A ≻ B and B ≻ C, then A ≻ C</li>
+      <li><strong>Non-satiety</strong> — more of a good is always preferred to less (monotonicity)</li>
+      <li><strong>Diminishing MRS</strong> — willingness to give up Y for X declines as X increases</li>
+      <li>Two-commodity world (for graphical tractability)</li>
+    </ul>
+
+    <h3>Properties of Indifference Curves</h3>
+    <table>
+      <caption>Table 4.1 — The five core properties</caption>
+      <thead><tr><th>#</th><th>Property</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Negatively sloped (downward from left to right)</td><td>To keep utility constant, more of X must be compensated by less of Y</td></tr>
+        <tr><td class="num">2</td><td>Convex to the origin</td><td>Follows diminishing Marginal Rate of Substitution (MRS)</td></tr>
+        <tr><td class="num">3</td><td>Higher IC ⇒ higher satisfaction</td><td>Non-satiety — a curve farther from origin has more of both/either good</td></tr>
+        <tr><td class="num">4</td><td>Two ICs can never intersect</td><td>Intersection would violate transitivity (would imply equal &amp; unequal satisfaction simultaneously)</td></tr>
+        <tr><td class="num">5</td><td>Do not touch either axis</td><td>Assumes both goods are desired in positive quantities</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="520" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="305" font-size="13" fill="#22303F">X</text>
+        <text x="40" y="24" font-size="13" fill="#22303F">Y</text>
+        <path d="M 90 90 C 130 180, 220 260, 380 280" fill="none" stroke="#3E5C76" stroke-width="2.4"/>
+        <path d="M 130 60 C 180 160, 280 230, 440 255" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+        <path d="M 170 40 C 230 130, 340 200, 490 225" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="386" y="278" font-size="13" fill="#3E5C76" font-style="italic">IC₁</text>
+        <text x="446" y="253" font-size="13" fill="#2C6E64" font-style="italic">IC₂</text>
+        <text x="494" y="223" font-size="13" fill="#7C2E2E" font-style="italic">IC₃</text>
+        <text x="250" y="310" font-size="11" fill="#8B93A1">Higher IC = higher satisfaction (IC₃ &gt; IC₂ &gt; IC₁)</text>
+      </svg>
+      <figcaption>Fig 4.1 — An Indifference Map: three convex, non-intersecting, downward-sloping curves.</figcaption>
+    </div>
+
+    <h3>Marginal Rate of Substitution (MRS)</h3>
+    <div class="box formula">
+      <div class="label">Definition</div>
+      MRS<sub>xy</sub> = − ΔY / ΔX &nbsp; (along a given IC) &nbsp;=&nbsp; the amount of Y the consumer is willing to give up for one more unit of X, keeping satisfaction constant.<br>
+      Also equals the (absolute) slope of the IC at that point, and MRS<sub>xy</sub> = MU<sub>x</sub> / MU<sub>y</sub>.
+    </div>
+    <p><strong>Diminishing MRS:</strong> as the consumer acquires more of X (and gives up Y), each extra unit of X is valued less relative to Y — so the amount of Y sacrificed for each successive unit of X falls. This diminishing MRS is what makes the IC convex to the origin.</p>
+
+    <h3>The Budget Line (Price Line)</h3>
+    <div class="box formula">
+      <div class="label">Budget constraint</div>
+      P<sub>x</sub>·X + P<sub>y</sub>·Y = M &nbsp;&nbsp;⟹&nbsp;&nbsp; Y = M/P<sub>y</sub> − (P<sub>x</sub>/P<sub>y</sub>)·X<br>
+      Slope of budget line = − P<sub>x</sub>/P<sub>y</sub>
+    </div>
+    <ul>
+      <li><strong>Income change</strong> (prices constant) → budget line shifts <em>parallel</em> outward (income ↑) or inward (income ↓)</li>
+      <li><strong>Price change</strong> of one good → budget line <em>pivots/rotates</em> from the intercept of the good whose price changed</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- panel 1: parallel shift -->
+        <g>
+          <line x1="40" y1="280" x2="280" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="40" y1="280" x2="40" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="70" y1="240" x2="170" y2="60" stroke="#3E5C76" stroke-width="2"/>
+          <line x1="110" y1="240" x2="240" y2="40" stroke="#2C6E64" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="150" y="300" font-size="11" fill="#22303F">Income effect (parallel)</text>
+        </g>
+        <!-- panel 2: pivot -->
+        <g transform="translate(320,0)">
+          <line x1="40" y1="280" x2="280" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="40" y1="280" x2="40" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="40" y1="60" x2="230" y2="280" stroke="#3E5C76" stroke-width="2"/>
+          <line x1="40" y1="60" x2="270" y2="240" stroke="#7C2E2E" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="120" y="300" font-size="11" fill="#22303F">Price effect (pivot on Y-intercept)</text>
+        </g>
+      </svg>
+      <figcaption>Fig 4.2 — Left: parallel shift from an income change. Right: pivot from a fall in P<sub>x</sub> (X-intercept moves right, Y-intercept unchanged).</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — TANGENCY</div>
+    <h2 class="sec-title">Consumer's Equilibrium under IC Analysis</h2>
+
+    <div class="box formula">
+      <div class="label">Equilibrium (tangency) condition</div>
+      MRS<sub>xy</sub> = P<sub>x</sub> / P<sub>y</sub> &nbsp;&nbsp; — the slope of the IC equals the slope of the budget line, at the highest attainable IC.
+    </div>
+
+    <h4>Two conditions must both hold</h4>
+    <ol>
+      <li><strong>First-order:</strong> the budget line must be tangent to an indifference curve, i.e. MRS<sub>xy</sub> = P<sub>x</sub>/P<sub>y</sub></li>
+      <li><strong>Second-order:</strong> the IC must be convex to the origin at that point (i.e., MRS is diminishing) — this ensures it's a genuine maximum, not a minimum</li>
+    </ol>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="520" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="305" font-size="13" fill="#22303F">X</text>
+        <text x="40" y="24" font-size="13" fill="#22303F">Y</text>
+        <!-- budget line -->
+        <line x1="80" y1="60" x2="400" y2="290" stroke="#A9793B" stroke-width="2.2"/>
+        <!-- three ICs, middle tangent -->
+        <path d="M 100 260 C 150 180, 220 140, 340 150" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <path d="M 120 220 C 170 150, 250 118, 380 130" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <path d="M 160 190 C 210 130, 300 95, 430 105" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <circle cx="252" cy="150" r="5" fill="#7C2E2E"/>
+        <text x="260" y="145" font-size="13" fill="#7C2E2E" font-weight="600">E</text>
+        <line x1="252" y1="150" x2="252" y2="300" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <line x1="60" y1="150" x2="252" y2="150" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="200" y="315" font-size="11" fill="#8B93A1">X*</text>
+        <text x="30" y="154" font-size="11" fill="#8B93A1">Y*</text>
+        <text x="340" y="135" font-size="12" fill="#2C6E64" font-style="italic">IC₂ (highest attainable)</text>
+        <text x="70" y="255" font-size="11" fill="#8B93A1" font-style="italic">IC₁ (too low)</text>
+        <text x="420" y="98" font-size="11" fill="#8B93A1" font-style="italic">IC₃ (unaffordable)</text>
+        <text x="330" y="220" font-size="11" fill="#A9793B">Budget line PxX+PyY=M</text>
+      </svg>
+      <figcaption>Fig 5.1 — Equilibrium at E: the budget line is tangent to IC₂, the highest indifference curve the consumer can reach. IC₃ is preferable but unaffordable; IC₁ is affordable but sub-optimal.</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A very common CUET PG MCQ pattern: "At the point of consumer's equilibrium..." followed by 4 statements to mark true/false — e.g. "MRS = price ratio" (True), "IC is concave at that point" (False — must be convex), "It is the point of maximum satisfaction for given income" (True).
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — DECOMPOSING THE PRICE EFFECT</div>
+    <h2 class="sec-title">Income Effect, Substitution Effect &amp; Price Effect</h2>
+
+    <div class="grid2">
+      <div class="box definition">
+        <div class="label">Substitution Effect (SE)</div>
+        The change in quantity demanded of X due <em>purely</em> to a change in its relative price, with real income (utility) held constant. <strong>Always negative</strong> (price ↓ ⇒ quantity ↑) — works in the same direction for all goods.
+      </div>
+      <div class="box definition">
+        <div class="label">Income Effect (IE)</div>
+        The change in quantity demanded due to the change in <em>real income</em> caused by the price change, with relative prices held constant. Sign depends on whether the good is normal or inferior.
+      </div>
+    </div>
+    <div class="box formula">
+      <div class="label">Decomposition</div>
+      Price Effect (PE) = Substitution Effect (SE) + Income Effect (IE)
+    </div>
+
+    <h3>Slutsky vs Hicksian decomposition</h3>
+    <table>
+      <caption>Table 6.1 — Two ways to isolate the substitution effect</caption>
+      <thead><tr><th></th><th>Hicksian method</th><th>Slutsky method</th></tr></thead>
+      <tbody>
+        <tr><td>How SE is isolated</td><td>Compensate income to keep consumer on the <strong>same indifference curve</strong> (same utility)</td><td>Compensate income to let consumer afford the <strong>same original bundle</strong> (same purchasing power)</td></tr>
+        <tr><td>Compensated budget line</td><td>Tangent to the original IC, parallel to new price line</td><td>Passes through the original equilibrium point, parallel to new price line</td></tr>
+        <tr><td>Conceptual basis</td><td>Utility-constant (real income in welfare sense)</td><td>Purchasing-power-constant (real income in commodity sense)</td></tr>
+        <tr><td>Ease of empirical use</td><td>Harder — needs unobservable utility/IC</td><td>Easier — needs only observed prices &amp; quantities</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="330" x2="560" y2="330" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="330" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="566" y="335" font-size="13" fill="#22303F">X</text>
+        <text x="40" y="24" font-size="13" fill="#22303F">Y</text>
+        <!-- original budget line -->
+        <line x1="90" y1="70" x2="330" y2="320" stroke="#3E5C76" stroke-width="2"/>
+        <!-- new budget line (Px falls, flatter, pivot on Y intercept) -->
+        <line x1="90" y1="70" x2="520" y2="290" stroke="#7C2E2E" stroke-width="2"/>
+        <!-- compensated (hicksian) budget line: parallel to new, tangent to original IC -->
+        <line x1="160" y1="150" x2="470" y2="345" stroke="#A9793B" stroke-width="2" stroke-dasharray="6 3"/>
+        <!-- IC1 -->
+        <path d="M 130 260 C 170 180, 240 140, 340 150" fill="none" stroke="#2C6E64" stroke-width="2.2"/>
+        <!-- IC2 higher -->
+        <path d="M 220 260 C 270 165, 360 110, 480 130" fill="none" stroke="#2C6E64" stroke-width="2.2" stroke-dasharray="1 0"/>
+        <circle cx="205" cy="182" r="5" fill="#22303F"/>
+        <text x="180" y="172" font-size="12" font-weight="600">A (original E)</text>
+        <circle cx="255" cy="176" r="5" fill="#A9793B"/>
+        <text x="262" y="168" font-size="12" fill="#A9793B" font-weight="600">B (Hicks-compensated)</text>
+        <circle cx="360" cy="152" r="5" fill="#7C2E2E"/>
+        <text x="368" y="145" font-size="12" fill="#7C2E2E" font-weight="600">C (new E)</text>
+        <text x="90" y="360" font-size="11" fill="#3E5C76">A→B = Substitution Effect (on same IC)</text>
+        <text x="300" y="378" font-size="11" fill="#7C2E2E">B→C = Income Effect (IC to IC)</text>
+      </svg>
+      <figcaption>Fig 6.1 — Hicksian decomposition of the price effect (fall in P<sub>x</sub>): A→B is the pure substitution effect (movement along the same IC); B→C is the income effect (jump to a higher IC).</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 6.2 — Direction of SE and IE by good type</caption>
+      <thead><tr><th>Good type</th><th>Substitution Effect</th><th>Income Effect</th><th>Net Price Effect (P falls)</th></tr></thead>
+      <tbody>
+        <tr><td>Normal good</td><td>+ (Qty↑)</td><td>+ (Qty↑)</td><td>Qty rises strongly → normal downward demand curve</td></tr>
+        <tr><td>Inferior good (mild)</td><td>+ (Qty↑)</td><td>− (Qty↓, but weak)</td><td>SE dominates IE → Qty still rises → downward demand curve</td></tr>
+        <tr><td>Giffen good</td><td>+ (Qty↑, but weak)</td><td>− (Qty↓, strong &amp; dominant)</td><td>IE dominates SE → Qty falls when price falls → upward-sloping demand</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — DERIVED CURVES</div>
+    <h2 class="sec-title">ICC, PCC &amp; Engel Curve</h2>
+
+    <h3>Income Consumption Curve (ICC) &amp; the Engel Curve</h3>
+    <div class="box definition">
+      <div class="label">ICC</div>
+      The locus of consumer equilibrium points traced out as <strong>income</strong> changes, holding prices constant (i.e., budget line shifts parallel outward at successive income levels).
+    </div>
+    <div class="box definition">
+      <div class="label">Engel Curve</div>
+      Derived from the ICC — plots <strong>quantity of a good demanded against income</strong>, prices held constant. Named after statistician Ernst Engel.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="30" y1="260" x2="280" y2="260" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <path d="M 60 230 C 90 150, 130 100, 170 60" fill="none" stroke="#3E5C76" stroke-width="2" stroke-dasharray="4 3"/>
+          <path d="M 90 220 C 120 160, 170 110, 220 55" fill="none" stroke="#2C6E64" stroke-width="2" stroke-dasharray="4 3"/>
+          <path d="M 40 240 C 100 190, 150 130, 220 80" fill="none" stroke="#A9793B" stroke-width="2.4"/>
+          <text x="230" y="76" font-size="11" fill="#A9793B" font-style="italic">ICC</text>
+          <text x="130" y="280" font-size="11" fill="#22303F">Income Consumption Curve</text>
+        </g>
+        <g transform="translate(330,0)">
+          <line x1="30" y1="260" x2="280" y2="260" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <text x="286" y="264" font-size="11" fill="#22303F">Qty</text>
+          <text x="10" y="24" font-size="11" fill="#22303F">Income</text>
+          <path d="M 40 240 C 100 150, 160 90, 230 60" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+          <text x="235" y="56" font-size="11" fill="#2C6E64" font-style="italic">Normal good</text>
+          <path d="M 40 240 C 100 170, 150 150, 200 165 S 250 210, 260 230" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+          <text x="265" y="226" font-size="11" fill="#7C2E2E" font-style="italic">Inferior good (bends back)</text>
+        </g>
+      </svg>
+      <figcaption>Fig 7.1 — Left: ICC traced from successive tangencies as income rises. Right: Engel curve — rises throughout for a normal good; bends backward past a point for an inferior good.</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 7.1 — Engel curve shapes &amp; income elasticity</caption>
+      <thead><tr><th>Good type</th><th>Income elasticity (E<sub>Y</sub>)</th><th>Engel curve shape</th></tr></thead>
+      <tbody>
+        <tr><td>Necessity</td><td>0 &lt; E<sub>Y</sub> &lt; 1</td><td>Rises, but flattens (less than proportionate rise)</td></tr>
+        <tr><td>Luxury</td><td>E<sub>Y</sub> &gt; 1</td><td>Rises steeply (more than proportionate)</td></tr>
+        <tr><td>Inferior good</td><td>E<sub>Y</sub> &lt; 0</td><td>Rises then bends backward (negatively sloped beyond a point)</td></tr>
+        <tr><td>Giffen good</td><td>E<sub>Y</sub> &lt; 0 (strongly)</td><td>Backward-bending; also gives upward-sloping demand curve</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Price Consumption Curve (PCC) &amp; deriving the Demand Curve</h3>
+    <div class="box definition">
+      <div class="label">PCC</div>
+      The locus of consumer equilibrium points traced out as the <strong>price of one good (X)</strong> changes, income and price of Y held constant (budget line pivots around the Y-intercept).
+    </div>
+    <p>Plotting the successive equilibrium quantities of X (from the PCC) against the corresponding prices of X gives the <strong>individual demand curve</strong> for X — this is the graphical bridge from IC theory to the ordinary demand curve.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- top panel: IC/budget with PCC -->
+        <line x1="60" y1="190" x2="560" y2="190" stroke="#22303F" stroke-width="1.3"/>
+        <line x1="60" y1="190" x2="60" y2="20" stroke="#22303F" stroke-width="1.3"/>
+        <line x1="60" y1="40" x2="260" y2="190" stroke="#D8CFBC" stroke-width="1.6"/>
+        <line x1="60" y1="40" x2="380" y2="190" stroke="#D8CFBC" stroke-width="1.6"/>
+        <line x1="60" y1="40" x2="500" y2="190" stroke="#D8CFBC" stroke-width="1.6"/>
+        <path d="M 100 170 C 140 110, 200 90, 280 100" fill="none" stroke="#3E5C76" stroke-width="1.8"/>
+        <path d="M 150 170 C 200 110, 280 85, 380 95" fill="none" stroke="#2C6E64" stroke-width="1.8"/>
+        <path d="M 220 175 C 280 120, 380 90, 490 100" fill="none" stroke="#7C2E2E" stroke-width="1.8"/>
+        <circle cx="168" cy="115" r="4" fill="#A9793B"/><circle cx="232" cy="100" r="4" fill="#A9793B"/><circle cx="300" cy="95" r="4" fill="#A9793B"/>
+        <path d="M 168 115 L 232 100 L 300 95" fill="none" stroke="#A9793B" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="305" y="90" font-size="12" fill="#A9793B" font-style="italic">PCC</text>
+        <text x="20" y="16" font-size="11" fill="#22303F">Y</text>
+        <!-- vertical drop lines -->
+        <line x1="168" y1="190" x2="168" y2="230" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <line x1="232" y1="190" x2="232" y2="230" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <line x1="300" y1="190" x2="300" y2="230" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <!-- bottom panel: derived demand curve -->
+        <line x1="60" y1="360" x2="560" y2="360" stroke="#22303F" stroke-width="1.3"/>
+        <line x1="60" y1="360" x2="60" y2="240" stroke="#22303F" stroke-width="1.3"/>
+        <text x="566" y="365" font-size="11" fill="#22303F">X</text>
+        <text x="30" y="238" font-size="11" fill="#22303F">Px</text>
+        <circle cx="168" cy="270" r="4" fill="#7C2E2E"/><circle cx="232" cy="300" r="4" fill="#7C2E2E"/><circle cx="300" cy="330" r="4" fill="#7C2E2E"/>
+        <path d="M 168 270 L 232 300 L 300 330" fill="none" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="305" y="326" font-size="12" fill="#7C2E2E" font-style="italic">Demand curve (X)</text>
+      </svg>
+      <figcaption>Fig 7.2 — As P<sub>x</sub> falls, the budget line rotates outward; successive tangency points trace the PCC (top). Dropping quantities against corresponding prices (bottom) generates the ordinary demand curve.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — SPECIAL CASE</div>
+    <h2 class="sec-title">The Giffen Paradox</h2>
+    <div class="box warn">
+      <div class="label">Giffen good</div>
+      Named after Sir Robert Giffen. A good for which quantity demanded <strong>falls</strong> when its price falls (and rises when price rises) — an upward-sloping demand curve.
+    </div>
+    <h4>Conditions for a Giffen good</h4>
+    <ul>
+      <li>Must be an <strong>inferior good</strong> (negative income effect)</li>
+      <li>The good must take up a <strong>large share of the consumer's budget</strong></li>
+      <li>No close substitutes available</li>
+      <li>The negative income effect must be strong enough to <strong>outweigh</strong> the (always positive-for-quantity) substitution effect</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Classic trap: "All Giffen goods are inferior goods, but not all inferior goods are Giffen goods." This statement is <span class="correct" style="font-weight:700;">TRUE</span> — inferiority is necessary but not sufficient; the income effect must also dominate the substitution effect.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — BEHAVIOURIST APPROACH</div>
+    <h2 class="sec-title">Revealed Preference Theory (Samuelson)</h2>
+    <p class="lead-p">Paul Samuelson (1938) argued we don't need to assume anything about internal "utility" or "indifference" at all — we can derive the whole theory of demand purely from <strong>observed choices</strong> in the market.</p>
+
+    <h3>Assumptions</h3>
+    <ul>
+      <li><strong>Rationality</strong> — the consumer chooses the best affordable bundle</li>
+      <li><strong>Consistency</strong> — if bundle A is chosen over affordable B, the consumer will never choose B over A when both are affordable again</li>
+      <li><strong>Transitivity</strong> (needed for the Strong Axiom)</li>
+      <li>No consumer's tastes change during the period under observation</li>
+      <li>Goods are homogeneous / divisible</li>
+    </ul>
+
+    <div class="box definition">
+      <div class="label">"Revealed Preferred"</div>
+      If bundle A is chosen when bundle B was also affordable (within the same budget set), then A is said to be <strong>"revealed preferred"</strong> to B.
+    </div>
+
+    <h3>Weak Axiom of Revealed Preference (WARP)</h3>
+    <div class="box formula">
+      <div class="label">Statement</div>
+      If A is revealed preferred to B (A chosen when B was affordable), then B can <strong>never</strong> be revealed preferred to A (i.e., B must never be chosen over A) in any situation where A is also affordable.
+    </div>
+
+    <h3>Strong Axiom of Revealed Preference (SARP)</h3>
+    <div class="box formula">
+      <div class="label">Statement (Houthakker, 1950)</div>
+      Extends WARP to <strong>chains</strong>: if A is revealed preferred to B, and B is revealed preferred to C, then A must be revealed preferred to C directly (transitivity of revealed preference across any number of bundles).
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="285" font-size="13" fill="#22303F">X</text>
+        <text x="40" y="24" font-size="13" fill="#22303F">Y</text>
+        <line x1="90" y1="60" x2="330" y2="270" stroke="#3E5C76" stroke-width="2"/>
+        <circle cx="220" cy="150" r="5" fill="#7C2E2E"/>
+        <text x="230" y="145" font-size="12" fill="#7C2E2E" font-weight="600">A (chosen)</text>
+        <circle cx="150" cy="220" r="4" fill="#8B93A1"/>
+        <text x="120" y="240" font-size="11" fill="#8B93A1">B (affordable, not chosen)</text>
+        <circle cx="270" cy="90" r="4" fill="#8B93A1"/>
+        <text x="278" y="85" font-size="11" fill="#8B93A1">C (unaffordable)</text>
+        <text x="70" y="300" font-size="11" fill="#2C6E64">Shaded triangle (below budget line, left of A) = all bundles "revealed inferior" to A</text>
+        <path d="M 90 280 L 220 150 L 90 150 Z" fill="#2C6E64" opacity="0.12"/>
+      </svg>
+      <figcaption>Fig 9.1 — A is chosen while B was also affordable ⇒ A revealed preferred to B. Any bundle in the shaded region can never later be chosen over A without violating WARP.</figcaption>
+    </div>
+
+    <h3>Deriving the demand curve via Revealed Preference</h3>
+    <p>Using only WARP/SARP and two successive budget lines (before and after a price change, with an income adjustment to keep real purchasing power roughly constant — a Slutsky-style compensation), Samuelson showed the substitution effect must always be negative: a fall in relative price of X, with income compensated, must lead to more X being chosen — deriving the law of demand without ever invoking indifference curves or utility.</p>
+
+    <h3>Superiority of Revealed Preference over IC approach</h3>
+    <ul>
+      <li>Based entirely on <strong>observable behaviour</strong> — no unmeasurable psychological concepts (utility, indifference)</li>
+      <li>Derives the law of demand from fewer, weaker assumptions</li>
+      <li>Provides an empirically testable foundation for demand theory</li>
+    </ul>
+    <h3>Limitations</h3>
+    <ul>
+      <li>Still assumes consistency and transitivity of choices, which may not always hold in reality (behavioural economics critiques)</li>
+      <li>Cannot handle more than 2 changes/goods as intuitively in diagrams</li>
+      <li>Doesn't explain <em>why</em> a bundle is preferred, only that it was chosen</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — WELFARE MEASURE</div>
+    <h2 class="sec-title">Consumer Surplus</h2>
+
+    <div class="box definition">
+      <div class="label">Marshallian Consumer Surplus</div>
+      The excess of what a consumer is <strong>willing to pay</strong> for a given quantity of a good over what they <strong>actually pay</strong> (at the market price).
+    </div>
+    <div class="box formula">
+      <div class="label">Formula</div>
+      CS = Total utility (in money terms) of the good − Total actual expenditure<br>
+      CS = Σ(willingness to pay per unit) − (P × Q)
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="285" font-size="13" fill="#22303F">Qty</text>
+        <text x="35" y="24" font-size="13" fill="#22303F">Price</text>
+        <path d="M 90 50 L 460 250" stroke="#7C2E2E" stroke-width="2.4" fill="none"/>
+        <text x="466" y="252" font-size="13" fill="#7C2E2E" font-style="italic">D</text>
+        <!-- equilibrium price line -->
+        <line x1="60" y1="180" x2="300" y2="180" stroke="#A9793B" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <line x1="300" y1="180" x2="300" y2="280" stroke="#A9793B" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="30" y="184" font-size="11" fill="#A9793B">P*</text>
+        <text x="292" y="300" font-size="11" fill="#A9793B">Q*</text>
+        <!-- shaded CS triangle -->
+        <path d="M 90 50 L 300 180 L 60 180 Z" fill="#2C6E64" opacity="0.22"/>
+        <text x="120" y="120" font-size="13" fill="#2C6E64" font-weight="600">Consumer Surplus</text>
+      </svg>
+      <figcaption>Fig 10.1 — Consumer surplus is the shaded triangular area between the demand curve and the horizontal price line, up to the quantity purchased.</figcaption>
+    </div>
+
+    <h4>Assumptions behind the Marshallian measure</h4>
+    <ul>
+      <li>Marginal utility of money remains constant (same weakness as cardinal utility theory)</li>
+      <li>Utility is cardinally measurable in money terms</li>
+      <li>No substitutes affect the specific good's demand curve independently</li>
+    </ul>
+
+    <h3>Hicks's critique &amp; alternative measures</h3>
+    <p>J.R. Hicks criticised Marshall's CS for relying on a constant marginal utility of money — invalid once we allow ordinal utility and income effects. Hicks proposed <strong>two rigorous, IC-based welfare measures</strong>:</p>
+
+    <table>
+      <caption>Table 10.1 — Hicksian welfare measures</caption>
+      <thead><tr><th>Measure</th><th>Definition</th><th>Reference indifference curve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Compensating Variation (CV)</strong></td><td>The amount of money that must be taken away from (or given to) the consumer <em>after</em> a price fall (rise) to bring them back to their <strong>original</strong> utility level</td><td>Original IC</td></tr>
+        <tr><td><strong>Equivalent Variation (EV)</strong></td><td>The amount of money that would have to be given to (or taken from) the consumer <em>instead of</em> the price change, to leave them as well off as the price change would</td><td>New IC</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      For a <strong>normal good</strong>, the standard ranking is: <strong>EV &lt; Marshallian CS &lt; CV</strong> (for a price fall). CUET PG occasionally tests this ordering directly, or asks which measure uses the "old" vs "new" price/utility level as reference.
+    </div>
+
+    <h4>Applications of consumer surplus</h4>
+    <ul>
+      <li>Evaluating the <strong>welfare loss/gain from taxation</strong> or subsidy</li>
+      <li>Cost-benefit analysis of public projects (e.g., value of a new road, bridge)</li>
+      <li>Measuring gains from trade / opening to international trade</li>
+      <li>Price discrimination analysis (monopolist extracting consumer surplus)</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Cardinal (Marshall)</th><th>Ordinal / IC (Hicks–Allen)</th><th>Revealed Preference (Samuelson)</th></tr></thead>
+      <tbody>
+        <tr><td>Year / Originator</td><td>1890, Alfred Marshall</td><td>1934, Hicks &amp; Allen</td><td>1938, Paul Samuelson</td></tr>
+        <tr><td>Nature of utility</td><td>Cardinally measurable</td><td>Ordinally rankable</td><td>Not required as a concept</td></tr>
+        <tr><td>Tool</td><td>MU schedule/curve</td><td>Indifference curves + Budget line</td><td>Observed choices across budget sets</td></tr>
+        <tr><td>Equilibrium condition</td><td>MU<sub>x</sub>/P<sub>x</sub>=MU<sub>y</sub>/P<sub>y</sub>=MU<sub>m</sub></td><td>MRS<sub>xy</sub>=P<sub>x</sub>/P<sub>y</sub></td><td>Chosen bundle never revealed inferior to an affordable alternative</td></tr>
+        <tr><td>No. of goods handled</td><td>Any number, additively</td><td>Best suited to 2 goods (graphically)</td><td>Any number (algebraically)</td></tr>
+        <tr><td>Demand curve derivation</td><td>From declining MU curve</td><td>From Price Consumption Curve (PCC)</td><td>From compensated budget-line experiments</td></tr>
+        <tr><td>Consumer surplus link</td><td>Marshallian CS (constant MU of money)</td><td>Hicksian CV &amp; EV</td><td>Not directly used for CS</td></tr>
+        <tr><td>Main criticism</td><td>Utils are unmeasurable; assumes constant MU of money</td><td>Hypothetical indifference maps unobservable; 2-good limitation</td><td>Still assumes strict consistency/transitivity</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Marginal Utility</div>MU = ΔTU/ΔQ = dTU/dQ</div>
+      <div class="box formula"><div class="label">Cardinal Equilibrium</div>MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub> = MU<sub>m</sub></div>
+      <div class="box formula"><div class="label">MRS</div>MRS<sub>xy</sub> = −ΔY/ΔX = MU<sub>x</sub>/MU<sub>y</sub></div>
+      <div class="box formula"><div class="label">Budget line</div>P<sub>x</sub>X + P<sub>y</sub>Y = M ⟹ slope = −P<sub>x</sub>/P<sub>y</sub></div>
+      <div class="box formula"><div class="label">Ordinal equilibrium</div>MRS<sub>xy</sub> = P<sub>x</sub>/P<sub>y</sub> (with IC convex)</div>
+      <div class="box formula"><div class="label">Price effect</div>PE = SE + IE</div>
+      <div class="box formula"><div class="label">Consumer Surplus</div>CS = Willingness to pay − Actual payment = Area under D, above P*</div>
+      <div class="box formula"><div class="label">Hicksian ranking (price fall, normal good)</div>EV &lt; Marshallian CS &lt; CV</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Giffen ⇒ always inferior, IE &gt; SE</span>
+      <span class="chip">Veblen ⇒ luxury/status good</span>
+      <span class="chip">Normal good ⇒ SE &amp; IE same direction</span>
+      <span class="chip">TU max ⇔ MU = 0</span>
+      <span class="chip">2 ICs never intersect (transitivity)</span>
+      <span class="chip">WARP ⇒ no reversal of a single revealed choice</span>
+      <span class="chip">SARP ⇒ WARP + transitivity across chains</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation. Multi-statement format mirrors CUET PG style.</p>
+
+    <details class="q">
+      <summary>Q1. The Law of Diminishing Marginal Utility was first stated by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Marshall &nbsp; (b) <strong>Gossen</strong> &nbsp; (c) Hicks &nbsp; (d) Samuelson<br><br>
+      <span class="correct">Answer: (b) Gossen</span> — known as Gossen's First Law; Marshall later popularised and formalised it in English economics.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. At consumer's equilibrium under indifference curve analysis, which of the following is/are true? <span class="qmeta">Assertion-set</span></summary>
+      <div class="ans">
+        I. MRS<sub>xy</sub> = P<sub>x</sub>/P<sub>y</sub><br>
+        II. The indifference curve is convex to the origin at that point<br>
+        III. The budget line lies entirely above the indifference curve<br>
+        IV. It represents the highest attainable satisfaction for the given budget<br><br>
+        (a) I &amp; II only &nbsp; (b) I, II &amp; IV only &nbsp; (c) All four &nbsp; (d) II &amp; III only<br><br>
+        <span class="correct">Answer: (b)</span> — Statement III is false: the budget line is <em>tangent</em> to the IC at equilibrium, not entirely above it (that would mean the bundle is unaffordable).
+      </div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. Which good has an income elasticity of demand that is negative? <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Normal good &nbsp; (b) Luxury good &nbsp; (c) <strong>Inferior good</strong> &nbsp; (d) Necessity<br><br>
+      <span class="correct">Answer: (c) Inferior good</span> — quantity demanded falls as income rises, giving E<sub>Y</sub> &lt; 0.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. The Weak Axiom of Revealed Preference states that: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Preferences must be transitive across any chain of bundles<br>(b) <strong>If A is chosen over affordable B, B can never be chosen over A when A is affordable</strong><br>(c) Utility must be cardinally measurable<br>(d) Indifference curves must be convex<br><br>
+      <span class="correct">Answer: (b)</span> — (a) describes the <em>Strong</em> Axiom (SARP), which extends WARP to chains via transitivity.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. In the Hicksian decomposition of a price fall, the movement from the original equilibrium to the point on the same indifference curve (with a compensated budget line) represents: <span class="qmeta">Diagram-based</span></summary>
+      <div class="ans">(a) Income effect &nbsp; (b) <strong>Substitution effect</strong> &nbsp; (c) Price effect &nbsp; (d) Total effect<br><br>
+      <span class="correct">Answer: (b) Substitution effect</span> — by construction, this movement stays on the same IC (constant utility), isolating the pure relative-price response.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. Which of the following best orders the Hicksian and Marshallian welfare measures for a price fall in a normal good? <span class="qmeta">Advanced</span></summary>
+      <div class="ans">(a) CV &lt; CS &lt; EV &nbsp; (b) <strong>EV &lt; CS &lt; CV</strong> &nbsp; (c) CS &lt; EV &lt; CV &nbsp; (d) All are equal<br><br>
+      <span class="correct">Answer: (b)</span> — Equivalent Variation is smallest, Marshallian Consumer Surplus lies in between, Compensating Variation is largest, for a price fall in a normal good.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. Two indifference curves can never intersect because it would violate: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Non-satiety &nbsp; (b) Convexity &nbsp; (c) <strong>Transitivity of preferences</strong> &nbsp; (d) Diminishing MRS<br><br>
+      <span class="correct">Answer: (c)</span> — an intersection would imply the same bundle yields both equal and unequal satisfaction relative to different curves, breaking consistency/transitivity.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. A Giffen good must necessarily be: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) A luxury good &nbsp; (b) <strong>An inferior good with a dominant negative income effect</strong> &nbsp; (c) A good with many substitutes &nbsp; (d) A normal good<br><br>
+      <span class="correct">Answer: (b)</span> — inferiority is necessary but not sufficient; the negative income effect must outweigh the positive substitution effect.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. The Engel curve for an inferior good typically: <span class="qmeta">Diagram-based</span></summary>
+      <div class="ans">(a) Rises continuously &nbsp; (b) Is a straight line through the origin &nbsp; (c) <strong>Rises then bends backward (negative slope) beyond a threshold income</strong> &nbsp; (d) Is vertical<br><br>
+      <span class="correct">Answer: (c)</span> — as income keeps rising, consumers switch away from the inferior good toward superior substitutes.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. Which theory of consumer behaviour relies least on unobservable psychological concepts? <span class="qmeta">Comparative</span></summary>
+      <div class="ans">(a) Cardinal utility approach &nbsp; (b) Ordinal/IC approach &nbsp; (c) <strong>Revealed preference theory</strong> &nbsp; (d) None of these<br><br>
+      <span class="correct">Answer: (c)</span> — RPT is built entirely from observed market choices, making it the most empirically grounded/behaviourist approach.</div>
+    </details>
+  </section>
+
+  <footer>
+    Consumer Theory — CUET PG Economics Notes · Compiled for exam preparation · Sources: Marshall's <em>Principles of Economics</em>, Hicks's <em>Value and Capital</em>, Samuelson's revealed preference papers, H.L. Ahuja's Microeconomics.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

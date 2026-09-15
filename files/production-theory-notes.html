@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Production Theory — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA;
+    --paper-raised:#FFFDF8;
+    --ink:#22303F;
+    --ink-soft:#4C5A68;
+    --rule:#D8CFBC;
+    --oxblood:#7C2E2E;
+    --oxblood-soft:#F1DCDC;
+    --teal:#2C6E64;
+    --teal-soft:#DCEBE6;
+    --gold:#A9793B;
+    --gold-soft:#F1E5CE;
+    --slate:#3E5C76;
+    --slate-soft:#E2E8EF;
+    --good:#2C6E64;
+    --bad:#7C2E2E;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:250px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.05rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.72rem; color:var(--ink-soft); margin-bottom:18px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.87rem; padding:6px 8px 6px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.7rem; margin:.3em 0 .2em; line-height:1.08;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:640px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+
+  section.block{padding:38px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.9rem; margin:0 0 6px;}
+  h3{font-size:1.28rem; margin:1.6em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.02rem; margin:1.3em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.05rem; color:var(--ink-soft); max-width:680px;}
+
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:18px 20px; margin:18px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.95rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.75rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  caption{text-align:left; font-size:.8rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.85rem;}
+
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block{padding:28px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Production Theory</div>
+  <div class="toc-sub">CUET PG · Microeconomics</div>
+  <ol>
+    <li><a href="#s1">Production Function</a></li>
+    <li><a href="#s2">Short Run: Law of Variable Proportions</a></li>
+    <li><a href="#s3">TP, AP, MP &amp; Three Stages</a></li>
+    <li><a href="#s4">Long Run: Isoquants</a></li>
+    <li><a href="#s5">Producer's Equilibrium</a></li>
+    <li><a href="#s6">Returns to Scale</a></li>
+    <li><a href="#s7">Cost Concepts (Short Run)</a></li>
+    <li><a href="#s8">Cost Curves &amp; Their Relations</a></li>
+    <li><a href="#s9">Long-Run Cost &amp; Economies of Scale</a></li>
+    <li><a href="#s10">Revenue &amp; Break-even Basics</a></li>
+    <li><a href="#s11">Master Comparison Table</a></li>
+    <li><a href="#s12">Formula Sheet</a></li>
+    <li><a href="#s13">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">MICROECONOMICS · UNIT: THEORY OF PRODUCTION &amp; COST</div>
+    <h1>Production Theory</h1>
+    <p class="lede">Production Function · Law of Variable Proportions · Returns to Scale · Isoquants · Cost Function — how a firm turns inputs into output, and how that translates into the cost curves that underlie supply.</p>
+    <div class="tags">
+      <span class="tag">Cobb-Douglas</span><span class="tag">Isoquant-Isocost</span><span class="tag">Short-run / Long-run</span>
+      <span class="tag">CUET PG COQP10</span><span class="tag">High-weightage topic</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FOUNDATION</div>
+    <h2 class="sec-title">The Production Function</h2>
+    <div class="box definition">
+      <div class="label">Production Function</div>
+      A technological/mathematical relationship showing the <strong>maximum output</strong> obtainable from every possible combination of inputs, given the state of technology.
+    </div>
+    <div class="box formula">
+      <div class="label">General form</div>
+      Q = f(L, K, N, ...) &nbsp;&nbsp; — typically simplified to two inputs: &nbsp; Q = f(L, K) &nbsp;(Labour, Capital)
+    </div>
+
+    <h3>Short run vs Long run</h3>
+    <table>
+      <caption>Table 1.1 — The two production time horizons</caption>
+      <thead><tr><th></th><th>Short Run</th><th>Long Run</th></tr></thead>
+      <tbody>
+        <tr><td>Fixed factors</td><td>At least one factor (usually capital) is fixed</td><td>All factors are variable</td></tr>
+        <tr><td>Variable factors</td><td>One or more factors (usually labour)</td><td>All factors</td></tr>
+        <tr><td>Governing law</td><td>Law of Variable Proportions</td><td>Law of Returns to Scale</td></tr>
+        <tr><td>Scale of operation</td><td>Fixed plant size</td><td>Plant size itself can change</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Common functional forms (know these for CUET PG)</h3>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Cobb-Douglas</div>Q = A·L<sup>α</sup>·K<sup>β</sup><br><span class="small mono">α+β=1 ⇒ constant returns to scale; α+β&gt;1 ⇒ increasing; α+β&lt;1 ⇒ decreasing</span></div>
+      <div class="box formula"><div class="label">Leontief (Fixed proportions)</div>Q = min(L/a, K/b)<br><span class="small mono">No substitution between inputs — L-shaped isoquants</span></div>
+      <div class="box formula"><div class="label">Linear (Perfect substitutes)</div>Q = aL + bK<br><span class="small mono">Inputs perfectly substitutable — straight-line isoquants</span></div>
+      <div class="box formula"><div class="label">CES (Constant Elasticity of Substitution)</div>Q = A[αL<sup>−ρ</sup>+(1−α)K<sup>−ρ</sup>]<sup>−1/ρ</sup><br><span class="small mono">Generalises Cobb-Douglas &amp; Leontief as special cases</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — SHORT RUN</div>
+    <h2 class="sec-title">Law of Variable Proportions</h2>
+    <div class="box definition">
+      <div class="label">Statement</div>
+      As successive units of a <strong>variable factor</strong> (e.g. labour) are added to a <strong>fixed factor</strong> (e.g. capital/land), the resulting increments to output (marginal product) will <strong>first increase, then decrease, and finally become negative</strong>.
+    </div>
+    <p class="small">This is the modern, generalised name for what classical economists called the "Law of Diminishing Returns" — it explicitly recognises an initial phase of <em>increasing</em> returns before diminishing returns set in.</p>
+
+    <h3>Assumptions</h3>
+    <ul>
+      <li>Constant state of technology</li>
+      <li>At least one factor of production is held fixed</li>
+      <li>All units of the variable factor are homogeneous/identical</li>
+      <li>Factor proportions (the ratio of variable to fixed factor) are variable, i.e., can actually be changed</li>
+      <li>Short-run analysis (fixed factor genuinely cannot be altered)</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — TP / AP / MP</div>
+    <h2 class="sec-title">Total, Average &amp; Marginal Product — The Three Stages</h2>
+
+    <div class="box formula">
+      <div class="label">Definitions</div>
+      TP<sub>L</sub> = f(L, K̄) &nbsp;(K fixed)&nbsp;&nbsp;|&nbsp;&nbsp; AP<sub>L</sub> = TP<sub>L</sub>/L &nbsp;&nbsp;|&nbsp;&nbsp; MP<sub>L</sub> = ΔTP<sub>L</sub>/ΔL
+    </div>
+
+    <table>
+      <caption>Table 3.1 — Worked schedule (K fixed at 1 unit)</caption>
+      <thead><tr><th>Labour (L)</th><th>Total Product (TP)</th><th>Average Product (AP)</th><th>Marginal Product (MP)</th><th>Stage</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num">10</td><td class="num">10.0</td><td class="num">10</td><td>I</td></tr>
+        <tr><td class="num">2</td><td class="num">24</td><td class="num">12.0</td><td class="num">14</td><td>I</td></tr>
+        <tr><td class="num">3</td><td class="num">39</td><td class="num">13.0</td><td class="num">15</td><td>I (ends here — AP max)</td></tr>
+        <tr><td class="num">4</td><td class="num">52</td><td class="num">13.0</td><td class="num">13</td><td>II</td></tr>
+        <tr><td class="num">5</td><td class="num">60</td><td class="num">12.0</td><td class="num">8</td><td>II</td></tr>
+        <tr><td class="num">6</td><td class="num">60</td><td class="num">10.0</td><td class="num">0</td><td>II (ends here — TP max)</td></tr>
+        <tr><td class="num">7</td><td class="num">56</td><td class="num">8.0</td><td class="num">−4</td><td>III</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="320" x2="600" y2="320" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="320" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="606" y="324" font-size="12" fill="#22303F">Labour (L)</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Product</text>
+        <!-- stage dividers -->
+        <line x1="220" y1="20" x2="220" y2="320" stroke="#D8CFBC" stroke-dasharray="4 3"/>
+        <line x1="420" y1="20" x2="420" y2="320" stroke="#D8CFBC" stroke-dasharray="4 3"/>
+        <text x="120" y="40" font-size="12" fill="#A9793B" font-style="italic">Stage I</text>
+        <text x="300" y="40" font-size="12" fill="#A9793B" font-style="italic">Stage II</text>
+        <text x="480" y="40" font-size="12" fill="#A9793B" font-style="italic">Stage III</text>
+        <!-- TP curve -->
+        <path d="M 60 320 C 140 180, 200 90, 260 65 C 340 45, 400 55, 420 90 C 460 140, 520 220, 580 260" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <text x="586" y="256" font-size="13" fill="#2C6E64" font-style="italic">TP</text>
+        <!-- AP curve -->
+        <path d="M 60 260 C 140 190, 200 165, 220 165 C 300 168, 380 200, 460 250 C 520 285, 560 300, 580 310" fill="none" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="586" y="306" font-size="13" fill="#3E5C76" font-style="italic">AP</text>
+        <!-- MP curve -->
+        <path d="M 60 220 C 120 140, 180 110, 220 115 C 300 125, 370 200, 420 240 C 480 290, 540 320, 580 340" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="586" y="336" font-size="13" fill="#7C2E2E" font-style="italic">MP</text>
+        <!-- MP crosses zero at TP max, near x=420 -->
+        <line x1="420" y1="320" x2="420" y2="90" stroke="#8B93A1" stroke-dasharray="2 2"/>
+      </svg>
+      <figcaption>Fig 3.1 — TP, AP and MP curves across the three stages: MP peaks and falls first; AP peaks where MP crosses it (Stage I/II boundary); MP hits zero exactly where TP peaks (Stage II/III boundary).</figcaption>
+    </div>
+
+    <h3>The Three Stages — economic interpretation</h3>
+    <table>
+      <caption>Table 3.2 — Stage-wise behaviour and rational choice</caption>
+      <thead><tr><th>Stage</th><th>TP</th><th>AP</th><th>MP</th><th>Boundary rule</th><th>Rational for firm?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stage I</strong> — Increasing returns</td><td>Increases at an increasing rate, then increasing rate slows</td><td>Rising throughout, reaches its maximum at end of stage</td><td>Rises, then starts to fall but stays above AP</td><td>Ends where AP is maximum (AP = MP)</td><td><strong>No</strong> — fixed factor is under-utilised; more variable factor should be added</td></tr>
+        <tr><td><strong>Stage II</strong> — Diminishing returns</td><td>Still increasing, but at a diminishing rate, up to its maximum</td><td>Falling, but still positive</td><td>Falling, becomes zero at end of stage (where TP is max)</td><td>Ends where MP = 0</td><td><strong>Yes</strong> — this is the economically rational range of production</td></tr>
+        <tr><td><strong>Stage III</strong> — Negative returns</td><td>Actually falls</td><td>Continues to fall</td><td>Becomes negative</td><td>MP &lt; 0</td><td><strong>No</strong> — adding more labour actively reduces output (overcrowding)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A firm will always operate in <strong>Stage II</strong> — never Stage I (fixed factor underused, so expanding variable factor is still profitable) nor Stage III (marginal product is negative, so hiring more labour is irrational regardless of how cheap it is). The exact point chosen within Stage II depends on relative factor prices.
+    </div>
+
+    <h4>Relationship between AP and MP (a favourite MCQ)</h4>
+    <ul>
+      <li>When MP &gt; AP, AP is <strong>rising</strong></li>
+      <li>When MP = AP, AP is at its <strong>maximum</strong> (MP curve cuts AP curve at AP's peak)</li>
+      <li>When MP &lt; AP, AP is <strong>falling</strong></li>
+      <li>MP can be negative even while AP is still positive (Stage III), but AP itself never becomes negative as long as TP &gt; 0</li>
+    </ul>
+
+    <h4>Why do diminishing returns set in? (Causes)</h4>
+    <ul>
+      <li>Fixed factor becomes a <strong>constraint</strong> — each additional unit of the variable factor has less of the fixed factor to work with</li>
+      <li>Indivisibility of the fixed factor is exhausted; further additions can't be matched proportionately</li>
+      <li>Imperfect substitutability between factors</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — LONG RUN TOOLS</div>
+    <h2 class="sec-title">Isoquants &amp; Isocost Lines</h2>
+
+    <div class="box definition">
+      <div class="label">Isoquant (Equal Product Curve)</div>
+      The locus of all combinations of two inputs (L, K) that yield the <strong>same level of output</strong>. The producer's analogue of the consumer's indifference curve.
+    </div>
+
+    <h3>Properties of Isoquants</h3>
+    <table>
+      <caption>Table 4.1 — Compare directly with IC properties (Topic: Consumer Theory)</caption>
+      <thead><tr><th>#</th><th>Property</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Negatively sloped (downward)</td><td>More of one input must be offset by less of the other to keep output constant</td></tr>
+        <tr><td class="num">2</td><td>Convex to the origin</td><td>Diminishing Marginal Rate of Technical Substitution (MRTS)</td></tr>
+        <tr><td class="num">3</td><td>Higher isoquant ⇒ higher output</td><td>More of both/either input produces more output</td></tr>
+        <tr><td class="num">4</td><td>Two isoquants never intersect</td><td>Same logical contradiction as intersecting ICs</td></tr>
+        <tr><td class="num">5</td><td>Do not touch either axis (in the general case)</td><td>Both inputs assumed necessary for positive output</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Marginal Rate of Technical Substitution (MRTS)</h3>
+    <div class="box formula">
+      <div class="label">Definition</div>
+      MRTS<sub>LK</sub> = −ΔK/ΔL &nbsp;(along an isoquant)&nbsp;=&nbsp; MP<sub>L</sub> / MP<sub>K</sub>
+    </div>
+    <p>The rate at which capital can be reduced per additional unit of labour, keeping output constant. Diminishing MRTS (as L increases, less K needs to be given up for each successive unit of L) is what makes isoquants convex.</p>
+
+    <h3>The Isocost Line</h3>
+    <div class="box formula">
+      <div class="label">Equation</div>
+      w·L + r·K = C &nbsp;&nbsp;(w = wage rate, r = rental price of capital, C = total outlay)<br>
+      Slope of isocost line = −w/r
+    </div>
+    <p class="small">Exactly analogous to the consumer's budget line — shows all combinations of L and K purchasable for a given total cost outlay at given factor prices.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="520" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="305" font-size="13" fill="#22303F">L (Labour)</text>
+        <text x="18" y="24" font-size="13" fill="#22303F">K (Capital)</text>
+        <path d="M 90 90 C 130 180, 220 260, 380 280" fill="none" stroke="#3E5C76" stroke-width="2.2"/>
+        <path d="M 130 60 C 180 160, 280 230, 440 255" fill="none" stroke="#2C6E64" stroke-width="2.2"/>
+        <path d="M 170 40 C 230 130, 340 200, 490 225" fill="none" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="386" y="278" font-size="13" fill="#3E5C76" font-style="italic">Q₁</text>
+        <text x="446" y="253" font-size="13" fill="#2C6E64" font-style="italic">Q₂</text>
+        <text x="494" y="223" font-size="13" fill="#7C2E2E" font-style="italic">Q₃</text>
+        <text x="230" y="320" font-size="11" fill="#8B93A1">Isoquant map: Q₃ &gt; Q₂ &gt; Q₁</text>
+      </svg>
+      <figcaption>Fig 4.1 — Isoquant map: three convex, non-intersecting equal-product curves.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — LEAST-COST CHOICE</div>
+    <h2 class="sec-title">Producer's Equilibrium (Least-Cost Combination)</h2>
+    <div class="box formula">
+      <div class="label">Equilibrium condition</div>
+      MRTS<sub>LK</sub> = w/r &nbsp;&nbsp;(slope of isoquant = slope of isocost line)<br>
+      Equivalently: MP<sub>L</sub>/w = MP<sub>K</sub>/r &nbsp;(marginal product per rupee spent equalised across inputs)
+    </div>
+    <p>A producer minimises cost for a given output (or maximises output for a given cost) at the point where the isocost line is <strong>tangent</strong> to the isoquant — analogous to the consumer's tangency of budget line and IC.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="528" y="285" font-size="13" fill="#22303F">L</text>
+        <text x="35" y="24" font-size="13" fill="#22303F">K</text>
+        <line x1="80" y1="60" x2="400" y2="290" stroke="#A9793B" stroke-width="2.2"/>
+        <path d="M 100 260 C 150 180, 220 140, 340 150" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <path d="M 120 220 C 170 150, 250 118, 380 130" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <path d="M 160 190 C 210 130, 300 95, 430 105" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <circle cx="252" cy="150" r="5" fill="#7C2E2E"/>
+        <text x="260" y="145" font-size="13" fill="#7C2E2E" font-weight="600">E</text>
+        <line x1="252" y1="150" x2="252" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <line x1="60" y1="150" x2="252" y2="150" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="200" y="300" font-size="11" fill="#8B93A1">L*</text>
+        <text x="30" y="154" font-size="11" fill="#8B93A1">K*</text>
+        <text x="340" y="135" font-size="12" fill="#2C6E64" font-style="italic">Q₂ (max output for given cost)</text>
+        <text x="330" y="220" font-size="11" fill="#A9793B">Isocost: wL+rK=C</text>
+      </svg>
+      <figcaption>Fig 5.1 — Producer's equilibrium at E: isocost line tangent to the highest attainable isoquant.</figcaption>
+    </div>
+
+    <h4>Expansion Path</h4>
+    <div class="box definition">
+      <div class="label">Expansion Path</div>
+      The locus of least-cost input combinations (tangency points) as total outlay/output expands, factor prices held constant — analogous to the ICC in consumer theory. It shows how the optimal L–K ratio changes as the firm scales up.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — LONG RUN</div>
+    <h2 class="sec-title">Returns to Scale</h2>
+    <div class="box definition">
+      <div class="label">Returns to Scale</div>
+      Describes how output responds when <strong>all inputs are increased in the same proportion</strong> (a "scale" change), applicable only in the <strong>long run</strong> when no factor is fixed.
+    </div>
+
+    <table>
+      <caption>Table 6.1 — Three cases</caption>
+      <thead><tr><th>Type</th><th>Condition (inputs ↑ by k times)</th><th>Output response</th><th>Cobb-Douglas condition</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Increasing Returns to Scale (IRS)</strong></td><td>Inputs × k</td><td>Output increases by <em>more than</em> k times</td><td>α + β &gt; 1</td></tr>
+        <tr><td><strong>Constant Returns to Scale (CRS)</strong></td><td>Inputs × k</td><td>Output increases <em>exactly</em> k times</td><td>α + β = 1</td></tr>
+        <tr><td><strong>Decreasing Returns to Scale (DRS)</strong></td><td>Inputs × k</td><td>Output increases by <em>less than</em> k times</td><td>α + β &lt; 1</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="30" y1="260" x2="180" y2="260" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.2"/>
+          <path d="M 40 240 L 80 130 L 110 60" fill="none" stroke="#2C6E64" stroke-width="2"/>
+          <text x="30" y="280" font-size="10" fill="#22303F">IRS — isoquants bunch closer</text>
+        </g>
+        <g transform="translate(210,0)">
+          <line x1="30" y1="260" x2="180" y2="260" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.2"/>
+          <path d="M 40 240 L 80 150 L 120 60" fill="none" stroke="#3E5C76" stroke-width="2"/>
+          <text x="30" y="280" font-size="10" fill="#22303F">CRS — evenly spaced isoquants</text>
+        </g>
+        <g transform="translate(420,0)">
+          <line x1="30" y1="260" x2="180" y2="260" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.2"/>
+          <path d="M 40 240 L 65 130 L 82 60" fill="none" stroke="#7C2E2E" stroke-width="2"/>
+          <text x="30" y="280" font-size="10" fill="#22303F">DRS — isoquants spread apart</text>
+        </g>
+      </svg>
+      <figcaption>Fig 6.1 — Ray from the origin through equally-spaced isoquant levels (Q, 2Q, 3Q...): the spacing between successive isoquants along the ray reveals the type of returns to scale.</figcaption>
+    </div>
+
+    <h4>Why does Increasing Returns to Scale occur?</h4>
+    <ul>
+      <li><strong>Indivisibility</strong> of certain factors (e.g., machinery) — small scale can't use them efficiently</li>
+      <li><strong>Specialisation &amp; division of labour</strong> possible only at larger scale</li>
+      <li><strong>Technical/managerial economies</strong> at larger scale</li>
+      <li>Dimensional/geometric economies (e.g., container surface-to-volume ratio)</li>
+    </ul>
+    <h4>Why does Decreasing Returns to Scale occur?</h4>
+    <ul>
+      <li><strong>Managerial diseconomies</strong> — coordination and control become harder beyond a point</li>
+      <li>Increasing complexity of decision-making</li>
+      <li>Entrepreneurial/organisational capacity is itself a quasi-fixed factor even in the "long run"</li>
+    </ul>
+
+    <div class="box warn">
+      <div class="label">Do not confuse</div>
+      <strong>Law of Variable Proportions</strong> (short run, one factor fixed, proportions between inputs change) vs. <strong>Returns to Scale</strong> (long run, all factors variable, proportion between inputs stays the same, only the scale changes). This is one of the most frequently tested distinctions.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — COST — SHORT RUN</div>
+    <h2 class="sec-title">Cost Concepts: Types &amp; Definitions</h2>
+
+    <table>
+      <caption>Table 7.1 — The core cost family (short run)</caption>
+      <thead><tr><th>Concept</th><th>Symbol</th><th>Formula</th><th>Behaviour</th></tr></thead>
+      <tbody>
+        <tr><td>Total Fixed Cost</td><td>TFC</td><td>Constant, independent of output</td><td>Horizontal line</td></tr>
+        <tr><td>Total Variable Cost</td><td>TVC</td><td>Varies with output</td><td>Rises with Q, initially at a decreasing then increasing rate</td></tr>
+        <tr><td>Total Cost</td><td>TC</td><td>TC = TFC + TVC</td><td>TC and TVC are vertically parallel (constant gap = TFC)</td></tr>
+        <tr><td>Average Fixed Cost</td><td>AFC</td><td>AFC = TFC/Q</td><td>Continuously falls (rectangular hyperbola) — "spreading overheads"</td></tr>
+        <tr><td>Average Variable Cost</td><td>AVC</td><td>AVC = TVC/Q</td><td>U-shaped</td></tr>
+        <tr><td>Average Total Cost</td><td>ATC / AC</td><td>AC = TC/Q = AFC + AVC</td><td>U-shaped, lies above AVC, gap (=AFC) narrows as Q rises</td></tr>
+        <tr><td>Marginal Cost</td><td>MC</td><td>MC = ΔTC/ΔQ = ΔTVC/ΔQ</td><td>U-shaped; cuts AVC and AC at their minimum points</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box formula">
+      <div class="label">Key identities</div>
+      TC = TFC + TVC &nbsp;&nbsp;|&nbsp;&nbsp; AC = AFC + AVC &nbsp;&nbsp;|&nbsp;&nbsp; MC = dTC/dQ (independent of TFC, since TFC doesn't change with Q)
+    </div>
+
+    <h4>Why is MC unaffected by fixed cost?</h4>
+    <p>Since TFC is constant, ΔTFC/ΔQ = 0 for any change in output, so MC = ΔTC/ΔQ = ΔTVC/ΔQ always. This is a frequently tested numerical/conceptual point.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — SHORT RUN CURVES</div>
+    <h2 class="sec-title">Cost Curves &amp; Their Relationships</h2>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="580" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="586" y="304" font-size="12" fill="#22303F">Qty</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Cost</text>
+        <!-- AFC rectangular hyperbola falling -->
+        <path d="M 90 60 C 160 160, 280 230, 560 270" fill="none" stroke="#8B93A1" stroke-width="2"/>
+        <text x="500" y="263" font-size="12" fill="#8B93A1" font-style="italic">AFC</text>
+        <!-- AVC U shaped -->
+        <path d="M 100 220 C 200 140, 300 130, 360 140 C 440 155, 520 200, 560 240" fill="none" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="500" y="205" font-size="12" fill="#3E5C76" font-style="italic">AVC</text>
+        <!-- AC U shaped, above AVC, shrinking gap -->
+        <path d="M 110 130 C 210 90, 320 95, 400 115 C 470 132, 530 175, 560 210" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+        <text x="500" y="175" font-size="12" fill="#2C6E64" font-style="italic">AC</text>
+        <!-- MC U shaped, steeper, cuts AVC and AC at their minima -->
+        <path d="M 95 250 C 180 130, 260 90, 330 130 C 400 165, 480 240, 540 300" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="546" y="298" font-size="12" fill="#7C2E2E" font-style="italic">MC</text>
+        <circle cx="330" cy="130" r="4" fill="#7C2E2E"/>
+        <text x="335" y="122" font-size="10" fill="#22303F">MC=AVC (min AVC)</text>
+        <circle cx="390" cy="112" r="4" fill="#7C2E2E"/>
+        <text x="392" y="104" font-size="10" fill="#22303F">MC=AC (min AC)</text>
+      </svg>
+      <figcaption>Fig 8.1 — Classic short-run cost curve family: AFC falls continuously; AVC and AC are U-shaped; MC is also U-shaped and cuts both AVC and AC exactly at their respective minimum points, always from below.</figcaption>
+    </div>
+
+    <h4>The MC–AC / MC–AVC relationship (a near-guaranteed MCQ)</h4>
+    <ul>
+      <li>When MC &lt; AC (or AVC), the average curve is <strong>falling</strong></li>
+      <li>When MC = AC (or AVC), the average curve is at its <strong>minimum</strong></li>
+      <li>When MC &gt; AC (or AVC), the average curve is <strong>rising</strong></li>
+      <li>MC always cuts AC and AVC from <strong>below</strong>, at their minimum points — never from above</li>
+    </ul>
+
+    <h4>Why are AVC, AC, MC U-shaped in the short run?</h4>
+    <p>Direct consequence of the <strong>Law of Variable Proportions</strong>: as MP<sub>L</sub> first rises then falls (given fixed capital), variable cost per unit first falls then rises — the cost curves are simply the "mirror image" of the AP/MP product curves.</p>
+
+    <table>
+      <caption>Table 8.1 — Product curves ↔ Cost curves mirror relationship</caption>
+      <thead><tr><th>Product side</th><th>Cost side (mirror)</th></tr></thead>
+      <tbody>
+        <tr><td>AP<sub>L</sub> rising</td><td>AVC falling</td></tr>
+        <tr><td>AP<sub>L</sub> at maximum</td><td>AVC at minimum</td></tr>
+        <tr><td>AP<sub>L</sub> falling</td><td>AVC rising</td></tr>
+        <tr><td>MP<sub>L</sub> rising</td><td>MC falling</td></tr>
+        <tr><td>MP<sub>L</sub> at maximum</td><td>MC at minimum</td></tr>
+        <tr><td>MP<sub>L</sub> falling (incl. negative)</td><td>MC rising (sharply)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — LONG RUN COST</div>
+    <h2 class="sec-title">Long-Run Cost Curves &amp; Economies of Scale</h2>
+
+    <div class="box definition">
+      <div class="label">Long-Run Average Cost (LAC) — the "Envelope Curve"</div>
+      In the long run, a firm can choose any plant size (any SAC curve). LAC is the <strong>envelope</strong> of all possible short-run average cost (SAC) curves — for each output level, LAC picks the SAC curve that gives the lowest cost.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="580" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="586" y="284" font-size="12" fill="#22303F">Qty</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Cost</text>
+        <!-- several SAC curves -->
+        <path d="M 90 220 C 130 140, 170 120, 210 140 C 250 160, 280 200, 300 240" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <path d="M 160 200 C 210 110, 260 90, 310 110 C 360 130, 400 175, 420 220" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <path d="M 240 190 C 290 95, 340 70, 390 90 C 440 110, 480 160, 500 210" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <path d="M 320 210 C 370 130, 420 105, 470 125 C 510 145, 545 185, 560 225" fill="none" stroke="#D8CFBC" stroke-width="2"/>
+        <text x="95" y="215" font-size="10" fill="#8B93A1">SAC₁</text>
+        <text x="165" y="196" font-size="10" fill="#8B93A1">SAC₂</text>
+        <text x="245" y="186" font-size="10" fill="#8B93A1">SAC₃</text>
+        <text x="325" y="206" font-size="10" fill="#8B93A1">SAC₄</text>
+        <!-- LAC envelope -->
+        <path d="M 90 220 C 200 145, 340 70, 390 90 C 460 115, 520 175, 560 225" fill="none" stroke="#7C2E2E" stroke-width="2.8"/>
+        <text x="400" y="72" font-size="13" fill="#7C2E2E" font-weight="600" font-style="italic">LAC (envelope curve)</text>
+      </svg>
+      <figcaption>Fig 9.1 — LAC as the envelope of short-run SAC curves: it is tangent to each SAC, touching (but not necessarily at) each SAC's own minimum point (tangency is at SAC minimum only at the very bottom of the LAC curve itself).</figcaption>
+    </div>
+
+    <h3>Economies &amp; Diseconomies of Scale</h3>
+    <p>These explain <em>why</em> LAC is U-shaped (falls, flattens, then rises):</p>
+    <table>
+      <caption>Table 9.1 — Internal vs External economies/diseconomies</caption>
+      <thead><tr><th>Type</th><th>Source</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Internal Economies</strong> (LAC falls)</td><td>Arise within the firm as its own scale grows</td><td>Technical (bigger, efficient machinery), managerial (specialised departments), financial (cheaper credit/bulk buying), marketing (bulk transport, advertising spread over more units)</td></tr>
+        <tr><td><strong>External Economies</strong> (LAC falls)</td><td>Arise from growth of the <em>industry</em> as a whole, benefiting all firms</td><td>Better infrastructure, skilled labour pool, ancillary/supplier industries developing nearby, R&amp;D spillovers</td></tr>
+        <tr><td><strong>Internal Diseconomies</strong> (LAC rises)</td><td>Arise within an overly large firm</td><td>Managerial inefficiency, coordination problems, bureaucratic delay, labour-relations difficulties</td></tr>
+        <tr><td><strong>External Diseconomies</strong> (LAC rises)</td><td>Arise from over-expansion of the industry</td><td>Rising input prices due to industry-wide competition for scarce resources, congestion, pollution costs</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The falling part of LAC is explained by <strong>economies of scale</strong>; the rising part by <strong>diseconomies of scale</strong>; the flat minimum stretch (if any) represents the <strong>Minimum Efficient Scale (MES)</strong> — the smallest output at which a firm exhausts all scale economies.
+    </div>
+
+    <h4>Long-Run Marginal Cost (LMC)</h4>
+    <p>LMC cuts LAC at LAC's minimum point — the same MC–AC rule applies in the long run as in the short run. At the output where LAC is minimum, LMC = LAC = the corresponding SMC = SAC (all four curves intersect at that single point) — this is a classic diagram-based MCQ setup.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — LINKING TO THE FIRM</div>
+    <h2 class="sec-title">Revenue Concepts &amp; Producer Equilibrium (Quick Bridge)</h2>
+    <div class="box formula">
+      <div class="label">Revenue definitions</div>
+      TR = P × Q &nbsp;&nbsp;|&nbsp;&nbsp; AR = TR/Q = P &nbsp;&nbsp;|&nbsp;&nbsp; MR = ΔTR/ΔQ
+    </div>
+    <div class="box formula">
+      <div class="label">Profit-maximising output condition</div>
+      MR = MC &nbsp;(with MC cutting MR from below)
+    </div>
+    <p class="small">This connects production/cost theory directly to market structure/pricing topics (perfect competition, monopoly) — worth a quick review together since CUET PG often links a cost-curve diagram question to a profit-maximisation follow-up.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Law of Variable Proportions</th><th>Returns to Scale</th></tr></thead>
+      <tbody>
+        <tr><td>Time period</td><td>Short run</td><td>Long run</td></tr>
+        <tr><td>Which factors vary</td><td>One factor variable, one fixed</td><td>All factors variable, in the same proportion</td></tr>
+        <tr><td>Factor ratio</td><td>Changes (variable factor rises relative to fixed)</td><td>Stays constant (scale changes, not the ratio)</td></tr>
+        <tr><td>Stages / cases</td><td>3 stages: increasing, diminishing, negative returns</td><td>3 cases: increasing, constant, decreasing returns to scale</td></tr>
+        <tr><td>Underlying curve</td><td>TP / AP / MP curves</td><td>Isoquant spacing along a ray from origin</td></tr>
+        <tr><td>Linked cost curve</td><td>Short-run AVC, AC, MC (U-shaped)</td><td>Long-run LAC (U-shaped via economies/diseconomies of scale)</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>Table 11.1 — Consumer theory ↔ Producer theory analogy (useful cross-topic memory aid)</caption>
+      <thead><tr><th>Consumer theory</th><th>Producer theory (analogue)</th></tr></thead>
+      <tbody>
+        <tr><td>Indifference Curve</td><td>Isoquant</td></tr>
+        <tr><td>Budget Line</td><td>Isocost Line</td></tr>
+        <tr><td>MRS (Marginal Rate of Substitution)</td><td>MRTS (Marginal Rate of Technical Substitution)</td></tr>
+        <tr><td>MRS<sub>xy</sub> = P<sub>x</sub>/P<sub>y</sub></td><td>MRTS<sub>LK</sub> = w/r</td></tr>
+        <tr><td>Income Consumption Curve (ICC)</td><td>Expansion Path</td></tr>
+        <tr><td>Price Consumption Curve (PCC)</td><td>(Analogous factor-price expansion path)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Average / Marginal Product</div>AP<sub>L</sub>=TP/L &nbsp;|&nbsp; MP<sub>L</sub>=ΔTP/ΔL</div>
+      <div class="box formula"><div class="label">MRTS</div>MRTS<sub>LK</sub> = −ΔK/ΔL = MP<sub>L</sub>/MP<sub>K</sub></div>
+      <div class="box formula"><div class="label">Producer's equilibrium</div>MRTS<sub>LK</sub> = w/r</div>
+      <div class="box formula"><div class="label">Isocost line</div>wL + rK = C</div>
+      <div class="box formula"><div class="label">Cost identities</div>TC=TFC+TVC &nbsp;|&nbsp; AC=AFC+AVC &nbsp;|&nbsp; MC=ΔTC/ΔQ</div>
+      <div class="box formula"><div class="label">Cobb-Douglas RTS test</div>α+β&gt;1 IRS &nbsp;|&nbsp; =1 CRS &nbsp;|&nbsp; &lt;1 DRS</div>
+      <div class="box formula"><div class="label">Profit max</div>MR = MC (MC cutting MR from below)</div>
+      <div class="box formula"><div class="label">LAC envelope</div>LAC = envelope of all SAC curves; LMC=LAC at LAC's minimum</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">MC cuts AC/AVC from below, at their minimum</span>
+      <span class="chip">AFC = rectangular hyperbola, always falling</span>
+      <span class="chip">Stage II is the only rational production zone</span>
+      <span class="chip">TP max ⇔ MP = 0</span>
+      <span class="chip">AP max ⇔ MP = AP</span>
+      <span class="chip">Isoquants never intersect</span>
+      <span class="chip">LAC U-shape ⇐ economies then diseconomies of scale</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation. Multi-statement format mirrors CUET PG style.</p>
+
+    <details class="q">
+      <summary>Q1. The Law of Variable Proportions operates in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) The long run only &nbsp; (b) <strong>The short run only</strong> &nbsp; (c) Both short and long run equally &nbsp; (d) Neither<br><br>
+      <span class="correct">Answer: (b)</span> — it requires at least one fixed factor, which by definition exists only in the short run.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Which of the following statements about Stage I of production is/are correct? <span class="qmeta">Assertion-set</span></summary>
+      <div class="ans">
+        I. Marginal Product is rising throughout Stage I<br>
+        II. Average Product reaches its maximum at the end of Stage I<br>
+        III. A rational producer should stop hiring labour within Stage I<br>
+        IV. The fixed factor is under-utilised relative to the variable factor<br><br>
+        (a) I, II &amp; IV only &nbsp; (b) II &amp; III only &nbsp; (c) All four &nbsp; (d) I &amp; III only<br><br>
+        <span class="correct">Answer: (a)</span> — Statement III is false: it is irrational to <em>stop</em> within Stage I, since MP is still above AP and output can be expanded profitably.
+      </div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. If a Cobb-Douglas production function has α = 0.4 and β = 0.5, the function exhibits: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) Increasing returns to scale &nbsp; (b) Constant returns to scale &nbsp; (c) <strong>Decreasing returns to scale</strong> &nbsp; (d) Cannot be determined<br><br>
+      <span class="correct">Answer: (c)</span> — α + β = 0.9 &lt; 1 ⇒ Decreasing Returns to Scale.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. Marginal Cost is unaffected by changes in Total Fixed Cost because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) TFC is always zero &nbsp; (b) <strong>TFC does not change with output, so its rate of change (ΔTFC/ΔQ) is zero</strong> &nbsp; (c) MC is calculated only from AFC &nbsp; (d) TFC and MC move in opposite directions by definition<br><br>
+      <span class="correct">Answer: (b)</span> — MC = ΔTC/ΔQ = ΔTVC/ΔQ since ΔTFC/ΔQ = 0 at every output level.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. The Marginal Cost curve intersects the Average Cost curve: <span class="qmeta">Diagram-based</span></summary>
+      <div class="ans">(a) At AC's maximum point, from above &nbsp; (b) <strong>At AC's minimum point, from below</strong> &nbsp; (c) At any random point &nbsp; (d) Only in the long run<br><br>
+      <span class="correct">Answer: (b)</span> — this holds for both short-run (MC–AVC/AC) and long-run (LMC–LAC) relationships.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. Long-Run Average Cost (LAC) is described as an "envelope curve" because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) It is always U-shaped &nbsp; (b) <strong>It is tangent to every possible short-run average cost (SAC) curve, selecting the least-cost SAC at each output</strong> &nbsp; (c) It equals TFC divided by output &nbsp; (d) It lies below every SAC curve at every output<br><br>
+      <span class="correct">Answer: (b)</span> — for outputs other than the very minimum point of LAC, LAC is tangent to (but not at the minimum of) the relevant SAC curve.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. Which of the following would cause Increasing Returns to Scale? <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Managerial coordination difficulties &nbsp; (b) <strong>Greater scope for specialisation and division of labour at larger scale</strong> &nbsp; (c) Rising input prices industry-wide &nbsp; (d) Diminishing marginal product of the variable factor<br><br>
+      <span class="correct">Answer: (b)</span> — (a) and (c) cause diseconomies/decreasing returns; (d) is a short-run concept (Law of Variable Proportions), unrelated to Returns to Scale.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. The producer's least-cost equilibrium requires: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) MRTS<sub>LK</sub> = r/w &nbsp; (b) <strong>MRTS<sub>LK</sub> = w/r</strong> &nbsp; (c) MP<sub>L</sub> = MP<sub>K</sub> always &nbsp; (d) Isoquant must be concave at that point<br><br>
+      <span class="correct">Answer: (b)</span> — the isoquant's slope (MRTS) must equal the isocost line's slope (w/r) at tangency; the isoquant must be convex, not concave, for a true minimum-cost point.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. External economies of scale arise from: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) A single firm's own internal efficiency gains &nbsp; (b) <strong>Growth of the entire industry, benefiting all firms in it</strong> &nbsp; (c) A firm's bulk-purchase discounts &nbsp; (d) A firm's specialised in-house R&amp;D department<br><br>
+      <span class="correct">Answer: (b)</span> — (a), (c) and (d) are all internal economies specific to the individual firm.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. In Stage III of the Law of Variable Proportions: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) MP is positive but falling &nbsp; (b) TP is rising at a decreasing rate &nbsp; (c) <strong>MP is negative and TP is falling</strong> &nbsp; (d) AP is rising<br><br>
+      <span class="correct">Answer: (c)</span> — Stage III begins exactly where MP turns negative, which is also where TP has passed its peak and starts to decline.</div>
+    </details>
+  </section>
+
+  <footer>
+    Production Theory — CUET PG Economics Notes · Compiled for exam preparation · Sources: Marshall, Cobb &amp; Douglas (1928), H.L. Ahuja's Microeconomics, standard isoquant-isocost framework (Hicks).
+  </footer>
+
+</main>
+</div>
+</body>
+</html>
