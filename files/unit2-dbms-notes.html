@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unit 2: Database Management System — Detailed Notes</title>
+<style>
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 30px 80px;
+    color: #232323;
+    line-height: 1.65;
+    background: #fdfcf9;
+  }
+  h1 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 28px;
+    color: #1a1a2e;
+    border-bottom: 4px solid #4a5fc1;
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+  h2 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 21px;
+    color: #fff;
+    background: #4a5fc1;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-top: 44px;
+  }
+  h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 17px;
+    color: #2d3561;
+    border-left: 4px solid #4a5fc1;
+    padding-left: 10px;
+    margin-top: 26px;
+  }
+  p { margin: 10px 0; font-size: 15.5px; }
+  ul, ol { font-size: 15.5px; }
+  li { margin: 6px 0; }
+  .box {
+    background: #eef1fb;
+    border: 1px solid #c9d2f0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+  .example {
+    background: #fff8e6;
+    border-left: 4px solid #e6a817;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 15px;
+    border-radius: 0 6px 6px 0;
+  }
+  .example strong { color: #a86a00; }
+  .diagram-wrap {
+    text-align: center;
+    margin: 22px 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px 6px;
+  }
+  .diagram-caption {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+    margin-top: 6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+    font-size: 14.5px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th { background: #2d3561; color: #fff; }
+  tr:nth-child(even) { background: #f4f6fc; }
+  .summary {
+    background: #1a1a2e;
+    color: #f0f0f0;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 40px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14.5px;
+  }
+  .summary h2 { background: none; padding: 0; color: #ffd966; }
+  code { background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h1>Unit 2: Database Management System (DBMS)</h1>
+<div class="subtitle">MIS Course Notes — Objectives of Database Approach · Characteristics of DBMS · Data Processing Systems · Components of DBMS Packages · Database Administration · Entity–Relationship Model (Conceptual)</div>
+
+<h2>1. Objectives of the Database Approach</h2>
+<p>Before databases existed, organisations stored data in separate files for every application — a "payroll file" for the payroll program, a "student file" for the admissions program, and so on. This is called the <strong>file-based (traditional) approach</strong>. The <strong>database approach</strong> was developed to fix the problems this caused.</p>
+
+<div class="diagram-wrap">
+<svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <text x="190" y="24" font-family="Helvetica" font-size="15" font-weight="bold" fill="#2d3561" text-anchor="middle">File-Based Approach</text>
+  <text x="570" y="24" font-family="Helvetica" font-size="15" font-weight="bold" fill="#2d3561" text-anchor="middle">Database Approach</text>
+
+  <!-- File based -->
+  <rect x="20" y="45" width="120" height="40" rx="6" fill="#ffe9e9" stroke="#c0504d"/>
+  <text x="80" y="69" font-family="Helvetica" font-size="12" text-anchor="middle">Payroll Program</text>
+  <rect x="20" y="105" width="120" height="40" rx="6" fill="#ffe9e9" stroke="#c0504d"/>
+  <text x="80" y="129" font-family="Helvetica" font-size="12" text-anchor="middle">Sales Program</text>
+  <rect x="20" y="165" width="120" height="40" rx="6" fill="#ffe9e9" stroke="#c0504d"/>
+  <text x="80" y="189" font-family="Helvetica" font-size="12" text-anchor="middle">HR Program</text>
+
+  <rect x="200" y="45" width="110" height="40" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="255" y="69" font-family="Helvetica" font-size="12" text-anchor="middle">Payroll File</text>
+  <rect x="200" y="105" width="110" height="40" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="255" y="129" font-family="Helvetica" font-size="12" text-anchor="middle">Sales File</text>
+  <rect x="200" y="165" width="110" height="40" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="255" y="189" font-family="Helvetica" font-size="12" text-anchor="middle">HR File</text>
+
+  <line x1="140" y1="65" x2="200" y2="65" stroke="#888" stroke-width="1.5"/>
+  <line x1="140" y1="125" x2="200" y2="125" stroke="#888" stroke-width="1.5"/>
+  <line x1="140" y1="185" x2="200" y2="185" stroke="#888" stroke-width="1.5"/>
+
+  <text x="255" y="230" font-family="Helvetica" font-size="11" fill="#a33" text-anchor="middle">Same employee data repeated in 3 files!</text>
+
+  <!-- Database approach -->
+  <rect x="440" y="45" width="120" height="40" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="500" y="69" font-family="Helvetica" font-size="12" text-anchor="middle">Payroll Program</text>
+  <rect x="440" y="105" width="120" height="40" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="500" y="129" font-family="Helvetica" font-size="12" text-anchor="middle">Sales Program</text>
+  <rect x="440" y="165" width="120" height="40" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="500" y="189" font-family="Helvetica" font-size="12" text-anchor="middle">HR Program</text>
+
+  <rect x="640" y="90" width="100" height="80" rx="10" fill="#4a5fc1"/>
+  <text x="690" y="125" font-family="Helvetica" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">DBMS</text>
+  <text x="690" y="142" font-family="Helvetica" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">+</text>
+  <text x="690" y="159" font-family="Helvetica" font-size="11" fill="#fff" text-anchor="middle">Shared DB</text>
+
+  <line x1="560" y1="65" x2="640" y2="115" stroke="#888" stroke-width="1.5"/>
+  <line x1="560" y1="125" x2="640" y2="130" stroke="#888" stroke-width="1.5"/>
+  <line x1="560" y1="185" x2="640" y2="145" stroke="#888" stroke-width="1.5"/>
+
+  <text x="690" y="230" font-family="Helvetica" font-size="11" fill="#2d6a2d" text-anchor="middle">One integrated copy, shared by all programs</text>
+</svg>
+<div class="diagram-caption">Fig 1: File-based approach (data duplicated per application) vs Database approach (one shared, centrally-managed store)</div>
+</div>
+
+<p>The database approach was introduced to achieve the following objectives:</p>
+
+<h3>1.1 Minimise Data Redundancy</h3>
+<p>In file systems, the same data (e.g. a customer's name and address) may be stored separately in the sales file, the billing file, and the shipping file. The database approach stores it <em>once</em> and lets every application access that single copy.</p>
+<div class="example"><strong>Example:</strong> In a college, "Student Name" and "Roll No." need not be stored separately in the Fees file, the Library file, and the Exam file — one central <code>Student</code> table is shared by all three modules.</div>
+
+<h3>1.2 Avoid Data Inconsistency</h3>
+<p>When the same fact is stored in several places, updating it in one place but forgetting another creates <em>inconsistency</em> — two files disagree about the same real-world fact. Centralising data removes this risk because there is only one value to update.</p>
+
+<h3>1.3 Data Sharing</h3>
+<p>Multiple users and multiple application programs can access the same database at the same time (with proper concurrency control), instead of each department keeping its own private, disconnected file.</p>
+
+<h3>1.4 Enforce Standards and Data Security</h3>
+<p>A DBMS lets the organisation define standards (naming, format, validation rules) centrally, and restrict who can view or edit which data through <strong>access control / permissions</strong> — something very hard to enforce consistently across many separate files.</p>
+
+<h3>1.5 Maintain Data Integrity</h3>
+<p>Integrity constraints (e.g. "Age cannot be negative", "Roll No. must be unique") are defined once in the database and automatically enforced for every application, rather than each programmer having to re-code the same checks.</p>
+
+<h3>1.6 Balance Conflicting Requirements</h3>
+<p>Different user groups may want the same data organised differently (e.g. Finance wants data sorted by cost centre, HR wants it by department). A DBMS, through its "views," lets each group see the data the way it needs, while physically storing it only once.</p>
+
+<h3>1.7 Data Independence</h3>
+<p>Applications are insulated from exactly how data is physically stored, so the storage structure can change without rewriting every application program (explained further in Section 6 — Three-level architecture).</p>
+
+<div class="box">
+<strong>In short:</strong> Objectives of the database approach = Reduce redundancy → Avoid inconsistency → Enable sharing → Enforce standards & security → Maintain integrity → Balance user needs → Give data independence.
+</div>
+
+<h2>2. Characteristics of Database Management Systems</h2>
+<p>A <strong>DBMS</strong> is software that sits between the physical database and the users/application programs, and lets you create, store, modify, retrieve, and manage data in a structured, controlled way. Its defining characteristics are:</p>
+
+<table>
+<tr><th>Characteristic</th><th>Explanation</th></tr>
+<tr><td>Self-describing nature</td><td>A database contains not just data, but also a description of itself (the <strong>metadata / data dictionary</strong>) — table names, field names, data types, and relationships.</td></tr>
+<tr><td>Insulation between programs and data (Data Abstraction)</td><td>The physical storage structure can be changed without changing the application programs that use the data.</td></tr>
+<tr><td>Support for multiple views of data</td><td>Different users can see different "views" or subsets of the same database suited to their needs, without duplicating the underlying data.</td></tr>
+<tr><td>Data sharing and multi-user access</td><td>Many users/programs can access the same data concurrently, with the DBMS controlling conflicts (concurrency control).</td></tr>
+<tr><td>Control of data redundancy</td><td>Related data is stored once in a shared, integrated structure instead of many separate copies.</td></tr>
+<tr><td>Data integrity enforcement</td><td>Built-in rules (constraints) ensure data is accurate and valid, e.g. a foreign key must match an existing record.</td></tr>
+<tr><td>Data security</td><td>Access is granted through authentication and permissions — different users can be given different rights (read-only, edit, admin).</td></tr>
+<tr><td>Backup and recovery</td><td>The DBMS provides mechanisms to recover the database to a consistent state after a crash or failure.</td></tr>
+<tr><td>Query and reporting facility</td><td>Users can retrieve exactly the data they need using a query language (typically SQL) without writing a full program.</td></tr>
+</table>
+
+<div class="example"><strong>Example:</strong> In a Bank DBMS, the same customer record is used by the Loans department, the Savings department, and the ATM system (data sharing); if a customer's address is wrong, it is fixed once and reflected everywhere (integrity/no redundancy); and a teller can view balances but not change interest rates, while an admin can do both (security).</div>
+
+<h2>3. Data Processing System</h2>
+<p>"Data processing" is the conversion of raw data into meaningful information. It is useful to compare how this was done <em>before</em> DBMS (traditional file processing) versus <em>with</em> a DBMS.</p>
+
+<h3>3.1 Traditional File Processing System</h3>
+<ul>
+  <li>Each application has its <strong>own private data file(s)</strong>, designed only for that application.</li>
+  <li>Programs and data are tightly coupled — a change in file structure forces a change in the program (no data independence).</li>
+  <li>Leads to <strong>data redundancy</strong>, <strong>inconsistency</strong>, and difficulty in sharing data across departments.</li>
+</ul>
+
+<h3>3.2 Database Processing System (DBMS-based)</h3>
+<ul>
+  <li>All data is stored in a single, integrated, centrally-controlled database.</li>
+  <li>Applications interact with the data <em>through</em> the DBMS, not directly with the physical files.</li>
+  <li>Supports concurrent access, integrity checks, security, and recovery as built-in services.</li>
+</ul>
+
+<div class="diagram-wrap">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <text x="350" y="24" font-family="Helvetica" font-size="14" font-weight="bold" fill="#2d3561" text-anchor="middle">Data Flow in a Database Processing System</text>
+
+  <rect x="20" y="60" width="110" height="45" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="75" y="87" font-family="Helvetica" font-size="12" text-anchor="middle">End Users</text>
+
+  <rect x="20" y="130" width="110" height="45" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="75" y="157" font-family="Helvetica" font-size="12" text-anchor="middle">Application Programs</text>
+
+  <line x1="130" y1="82" x2="200" y2="110" stroke="#888"/>
+  <line x1="130" y1="152" x2="200" y2="120" stroke="#888"/>
+
+  <rect x="200" y="80" width="150" height="60" rx="8" fill="#4a5fc1"/>
+  <text x="275" y="106" font-family="Helvetica" font-size="13" fill="#fff" text-anchor="middle" font-weight="bold">DBMS</text>
+  <text x="275" y="124" font-family="Helvetica" font-size="10.5" fill="#e3ebff" text-anchor="middle">(query processing, security,</text>
+  <text x="275" y="136" font-family="Helvetica" font-size="10.5" fill="#e3ebff" text-anchor="middle">integrity, concurrency)</text>
+
+  <line x1="350" y1="110" x2="420" y2="110" stroke="#888"/>
+  <polygon points="420,105 432,110 420,115" fill="#888"/>
+
+  <rect x="432" y="60" width="130" height="45" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="497" y="87" font-family="Helvetica" font-size="12" text-anchor="middle">Data Dictionary</text>
+
+  <rect x="432" y="130" width="130" height="45" rx="6" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="497" y="157" font-family="Helvetica" font-size="12" text-anchor="middle">Stored Database</text>
+
+  <line x1="490" y1="105" x2="490" y2="130" stroke="#888"/>
+</svg>
+<div class="diagram-caption">Fig 2: Users and application programs never touch the raw stored data directly — every request is processed through the DBMS, which consults the data dictionary (metadata) and enforces rules before reading/writing the actual database.</div>
+</div>
+
+<h2>4. Components of a DBMS Package</h2>
+<p>A commercial DBMS (e.g. MySQL, Oracle, PostgreSQL, SQL Server) is not a single program — it is a package made up of several cooperating components:</p>
+
+<div class="diagram-wrap">
+<svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <rect x="20" y="15" width="660" height="305" rx="10" fill="none" stroke="#4a5fc1" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="350" y="38" font-family="Helvetica" font-size="14" font-weight="bold" fill="#2d3561" text-anchor="middle">DBMS Package — Major Components</text>
+
+  <rect x="45" y="55" width="180" height="50" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="135" y="76" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">DDL Compiler</text>
+  <text x="135" y="92" font-family="Helvetica" font-size="10" text-anchor="middle">(defines schema/structure)</text>
+
+  <rect x="260" y="55" width="180" height="50" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="350" y="76" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">DML Processor</text>
+  <text x="350" y="92" font-family="Helvetica" font-size="10" text-anchor="middle">(handles insert/update/delete)</text>
+
+  <rect x="475" y="55" width="180" height="50" rx="6" fill="#e3ebff" stroke="#4a5fc1"/>
+  <text x="565" y="76" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Query Processor</text>
+  <text x="565" y="92" font-family="Helvetica" font-size="10" text-anchor="middle">(parses &amp; optimises SQL)</text>
+
+  <rect x="45" y="130" width="180" height="50" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="135" y="151" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Data Manager</text>
+  <text x="135" y="167" font-family="Helvetica" font-size="10" text-anchor="middle">(retrieves/stores records)</text>
+
+  <rect x="260" y="130" width="180" height="50" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="350" y="151" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Transaction Manager</text>
+  <text x="350" y="167" font-family="Helvetica" font-size="10" text-anchor="middle">(ensures ACID properties)</text>
+
+  <rect x="475" y="130" width="180" height="50" rx="6" fill="#fff3d6" stroke="#e6a817"/>
+  <text x="565" y="151" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Concurrency Control</text>
+  <text x="565" y="167" font-family="Helvetica" font-size="10" text-anchor="middle">(manages simultaneous access)</text>
+
+  <rect x="45" y="205" width="180" height="50" rx="6" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="135" y="226" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Data Dictionary</text>
+  <text x="135" y="242" font-family="Helvetica" font-size="10" text-anchor="middle">(metadata catalogue)</text>
+
+  <rect x="260" y="205" width="180" height="50" rx="6" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="350" y="226" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Backup &amp; Recovery</text>
+  <text x="350" y="242" font-family="Helvetica" font-size="10" text-anchor="middle">(logs, restore after crash)</text>
+
+  <rect x="475" y="205" width="180" height="50" rx="6" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="565" y="226" font-family="Helvetica" font-size="12" text-anchor="middle" font-weight="bold">Security Manager</text>
+  <text x="565" y="242" font-family="Helvetica" font-size="10" text-anchor="middle">(authentication, permissions)</text>
+
+  <rect x="200" y="280" width="300" height="35" rx="6" fill="#4a5fc1"/>
+  <text x="350" y="303" font-family="Helvetica" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">Stored Database + Data Dictionary</text>
+</svg>
+<div class="diagram-caption">Fig 3: Typical components that together form a DBMS package</div>
+</div>
+
+<ul>
+  <li><strong>DDL (Data Definition Language) compiler</strong> — processes schema definitions (creating tables, defining data types, e.g. <code>CREATE TABLE</code>) and stores them as metadata.</li>
+  <li><strong>DML (Data Manipulation Language) processor</strong> — handles insertion, updating, deletion of data (e.g. <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>).</li>
+  <li><strong>Query processor</strong> — interprets a query (e.g. an SQL <code>SELECT</code>), chooses an efficient execution plan, and retrieves the result.</li>
+  <li><strong>Data manager (storage manager)</strong> — the software that actually reads and writes data blocks to and from physical storage.</li>
+  <li><strong>Transaction manager</strong> — ensures every transaction follows the ACID properties (Atomicity, Consistency, Isolation, Durability) — e.g. a bank transfer either completes fully or not at all.</li>
+  <li><strong>Concurrency control manager</strong> — prevents problems when two users try to update the same record at the same time.</li>
+  <li><strong>Data dictionary / system catalogue</strong> — the "metadata" store describing every table, field, constraint, and relationship in the database.</li>
+  <li><strong>Backup and recovery manager</strong> — maintains logs and backups so the database can be restored after a system failure.</li>
+  <li><strong>Security manager</strong> — authenticates users and enforces access permissions.</li>
+</ul>
+
+<h2>5. Database Administration</h2>
+<p>The <strong>Database Administrator (DBA)</strong> is the person (or team) responsible for the overall control and management of the database. Database administration is the set of functions this role performs.</p>
+
+<h3>5.1 Key Functions of a DBA</h3>
+<ul>
+  <li><strong>Schema definition</strong> — creates the original database schema by defining tables, fields, data types, and relationships (using DDL).</li>
+  <li><strong>Storage structure and access method definition</strong> — decides how data is physically stored and indexed for efficient retrieval.</li>
+  <li><strong>Granting authorisation for data access</strong> — decides which users/roles can read, insert, update, or delete which parts of the data.</li>
+  <li><strong>Routine maintenance</strong> — periodic backups, monitoring disk space, applying patches/updates.</li>
+  <li><strong>Ensuring data integrity and security</strong> — enforcing constraints, setting up firewalls/passwords, auditing access.</li>
+  <li><strong>Performance monitoring and tuning</strong> — watching query speed and optimising indexes or configurations.</li>
+  <li><strong>Backup and recovery planning</strong> — preparing for disk crashes, power failures, or accidental deletions so data can be restored.</li>
+  <li><strong>Liaison with users</strong> — resolving user problems, training staff on proper data-entry practices.</li>
+</ul>
+<div class="example"><strong>Example:</strong> In a university ERP, the DBA decides that the "Registrar" role can edit student marks, the "Faculty" role can only enter marks for their own subject, and "Students" can only view (not edit) their own marks — and takes a nightly backup of the whole database in case of failure.</div>
+
+<h2>6. Entity–Relationship (E-R) Model — Conceptual Design</h2>
+<p>The <strong>Entity–Relationship model</strong> is a high-level <em>conceptual</em> data model used to describe the structure of a database in a way that is easy for both designers and non-technical stakeholders to understand, before it is converted into actual database tables.</p>
+
+<h3>6.1 Basic Building Blocks</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><strong>Entity</strong></td><td>A real-world object or concept about which data is stored.</td><td>Student, Course, Teacher</td></tr>
+<tr><td><strong>Entity Set</strong></td><td>A collection of similar entities.</td><td>All Students in the college</td></tr>
+<tr><td><strong>Attribute</strong></td><td>A property or characteristic that describes an entity.</td><td>Student → Roll_No, Name, DOB</td></tr>
+<tr><td><strong>Key Attribute</strong></td><td>An attribute that uniquely identifies each entity (primary key).</td><td>Roll_No for Student</td></tr>
+<tr><td><strong>Relationship</strong></td><td>An association between two or more entities.</td><td>Student <em>"enrolls in"</em> Course</td></tr>
+<tr><td><strong>Cardinality</strong></td><td>Describes how many instances of one entity relate to instances of another.</td><td>One Teacher teaches Many Courses (1:M)</td></tr>
+</table>
+
+<h3>6.2 E-R Diagram Notation</h3>
+<div class="diagram-wrap">
+<svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <rect x="20" y="35" width="110" height="55" fill="#e3ebff" stroke="#4a5fc1" stroke-width="2"/>
+  <text x="75" y="67" font-family="Helvetica" font-size="12" text-anchor="middle">Entity</text>
+
+  <polygon points="220,15 300,60 220,105 140,60" fill="#fff3d6" stroke="#e6a817" stroke-width="2"/>
+  <text x="220" y="65" font-family="Helvetica" font-size="11" text-anchor="middle">Relationship</text>
+
+  <ellipse cx="400" cy="60" rx="55" ry="30" fill="#e6f4e6" stroke="#4a8a4a" stroke-width="2"/>
+  <text x="400" y="65" font-family="Helvetica" font-size="12" text-anchor="middle">Attribute</text>
+
+  <ellipse cx="530" cy="60" rx="55" ry="30" fill="#e6f4e6" stroke="#4a8a4a" stroke-width="2"/>
+  <line x1="530" y1="70" x2="530" y2="76" stroke="#4a8a4a"/>
+  <text x="530" y="65" font-family="Helvetica" font-size="11" text-anchor="middle" text-decoration="underline">Key Attribute</text>
+</svg>
+<div class="diagram-caption">Fig 4: Standard E-R notation — Rectangle = Entity, Diamond = Relationship, Oval = Attribute, Underlined Oval = Key/Primary attribute</div>
+</div>
+
+<h3>6.3 Worked Example: "Student enrolls in Course"</h3>
+<p>Consider a simple college scenario: <strong>Students enroll in Courses</strong>, and each enrolment has a <strong>Grade</strong>. Each Student has a Roll_No (key), Name, and Email. Each Course has a Course_ID (key), Title, and Credits.</p>
+
+<div class="diagram-wrap">
+<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <!-- Student entity -->
+  <rect x="30" y="140" width="130" height="55" fill="#e3ebff" stroke="#4a5fc1" stroke-width="2"/>
+  <text x="95" y="172" font-family="Helvetica" font-size="13" text-anchor="middle" font-weight="bold">STUDENT</text>
+
+  <!-- Course entity -->
+  <rect x="600" y="140" width="130" height="55" fill="#e3ebff" stroke="#4a5fc1" stroke-width="2"/>
+  <text x="665" y="172" font-family="Helvetica" font-size="13" text-anchor="middle" font-weight="bold">COURSE</text>
+
+  <!-- Relationship diamond -->
+  <polygon points="380,110 460,167 380,224 300,167" fill="#fff3d6" stroke="#e6a817" stroke-width="2"/>
+  <text x="380" y="163" font-family="Helvetica" font-size="11" text-anchor="middle">ENROLLS</text>
+  <text x="380" y="177" font-family="Helvetica" font-size="11" text-anchor="middle">IN</text>
+
+  <!-- connecting lines with cardinality -->
+  <line x1="160" y1="167" x2="300" y2="167" stroke="#333" stroke-width="1.5"/>
+  <text x="215" y="158" font-family="Helvetica" font-size="12" fill="#a33" font-weight="bold">M</text>
+  <line x1="460" y1="167" x2="600" y2="167" stroke="#333" stroke-width="1.5"/>
+  <text x="545" y="158" font-family="Helvetica" font-size="12" fill="#a33" font-weight="bold">N</text>
+
+  <!-- Student attributes -->
+  <ellipse cx="95" cy="55" rx="50" ry="26" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="95" y="53" font-family="Helvetica" font-size="10" text-anchor="middle" text-decoration="underline">Roll_No</text>
+  <text x="95" y="65" font-family="Helvetica" font-size="9" text-anchor="middle">(key)</text>
+  <line x1="95" y1="81" x2="95" y2="140" stroke="#4a8a4a"/>
+
+  <ellipse cx="180" cy="80" rx="45" ry="24" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="180" y="84" font-family="Helvetica" font-size="10" text-anchor="middle">Name</text>
+  <line x1="163" y1="98" x2="120" y2="140" stroke="#4a8a4a"/>
+
+  <ellipse cx="10" cy="90" rx="45" ry="24" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="10" y="94" font-family="Helvetica" font-size="10" text-anchor="middle">Email</text>
+  <line x1="25" y1="110" x2="60" y2="140" stroke="#4a8a4a"/>
+
+  <!-- Course attributes -->
+  <ellipse cx="665" cy="55" rx="55" ry="26" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="665" y="53" font-family="Helvetica" font-size="10" text-anchor="middle" text-decoration="underline">Course_ID</text>
+  <text x="665" y="65" font-family="Helvetica" font-size="9" text-anchor="middle">(key)</text>
+  <line x1="665" y1="81" x2="665" y2="140" stroke="#4a8a4a"/>
+
+  <ellipse cx="750" cy="90" rx="45" ry="24" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="750" y="94" font-family="Helvetica" font-size="10" text-anchor="middle">Credits</text>
+  <line x1="735" y1="110" x2="700" y2="140" stroke="#4a8a4a"/>
+
+  <ellipse cx="580" cy="80" rx="42" ry="24" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="580" y="84" font-family="Helvetica" font-size="10" text-anchor="middle">Title</text>
+  <line x1="597" y1="98" x2="630" y2="140" stroke="#4a8a4a"/>
+
+  <!-- Relationship attribute -->
+  <ellipse cx="380" cy="280" rx="45" ry="24" fill="#e6f4e6" stroke="#4a8a4a"/>
+  <text x="380" y="284" font-family="Helvetica" font-size="10" text-anchor="middle">Grade</text>
+  <line x1="380" y1="256" x2="380" y2="224" stroke="#4a8a4a"/>
+
+  <text x="380" y="330" font-family="Helvetica" font-size="11" fill="#555" text-anchor="middle">Cardinality: One Student can enroll in Many Courses, and one Course can have Many Students → Many-to-Many (M:N)</text>
+</svg>
+<div class="diagram-caption">Fig 5: Conceptual E-R diagram — STUDENT and COURSE entities connected by the many-to-many ENROLLS-IN relationship, which itself carries the attribute "Grade"</div>
+</div>
+
+<h3>6.4 Types of Attributes</h3>
+<ul>
+  <li><strong>Simple attribute</strong> — cannot be divided further, e.g. Roll_No.</li>
+  <li><strong>Composite attribute</strong> — can be split into sub-parts, e.g. Name → First_Name + Last_Name.</li>
+  <li><strong>Single-valued attribute</strong> — has only one value, e.g. DOB.</li>
+  <li><strong>Multi-valued attribute</strong> — can have several values, e.g. a Student can have multiple Phone_Numbers.</li>
+  <li><strong>Derived attribute</strong> — calculated from another attribute, e.g. Age derived from DOB.</li>
+</ul>
+
+<h3>6.5 Types of Relationships (Cardinality)</h3>
+<table>
+<tr><th>Type</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>One-to-One (1:1)</td><td>One entity instance relates to exactly one instance of another.</td><td>One Employee has one Employee_ID card.</td></tr>
+<tr><td>One-to-Many (1:M)</td><td>One entity instance relates to many instances of another.</td><td>One Department has many Employees.</td></tr>
+<tr><td>Many-to-Many (M:N)</td><td>Many instances of one entity relate to many instances of another.</td><td>Students enroll in many Courses; Courses have many Students.</td></tr>
+</table>
+
+<h3>6.6 Why the Conceptual E-R Model Matters</h3>
+<p>The E-R diagram is drawn <em>before</em> any table is created in the DBMS. It lets designers validate the business requirements with users first (in plain, visual terms), and is then systematically converted into actual relational tables — a process called <strong>mapping the E-R model to a relational schema</strong> (e.g. the ENROLLS-IN relationship above would become its own "Enrollment" table containing Roll_No, Course_ID, and Grade as foreign/primary keys).</p>
+
+<div class="summary">
+<h2>Quick Revision Summary</h2>
+<ul>
+<li><strong>Database approach objectives:</strong> less redundancy, no inconsistency, data sharing, enforced standards & security, integrity, balanced views, data independence.</li>
+<li><strong>DBMS characteristics:</strong> self-describing (metadata), program-data insulation, multiple views, sharing, controlled redundancy, integrity, security, backup/recovery, query facility.</li>
+<li><strong>Data processing:</strong> file-based (siloed, redundant) vs database-based (centralised, DBMS-mediated).</li>
+<li><strong>DBMS components:</strong> DDL compiler, DML processor, query processor, data manager, transaction manager, concurrency control, data dictionary, backup/recovery, security manager.</li>
+<li><strong>DBA functions:</strong> schema design, storage/access definition, authorisation, integrity/security, backup/recovery, performance tuning, user support.</li>
+<li><strong>E-R model:</strong> Entities (rectangles) + Attributes (ovals, key underlined) + Relationships (diamonds), with cardinality (1:1, 1:M, M:N) — used for conceptual design before building actual tables.</li>
+</ul>
+</div>
+
+</body>
+</html>

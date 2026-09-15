@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIS — Exam Notes</title>
+<style>
+  :root{
+    --paper:#F7F5F0;
+    --ink:#1C2430;
+    --ink-soft:#4A5568;
+    --navy:#1F3A5F;
+    --navy-deep:#132743;
+    --mustard:#C88A1E;
+    --mustard-soft:#F2E0BB;
+    --line:#D8D2C4;
+    --card:#FFFFFF;
+    --unit1:#1F3A5F;
+    --unit2:#8A4B2E;
+    --unit3:#3E6B4F;
+    --unit4:#7A3B57;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Georgia","Charter",serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:"Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;}
+
+  /* Header */
+  header{
+    background:var(--navy-deep);
+    color:#F2EFE6;
+    padding:28px 20px 22px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+  }
+  header .kicker{
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--mustard-soft);
+    margin:0 0 6px;
+  }
+  header h1{
+    margin:0 0 4px;
+    font-size:26px;
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
+  header p.sub{
+    margin:0;
+    font-size:13.5px;
+    color:#B9C4D3;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+  }
+
+  /* Unit nav */
+  nav.unitnav{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    margin-top:16px;
+    padding-bottom:2px;
+    -webkit-overflow-scrolling:touch;
+  }
+  nav.unitnav a{
+    flex:0 0 auto;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:12.5px;
+    color:#F2EFE6;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    padding:7px 12px;
+    border-radius:20px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  nav.unitnav a:active{background:rgba(255,255,255,0.2);}
+
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:18px 16px 80px;
+  }
+
+  /* Unit block */
+  .unit{
+    margin-top:34px;
+    border-left:5px solid var(--u-color, var(--navy));
+    padding-left:16px;
+  }
+  .unit-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:4px;
+  }
+  .unit-num{
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-weight:700;
+    font-size:13px;
+    color:var(--u-color, var(--navy));
+    background:color-mix(in srgb, var(--u-color) 12%, white);
+    padding:3px 9px;
+    border-radius:5px;
+  }
+  .unit h2{
+    margin:0;
+    font-size:21px;
+    font-weight:700;
+    color:var(--ink);
+  }
+  .unit .desc{
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:2px 0 16px;
+  }
+
+  /* Section card */
+  .section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:14px;
+    overflow:hidden;
+  }
+  .section > summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    background:linear-gradient(0deg, rgba(0,0,0,0.015), rgba(0,0,0,0));
+  }
+  .section > summary::-webkit-details-marker{display:none;}
+  .section > summary .arrow{
+    font-size:13px;
+    color:var(--u-color, var(--navy));
+    transition:transform 0.15s ease;
+    flex:0 0 auto;
+  }
+  .section[open] > summary .arrow{transform:rotate(90deg);}
+  .section-body{
+    padding:2px 16px 16px;
+    border-top:1px solid var(--line);
+  }
+
+  /* Lists */
+  ul.l1{margin:10px 0; padding-left:20px;}
+  ul.l1 > li{margin-bottom:9px; font-size:15px;}
+  ul.l2{margin:6px 0 6px; padding-left:19px;}
+  ul.l2 > li{margin-bottom:6px; font-size:14px; color:var(--ink);}
+  ul.l3{margin:5px 0; padding-left:18px;}
+  ul.l3 > li{margin-bottom:4px; font-size:13.3px; color:var(--ink-soft);}
+  li::marker{color:var(--u-color, var(--navy)); font-weight:700;}
+  ul.l2 li::marker{font-weight:600;}
+  ul.l3 li::marker{font-weight:500;}
+
+  b, strong{color:var(--ink); font-weight:700;}
+  .term{color:var(--u-color, var(--navy)); font-weight:700;}
+
+  /* Definition box */
+  .def{
+    background:var(--mustard-soft);
+    border-left:3px solid var(--mustard);
+    padding:9px 12px;
+    border-radius:4px;
+    font-size:13.5px;
+    margin:8px 0 14px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    color:#4A3A12;
+  }
+  .def b{color:#4A3A12;}
+
+  /* Compare table */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 14px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:12.8px;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:7px 8px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:color-mix(in srgb, var(--u-color) 10%, white);
+    color:var(--u-color, var(--navy));
+    font-weight:700;
+  }
+
+  /* Exam tip */
+  .tip{
+    display:flex;
+    gap:8px;
+    background:#EAF1EC;
+    border:1px dashed #8FB79E;
+    border-radius:6px;
+    padding:8px 10px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:12.5px;
+    color:#2C4A38;
+    margin:6px 0 14px;
+  }
+  .tip b{color:#2C4A38;}
+
+  /* Mnemonic chip */
+  .mnem{
+    display:inline-block;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:12px;
+    font-weight:700;
+    background:var(--navy);
+    color:#fff;
+    padding:2px 8px;
+    border-radius:4px;
+    margin:6px 0;
+  }
+
+  hr.div{
+    border:none;
+    border-top:1px dotted var(--line);
+    margin:14px 0;
+  }
+
+  /* footer / quick revision */
+  .revision{
+    margin-top:40px;
+    background:var(--navy-deep);
+    color:#F2EFE6;
+    border-radius:10px;
+    padding:18px 18px 20px;
+  }
+  .revision h3{
+    margin:0 0 10px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:14px;
+    letter-spacing:0.08em;
+    color:var(--mustard-soft);
+  }
+  .revision ul{margin:0; padding-left:18px;}
+  .revision li{margin-bottom:8px; font-size:13.5px; font-family:"Avenir Next","Segoe UI",sans-serif; color:#DDE4EC;}
+  .revision li::marker{color:var(--mustard);}
+
+  @media (max-width:420px){
+    header h1{font-size:22px;}
+    .unit h2{font-size:19px;}
+  }
+
+  /* ===== Visual add-ons (diagrams, flowcharts, maps) ===== */
+  .viz{
+    background:linear-gradient(180deg, color-mix(in srgb, var(--u-color, var(--navy)) 5%, white), #FFFFFF);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 12px 12px;
+    margin:10px 0 16px;
+  }
+  .viz-label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--u-color, var(--navy));
+    margin-bottom:8px;
+  }
+  .viz-label .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--u-color, var(--navy));
+    flex:0 0 auto;
+  }
+  .viz svg{display:block; width:100%; height:auto; overflow:visible;}
+  .viz-caption{
+    font-family:"Avenir Next","Segoe UI",sans-serif;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-top:8px;
+    text-align:center;
+  }
+
+  /* Study map (unit overview mind-map) */
+  .studymap{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:5px solid var(--u-color, var(--navy));
+    border-radius:8px;
+    padding:12px 12px 4px;
+    margin:14px 0 20px;
+  }
+
+  /* Top-of-page master map */
+  .mastermap{
+    background:var(--navy-deep);
+    border-radius:12px;
+    padding:18px 14px 16px;
+    margin:20px 16px 0;
+  }
+  .mastermap .viz-label{color:var(--mustard-soft);}
+  .mastermap .viz-label .dot{background:var(--mustard);}
+  .mastermap .viz-caption{color:#B9C4D3;}
+
+  @media (max-width:420px){
+    .viz{padding:12px 8px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="kicker sans">BBA · MANAGEMENT INFORMATION SYSTEMS</p>
+  <h1>MIS — Exam-Ready Notes</h1>
+  <p class="sub">4 Units · Tap a section to expand · Swipe chips to jump</p>
+  <nav class="unitnav">
+    <a href="#u1">Unit 1 · Fundamentals</a>
+    <a href="#u2">Unit 2 · DBMS</a>
+    <a href="#u3">Unit 3 · IS Applications</a>
+    <a href="#u4">Unit 4 · Managing Projects</a>
+  </nav>
+</header>
+
+<div class="mastermap">
+  <div class="viz-label"><span class="dot"></span>Course Map · How the 4 units connect</div>
+  <svg viewBox="0 0 340 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Overview map of the four MIS units">
+    <g font-family="Avenir Next, Segoe UI, sans-serif">
+      <!-- connecting lines -->
+      <line x1="170" y1="42" x2="80" y2="80" stroke="#3E5674" stroke-width="1.5"/>
+      <line x1="170" y1="42" x2="260" y2="80" stroke="#3E5674" stroke-width="1.5"/>
+      <line x1="80" y1="150" x2="80" y2="182" stroke="#3E5674" stroke-width="1.5" stroke-dasharray="2,3"/>
+      <line x1="260" y1="150" x2="260" y2="182" stroke="#3E5674" stroke-width="1.5" stroke-dasharray="2,3"/>
+
+      <!-- center node -->
+      <circle cx="170" cy="28" r="26" fill="#F2E0BB"/>
+      <text x="170" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#132743">MIS</text>
+
+      <!-- Unit 1 -->
+      <rect x="16" y="80" width="128" height="56" rx="7" fill="var(--unit1)"/>
+      <text x="80" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">UNIT 1</text>
+      <text x="80" y="115" text-anchor="middle" font-size="9" fill="#EAF0F7">Fundamentals of MIS</text>
+      <text x="80" y="127" text-anchor="middle" font-size="8" fill="#C9D6E4">Levels · Dimensions · IT Infra</text>
+
+      <!-- Unit 2 -->
+      <rect x="196" y="80" width="128" height="56" rx="7" fill="var(--unit2)"/>
+      <text x="260" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">UNIT 2</text>
+      <text x="260" y="115" text-anchor="middle" font-size="9" fill="#F7EAE1">Database Mgmt System</text>
+      <text x="260" y="127" text-anchor="middle" font-size="8" fill="#EAD5C4">DBMS · ACID · ER Model</text>
+
+      <!-- Unit 3 -->
+      <rect x="16" y="182" width="128" height="56" rx="7" fill="var(--unit3)"/>
+      <text x="80" y="203" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">UNIT 3</text>
+      <text x="80" y="217" text-anchor="middle" font-size="9" fill="#E6F0E9">IS Applications</text>
+      <text x="80" y="229" text-anchor="middle" font-size="8" fill="#C8DECD">DSS · GDSS · E-Commerce</text>
+
+      <!-- Unit 4 -->
+      <rect x="196" y="182" width="128" height="56" rx="7" fill="var(--unit4)"/>
+      <text x="260" y="203" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">UNIT 4</text>
+      <text x="260" y="217" text-anchor="middle" font-size="9" fill="#F3E4EC">Managing Projects</text>
+      <text x="260" y="229" text-anchor="middle" font-size="8" fill="#E0C6D3">Scrum · Risk · Ethics</text>
+    </g>
+  </svg>
+  <div class="viz-caption">Tap the chips above to jump straight to a unit</div>
+</div>
+
+<main>
+
+<!-- ================= UNIT 1 ================= -->
+<section class="unit" id="u1" style="--u-color:var(--unit1)">
+  <div class="unit-head">
+    <span class="unit-num">UNIT 1</span>
+    <h2>Fundamentals Concepts of MIS</h2>
+  </div>
+  <p class="desc">Basics of MIS · Types of MIS · Dimensions &amp; components of IS · Benefits of MIS · IT infrastructure &amp; its evolution · Components of IT infrastructure · Building systems in the digital firm era</p>
+
+  <details class="section" open>
+    <summary>1. What is MIS? <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>MIS (Management Information System)</b> = a system that collects, processes, stores, and distributes <b>information</b> to support decision-making, coordination, control, analysis, and visualization in an organization.</div>
+      <ul class="l1">
+        <li><span class="term">Data vs Information vs Knowledge</span>
+          <ul class="l2">
+            <li><b>Data</b> — raw, unorganized facts (e.g. "45, 62, 78")</li>
+            <li><b>Information</b> — data given meaning/context (e.g. "78 = highest marks in Economics")</li>
+            <li><b>Knowledge</b> — information combined with experience/rules to guide action</li>
+          </ul>
+        </li>
+        <li><span class="term">Purpose of MIS</span>
+          <ul class="l2">
+            <li>Support routine operations (Transaction Processing)</li>
+            <li>Support tactical/managerial decisions</li>
+            <li>Support strategic, long-term planning</li>
+            <li>Improve coordination between departments</li>
+          </ul>
+        </li>
+        <li><span class="term">Three components of the word "MIS"</span>
+          <ul class="l2">
+            <li><b>Management</b> — planning, organizing, directing, controlling</li>
+            <li><b>Information</b> — processed, meaningful data</li>
+            <li><b>System</b> — set of interrelated components working toward a common goal</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="tip"><b>Exam tip:</b> Always define MIS as a "triangle" of People + Technology + Organization/Process — examiners like this framing.</div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>2. Types of MIS (by organizational level) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <table>
+        <tr><th>Type</th><th>Level Served</th><th>Purpose / Example</th></tr>
+        <tr><td><b>TPS</b><br>Transaction Processing System</td><td>Operational (lowest)</td><td>Records day-to-day routine transactions — payroll, order entry, billing</td></tr>
+        <tr><td><b>MIS (narrow sense)</b><br>Management Reporting System</td><td>Middle management</td><td>Summarized/periodic reports for monitoring &amp; control (e.g. weekly sales report)</td></tr>
+        <tr><td><b>DSS</b><br>Decision Support System</td><td>Middle/senior management</td><td>Analytical, model-based support for semi-structured decisions</td></tr>
+        <tr><td><b>ESS / EIS</b><br>Executive Support System</td><td>Top/strategic management</td><td>High-level, graphical summaries for unstructured strategic decisions</td></tr>
+        <tr><td><b>OAS</b><br>Office Automation System</td><td>Clerical/knowledge workers</td><td>Email, word processing, scheduling — improves office productivity</td></tr>
+        <tr><td><b>KWS</b><br>Knowledge Work System</td><td>Knowledge workers</td><td>CAD, engineering workstations — creates new knowledge</td></tr>
+      </table>
+      <div class="mnem">Mnemonic: T-M-D-E (bottom → top): TPS → MIS → DSS → ESS</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>The MIS Pyramid</div>
+        <svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pyramid showing TPS at the bottom rising through MIS and DSS to ESS at the top, for strategic, tactical, and operational levels">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <polygon points="160,10 210,52 110,52" fill="var(--unit1)"/>
+            <text x="160" y="38" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">ESS</text>
+
+            <polygon points="110,52 210,52 240,94 80,94" fill="color-mix(in srgb, var(--unit1) 78%, white)"/>
+            <text x="160" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#132743">DSS</text>
+
+            <polygon points="80,94 240,94 270,136 50,136" fill="color-mix(in srgb, var(--unit1) 52%, white)"/>
+            <text x="160" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#132743">MIS</text>
+
+            <polygon points="50,136 270,136 300,178 20,178" fill="color-mix(in srgb, var(--unit1) 26%, white)"/>
+            <text x="160" y="164" text-anchor="middle" font-size="11" font-weight="700" fill="#132743">TPS</text>
+
+            <text x="8" y="34" font-size="8.3" fill="var(--ink-soft)">Top /</text>
+            <text x="8" y="43" font-size="8.3" fill="var(--ink-soft)">Strategic</text>
+            <text x="8" y="172" font-size="8.3" fill="var(--ink-soft)">Operational</text>
+          </g>
+        </svg>
+        <div class="viz-caption">Higher up = fewer, less structured decisions for senior management. Lower down = high-volume, routine transactions.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>3. Dimensions of Information Systems <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <p class="sans" style="font-size:13px;color:var(--ink-soft);margin-top:4px;">An IS is NOT just technology — it has 3 dimensions (very important diagram-based question):</p>
+      <ul class="l1">
+        <li><span class="term">1. Organization dimension</span>
+          <ul class="l2">
+            <li>Hierarchy, functional specialties (sales, finance, HR, manufacturing)</li>
+            <li>Business processes, culture, standard operating procedures (SOPs)</li>
+          </ul>
+        </li>
+        <li><span class="term">2. Management dimension</span>
+          <ul class="l2">
+            <li>Managers set strategy, allocate resources, make decisions</li>
+            <li>Perceive challenges, create new products/services, decide how to use IT</li>
+          </ul>
+        </li>
+        <li><span class="term">3. Technology dimension</span>
+          <ul class="l2">
+            <li><b>Computer hardware</b> — physical devices</li>
+            <li><b>Computer software</b> — programs controlling hardware</li>
+            <li><b>Data management technology</b> — organizing/managing data (DBMS)</li>
+            <li><b>Networking &amp; telecommunications technology</b> — linking devices/systems (incl. Internet)</li>
+            <li><b>IT services</b> — combination of the above, managed by IT staff</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="def"><b>Key line for exams:</b> "Information systems literacy" = understanding the organizational, management, AND technology dimensions — not just "computer literacy" (technical knowledge alone).</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>3 Dimensions of an Information System</div>
+        <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangle diagram with Information System at the centre and Organization, Management, and Technology as the three connected dimensions">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <line x1="160" y1="105" x2="160" y2="30" stroke="#C7CFD9" stroke-width="1.5"/>
+            <line x1="160" y1="105" x2="55" y2="170" stroke="#C7CFD9" stroke-width="1.5"/>
+            <line x1="160" y1="105" x2="265" y2="170" stroke="#C7CFD9" stroke-width="1.5"/>
+
+            <circle cx="160" cy="105" r="42" fill="var(--mustard-soft)"/>
+            <text x="160" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4A3A12">Information</text>
+            <text x="160" y="114" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4A3A12">System</text>
+
+            <rect x="105" y="4" width="110" height="40" rx="8" fill="var(--unit1)"/>
+            <text x="160" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Organization</text>
+            <text x="160" y="33" text-anchor="middle" font-size="7.8" fill="#DCE6F0">Structure, culture, SOPs</text>
+
+            <rect x="4" y="170" width="120" height="36" rx="8" fill="var(--unit1)"/>
+            <text x="64" y="187" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Management</text>
+            <text x="64" y="199" text-anchor="middle" font-size="7.8" fill="#DCE6F0">Strategy, decisions</text>
+
+            <rect x="196" y="170" width="120" height="36" rx="8" fill="var(--unit1)"/>
+            <text x="256" y="187" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Technology</text>
+            <text x="256" y="199" text-anchor="middle" font-size="7.8" fill="#DCE6F0">Hardware, software, data</text>
+          </g>
+        </svg>
+        <div class="viz-caption">An IS only works when all 3 dimensions come together — not technology alone.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>4. Components of an Information System <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Input</b> — capturing/gathering raw data from within the organization or external environment</li>
+        <li><b>Processing</b> — converting raw input into meaningful form (classifying, sorting, calculating)</li>
+        <li><b>Output</b> — transferring processed information to people/activities that use it</li>
+        <li><b>Feedback</b> — output returned to appropriate members to help evaluate/correct the input stage</li>
+        <li><b>Control</b> — monitoring &amp; evaluating feedback to keep system on target</li>
+      </ul>
+      <div class="tip"><b>Draw this as a flow:</b> Input → Processing → Output → Feedback → (loops back to) Input</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>IS Component Flow</div>
+        <svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart of Input leading to Processing leading to Output, with Feedback looping back through Control to Input">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="8" y="20" width="86" height="42" rx="7" fill="var(--unit1)"/>
+            <text x="51" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">Input</text>
+
+            <rect x="117" y="20" width="86" height="42" rx="7" fill="var(--unit1)"/>
+            <text x="160" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">Processing</text>
+
+            <rect x="226" y="20" width="86" height="42" rx="7" fill="var(--unit1)"/>
+            <text x="269" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">Output</text>
+
+            <path d="M94 41 L117 41" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arrow1u1)"/>
+            <path d="M203 41 L226 41" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arrow1u1)"/>
+
+            <rect x="117" y="108" width="86" height="42" rx="7" fill="var(--mustard)"/>
+            <text x="160" y="134" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">Control</text>
+
+            <rect x="8" y="108" width="86" height="42" rx="7" fill="color-mix(in srgb, var(--mustard) 55%, white)"/>
+            <text x="51" y="134" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4A3A12">Feedback</text>
+
+            <path d="M269 62 L269 129 L203 129" stroke="var(--ink-soft)" stroke-width="2" fill="none" marker-end="url(#arrow1u1)"/>
+            <path d="M117 129 L94 129" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arrow1u1)"/>
+            <path d="M51 108 L51 62" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#arrow1u1)"/>
+
+            <defs>
+              <marker id="arrow1u1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+        <div class="viz-caption">Output creates Feedback, Feedback is checked by Control, Control adjusts the next round of Input — a continuous loop.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>5. Benefits of MIS <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><span class="term">Decision-making support</span>
+          <ul class="l2"><li>Timely, accurate, relevant data for structured &amp; semi-structured decisions</li></ul>
+        </li>
+        <li><span class="term">Improves efficiency &amp; productivity</span>
+          <ul class="l2"><li>Automates routine tasks; reduces manual paperwork &amp; duplication</li></ul>
+        </li>
+        <li><span class="term">Better coordination &amp; communication</span>
+          <ul class="l2"><li>Links departments; single version of truth across the firm</li></ul>
+        </li>
+        <li><span class="term">Competitive advantage</span>
+          <ul class="l2"><li>Faster response to market; supports innovation &amp; differentiation</li></ul>
+        </li>
+        <li><span class="term">Control &amp; monitoring</span>
+          <ul class="l2"><li>Tracks performance against goals/budgets; supports internal control &amp; audit</li></ul>
+        </li>
+        <li><span class="term">Record-keeping &amp; historical analysis</span>
+          <ul class="l2"><li>Maintains organizational memory; supports trend/forecast analysis</li></ul>
+        </li>
+        <li><span class="term">Cost reduction</span>
+          <ul class="l2"><li>Reduces labor costs, error costs, inventory holding costs</li></ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>6. IT Infrastructure &amp; Its Evolution <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>IT Infrastructure</b> = the shared technology resources (hardware, software, data, storage, networks) that provide the platform for all information systems in the firm.</div>
+      <p class="sans" style="font-size:13px;color:var(--ink-soft);"><b>Evolution — 5 Eras (very common exam question, write in sequence):</b></p>
+      <ul class="l1">
+        <li><b>1. General-purpose mainframe &amp; minicomputer era (1959–present)</b>
+          <ul class="l2"><li>Highly centralized computing under professional programmers/operators; mainframes + minicomputers (e.g. IBM 1401, DEC minicomputers)</li></ul>
+        </li>
+        <li><b>2. Personal computer era (1981–present)</b>
+          <ul class="l2"><li>IBM PC (1981) popularized desktop computing; PC operating systems (DOS, Windows) grew; decentralization began</li></ul>
+        </li>
+        <li><b>3. Client/Server era (1983–present)</b>
+          <ul class="l2"><li>Desktop "clients" networked to powerful "servers" that handle processing/data storage; multi-tiered (2-tier, N-tier) client/server networks</li></ul>
+        </li>
+        <li><b>4. Enterprise computing era (1992–present)</b>
+          <ul class="l2"><li>Firms use TCP/IP networking to tie disparate networks into an enterprise-wide infrastructure; links to ERP, SCM, CRM systems</li></ul>
+        </li>
+        <li><b>5. Cloud &amp; mobile computing era (2000–present)</b>
+          <ul class="l2"><li>Firms/individuals get computing power &amp; software over the Internet ("cloud"); explosion of smartphones/tablets as business computing devices</li></ul>
+        </li>
+      </ul>
+      <div class="mnem">Mnemonic: <b>M</b>ain-frame → <b>P</b>C → <b>C</b>lient-Server → <b>E</b>nterprise → <b>C</b>loud/Mobile ("My Poor Cat Eats Cake")</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>5 Eras of IT Infrastructure</div>
+        <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline of five IT infrastructure eras from Mainframe through PC, Client-Server, Enterprise, to Cloud and Mobile">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <line x1="26" y1="30" x2="294" y2="30" stroke="#C7CFD9" stroke-width="2"/>
+            <g>
+              <circle cx="26" cy="30" r="6" fill="var(--unit1)"/>
+              <text x="26" y="15" text-anchor="middle" font-size="8" fill="var(--ink-soft)">1959</text>
+              <text x="26" y="55" text-anchor="middle" font-size="8.3" font-weight="700" fill="var(--ink)">Mainframe</text>
+              <text x="26" y="66" text-anchor="middle" font-size="7.3" fill="var(--ink-soft)">&amp; mini</text>
+            </g>
+            <g>
+              <circle cx="93" cy="30" r="6" fill="var(--unit1)"/>
+              <text x="93" y="15" text-anchor="middle" font-size="8" fill="var(--ink-soft)">1981</text>
+              <text x="93" y="55" text-anchor="middle" font-size="8.3" font-weight="700" fill="var(--ink)">Personal</text>
+              <text x="93" y="66" text-anchor="middle" font-size="7.3" fill="var(--ink-soft)">Computer</text>
+            </g>
+            <g>
+              <circle cx="160" cy="30" r="6" fill="var(--unit1)"/>
+              <text x="160" y="15" text-anchor="middle" font-size="8" fill="var(--ink-soft)">1983</text>
+              <text x="160" y="55" text-anchor="middle" font-size="8.3" font-weight="700" fill="var(--ink)">Client/</text>
+              <text x="160" y="66" text-anchor="middle" font-size="7.3" fill="var(--ink-soft)">Server</text>
+            </g>
+            <g>
+              <circle cx="227" cy="30" r="6" fill="var(--unit1)"/>
+              <text x="227" y="15" text-anchor="middle" font-size="8" fill="var(--ink-soft)">1992</text>
+              <text x="227" y="55" text-anchor="middle" font-size="8.3" font-weight="700" fill="var(--ink)">Enterprise</text>
+              <text x="227" y="66" text-anchor="middle" font-size="7.3" fill="var(--ink-soft)">Computing</text>
+            </g>
+            <g>
+              <circle cx="294" cy="30" r="6" fill="var(--unit1)"/>
+              <text x="294" y="15" text-anchor="middle" font-size="8" fill="var(--ink-soft)">2000</text>
+              <text x="294" y="55" text-anchor="middle" font-size="8.3" font-weight="700" fill="var(--ink)">Cloud &amp;</text>
+              <text x="294" y="66" text-anchor="middle" font-size="7.3" fill="var(--ink-soft)">Mobile</text>
+            </g>
+            <rect x="10" y="90" width="300" height="50" rx="6" fill="var(--mustard-soft)"/>
+            <text x="160" y="108" text-anchor="middle" font-size="9" font-weight="700" fill="#4A3A12">M · P · C · E · C</text>
+            <text x="160" y="123" text-anchor="middle" font-size="8" fill="#4A3A12">"My Poor Cat Eats Cake"</text>
+            <text x="160" y="134" text-anchor="middle" font-size="7.3" fill="#7A5C22">centralized → decentralized → networked → integrated → on-demand</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>7. Components of IT Infrastructure <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Computer hardware platforms</b> — client machines, servers, mainframes (Dell, HP, IBM, Apple)</li>
+        <li><b>Operating system platforms</b> — Windows, Linux/UNIX, macOS, mobile OS (Android/iOS)</li>
+        <li><b>Enterprise software applications</b> — ERP, SCM, CRM, KM systems (SAP, Oracle, Microsoft)</li>
+        <li><b>Data management &amp; storage</b> — DBMS software + physical storage (SAN, cloud storage)</li>
+        <li><b>Networking / telecommunications platforms</b> — network operating systems, telecom services (wired/wireless, Internet)</li>
+        <li><b>Internet platforms</b> — hardware/software to support company websites, intranets, extranets</li>
+        <li><b>Consulting &amp; system integration services</b> — vendors who integrate new tech with legacy systems</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>8. New Approaches for System Building in the Digital Firm Era <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>Digital firm</b> = an organization where nearly all significant business processes and relationships with customers, suppliers, and employees are digitally enabled and mediated.</div>
+      <ul class="l1">
+        <li><span class="term">Cloud computing</span>
+          <ul class="l2"><li>On-demand computing resources (SaaS, PaaS, IaaS) accessed over the Internet — no need to own infrastructure</li></ul>
+        </li>
+        <li><span class="term">Service-Oriented Architecture (SOA)</span>
+          <ul class="l2"><li>Software built as reusable "services" that different applications can call — flexible, modular systems</li></ul>
+        </li>
+        <li><span class="term">Mobile digital platform</span>
+          <ul class="l2"><li>Smartphones/tablets used as business platforms — mobile apps, mobile commerce</li></ul>
+        </li>
+        <li><span class="term">Agile development / Rapid Application Development (RAD)</span>
+          <ul class="l2"><li>Iterative, incremental building of systems instead of long traditional SDLC cycles</li></ul>
+        </li>
+        <li><span class="term">Outsourcing &amp; end-user development</span>
+          <ul class="l2"><li>Getting systems built by external vendors or by business users themselves (low-code/no-code tools)</li></ul>
+        </li>
+        <li><span class="term">Big Data &amp; Business Intelligence tools</span>
+          <ul class="l2"><li>Handling huge, varied, fast-moving data (Volume, Velocity, Variety) for real-time decision-making</li></ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- ================= UNIT 2 ================= -->
+<section class="unit" id="u2" style="--u-color:var(--unit2)">
+  <div class="unit-head">
+    <span class="unit-num">UNIT 2</span>
+    <h2>Database Management System</h2>
+  </div>
+  <p class="desc">Objectives of database approach · Characteristics of DBMS · Data processing system · Components of DBMS packages · Database administration · ER model (conceptual)</p>
+
+  <details class="section" open>
+    <summary>1. Traditional File Approach — Problems <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <p class="sans" style="font-size:13px;color:var(--ink-soft);">Before DBMS, each application had its own separate data files → this created problems, which is WHY the database approach was needed:</p>
+      <ul class="l1">
+        <li><b>Data redundancy</b> — same data duplicated in many files</li>
+        <li><b>Data inconsistency</b> — different values of "same" fact in different files</li>
+        <li><b>Program–data dependence</b> — programs tightly tied to specific file format; any change breaks the program</li>
+        <li><b>Lack of flexibility</b> — difficult to produce new/ad-hoc reports quickly</li>
+        <li><b>Poor security</b> — little control over data access</li>
+        <li><b>Poor data sharing &amp; availability</b> — data scattered, hard to share across departments</li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>File Approach vs Database Approach</div>
+        <svg viewBox="0 0 320 165" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison: three applications each with their own separate data file causing duplication, versus three applications sharing one common database via a DBMS">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <text x="80" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="var(--unit2)">FILE APPROACH</text>
+            <rect x="14" y="22" width="56" height="24" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="42" y="38" text-anchor="middle" font-size="7.5" fill="#fff">Payroll App</text>
+            <rect x="14" y="54" width="56" height="24" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="42" y="70" text-anchor="middle" font-size="7.5" fill="#fff">Sales App</text>
+            <rect x="14" y="86" width="56" height="24" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="42" y="102" text-anchor="middle" font-size="7.5" fill="#fff">HR App</text>
+
+            <rect x="90" y="22" width="60" height="24" rx="4" fill="#EFE3DA" stroke="var(--unit2)"/>
+            <text x="120" y="38" text-anchor="middle" font-size="7" fill="#5A3B26">File A</text>
+            <rect x="90" y="54" width="60" height="24" rx="4" fill="#EFE3DA" stroke="var(--unit2)"/>
+            <text x="120" y="70" text-anchor="middle" font-size="7" fill="#5A3B26">File B</text>
+            <rect x="90" y="86" width="60" height="24" rx="4" fill="#EFE3DA" stroke="var(--unit2)"/>
+            <text x="120" y="102" text-anchor="middle" font-size="7" fill="#5A3B26">File C</text>
+
+            <line x1="70" y1="34" x2="90" y2="34" stroke="var(--unit2)" stroke-width="1.5"/>
+            <line x1="70" y1="66" x2="90" y2="66" stroke="var(--unit2)" stroke-width="1.5"/>
+            <line x1="70" y1="98" x2="90" y2="98" stroke="var(--unit2)" stroke-width="1.5"/>
+            <text x="82" y="130" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">duplicated,</text>
+            <text x="82" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">inconsistent data</text>
+
+            <line x1="182" y1="82" x2="200" y2="82" stroke="#C7CFD9" stroke-width="1.5"/>
+
+            <text x="255" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="var(--unit2)">DATABASE APPROACH</text>
+            <rect x="204" y="22" width="52" height="22" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="230" y="36" text-anchor="middle" font-size="7" fill="#fff">Payroll</text>
+            <rect x="204" y="94" width="52" height="22" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="230" y="108" text-anchor="middle" font-size="7" fill="#fff">Sales</text>
+            <rect x="264" y="58" width="52" height="22" rx="4" fill="color-mix(in srgb, var(--unit2) 70%, white)"/>
+            <text x="290" y="72" text-anchor="middle" font-size="7" fill="#fff">HR</text>
+
+            <rect x="228" y="52" width="64" height="34" rx="17" fill="var(--mustard)"/>
+            <text x="260" y="66" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">DBMS +</text>
+            <text x="260" y="76" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">Shared DB</text>
+
+            <line x1="230" y1="44" x2="245" y2="52" stroke="var(--unit2)" stroke-width="1.3"/>
+            <line x1="230" y1="94" x2="245" y2="86" stroke="var(--unit2)" stroke-width="1.3"/>
+            <line x1="290" y1="58" x2="278" y2="60" stroke="var(--unit2)" stroke-width="1.3"/>
+            <text x="260" y="130" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">single source,</text>
+            <text x="260" y="140" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">consistent data</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>2. Objectives of the Database Approach <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Minimize data redundancy</b> — store each fact only once (or in controlled/known duplication)</li>
+        <li><b>Ensure data consistency</b> — one update reflects everywhere</li>
+        <li><b>Achieve data independence</b> — separate data structure from application programs (physical &amp; logical independence)</li>
+        <li><b>Enable data sharing</b> — multiple users/applications access the same data concurrently</li>
+        <li><b>Improve data security</b> — access control, authorization levels, encryption</li>
+        <li><b>Improve data integrity</b> — enforce accuracy &amp; validity via constraints/rules</li>
+        <li><b>Support concurrent access</b> — many users work on database at the same time without conflict</li>
+        <li><b>Provide backup &amp; recovery</b> — protect against data loss/failure</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>3. Characteristics / Features of DBMS <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>DBMS</b> = software that lets an organization create, store, organize, and access data from a single database (or set of linked databases), acting as an interface between application programs and physical data files.</div>
+      <ul class="l1">
+        <li><b>Self-describing nature</b> — DBMS contains not just the database but also metadata (data dictionary) describing its own structure</li>
+        <li><b>Data abstraction</b> — provides an abstract view; hides storage/implementation details from users</li>
+        <li><b>Support for multiple views</b> — different users see different "views" of the same data</li>
+        <li><b>Data sharing &amp; multi-user access</b> — with concurrency control (locking, transaction management)</li>
+        <li><b>Control of data redundancy</b></li>
+        <li><b>Enforces integrity constraints</b> — e.g. primary key, foreign key, not-null, uniqueness</li>
+        <li><b>Restricts unauthorized access</b> — via user accounts, passwords, permission levels</li>
+        <li><b>Provides backup &amp; recovery mechanisms</b></li>
+        <li><b>Supports transactions with ACID properties</b>
+          <ul class="l2">
+            <li><b>A</b>tomicity — all-or-nothing execution</li>
+            <li><b>C</b>onsistency — DB moves from one valid state to another</li>
+            <li><b>I</b>solation — concurrent transactions don't interfere</li>
+            <li><b>D</b>urability — committed changes survive failures</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>ACID at a Glance</div>
+        <svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four ACID property blocks: Atomicity, Consistency, Isolation, Durability">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="4" y="8" width="72" height="84" rx="8" fill="var(--unit2)"/>
+            <text x="40" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">A</text>
+            <text x="40" y="48" text-anchor="middle" font-size="7.3" fill="#F7EAE1">Atomicity</text>
+            <text x="40" y="60" text-anchor="middle" font-size="6.3" fill="#F0D9C6">all-or-</text>
+            <text x="40" y="69" text-anchor="middle" font-size="6.3" fill="#F0D9C6">nothing</text>
+
+            <rect x="82" y="8" width="72" height="84" rx="8" fill="color-mix(in srgb, var(--unit2) 82%, white)"/>
+            <text x="118" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">C</text>
+            <text x="118" y="48" text-anchor="middle" font-size="7.3" fill="#F7EAE1">Consistency</text>
+            <text x="118" y="60" text-anchor="middle" font-size="6.3" fill="#F0D9C6">valid state</text>
+            <text x="118" y="69" text-anchor="middle" font-size="6.3" fill="#F0D9C6">to valid state</text>
+
+            <rect x="160" y="8" width="72" height="84" rx="8" fill="color-mix(in srgb, var(--unit2) 64%, white)"/>
+            <text x="196" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">I</text>
+            <text x="196" y="48" text-anchor="middle" font-size="7.3" fill="#4A2E1A">Isolation</text>
+            <text x="196" y="60" text-anchor="middle" font-size="6.3" fill="#5A3B26">transactions</text>
+            <text x="196" y="69" text-anchor="middle" font-size="6.3" fill="#5A3B26">don't clash</text>
+
+            <rect x="238" y="8" width="72" height="84" rx="8" fill="color-mix(in srgb, var(--unit2) 46%, white)"/>
+            <text x="274" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#4A2E1A">D</text>
+            <text x="274" y="48" text-anchor="middle" font-size="7.3" fill="#4A2E1A">Durability</text>
+            <text x="274" y="60" text-anchor="middle" font-size="6.3" fill="#5A3B26">survives a</text>
+            <text x="274" y="69" text-anchor="middle" font-size="6.3" fill="#5A3B26">crash</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>4. Data Processing System <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>Data processing</b> = the process of converting raw data into meaningful information through a series of operations.</div>
+      <ul class="l1">
+        <li><span class="term">Cycle of data processing</span>
+          <ul class="l2">
+            <li><b>Collection</b> — gathering raw data</li>
+            <li><b>Preparation/Input</b> — organizing, coding, validating data</li>
+            <li><b>Processing</b> — sorting, classifying, calculating, summarizing</li>
+            <li><b>Output</b> — presenting results as reports/documents</li>
+            <li><b>Storage</b> — retaining data/output for future use</li>
+          </ul>
+        </li>
+        <li><span class="term">Types of data processing</span>
+          <ul class="l2">
+            <li><b>Manual data processing</b> — done by hand, no machines</li>
+            <li><b>Mechanical data processing</b> — using devices like calculators, typewriters</li>
+            <li><b>Electronic Data Processing (EDP)</b> — using computers; further divided into:
+              <ul class="l3">
+                <li><b>Batch processing</b> — transactions accumulated &amp; processed together at intervals (e.g. monthly payroll)</li>
+                <li><b>Online/Real-time processing</b> — transactions processed immediately as they occur (e.g. ATM withdrawal, railway booking)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>5. Components of DBMS Package <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Data Definition Language (DDL) &amp; DDL Compiler</b> — defines database schema/structure (CREATE, ALTER, DROP)</li>
+        <li><b>Data Manipulation Language (DML) &amp; DML Compiler</b> — for inserting, updating, deleting, retrieving data (INSERT, UPDATE, DELETE, SELECT)</li>
+        <li><b>Query processor / Query optimizer</b> — interprets queries (e.g. SQL) and finds efficient execution plan</li>
+        <li><b>Data dictionary / Data catalog / System catalog</b> — stores metadata: table names, field names, data types, relationships</li>
+        <li><b>Database engine</b> — core service for accessing &amp; processing data</li>
+        <li><b>Transaction manager</b> — ensures ACID properties during concurrent transactions</li>
+        <li><b>Storage manager / File manager</b> — manages physical storage of data on disk</li>
+        <li><b>Buffer manager</b> — manages data transfer between disk storage and main memory</li>
+        <li><b>Report generator / Application generator</b> — tools for creating forms &amp; reports</li>
+        <li><b>Security &amp; authorization module</b> — user access control</li>
+        <li><b>Backup &amp; recovery manager</b> — restores database after failure/crash</li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>DBMS: How a Query Flows</div>
+        <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered flow from user through DML/DDL compiler, query processor, transaction manager, buffer manager, down to physical storage on disk">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="90" y="4" width="140" height="28" rx="6" fill="var(--ink)"/>
+            <text x="160" y="22" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">User / Application</text>
+
+            <rect x="70" y="44" width="180" height="28" rx="6" fill="var(--unit2)"/>
+            <text x="160" y="62" text-anchor="middle" font-size="9" fill="#fff">DDL / DML Compiler</text>
+
+            <rect x="70" y="84" width="180" height="28" rx="6" fill="color-mix(in srgb, var(--unit2) 80%, white)"/>
+            <text x="160" y="102" text-anchor="middle" font-size="9" fill="#fff">Query Processor / Optimizer</text>
+
+            <rect x="20" y="124" width="128" height="28" rx="6" fill="color-mix(in srgb, var(--unit2) 60%, white)"/>
+            <text x="84" y="142" text-anchor="middle" font-size="8.3" fill="#3A2515">Transaction Manager</text>
+
+            <rect x="172" y="124" width="128" height="28" rx="6" fill="color-mix(in srgb, var(--unit2) 60%, white)"/>
+            <text x="236" y="142" text-anchor="middle" font-size="8.3" fill="#3A2515">Buffer Manager</text>
+
+            <rect x="90" y="164" width="140" height="28" rx="6" fill="var(--mustard-soft)"/>
+            <text x="160" y="182" text-anchor="middle" font-size="9" font-weight="700" fill="#4A3A12">Physical Storage (Disk)</text>
+
+            <path d="M160 32 L160 44" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+            <path d="M160 72 L160 84" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+            <path d="M130 112 L90 124" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+            <path d="M190 112 L230 124" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+            <path d="M84 152 L130 164" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+            <path d="M236 152 L190 164" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow2u2)"/>
+
+            <defs>
+              <marker id="arrow2u2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+        <div class="viz-caption">Data dictionary &amp; security modules sit alongside every layer, checking metadata and permissions.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>6. Database Administration (DBA) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>DBA (Database Administrator)</b> = the person/team responsible for the technical management, control, and security of the organization's database(s).</div>
+      <ul class="l1">
+        <li><span class="term">Functions/Responsibilities of DBA</span>
+          <ul class="l2">
+            <li>Designing &amp; defining the database schema</li>
+            <li>Creating, modifying database structures (DDL operations)</li>
+            <li>Granting/revoking user access &amp; managing authorization</li>
+            <li>Ensuring data security &amp; privacy</li>
+            <li>Backup &amp; disaster recovery planning</li>
+            <li>Monitoring performance &amp; tuning the database</li>
+            <li>Maintaining data integrity &amp; enforcing standards</li>
+            <li>Coordinating with end users, resolving conflicts over data</li>
+            <li>Managing the data dictionary</li>
+            <li>Ensuring compliance with policies/regulations</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>7. Entity–Relationship (ER) Model — Conceptual Design <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>ER Model</b> = a conceptual, graphical way of representing data requirements of an organization using entities, attributes, and relationships — the blueprint before actual database tables are created.</div>
+      <ul class="l1">
+        <li><span class="term">Entity</span> — a real-world "thing" or object about which data is stored (e.g. Student, Employee, Product)
+          <ul class="l2">
+            <li><b>Entity set</b> — collection of similar entities (e.g. all Students)</li>
+            <li><b>Weak entity</b> — cannot be uniquely identified by its own attributes alone; depends on a "strong/owner" entity</li>
+          </ul>
+        </li>
+        <li><span class="term">Attribute</span> — property/characteristic describing an entity (e.g. Student → Name, Roll No, DOB)
+          <ul class="l2">
+            <li><b>Simple attribute</b> — cannot be divided further (e.g. Age)</li>
+            <li><b>Composite attribute</b> — can be broken into sub-parts (e.g. Name → First, Last)</li>
+            <li><b>Single-valued</b> — one value only (e.g. DOB)</li>
+            <li><b>Multi-valued</b> — can hold multiple values (e.g. Phone Numbers) — shown with double oval/ellipse</li>
+            <li><b>Derived attribute</b> — computed from another attribute (e.g. Age from DOB) — shown with dashed oval</li>
+            <li><b>Key attribute</b> — uniquely identifies an entity instance (Primary Key) — underlined in diagram</li>
+          </ul>
+        </li>
+        <li><span class="term">Relationship</span> — an association between two or more entities (e.g. Student "Enrolls in" Course)
+          <ul class="l2">
+            <li>Represented by a <b>diamond</b> shape in the ER diagram</li>
+          </ul>
+        </li>
+        <li><span class="term">Degree of relationship</span>
+          <ul class="l2">
+            <li><b>Unary (recursive)</b> — entity related to itself (Employee "Manages" Employee)</li>
+            <li><b>Binary</b> — between two entities (most common) (Student–Course)</li>
+            <li><b>Ternary</b> — among three entities (Supplier–Part–Project)</li>
+          </ul>
+        </li>
+        <li><span class="term">Cardinality (mapping) of relationships</span>
+          <ul class="l2">
+            <li><b>One-to-One (1:1)</b> — e.g. Employee — has — Employee ID Card</li>
+            <li><b>One-to-Many (1:M)</b> — e.g. Department — has — Employees</li>
+            <li><b>Many-to-Many (M:N)</b> — e.g. Students — enroll in — Courses</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="sans" style="font-size:13px;color:var(--ink-soft);"><b>ER Diagram Notation (for drawing in exam):</b></p>
+      <ul class="l2">
+        <li><b>Rectangle</b> = Entity</li>
+        <li><b>Oval/Ellipse</b> = Attribute</li>
+        <li><b>Diamond</b> = Relationship</li>
+        <li><b>Lines</b> = connect entities to their attributes and to relationships</li>
+        <li><b>Double rectangle</b> = weak entity; <b>double diamond</b> = identifying relationship</li>
+      </ul>
+      <div class="tip"><b>Exam tip:</b> Practice drawing a small ER diagram — e.g. "Library System": entities Book, Member, Librarian; relationship "Borrows" between Member and Book (M:N), with attributes like Book(ISBN, Title), Member(MemberID, Name).</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>Notation Legend</div>
+        <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Legend showing rectangle for entity, oval for attribute, and diamond for relationship">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="4" y="14" width="60" height="30" rx="3" fill="none" stroke="var(--unit2)" stroke-width="2"/>
+            <text x="34" y="33" text-anchor="middle" font-size="8" fill="var(--ink)">Entity</text>
+
+            <ellipse cx="150" cy="29" rx="40" ry="18" fill="none" stroke="var(--unit2)" stroke-width="2"/>
+            <text x="150" y="33" text-anchor="middle" font-size="8" fill="var(--ink)">Attribute</text>
+
+            <polygon points="256,4 296,29 256,54 216,29" fill="none" stroke="var(--unit2)" stroke-width="2"/>
+            <text x="256" y="33" text-anchor="middle" font-size="7.3" fill="var(--ink)">Relation-</text>
+            <text x="256" y="42" text-anchor="middle" font-size="7.3" fill="var(--ink)">ship</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>Worked Example: Library System ER Diagram</div>
+        <svg viewBox="0 0 320 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ER diagram with Member and Book entities connected by a Borrows relationship diamond, showing many-to-many cardinality, plus attribute ovals for MemberID, Name, ISBN, and Title">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="10" y="94" width="90" height="34" rx="3" fill="var(--unit2)"/>
+            <text x="55" y="115" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">Member</text>
+
+            <rect x="220" y="94" width="90" height="34" rx="3" fill="var(--unit2)"/>
+            <text x="265" y="115" text-anchor="middle" font-size="9.5" font-weight="700" fill="#fff">Book</text>
+
+            <polygon points="160,86 196,111 160,136 124,111" fill="var(--mustard-soft)" stroke="var(--mustard)" stroke-width="1.5"/>
+            <text x="160" y="108" text-anchor="middle" font-size="7.3" fill="#4A3A12">Borrows</text>
+            <text x="160" y="118" text-anchor="middle" font-size="7.3" fill="#4A3A12">(M:N)</text>
+
+            <line x1="100" y1="111" x2="124" y2="111" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <line x1="196" y1="111" x2="220" y2="111" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <text x="112" y="105" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">M</text>
+            <text x="208" y="105" text-anchor="middle" font-size="7.5" fill="var(--ink-soft)">N</text>
+
+            <ellipse cx="55" cy="40" rx="42" ry="17" fill="none" stroke="var(--unit2)" stroke-width="1.5"/>
+            <text x="55" y="44" text-anchor="middle" font-size="7.5" fill="var(--ink)"><tspan text-decoration="underline">MemberID</tspan></text>
+            <line x1="55" y1="57" x2="55" y2="94" stroke="var(--ink-soft)" stroke-width="1.3"/>
+
+            <ellipse cx="150" cy="35" rx="34" ry="16" fill="none" stroke="var(--unit2)" stroke-width="1.5"/>
+            <text x="150" y="39" text-anchor="middle" font-size="7.5" fill="var(--ink)">Name</text>
+            <line x1="130" y1="47" x2="70" y2="94" stroke="var(--ink-soft)" stroke-width="1.3"/>
+
+            <ellipse cx="220" cy="40" rx="38" ry="17" fill="none" stroke="var(--unit2)" stroke-width="1.5"/>
+            <text x="220" y="44" text-anchor="middle" font-size="7.5" fill="var(--ink)"><tspan text-decoration="underline">ISBN</tspan></text>
+            <line x1="220" y1="57" x2="250" y2="94" stroke="var(--ink-soft)" stroke-width="1.3"/>
+
+            <ellipse cx="290" cy="40" rx="30" ry="17" fill="none" stroke="var(--unit2)" stroke-width="1.5"/>
+            <text x="290" y="44" text-anchor="middle" font-size="7.5" fill="var(--ink)">Title</text>
+            <line x1="280" y1="55" x2="270" y2="94" stroke="var(--ink-soft)" stroke-width="1.3"/>
+
+            <rect x="140" y="180" width="90" height="34" rx="3" fill="color-mix(in srgb, var(--unit2) 60%, white)"/>
+            <text x="185" y="201" text-anchor="middle" font-size="9" font-weight="700" fill="#3A2515">Librarian</text>
+            <line x1="185" y1="180" x2="185" y2="136" stroke="var(--ink-soft)" stroke-width="1.3" stroke-dasharray="2,3"/>
+            <text x="185" y="168" text-anchor="middle" font-size="7" fill="var(--ink-soft)">manages</text>
+          </g>
+        </svg>
+        <div class="viz-caption">Underlined attribute = primary key. M and N near the lines show the many-to-many cardinality of "Borrows".</div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ================= UNIT 3 ================= -->
+<section class="unit" id="u3" style="--u-color:var(--unit3)">
+  <div class="unit-head">
+    <span class="unit-num">UNIT 3</span>
+    <h2>Information System Applications</h2>
+  </div>
+  <p class="desc">MIS applications · DSS &amp; GDSS · DSS in E-enterprise · KMS &amp; KBES · Enterprise Model &amp; E-Business · E-Commerce, E-Communication · BPR</p>
+
+  <details class="section" open>
+    <summary>1. MIS Applications (by functional area) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Finance &amp; Accounting Information Systems</b> — budgeting, ledger, cash flow forecasting, financial reporting</li>
+        <li><b>Human Resource Information Systems (HRIS)</b> — payroll, recruitment, training, performance appraisal</li>
+        <li><b>Marketing/Sales Information Systems</b> — sales forecasting, CRM, market research analysis</li>
+        <li><b>Manufacturing/Production Information Systems</b> — inventory control, production scheduling, quality control</li>
+        <li><b>Supply Chain Management (SCM) Systems</b> — coordinate flow of goods/info between suppliers, manufacturers, distributors</li>
+        <li><b>Enterprise Resource Planning (ERP)</b> — integrates all functional areas into one system</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>2. Decision Support System (DSS) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>DSS</b> = a computer-based information system that helps managers make decisions for <b>semi-structured</b> and <b>unstructured</b> problems by combining data, sophisticated analytical models, and user-friendly interfaces.</div>
+      <ul class="l1">
+        <li><span class="term">Characteristics of DSS</span>
+          <ul class="l2">
+            <li>Supports semi-structured/unstructured decisions (unlike TPS which handles structured tasks)</li>
+            <li>Combines models + data + user judgment</li>
+            <li>Interactive, user-friendly, flexible ("what-if" analysis)</li>
+            <li>Supports rather than replaces managerial judgment</li>
+          </ul>
+        </li>
+        <li><span class="term">Components of DSS</span>
+          <ul class="l2">
+            <li><b>Database (data management) subsystem</b> — internal &amp; external data</li>
+            <li><b>Model base (model management) subsystem</b> — statistical, financial, simulation models</li>
+            <li><b>User interface (dialogue management) subsystem</b> — allows interaction between user &amp; system</li>
+            <li>(Sometimes) <b>Knowledge management subsystem</b></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>Anatomy of a DSS</div>
+        <svg viewBox="0 0 320 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three DSS subsystems - database, model base, and user interface - feeding into the manager who makes the decision">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="8" y="10" width="94" height="40" rx="7" fill="var(--unit3)"/>
+            <text x="55" y="28" text-anchor="middle" font-size="8.7" font-weight="700" fill="#fff">Database</text>
+            <text x="55" y="40" text-anchor="middle" font-size="7" fill="#E6F0E9">Subsystem</text>
+
+            <rect x="113" y="10" width="94" height="40" rx="7" fill="var(--unit3)"/>
+            <text x="160" y="28" text-anchor="middle" font-size="8.7" font-weight="700" fill="#fff">Model Base</text>
+            <text x="160" y="40" text-anchor="middle" font-size="7" fill="#E6F0E9">Subsystem</text>
+
+            <rect x="218" y="10" width="94" height="40" rx="7" fill="var(--unit3)"/>
+            <text x="265" y="28" text-anchor="middle" font-size="8.7" font-weight="700" fill="#fff">User Interface</text>
+            <text x="265" y="40" text-anchor="middle" font-size="7" fill="#E6F0E9">Subsystem</text>
+
+            <path d="M55 50 L140 100" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow3u3)"/>
+            <path d="M160 50 L160 100" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow3u3)"/>
+            <path d="M265 50 L180 100" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow3u3)"/>
+
+            <circle cx="160" cy="128" r="30" fill="var(--mustard)"/>
+            <text x="160" y="124" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">DSS</text>
+            <text x="160" y="135" text-anchor="middle" font-size="8" font-weight="700" fill="#fff">Engine</text>
+
+            <path d="M160 158 L160 170" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow3u3)"/>
+            <text x="160" y="185" text-anchor="middle" font-size="8.5" font-weight="700" fill="var(--ink)">Manager's Decision</text>
+
+            <defs>
+              <marker id="arrow3u3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+        <div class="viz-caption">DSS supports — never replaces — the manager's own judgement.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>3. Group Decision Support System (GDSS) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>GDSS</b> = an interactive computer-based system that supports a <b>group</b> of decision-makers working together on a semi-structured/unstructured problem, especially useful for group meetings/brainstorming.</div>
+      <ul class="l1">
+        <li><span class="term">Features</span>
+          <ul class="l2">
+            <li>Allows parallel input from multiple people simultaneously (reduces "production blocking")</li>
+            <li>Anonymity of input — reduces fear of criticism, encourages honest opinions</li>
+            <li>Tools for idea generation, voting, ranking, prioritizing</li>
+            <li>Can be used for same-time/same-place or different-time/different-place meetings</li>
+          </ul>
+        </li>
+        <li><span class="term">Benefits</span>
+          <ul class="l2">
+            <li>Improves group decision quality &amp; participation</li>
+            <li>Saves time; reduces dominance by a few vocal members</li>
+            <li>Creates a documented record of discussion</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>4. DSS Applications in E-Enterprise <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>E-enterprise</b> = an organization that uses digital technology extensively to conduct business, coordinate with partners, and reach customers</li>
+        <li>Application areas of DSS within E-enterprise:
+          <ul class="l2">
+            <li><b>Customer analytics/CRM analytics</b> — analyzing customer buying patterns for targeted offers</li>
+            <li><b>Dynamic pricing decisions</b> — e.g. airline/e-commerce price optimization</li>
+            <li><b>Supply chain &amp; logistics optimization</b> — route planning, inventory decisions</li>
+            <li><b>Financial risk analysis &amp; forecasting</b></li>
+            <li><b>Web analytics &amp; digital marketing decisions</b> — analyzing website traffic/conversion data</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>5. Knowledge Management System (KMS) &amp; Knowledge-Based Expert System (KBES) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>KMS</b> = systems that support the creation, organization, storage, sharing, and application of an organization's knowledge assets.</div>
+      <ul class="l1">
+        <li><span class="term">Types of knowledge</span>
+          <ul class="l2">
+            <li><b>Tacit knowledge</b> — personal, experience-based, hard to document (skills, intuition)</li>
+            <li><b>Explicit knowledge</b> — documented, codified knowledge (manuals, reports, databases)</li>
+          </ul>
+        </li>
+        <li><span class="term">KMS processes</span> — knowledge <b>capture → storage → sharing/dissemination → application</b>
+          <div class="viz" style="margin-top:10px;">
+            <div class="viz-label"><span class="dot"></span>KMS Process Flow</div>
+            <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flow from capture to storage to sharing and dissemination to application">
+              <g font-family="Avenir Next, Segoe UI, sans-serif">
+                <rect x="2" y="12" width="70" height="34" rx="6" fill="var(--unit3)"/>
+                <text x="37" y="33" text-anchor="middle" font-size="8" fill="#fff">Capture</text>
+                <rect x="86" y="12" width="70" height="34" rx="6" fill="var(--unit3)"/>
+                <text x="121" y="33" text-anchor="middle" font-size="8" fill="#fff">Storage</text>
+                <rect x="170" y="12" width="70" height="34" rx="6" fill="var(--unit3)"/>
+                <text x="205" y="28" text-anchor="middle" font-size="7.3" fill="#fff">Sharing /</text>
+                <text x="205" y="38" text-anchor="middle" font-size="7.3" fill="#fff">Dissemination</text>
+                <rect x="254" y="12" width="64" height="34" rx="6" fill="var(--unit3)"/>
+                <text x="286" y="33" text-anchor="middle" font-size="8" fill="#fff">Application</text>
+                <path d="M72 29 L86 29" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow4u3)"/>
+                <path d="M156 29 L170 29" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow4u3)"/>
+                <path d="M240 29 L254 29" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow4u3)"/>
+                <defs>
+                  <marker id="arrow4u3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+                  </marker>
+                </defs>
+              </g>
+            </svg>
+          </div>
+        </li>
+        <li><span class="term">Knowledge-Based Expert System (KBES / Expert System)</span>
+          <div class="def" style="margin-top:6px;"><b>Expert System</b> = an AI-based system that mimics the decision-making ability of a human expert in a specific, narrow domain, using a knowledge base and inference rules.</div>
+          <ul class="l2">
+            <li><b>Knowledge base</b> — facts &amp; rules (IF-THEN) about the domain</li>
+            <li><b>Inference engine</b> — reasoning mechanism that applies rules to facts to reach conclusions</li>
+            <li><b>User interface</b> — allows user to interact/query the system</li>
+            <li><b>Examples</b>: medical diagnosis systems (MYCIN), tax-advisory systems, credit-approval systems</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>6. Enterprise Model System &amp; E-Business <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><span class="term">Enterprise System (ERP)</span>
+          <ul class="l2">
+            <li>Integrates key business processes (finance, HR, manufacturing, sales) into one unified software system with a single database</li>
+            <li>Enables information flow across departments; eliminates data silos</li>
+            <li>Examples: SAP, Oracle ERP, Microsoft Dynamics</li>
+          </ul>
+        </li>
+        <li><span class="term">E-Business (Electronic Business)</span>
+          <div class="def" style="margin-top:6px;"><b>E-Business</b> = the use of digital technology and the Internet to run the core processes of a business — broader than e-commerce (includes internal processes, not just buying/selling).</div>
+          <ul class="l2">
+            <li>Covers: e-commerce + internal operations (e.g. supply chain, CRM, ERP linked digitally)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>7. E-Commerce <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>E-Commerce</b> = buying and selling of goods/services, or transmitting funds/data, over an electronic network (mainly the Internet).</div>
+      <ul class="l1">
+        <li><span class="term">Types of e-commerce (by parties involved)</span>
+          <ul class="l2">
+            <li><b>B2C</b> (Business-to-Consumer) — e.g. Amazon, Flipkart</li>
+            <li><b>B2B</b> (Business-to-Business) — e.g. IndiaMART, Alibaba</li>
+            <li><b>C2C</b> (Consumer-to-Consumer) — e.g. OLX, eBay</li>
+            <li><b>C2B</b> (Consumer-to-Business) — e.g. freelancing platforms, Upwork</li>
+            <li><b>B2G / G2C</b> (with Government) — e.g. e-filing of taxes, government e-marketplace (GeM)</li>
+          </ul>
+          <div class="viz">
+            <div class="viz-label"><span class="dot"></span>E-Commerce Types — Who Sells to Whom</div>
+            <svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2 by 2 grid showing B2C, B2B, C2C, and C2B e-commerce types by seller and buyer type">
+              <g font-family="Avenir Next, Segoe UI, sans-serif">
+                <text x="90" y="14" text-anchor="middle" font-size="8" font-weight="700" fill="var(--ink-soft)">BUYER: Consumer</text>
+                <text x="235" y="14" text-anchor="middle" font-size="8" font-weight="700" fill="var(--ink-soft)">BUYER: Business</text>
+
+                <rect x="8" y="24" width="150" height="70" rx="7" fill="var(--unit3)"/>
+                <text x="83" y="50" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">B2C</text>
+                <text x="83" y="66" text-anchor="middle" font-size="7.5" fill="#E6F0E9">Amazon, Flipkart</text>
+                <text x="83" y="78" text-anchor="middle" font-size="6.8" fill="#CFE3D5">Seller: Business</text>
+
+                <rect x="162" y="24" width="150" height="70" rx="7" fill="color-mix(in srgb, var(--unit3) 80%, white)"/>
+                <text x="237" y="50" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">B2B</text>
+                <text x="237" y="66" text-anchor="middle" font-size="7.5" fill="#E6F0E9">IndiaMART, Alibaba</text>
+                <text x="237" y="78" text-anchor="middle" font-size="6.8" fill="#CFE3D5">Seller: Business</text>
+
+                <rect x="8" y="100" width="150" height="70" rx="7" fill="color-mix(in srgb, var(--unit3) 55%, white)"/>
+                <text x="83" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#25382C">C2C</text>
+                <text x="83" y="142" text-anchor="middle" font-size="7.5" fill="#25382C">OLX, eBay</text>
+                <text x="83" y="154" text-anchor="middle" font-size="6.8" fill="#3E5748">Seller: Consumer</text>
+
+                <rect x="162" y="100" width="150" height="70" rx="7" fill="color-mix(in srgb, var(--unit3) 30%, white)"/>
+                <text x="237" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#25382C">C2B</text>
+                <text x="237" y="142" text-anchor="middle" font-size="7.5" fill="#25382C">Upwork, freelancing</text>
+                <text x="237" y="154" text-anchor="middle" font-size="6.8" fill="#3E5748">Seller: Consumer</text>
+              </g>
+            </svg>
+            <div class="viz-caption">B2G/G2C sits alongside these four, with government as the buyer or seller.</div>
+          </div>
+        </li>
+        <li><span class="term">Digital goods vs digital markets</span>
+          <ul class="l2">
+            <li><b>Digital markets</b> — marketplaces where transactions occur online (e.g. Amazon marketplace) — reduce information asymmetry, transaction costs, "search costs"</li>
+            <li><b>Digital goods</b> — goods that can be delivered digitally (e.g. e-books, music, software, movies) — near-zero cost of reproduction/distribution</li>
+          </ul>
+        </li>
+        <li><span class="term">Benefits of e-commerce</span>
+          <ul class="l2">
+            <li>Global reach, 24×7 availability, lower operating costs</li>
+            <li>Personalization &amp; customization of offers</li>
+            <li>Reduced "menu costs" (cost of changing prices) and "search costs" for buyers</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>8. E-Communication <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>E-Communication</b> = exchange of information electronically — email, instant messaging, video conferencing, social media, VoIP</li>
+        <li>Enables: collaboration across geographies, faster decision-making, remote/virtual teams, reduced travel costs</li>
+        <li>Tools: Email, Zoom/Teams, intranets, enterprise social networks, EDI (Electronic Data Interchange)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>9. Business Process Reengineering (BPR) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>BPR</b> = the radical redesign of business processes to achieve dramatic improvements in critical measures of performance — cost, quality, service, and speed — often enabled by IT.</div>
+      <ul class="l1">
+        <li><span class="term">Key features</span>
+          <ul class="l2">
+            <li><b>Radical</b> redesign, not incremental improvement (contrast with continuous/TQM improvement)</li>
+            <li>Focus on <b>processes</b>, not departments/functions</li>
+            <li>Driven and enabled heavily by Information Technology</li>
+          </ul>
+        </li>
+        <li><span class="term">Steps in BPR</span>
+          <ul class="l2">
+            <li>1. Identify processes for redesign</li>
+            <li>2. Analyze existing ("as-is") processes</li>
+            <li>3. Design the new ("to-be") process</li>
+            <li>4. Implement the reengineered process</li>
+            <li>5. Continuously evaluate</li>
+          </ul>
+        </li>
+        <li><span class="term">Benefits</span> — reduced cost, faster cycle time, improved quality, better customer service</li>
+        <li><span class="term">Risks</span> — high failure rate, employee resistance, disruption during transition</li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>BPR Cycle: As-Is → To-Be</div>
+        <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular flow of five BPR steps: identify, analyze as-is, design to-be, implement, evaluate, looping back to identify">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="4" y="10" width="88" height="34" rx="6" fill="var(--unit3)"/>
+            <text x="48" y="24" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">1. Identify</text>
+            <text x="48" y="35" text-anchor="middle" font-size="6.5" fill="#E6F0E9">processes</text>
+
+            <rect x="116" y="10" width="88" height="34" rx="6" fill="var(--unit3)"/>
+            <text x="160" y="24" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">2. Analyze</text>
+            <text x="160" y="35" text-anchor="middle" font-size="6.5" fill="#E6F0E9">"as-is" process</text>
+
+            <rect x="228" y="10" width="88" height="34" rx="6" fill="var(--unit3)"/>
+            <text x="272" y="24" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">3. Design</text>
+            <text x="272" y="35" text-anchor="middle" font-size="6.5" fill="#E6F0E9">"to-be" process</text>
+
+            <rect x="228" y="76" width="88" height="34" rx="6" fill="var(--unit3)"/>
+            <text x="272" y="90" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">4. Implement</text>
+            <text x="272" y="101" text-anchor="middle" font-size="6.5" fill="#E6F0E9">reengineered</text>
+
+            <rect x="116" y="76" width="88" height="34" rx="6" fill="var(--mustard)"/>
+            <text x="160" y="90" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">5. Evaluate</text>
+            <text x="160" y="101" text-anchor="middle" font-size="6.5" fill="#FBF1DE">continuously</text>
+
+            <path d="M92 27 L116 27" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow5u3)"/>
+            <path d="M204 27 L228 27" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow5u3)"/>
+            <path d="M272 44 L272 76" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow5u3)"/>
+            <path d="M228 93 L204 93" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#arrow5u3)"/>
+            <path d="M116 93 L48 93 L48 44" stroke="var(--ink-soft)" stroke-width="1.6" fill="none" stroke-dasharray="2,3" marker-end="url(#arrow5u3)"/>
+
+            <defs>
+              <marker id="arrow5u3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+        <div class="viz-caption">Evaluation feeds straight back into the next round of process identification.</div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ================= UNIT 4 ================= -->
+<section class="unit" id="u4" style="--u-color:var(--unit4)">
+  <div class="unit-head">
+    <span class="unit-num">UNIT 4</span>
+    <h2>Managing Projects</h2>
+  </div>
+  <p class="desc">Objectives of PM · Fundamentals of PM with agile · SCRUM (roles &amp; meetings) · User stories · Project risk · Ethical, social, political issues in the information era</p>
+
+  <details class="section" open>
+    <summary>1. Objectives of Project Management <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>Project Management</b> = the application of knowledge, skills, tools, and techniques to plan, execute, and control project activities to meet defined requirements.</div>
+      <ul class="l1">
+        <li>Complete the project <b>within scope</b> (deliver what was promised — no more, no less)</li>
+        <li>Complete <b>within time (schedule)</b></li>
+        <li>Complete <b>within budget (cost)</b></li>
+        <li>Meet the required <b>quality standards</b></li>
+        <li>Manage <b>risk</b> effectively throughout the project</li>
+        <li>Ensure <b>stakeholder satisfaction</b></li>
+        <li>Optimal use of <b>resources</b> (people, money, time, equipment)</li>
+      </ul>
+      <div class="mnem">The "Triple Constraint" / Iron Triangle: <b>Scope – Time – Cost</b> (Quality sits at the centre; changing one affects the others)</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>The Iron Triangle</div>
+        <svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangle with Scope, Time, and Cost at the three corners and Quality at the centre">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <polygon points="150,18 264,155 36,155" fill="none" stroke="var(--unit4)" stroke-width="3" stroke-linejoin="round"/>
+
+            <rect x="112" y="2" width="76" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="150" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Scope</text>
+
+            <rect x="2" y="150" width="76" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="40" y="170" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Time</text>
+
+            <rect x="222" y="150" width="76" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="260" y="170" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Cost</text>
+
+            <circle cx="150" cy="112" r="34" fill="var(--mustard)"/>
+            <text x="150" y="109" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Quality</text>
+            <text x="150" y="121" text-anchor="middle" font-size="7" fill="#FBF1DE">(centre)</text>
+          </g>
+        </svg>
+        <div class="viz-caption">Pull on any one corner and the other two — and the quality at the centre — feel it.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary>2. Fundamentals of Project Management for IS <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><span class="term">Why IS projects need special PM attention</span>
+          <ul class="l2">
+            <li>High failure rate — over budget, over time, or fail to meet requirements</li>
+            <li>Rapidly changing requirements &amp; technology</li>
+            <li>Intangible deliverable (software) makes progress hard to measure</li>
+          </ul>
+        </li>
+        <li><span class="term">Traditional approach — Waterfall / SDLC</span>
+          <ul class="l2">
+            <li>Sequential phases: Planning → Analysis → Design → Implementation → Testing → Maintenance</li>
+            <li>Each phase completed fully before the next starts; rigid, document-heavy</li>
+            <li>Weakness: hard to accommodate changing requirements mid-project</li>
+          </ul>
+        </li>
+        <li><span class="term">Modern approach — Agile methodology</span>
+          <div class="def" style="margin-top:6px;"><b>Agile</b> = an iterative, flexible approach to project management that breaks work into small increments ("sprints") with continuous collaboration, feedback, and adaptation.</div>
+          <ul class="l2">
+            <li><b>Core values</b> (from the Agile Manifesto):
+              <ul class="l3">
+                <li>Individuals &amp; interactions <i>over</i> processes &amp; tools</li>
+                <li>Working software <i>over</i> comprehensive documentation</li>
+                <li>Customer collaboration <i>over</i> contract negotiation</li>
+                <li>Responding to change <i>over</i> following a rigid plan</li>
+              </ul>
+            </li>
+            <li>Delivers work in short, iterative cycles → early &amp; continuous delivery of value</li>
+            <li>Encourages flexibility — welcomes changing requirements even late in development</li>
+            <li>Emphasizes close, daily collaboration between business people &amp; developers</li>
+          </ul>
+        </li>
+        <li><span class="term">Waterfall vs Agile</span>
+          <table>
+            <tr><th>Aspect</th><th>Waterfall</th><th>Agile</th></tr>
+            <tr><td>Approach</td><td>Sequential, linear</td><td>Iterative, incremental</td></tr>
+            <tr><td>Requirements</td><td>Fixed upfront</td><td>Evolve continuously</td></tr>
+            <tr><td>Customer involvement</td><td>Mainly at start &amp; end</td><td>Continuous throughout</td></tr>
+            <tr><td>Flexibility</td><td>Low</td><td>High</td></tr>
+            <tr><td>Delivery</td><td>One final product at the end</td><td>Frequent working increments</td></tr>
+          </table>
+        </li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>Waterfall vs Agile — Shape of the Work</div>
+        <svg viewBox="0 0 320 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Waterfall shown as a single sequential staircase of phases; Agile shown as repeating short sprint cycles each producing an increment">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <text x="8" y="12" font-size="8.5" font-weight="700" fill="var(--unit4)">WATERFALL — sequential</text>
+            <g font-size="6.6" fill="#fff">
+              <rect x="4" y="18" width="52" height="22" fill="color-mix(in srgb, var(--unit4) 90%, white)"/>
+              <text x="30" y="32" text-anchor="middle">Plan</text>
+              <rect x="60" y="24" width="52" height="22" fill="color-mix(in srgb, var(--unit4) 78%, white)"/>
+              <text x="86" y="38" text-anchor="middle">Analyze</text>
+              <rect x="116" y="30" width="52" height="22" fill="color-mix(in srgb, var(--unit4) 66%, white)"/>
+              <text x="142" y="44" text-anchor="middle">Design</text>
+              <rect x="172" y="36" width="60" height="22" fill="color-mix(in srgb, var(--unit4) 54%, white)"/>
+              <text x="202" y="50" text-anchor="middle">Implement</text>
+              <rect x="236" y="42" width="52" height="22" fill="color-mix(in srgb, var(--unit4) 42%, white)"/>
+              <text x="262" y="56" text-anchor="middle" fill="#3A2A32">Test</text>
+            </g>
+            <text x="160" y="70" text-anchor="middle" font-size="7" fill="var(--ink-soft)">one long line → one release at the very end</text>
+
+            <line x1="8" y1="86" x2="312" y2="86" stroke="var(--line)" stroke-width="1"/>
+
+            <text x="8" y="100" font-size="8.5" font-weight="700" fill="var(--unit4)">AGILE — iterative sprints</text>
+            <g>
+              <rect x="6" y="108" width="66" height="30" rx="5" fill="var(--unit4)"/>
+              <text x="39" y="126" text-anchor="middle" font-size="7" fill="#fff">Sprint 1</text>
+              <rect x="86" y="108" width="66" height="30" rx="5" fill="var(--unit4)"/>
+              <text x="119" y="126" text-anchor="middle" font-size="7" fill="#fff">Sprint 2</text>
+              <rect x="166" y="108" width="66" height="30" rx="5" fill="var(--unit4)"/>
+              <text x="199" y="126" text-anchor="middle" font-size="7" fill="#fff">Sprint 3</text>
+              <rect x="246" y="108" width="66" height="30" rx="5" fill="var(--unit4)"/>
+              <text x="279" y="126" text-anchor="middle" font-size="7" fill="#fff">Sprint 4</text>
+
+              <path d="M72 123 L86 123" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow6u4)"/>
+              <path d="M152 123 L166 123" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow6u4)"/>
+              <path d="M232 123 L246 123" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow6u4)"/>
+
+              <text x="39" y="152" text-anchor="middle" font-size="6.3" fill="var(--ink-soft)">increment</text>
+              <text x="119" y="152" text-anchor="middle" font-size="6.3" fill="var(--ink-soft)">increment</text>
+              <text x="199" y="152" text-anchor="middle" font-size="6.3" fill="var(--ink-soft)">increment</text>
+              <text x="279" y="152" text-anchor="middle" font-size="6.3" fill="var(--ink-soft)">increment</text>
+            </g>
+            <text x="160" y="168" text-anchor="middle" font-size="7" fill="var(--ink-soft)">short repeating cycles → working software after every sprint</text>
+
+            <defs>
+              <marker id="arrow6u4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>3. Introduction to SCRUM <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>SCRUM</b> = the most widely used <b>Agile framework</b> — an iterative process where work is done in fixed-length cycles called <b>Sprints</b> (usually 2–4 weeks) to deliver a "potentially shippable" product increment.</div>
+      <ul class="l1">
+        <li><span class="term">Key Scrum artifacts</span>
+          <ul class="l2">
+            <li><b>Product Backlog</b> — prioritized master list of all features/requirements (user stories) needed</li>
+            <li><b>Sprint Backlog</b> — subset of product backlog items selected for the current sprint</li>
+            <li><b>Increment / Product Increment</b> — the working, usable product output at end of each sprint</li>
+          </ul>
+        </li>
+        <li><span class="term">Scrum values</span>
+          <ul class="l2">
+            <li>Commitment, Courage, Focus, Openness, Respect</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>The Sprint Cycle</div>
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular sprint cycle: Product Backlog feeds Sprint Planning, into the Sprint with Daily Scrum, producing an Increment, followed by Sprint Review and Retrospective, looping back to the Product Backlog">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <circle cx="150" cy="150" r="110" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="3,4"/>
+
+            <rect x="112" y="4" width="76" height="34" rx="6" fill="var(--unit4)"/>
+            <text x="150" y="19" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Product</text>
+            <text x="150" y="30" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Backlog</text>
+
+            <rect x="222" y="70" width="76" height="34" rx="6" fill="var(--unit4)"/>
+            <text x="260" y="85" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Sprint</text>
+            <text x="260" y="96" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Planning</text>
+
+            <rect x="222" y="196" width="76" height="46" rx="6" fill="color-mix(in srgb, var(--unit4) 80%, white)"/>
+            <text x="260" y="212" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Sprint</text>
+            <text x="260" y="223" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">(2–4 wks)</text>
+            <text x="260" y="234" text-anchor="middle" font-size="6.6" fill="#F3E4EC">+ Daily Scrum</text>
+
+            <rect x="112" y="262" width="76" height="34" rx="6" fill="var(--mustard)"/>
+            <text x="150" y="277" text-anchor="middle" font-size="7.6" font-weight="700" fill="#fff">Increment</text>
+            <text x="150" y="288" text-anchor="middle" font-size="6.6" fill="#FBF1DE">(shippable)</text>
+
+            <rect x="2" y="196" width="76" height="46" rx="6" fill="color-mix(in srgb, var(--unit4) 55%, white)"/>
+            <text x="40" y="215" text-anchor="middle" font-size="7.3" font-weight="700" fill="#3A2027">Sprint</text>
+            <text x="40" y="226" text-anchor="middle" font-size="7.3" font-weight="700" fill="#3A2027">Review</text>
+            <text x="40" y="237" text-anchor="middle" font-size="6.3" fill="#5A3242">(product)</text>
+
+            <rect x="2" y="70" width="76" height="46" rx="6" fill="color-mix(in srgb, var(--unit4) 30%, white)"/>
+            <text x="40" y="89" text-anchor="middle" font-size="7.3" font-weight="700" fill="#3A2027">Sprint</text>
+            <text x="40" y="100" text-anchor="middle" font-size="7.3" font-weight="700" fill="#3A2027">Retrospective</text>
+            <text x="40" y="111" text-anchor="middle" font-size="6.3" fill="#5A3242">(process)</text>
+
+            <path d="M186 20 C210 30 222 55 250 70" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" marker-end="url(#arrow7u4)"/>
+            <path d="M260 104 L260 196" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow7u4)"/>
+            <path d="M232 226 C200 245 190 260 178 272" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" marker-end="url(#arrow7u4)"/>
+            <path d="M112 279 C90 275 68 260 55 242" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" marker-end="url(#arrow7u4)"/>
+            <path d="M40 196 L40 116" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow7u4)"/>
+            <path d="M50 70 C70 45 92 28 112 20" stroke="var(--ink-soft)" stroke-width="1.4" fill="none" marker-end="url(#arrow7u4)"/>
+
+            <defs>
+              <marker id="arrow7u4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+              </marker>
+            </defs>
+          </g>
+        </svg>
+        <div class="viz-caption">Review looks at the PRODUCT; Retrospective looks at the PROCESS — the classic exam mix-up.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>4. Roles in SCRUM <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><span class="term">Product Owner</span>
+          <ul class="l2">
+            <li>Represents stakeholders/customers; the "voice of the business"</li>
+            <li>Owns and prioritizes the Product Backlog</li>
+            <li>Defines what needs to be built and in what order (maximizes product value)</li>
+          </ul>
+        </li>
+        <li><span class="term">Scrum Master</span>
+          <ul class="l2">
+            <li>Facilitator/coach for the team — NOT a traditional "boss"</li>
+            <li>Ensures the team follows Scrum practices; removes obstacles/blockers</li>
+            <li>Shields the team from outside interference; runs Scrum ceremonies</li>
+          </ul>
+        </li>
+        <li><span class="term">Development Team</span>
+          <ul class="l2">
+            <li>Cross-functional, self-organizing group who actually build the product increment</li>
+            <li>Typically small (5–9 members); collectively responsible for delivery</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="mnem">3 Roles: <b>P</b>roduct Owner – <b>S</b>crum Master – <b>D</b>evelopment Team ("PSD")</div>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>The Scrum Team</div>
+        <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three Scrum roles side by side: Product Owner as voice of the business, Scrum Master as facilitator, Development Team as builders">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <rect x="4" y="10" width="98" height="120" rx="8" fill="var(--unit4)"/>
+            <text x="53" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Product</text>
+            <text x="53" y="47" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Owner</text>
+            <text x="53" y="66" text-anchor="middle" font-size="7" fill="#F3E4EC">"Voice of the</text>
+            <text x="53" y="76" text-anchor="middle" font-size="7" fill="#F3E4EC">business"</text>
+            <text x="53" y="95" text-anchor="middle" font-size="7" fill="#F3E4EC">Owns &amp; prioritizes</text>
+            <text x="53" y="105" text-anchor="middle" font-size="7" fill="#F3E4EC">Product Backlog</text>
+
+            <rect x="111" y="10" width="98" height="120" rx="8" fill="color-mix(in srgb, var(--unit4) 75%, white)"/>
+            <text x="160" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Scrum</text>
+            <text x="160" y="47" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">Master</text>
+            <text x="160" y="66" text-anchor="middle" font-size="7" fill="#F3E4EC">Facilitator /</text>
+            <text x="160" y="76" text-anchor="middle" font-size="7" fill="#F3E4EC">coach, NOT boss</text>
+            <text x="160" y="95" text-anchor="middle" font-size="7" fill="#F3E4EC">Removes</text>
+            <text x="160" y="105" text-anchor="middle" font-size="7" fill="#F3E4EC">obstacles</text>
+
+            <rect x="218" y="10" width="98" height="120" rx="8" fill="color-mix(in srgb, var(--unit4) 45%, white)"/>
+            <text x="267" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="#3A2027">Development</text>
+            <text x="267" y="47" text-anchor="middle" font-size="9" font-weight="700" fill="#3A2027">Team</text>
+            <text x="267" y="66" text-anchor="middle" font-size="7" fill="#4E2C39">Cross-functional,</text>
+            <text x="267" y="76" text-anchor="middle" font-size="7" fill="#4E2C39">self-organizing</text>
+            <text x="267" y="95" text-anchor="middle" font-size="7" fill="#4E2C39">5–9 members,</text>
+            <text x="267" y="105" text-anchor="middle" font-size="7" fill="#4E2C39">build the increment</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>5. Scrum Meetings (Ceremonies/Events) <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><b>Sprint Planning</b> — held at start of sprint; team selects backlog items &amp; plans how to deliver them</li>
+        <li><b>Daily Scrum / Daily Stand-up</b> — short (~15 min) daily meeting; each member answers:
+          <ul class="l2">
+            <li>What did I do yesterday?</li>
+            <li>What will I do today?</li>
+            <li>Are there any blockers/obstacles?</li>
+          </ul>
+        </li>
+        <li><b>Sprint Review</b> — held at end of sprint; team demonstrates the completed increment to stakeholders for feedback</li>
+        <li><b>Sprint Retrospective</b> — team reflects on the sprint itself (what went well/badly) to improve the process going forward</li>
+      </ul>
+      <div class="tip"><b>Exam tip:</b> Don't confuse Sprint Review (about the PRODUCT) with Sprint Retrospective (about the PROCESS/team).</div>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>6. User Stories <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <div class="def"><b>User Story</b> = a short, simple description of a feature told from the perspective of the end user, used in agile to capture requirements.</div>
+      <ul class="l1">
+        <li><span class="term">Standard format</span>
+          <ul class="l2">
+            <li>"As a <b>[type of user]</b>, I want <b>[some goal]</b> so that <b>[some reason/benefit]</b>."</li>
+            <li>Example: "As a student, I want to view my exam results online so that I don't have to visit college."</li>
+          </ul>
+        </li>
+        <li><span class="term">INVEST criteria for a good user story</span>
+          <ul class="l2">
+            <li><b>I</b>ndependent — can be developed separately from other stories</li>
+            <li><b>N</b>egotiable — details can be discussed, not a rigid contract</li>
+            <li><b>V</b>aluable — delivers value to the user/customer</li>
+            <li><b>E</b>stimable — team can estimate the effort required</li>
+            <li><b>S</b>mall — small enough to complete within a sprint</li>
+            <li><b>T</b>estable — clear enough to verify when it's "done"</li>
+          </ul>
+        </li>
+        <li><span class="term">Acceptance criteria</span> — conditions that must be met for the story to be considered complete/"done"</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>7. Project Risk &amp; Controlling Risk Factors <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <ul class="l1">
+        <li><span class="term">Types of project risk in IS projects</span>
+          <ul class="l2">
+            <li><b>Technical risk</b> — technology doesn't work as expected, integration issues</li>
+            <li><b>Schedule risk</b> — project running behind timeline</li>
+            <li><b>Cost/budget risk</b> — project exceeding allocated budget</li>
+            <li><b>Scope risk / Scope creep</b> — uncontrolled expansion of project requirements</li>
+            <li><b>Resource risk</b> — lack of skilled staff, staff turnover</li>
+            <li><b>Organizational risk</b> — lack of management support, resistance to change</li>
+            <li><b>External risk</b> — vendor failure, regulatory/legal changes, market changes</li>
+          </ul>
+        </li>
+        <li><span class="term">Risk management process (steps)</span>
+          <ul class="l2">
+            <li>1. <b>Risk identification</b> — list potential risks</li>
+            <li>2. <b>Risk assessment/analysis</b> — evaluate probability &amp; impact of each risk</li>
+            <li>3. <b>Risk prioritization</b> — rank risks (e.g. using a probability–impact matrix)</li>
+            <li>4. <b>Risk response planning</b> — decide strategy:
+              <ul class="l3">
+                <li><b>Avoid</b> — eliminate the risk cause</li>
+                <li><b>Mitigate</b> — reduce probability/impact</li>
+                <li><b>Transfer</b> — shift risk to third party (e.g. insurance, outsourcing)</li>
+                <li><b>Accept</b> — acknowledge and monitor if impact is minor</li>
+              </ul>
+            </li>
+            <li>5. <b>Risk monitoring &amp; control</b> — track identified risks &amp; watch for new ones throughout the project</li>
+          </ul>
+
+          <div class="viz">
+            <div class="viz-label"><span class="dot"></span>Risk Management Process</div>
+            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five step risk process from identification through assessment, prioritization, response planning with four strategies, and monitoring and control looping back">
+              <g font-family="Avenir Next, Segoe UI, sans-serif">
+                <rect x="4" y="6" width="60" height="34" rx="6" fill="var(--unit4)"/>
+                <text x="34" y="21" text-anchor="middle" font-size="6.6" font-weight="700" fill="#fff">1. Identify</text>
+                <text x="34" y="32" text-anchor="middle" font-size="6" fill="#F3E4EC">risks</text>
+
+                <rect x="80" y="6" width="60" height="34" rx="6" fill="var(--unit4)"/>
+                <text x="110" y="21" text-anchor="middle" font-size="6.6" font-weight="700" fill="#fff">2. Assess</text>
+                <text x="110" y="32" text-anchor="middle" font-size="6" fill="#F3E4EC">prob. &amp; impact</text>
+
+                <rect x="156" y="6" width="60" height="34" rx="6" fill="var(--unit4)"/>
+                <text x="186" y="21" text-anchor="middle" font-size="6.6" font-weight="700" fill="#fff">3. Prioritize</text>
+                <text x="186" y="32" text-anchor="middle" font-size="6" fill="#F3E4EC">rank risks</text>
+
+                <rect x="232" y="6" width="84" height="34" rx="6" fill="var(--unit4)"/>
+                <text x="274" y="21" text-anchor="middle" font-size="6.6" font-weight="700" fill="#fff">4. Response</text>
+                <text x="274" y="32" text-anchor="middle" font-size="6" fill="#F3E4EC">plan strategy</text>
+
+                <path d="M64 23 L80 23" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow8u4)"/>
+                <path d="M140 23 L156 23" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow8u4)"/>
+                <path d="M216 23 L232 23" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow8u4)"/>
+                <path d="M274 40 L274 56" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow8u4)"/>
+
+                <rect x="8" y="60" width="66" height="40" rx="6" fill="var(--mustard-soft)"/>
+                <text x="41" y="82" text-anchor="middle" font-size="7" font-weight="700" fill="#4A3A12">Avoid</text>
+                <text x="41" y="93" text-anchor="middle" font-size="6" fill="#6B5222">eliminate cause</text>
+
+                <rect x="84" y="60" width="66" height="40" rx="6" fill="var(--mustard-soft)"/>
+                <text x="117" y="82" text-anchor="middle" font-size="7" font-weight="700" fill="#4A3A12">Mitigate</text>
+                <text x="117" y="93" text-anchor="middle" font-size="6" fill="#6B5222">reduce impact</text>
+
+                <rect x="160" y="60" width="66" height="40" rx="6" fill="var(--mustard-soft)"/>
+                <text x="193" y="82" text-anchor="middle" font-size="7" font-weight="700" fill="#4A3A12">Transfer</text>
+                <text x="193" y="93" text-anchor="middle" font-size="6" fill="#6B5222">insurance, outsource</text>
+
+                <rect x="236" y="60" width="76" height="40" rx="6" fill="var(--mustard-soft)"/>
+                <text x="274" y="82" text-anchor="middle" font-size="7" font-weight="700" fill="#4A3A12">Accept</text>
+                <text x="274" y="93" text-anchor="middle" font-size="6" fill="#6B5222">monitor if minor</text>
+
+                <path d="M160 120 L160 132" stroke="var(--ink-soft)" stroke-width="1.4" marker-end="url(#arrow8u4)"/>
+                <rect x="80" y="136" width="160" height="34" rx="6" fill="var(--ink)"/>
+                <text x="160" y="151" text-anchor="middle" font-size="7" font-weight="700" fill="#fff">5. Monitor &amp; Control</text>
+                <text x="160" y="162" text-anchor="middle" font-size="6" fill="#C9D1DB">watch throughout project</text>
+
+                <path d="M80 153 C20 153 8 90 24 40" stroke="var(--ink-soft)" stroke-width="1.2" fill="none" stroke-dasharray="2,3" marker-end="url(#arrow8u4)"/>
+
+                <defs>
+                  <marker id="arrow8u4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-soft)"/>
+                  </marker>
+                </defs>
+              </g>
+            </svg>
+            <div class="viz-caption">Monitoring feeds back into identifying new risks — the process runs continuously, not just once.</div>
+          </div>
+        </li>
+        <li><span class="term">How Agile/Scrum controls risk</span>
+          <ul class="l2">
+            <li>Short sprints → problems surface early, not at the end</li>
+            <li>Continuous stakeholder feedback reduces scope/requirement risk</li>
+            <li>Daily stand-ups surface blockers quickly</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="section" open>
+    <summary>8. Ethical, Social &amp; Political Issues in the Information Era <span class="arrow">▶</span></summary>
+    <div class="section-body">
+      <p class="sans" style="font-size:13px;color:var(--ink-soft);">Framework (5 moral dimensions of the information age — good for long-answer questions):</p>
+      <ul class="l1">
+        <li><span class="term">1. Information rights &amp; obligations (Privacy)</span>
+          <ul class="l2">
+            <li>What rights do individuals have over their own personal data?</li>
+            <li>Issues: data collection without consent, surveillance, profiling, data breaches</li>
+          </ul>
+        </li>
+        <li><span class="term">2. Property rights &amp; obligations (Intellectual Property)</span>
+          <ul class="l2">
+            <li>Protecting software, digital content via copyright, patents, trade secrets</li>
+            <li>Issues: piracy, plagiarism, unauthorized copying/distribution of digital goods</li>
+          </ul>
+        </li>
+        <li><span class="term">3. Accountability &amp; control</span>
+          <ul class="l2">
+            <li>Who is responsible when an information system causes harm (e.g. faulty algorithm, data leak)?</li>
+          </ul>
+        </li>
+        <li><span class="term">4. System quality</span>
+          <ul class="l2">
+            <li>What standard of data/system quality should be demanded to protect rights and safety?</li>
+            <li>Issues: software bugs, poor data quality leading to wrong decisions</li>
+          </ul>
+        </li>
+        <li><span class="term">5. Quality of life</span>
+          <ul class="l2">
+            <li>Social effects of IT — job displacement/automation, digital divide, health effects (screen addiction, RSI), loss of face-to-face community</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="viz">
+        <div class="viz-label"><span class="dot"></span>5 Moral Dimensions of the Information Age</div>
+        <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five moral dimensions arranged around a central Information Age hub: information rights, property rights, accountability and control, system quality, and quality of life">
+          <g font-family="Avenir Next, Segoe UI, sans-serif">
+            <circle cx="160" cy="105" r="34" fill="var(--mustard-soft)"/>
+            <text x="160" y="101" text-anchor="middle" font-size="8.3" font-weight="700" fill="#4A3A12">Information</text>
+            <text x="160" y="113" text-anchor="middle" font-size="8.3" font-weight="700" fill="#4A3A12">Age</text>
+
+            <line x1="160" y1="71" x2="160" y2="30" stroke="#C7CFD9" stroke-width="1.2"/>
+            <line x1="128" y1="128" x2="60" y2="168" stroke="#C7CFD9" stroke-width="1.2"/>
+            <line x1="192" y1="128" x2="260" y2="168" stroke="#C7CFD9" stroke-width="1.2"/>
+            <line x1="128" y1="82" x2="44" y2="52" stroke="#C7CFD9" stroke-width="1.2"/>
+            <line x1="192" y1="82" x2="276" y2="52" stroke="#C7CFD9" stroke-width="1.2"/>
+
+            <rect x="108" y="4" width="104" height="26" rx="6" fill="var(--unit4)"/>
+            <text x="160" y="21" text-anchor="middle" font-size="7.3" font-weight="700" fill="#fff">1. Information Rights</text>
+
+            <rect x="0" y="38" width="88" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="44" y="55" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">2. Property</text>
+            <text x="44" y="65" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">Rights</text>
+
+            <rect x="232" y="38" width="88" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="276" y="55" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">3. Accountability</text>
+            <text x="276" y="65" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">&amp; Control</text>
+
+            <rect x="12" y="168" width="96" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="60" y="185" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">4. System</text>
+            <text x="60" y="195" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">Quality</text>
+
+            <rect x="212" y="168" width="96" height="30" rx="6" fill="var(--unit4)"/>
+            <text x="260" y="185" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">5. Quality</text>
+            <text x="260" y="195" text-anchor="middle" font-size="6.8" font-weight="700" fill="#fff">of Life</text>
+          </g>
+        </svg>
+        <div class="viz-caption">A ready-made framework for long-answer ethics questions.</div>
+      </div>
+      <hr class="div">
+      <ul class="l1">
+        <li><span class="term">Social issues</span>
+          <ul class="l2">
+            <li><b>Digital divide</b> — unequal access to technology between rich/poor, urban/rural</li>
+            <li><b>Job displacement</b> — automation replacing routine jobs</li>
+            <li><b>Cybercrime &amp; cyberbullying</b></li>
+            <li><b>Changing nature of work</b> — remote work, gig economy</li>
+          </ul>
+        </li>
+        <li><span class="term">Political issues</span>
+          <ul class="l2">
+            <li><b>Data localization &amp; sovereignty</b> — where data is stored/who governs it</li>
+            <li><b>Regulation of tech giants</b> — antitrust, content moderation laws</li>
+            <li><b>Cybersecurity &amp; national security</b> — protecting critical infrastructure</li>
+            <li><b>Election interference &amp; misinformation</b> via digital platforms</li>
+            <li><b>Data protection laws</b> — e.g. GDPR (EU), IT Act/DPDP Act (India)</li>
+          </ul>
+        </li>
+        <li><span class="term">Ethical principles used to analyze IS dilemmas</span>
+          <ul class="l2">
+            <li><b>Golden Rule</b> — treat others as you'd want to be treated</li>
+            <li><b>Kant's Categorical Imperative</b> — if an action isn't right for everyone, it's not right for anyone</li>
+            <li><b>Risk Aversion Principle</b> — choose the action with lowest risk/harm</li>
+            <li><b>"No free lunch" rule</b> — assume all property/information has an owner unless stated otherwise</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<div class="revision">
+  <h3 class="sans">QUICK-GLANCE REVISION — LAST 10 MINUTES BEFORE EXAM</h3>
+  <ul>
+    <li><b>Unit 1:</b> MIS levels = TPS→MIS→DSS→ESS · 3 dimensions = Org+Mgmt+Tech · IT infra eras = Mainframe→PC→Client-Server→Enterprise→Cloud</li>
+    <li><b>Unit 2:</b> DBMS solves redundancy/inconsistency/dependence · ACID = Atomicity, Consistency, Isolation, Durability · ER = Entity(rectangle)+Attribute(oval)+Relationship(diamond)</li>
+    <li><b>Unit 3:</b> DSS = semi/unstructured decisions · GDSS = group + anonymity · E-commerce types = B2C/B2B/C2C/C2B · BPR = radical process redesign</li>
+    <li><b>Unit 4:</b> Triple constraint = Scope-Time-Cost · Scrum roles = Product Owner, Scrum Master, Dev Team · Scrum events = Planning, Daily Scrum, Review, Retrospective · User story = "As a..., I want..., so that..." · Risk responses = Avoid/Mitigate/Transfer/Accept</li>
+  </ul>
+</div>
+
+</main>
+</body>
+</html>
