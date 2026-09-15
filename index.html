@@ -248,8 +248,7 @@
 </div>
 
 <script>
-(function(){
-  const STORAGE_KEY = "the-stacks-library-v1";
+  const STORAGE_KEY = "the-stacks-library-v2";
   const hasWidgetStorage = typeof window.storage !== "undefined";
 
   const seed = [
@@ -280,36 +279,79 @@
     {id:"MIS-002", title:"MIS — Exam-Ready Notes", url:"./files/mis-exam-notes.html", type:"note",
      subject:"Management Information System (BBA-3005)", tags:["MIS fundamentals","DBMS","IS applications","project management"],
      desc:"Full 4-unit exam notes: MIS fundamentals, DBMS, IS applications (DSS/GDSS/e-commerce), and managing projects.",
-     added: Date.now()-1000*60*60*24*3, opened: null, starred:false}
+     added: Date.now()-1000*60*60*24*3, opened: null, starred:false},
+    {id:"ECO-003", title:"Production Theory — CUET PG Economics Notes", url:"./files/production-theory-notes.html", type:"note",
+     subject:"Economics", tags:["microeconomics","production function","cost curves","CUET PG"],
+     desc:"Notes covering production functions, short-run and long-run analysis, cost & revenue concepts, with a formula sheet and practice MCQs.",
+     added: Date.now(), opened: null, starred:false},
+    {id:"ECO-004", title:"Consumer Theory — CUET PG Economics Notes", url:"./files/consumer-theory-notes.html", type:"note",
+     subject:"Economics", tags:["microeconomics","demand theory","indifference curves","CUET PG"],
+     desc:"Notes covering cardinal and indifference curve analysis, consumer's equilibrium, income/substitution effects, and revealed preference theory.",
+     added: Date.now(), opened: null, starred:false}
   ];
 
+  // Persisted state is kept separate from the seed list, so editing the
+  // seed in index.html always takes effect on next load. Persisted only
+  // holds: per-id overrides (stars, opened dates, manual edits), items
+  // added entirely through the "Add resource" form, and deleted ids.
+  let persisted = { overrides: {}, custom: [], deleted: [] };
   let library = [];
   let activeView = "all";
-  let activeFilter = null; // {kind:'subject'|'type', value:string}
+  let activeFilter = null;
   let activeSort = "recent";
 
+  function rebuildLibrary(){
+    const deleted = new Set(persisted.deleted);
+    const seedItems = seed.filter(r => !deleted.has(r.id));
+    const customItems = persisted.custom.filter(r => !deleted.has(r.id));
+    library = seedItems.concat(customItems).map(r => {
+      const ov = persisted.overrides[r.id];
+      return ov ? Object.assign({}, r, ov) : Object.assign({}, r);
+    });
+  }
+
   async function load(){
+    let raw = null;
     if(hasWidgetStorage){
-      try{
-        const r = await window.storage.get(STORAGE_KEY);
-        library = r ? JSON.parse(r.value) : seed;
-      }catch(e){ library = seed; }
+      try{ const r = await window.storage.get(STORAGE_KEY); raw = r ? r.value : null; }catch(e){}
     } else {
-      try{
-        const raw = localStorage.getItem(STORAGE_KEY);
-        library = raw ? JSON.parse(raw) : seed;
-      }catch(e){ library = seed; }
+      try{ raw = localStorage.getItem(STORAGE_KEY); }catch(e){}
     }
+    if(raw){
+      try{
+        const parsed = JSON.parse(raw);
+        if(parsed && typeof parsed === "object" && !Array.isArray(parsed)){
+          persisted = Object.assign({overrides:{}, custom:[], deleted:[]}, parsed);
+        } else if(Array.isArray(parsed)){
+          // migrate from the old v1 format (a flat array of full records)
+          persisted = { overrides: {}, custom: [], deleted: [] };
+          const seedIds = new Set(seed.map(r=>r.id));
+          parsed.forEach(rec=>{
+            if(seedIds.has(rec.id)){
+              const {id, title, url, type, subject, tags, desc, added, ...rest} = rec;
+              persisted.overrides[rec.id] = Object.assign({}, rec);
+            } else {
+              persisted.custom.push(rec);
+            }
+          });
+        }
+      }catch(e){}
+    }
+    rebuildLibrary();
     render();
   }
 
   async function save(){
-    const data = JSON.stringify(library);
+    const data = JSON.stringify(persisted);
     if(hasWidgetStorage){
       try{ await window.storage.set(STORAGE_KEY, data); }catch(e){ console.error(e); }
     } else {
       try{ localStorage.setItem(STORAGE_KEY, data); }catch(e){ console.error(e); }
     }
+  }
+
+  function setOverride(id, fields){
+    persisted.overrides[id] = Object.assign({}, persisted.overrides[id], fields);
   }
 
   function nextAccession(subject){
@@ -466,11 +508,13 @@
 
     if(action==="star"){
       rec.starred = !rec.starred;
+      setOverride(id, {starred: rec.starred});
       save(); render();
     } else if(action==="edit"){
       openModal(rec);
     } else if(action==="open"){
       rec.opened = Date.now();
+      setOverride(id, {opened: rec.opened});
       save();
       // don't re-render immediately so the click-through isn't interrupted
     }
@@ -507,21 +551,31 @@
     const desc = document.getElementById("f-desc").value.trim();
 
     if(id){
-      const rec = library.find(r=>r.id===id);
-      Object.assign(rec, {title, url, subject, tags, type, desc});
+      const isCustom = persisted.custom.some(r=>r.id===id);
+      if(isCustom){
+        const rec = persisted.custom.find(r=>r.id===id);
+        Object.assign(rec, {title, url, subject, tags, type, desc});
+      } else {
+        setOverride(id, {title, url, subject, tags, type, desc});
+      }
     } else {
-      library.push({
-        id: nextAccession(subject), title, url, type, subject, tags, desc,
+      const newId = nextAccession(subject);
+      persisted.custom.push({
+        id: newId, title, url, type, subject, tags, desc,
         added: Date.now(), opened: null, starred:false
       });
     }
+    rebuildLibrary();
     save(); closeModal(); render();
   });
 
   document.getElementById("delete-btn").addEventListener("click", ()=>{
     const id = document.getElementById("edit-id").value;
     if(confirm("Delete this resource from the catalog? The file itself is untouched.")){
-      library = library.filter(r=>r.id!==id);
+      persisted.deleted.push(id);
+      persisted.custom = persisted.custom.filter(r=>r.id!==id);
+      delete persisted.overrides[id];
+      rebuildLibrary();
       save(); closeModal(); render();
     }
   });
@@ -546,7 +600,13 @@
       try{
         const parsed = JSON.parse(reader.result);
         if(Array.isArray(parsed)){
-          library = parsed;
+          const seedIds = new Set(seed.map(r=>r.id));
+          persisted = { overrides: {}, custom: [], deleted: [] };
+          parsed.forEach(rec=>{
+            if(seedIds.has(rec.id)) persisted.overrides[rec.id] = Object.assign({}, rec);
+            else persisted.custom.push(rec);
+          });
+          rebuildLibrary();
           save(); render();
         } else { alert("That file doesn't look like a library.json export."); }
       }catch(err){ alert("Couldn't parse that file as JSON."); }
@@ -556,7 +616,7 @@
   });
 
   load();
-})();
+
 </script>
 </body>
 </html>
