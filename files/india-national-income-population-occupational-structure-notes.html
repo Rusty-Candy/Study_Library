@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Economy: National Income, Population &amp; Occupational Structure — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:260px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:14px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.84rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.5rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:700px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.9rem; margin:.15em 0 0;}
+  section.block{padding:36px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.85rem; margin:0 0 6px;}
+  h3{font-size:1.24rem; margin:1.5em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.03rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.93rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.73rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.data{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.data .label{font-weight:700; color:var(--slate); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.83rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">National Income · Population · Occupational Structure</div>
+  <div class="toc-sub">CUET PG · Indian Economy</div>
+  <ol>
+    <div class="part-label">Part A — National Income</div>
+    <li><a href="#s1">Trends in National Income Growth</a></li>
+    <li><a href="#s2">Sectoral Composition of GVA</a></li>
+    <li><a href="#s3">Structural Change: Why Services Lead</a></li>
+    <li><a href="#s4">Savings &amp; Investment Trends</a></li>
+    <div class="part-label">Part B — Population</div>
+    <li><a href="#s5">Size, Growth &amp; the Demographic Transition</a></li>
+    <li><a href="#s6">Age Structure &amp; the Demographic Dividend</a></li>
+    <li><a href="#s7">Fertility, Mortality &amp; the Census Question</a></li>
+    <li><a href="#s8">Population as Asset vs Liability</a></li>
+    <div class="part-label">Part C — Occupational Structure</div>
+    <li><a href="#s9">Meaning &amp; Historical Trend</a></li>
+    <li><a href="#s10">Current Workforce Distribution</a></li>
+    <li><a href="#s11">Why Agriculture Still Dominates</a></li>
+    <li><a href="#s12">Structural Transformation &amp; Its Puzzle</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s13">Master Data Table</a></li>
+    <li><a href="#s14">Formula &amp; Concept Sheet</a></li>
+    <li><a href="#s15">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMY · MACRO TRENDS</div>
+    <h1>National Income, Population &amp; Occupational Structure</h1>
+    <p class="lede">The three foundational macro-trends of the Indian economy: how fast national income has grown and how its composition has shifted; how India's population has grown, aged, and is now transitioning; and why the occupational (workforce) structure still lags the output structure — the classic "structural change puzzle."</p>
+    <div class="tags">
+      <span class="tag">GVA composition</span><span class="tag">Demographic Dividend</span><span class="tag">PLFS</span>
+      <span class="tag">Structural Transformation</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Trends in National Income</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — GROWTH TRAJECTORY</div>
+    <h2 class="sec-title">Trends in National Income Growth</h2>
+    <p class="lead-p">India's growth trajectory is conventionally divided into distinct phases, each with a different average growth rate — a frequently tested periodisation.</p>
+    <table>
+      <caption>Table 1.1 — Phases of India's GDP growth (broad, illustrative averages)</caption>
+      <thead><tr><th>Period</th><th>Approx. Average Growth</th><th>Characterisation</th></tr></thead>
+      <tbody>
+        <tr><td>1950–1980</td><td>~3.5%</td><td>The so-called <strong>"Hindu rate of growth"</strong> (Raj Krishna) — slow, planned, import-substitution era</td></tr>
+        <tr><td>1980s</td><td>~5.5%</td><td>Gradual liberalisation, some deregulation begins</td></tr>
+        <tr><td>1991 onwards</td><td>~6%</td><td>Major economic reforms (LPG: Liberalisation, Privatisation, Globalisation) post Balance of Payments crisis</td></tr>
+        <tr><td>2003-04 to 2007-08</td><td>~8–9%</td><td>High-growth phase, pre-Global Financial Crisis</td></tr>
+        <tr><td>2020-21</td><td>−5.8% (contraction)</td><td>COVID-19 pandemic shock</td></tr>
+        <tr><td>2021-22 to 2024-25</td><td>~7–9.2% (recovery, moderating)</td><td>Post-pandemic recovery; FY 2024-25 real GDP growth provisionally estimated at <strong>6.5%</strong> (MoSPI)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "Hindu rate of growth" is a term coined by economist <strong>Raj Krishna</strong> to describe India's low (~3.5%) average growth during 1950-80, often attributed to excessive state control, the licence-permit raj, and low productivity growth.
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — SECTORAL COMPOSITION</div>
+    <h2 class="sec-title">Sectoral Composition of GVA: The Great Reshuffle</h2>
+    <p>The clearest structural fact about the Indian economy since Independence: the <strong>share of agriculture in output has collapsed</strong>, while <strong>services has become dominant</strong> — a pattern that (unusually, by historical standards) largely bypassed a strong manufacturing-led phase.</p>
+
+    <table>
+      <caption>Table 2.1 — Sectoral share of GVA over time (illustrative, at current/constant prices, approximate)</caption>
+      <thead><tr><th>Year</th><th>Agriculture &amp; Allied</th><th>Industry</th><th>Services</th></tr></thead>
+      <tbody>
+        <tr><td>1950-51</td><td>~53%</td><td>~15%</td><td>~32%</td></tr>
+        <tr><td>1990-91</td><td>~30%</td><td>~27%</td><td>~43%</td></tr>
+        <tr><td>2010-11</td><td>~18%</td><td>~31%</td><td>~51%</td></tr>
+        <tr><td>2023-24 (constant prices)</td><td>~15%</td><td>~31%</td><td>~55%</td></tr>
+      </tbody>
+    </table>
+    <div class="box data">
+      <div class="label">Latest snapshot (FY 2023-24, constant prices)</div>
+      Services ≈ <strong>55%</strong> of GVA · Industry ≈ <strong>31%</strong> · Agriculture &amp; Allied ≈ <strong>15%</strong> of GVA (source: NSO/MoSPI; ICRA estimates). Within industry, manufacturing itself remains under 20% of GVA even after "Make in India."
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="580" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="586" y="284" font-size="12" fill="#22303F">Year</text>
+        <text x="15" y="18" font-size="12" fill="#22303F">% of GVA</text>
+        <!-- Agriculture declining -->
+        <path d="M 100 60 C 200 110, 320 190, 540 235" fill="none" stroke="#7C2E2E" stroke-width="2.6"/>
+        <text x="546" y="238" font-size="12" fill="#7C2E2E" font-style="italic">Agriculture</text>
+        <!-- Industry roughly rising then flattening -->
+        <path d="M 100 220 C 220 175, 340 160, 540 155" fill="none" stroke="#A9793B" stroke-width="2.6"/>
+        <text x="546" y="158" font-size="12" fill="#A9793B" font-style="italic">Industry</text>
+        <!-- Services rising steadily -->
+        <path d="M 100 195 C 220 130, 350 80, 540 55" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <text x="546" y="58" font-size="12" fill="#2C6E64" font-style="italic">Services</text>
+        <text x="90" y="300" font-size="10" fill="#8B93A1">1950-51</text>
+        <text x="510" y="300" font-size="10" fill="#8B93A1">2023-24</text>
+      </svg>
+      <figcaption>Fig 2.1 — Structural transformation of India's GVA: Agriculture's share falls continuously; Industry rises then plateaus around 30%; Services rises to become the dominant sector, now over half of GVA.</figcaption>
+    </div>
+
+    <div class="box warn">
+      <div class="label">The "leapfrogging" / skipped-stage debate</div>
+      Classic development theory (Fisher-Clark, Kuznets) predicts economies move Agriculture → Industry → Services sequentially, with a strong manufacturing-led middle phase (as in East Asian economies). India's industrial share has instead plateaued around 25-31% of GVA for decades — India is often described as having "leapfrogged" into services-led growth without a full industrialisation phase, a pattern debated as both an opportunity (IT/services strength) and a concern (limited mass job creation, since services growth is often skill/capital-intensive).
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — WHY SERVICES</div>
+    <h2 class="sec-title">Structural Change: Why Has Services Grown So Fast?</h2>
+    <ul>
+      <li><strong>IT &amp; IT-enabled Services (ITeS)</strong> boom since the 1990s — leveraging English-language skills and a large technical talent pool</li>
+      <li><strong>Liberalisation (1991)</strong> opened services (banking, insurance, telecom) to private/foreign participation</li>
+      <li><strong>Income elasticity of demand for services</strong> rises as per capita income grows (Engel's Law extended)</li>
+      <li><strong>Outsourcing/offshoring</strong> of business processes by global firms to India</li>
+      <li><strong>Statistical/measurement factors</strong> — some argue services growth is partly a measurement artefact (better capture of an already-large informal services sector over time)</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Within services, <strong>"Financial, Real Estate &amp; Professional Services"</strong> and <strong>"Trade, Hotels, Transport &amp; Communication"</strong> are typically the largest sub-components — worth remembering the standard three-way sectoral classification used in national accounts: Primary (Agri, Mining), Secondary (Manufacturing, Electricity, Construction), Tertiary (Trade, Transport, Finance, Public Admin, etc.).
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — SAVINGS &amp; CAPITAL FORMATION</div>
+    <h2 class="sec-title">Savings &amp; Investment Trends</h2>
+    <div class="box formula">
+      <div class="label">Key national accounts ratios</div>
+      Gross Domestic Saving (GDS) Rate = GDS / GDP &nbsp;&nbsp;|&nbsp;&nbsp; Gross Fixed Capital Formation (GFCF) Rate = GFCF / GDP
+    </div>
+    <table>
+      <caption>Table 4.1 — Broad trend in savings/investment rates</caption>
+      <thead><tr><th>Period</th><th>Approx. Gross Domestic Savings Rate</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>1950s</td><td>~10%</td><td>Low, reflecting widespread poverty</td></tr>
+        <tr><td>1980s</td><td>~20%</td><td>Rising steadily</td></tr>
+        <tr><td>2007-08 (peak)</td><td>~36-38%</td><td>Pre-Global Financial Crisis boom</td></tr>
+        <tr><td>Recent years</td><td>~30%</td><td>Moderated, household financial savings squeezed by inflation, physical asset preference</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Household sector traditionally contributes the largest share of GDS in India, followed by the private corporate sector and the public sector (which has often been a dis-saver due to fiscal deficits).</p>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>Trends in Population</h2></div>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — SIZE &amp; GROWTH</div>
+    <h2 class="sec-title">Population Size, Growth &amp; the Demographic Transition</h2>
+    <div class="box data">
+      <div class="label">Latest figures</div>
+      India's population is estimated at approximately <strong>146.4 crore (1.464 billion)</strong> as of April 2025 (UNFPA 2025 report) — making India the <strong>world's most populous country</strong>, having overtaken China (≈141.6 crore) around 2023. Annual population growth rate has slowed to roughly <strong>0.89%</strong> (down sharply from ~2.3% in the 1970s-80s).
+    </div>
+
+    <div class="box definition">
+      <div class="label">Demographic Transition Theory</div>
+      A model describing how a country's birth and death rates evolve through economic development, typically in <strong>four stages</strong>:
+    </div>
+    <table>
+      <caption>Table 5.1 — Stages of Demographic Transition</caption>
+      <thead><tr><th>Stage</th><th>Birth Rate</th><th>Death Rate</th><th>Population Growth</th><th>India's position</th></tr></thead>
+      <tbody>
+        <tr><td>Stage 1</td><td>High</td><td>High</td><td>Low/stable</td><td>Pre-1921 ("the great divide")</td></tr>
+        <tr><td>Stage 2</td><td>High</td><td>Falling rapidly</td><td>Rapid ("population explosion")</td><td>~1921-1980s (death rate fell via health improvements, birth rate stayed high)</td></tr>
+        <tr><td>Stage 3</td><td>Falling</td><td>Low</td><td>Slowing</td><td>~1980s-2020s (India largely here/transitioning to Stage 4)</td></tr>
+        <tr><td>Stage 4</td><td>Low</td><td>Low</td><td>Near-stable/declining</td><td>India's Total Fertility Rate has now fallen to ~1.9-2.0, below replacement level (2.1) — several southern states already here</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="560" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="566" y="264" font-size="12" fill="#22303F">Time / Development</text>
+        <text x="20" y="18" font-size="12" fill="#22303F">Rate</text>
+        <!-- birth rate: stays high then falls -->
+        <path d="M 90 60 C 200 60, 280 65, 340 100 C 420 140, 480 190, 540 220" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="546" y="222" font-size="11" fill="#7C2E2E" font-style="italic">Birth Rate</text>
+        <!-- death rate: falls early -->
+        <path d="M 90 200 C 150 150, 220 90, 300 75 C 380 65, 460 60, 540 55" fill="none" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="546" y="55" font-size="11" fill="#3E5C76" font-style="italic">Death Rate</text>
+        <!-- stage dividers -->
+        <line x1="150" y1="20" x2="150" y2="260" stroke="#D8CFBC" stroke-dasharray="4 3"/>
+        <line x1="300" y1="20" x2="300" y2="260" stroke="#D8CFBC" stroke-dasharray="4 3"/>
+        <line x1="450" y1="20" x2="450" y2="260" stroke="#D8CFBC" stroke-dasharray="4 3"/>
+        <text x="95" y="35" font-size="10" fill="#A9793B">Stage 1</text>
+        <text x="200" y="35" font-size="10" fill="#A9793B">Stage 2</text>
+        <text x="355" y="35" font-size="10" fill="#A9793B">Stage 3</text>
+        <text x="480" y="35" font-size="10" fill="#A9793B">Stage 4</text>
+        <path d="M 150 130 L 150 90" fill="#2C6E64" opacity="0.15" stroke="none"/>
+      </svg>
+      <figcaption>Fig 5.1 — Demographic Transition: the widening gap between birth and death rates in Stage 2 drives rapid population growth ("population explosion"); the gap narrows again in Stages 3-4 as birth rates catch down.</figcaption>
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — AGE STRUCTURE</div>
+    <h2 class="sec-title">Age Structure &amp; the Demographic Dividend</h2>
+    <div class="box data">
+      <div class="label">India's age structure (2025 estimates)</div>
+      0-14 years: ≈24% &nbsp;|&nbsp; Working-age 15-64 years: ≈68% &nbsp;|&nbsp; 65+ years: ≈7%. Median age ≈29.8 years (vs ≈40.2 in China) — one of the youngest large populations in the world.
+    </div>
+    <div class="box definition">
+      <div class="label">Demographic Dividend</div>
+      The potential economic growth boost that arises when the <strong>working-age population (15-64)</strong> grows larger, relative to the young and old dependents, creating a "window" of higher productive capacity and savings potential — <strong>provided</strong> this workforce is adequately educated, skilled, and employed.
+    </div>
+    <div class="box formula">
+      <div class="label">Dependency Ratio</div>
+      Dependency Ratio = [(Population 0-14) + (Population 65+)] / (Population 15-64) × 100
+    </div>
+    <p class="small">A falling dependency ratio (as India is experiencing) is the arithmetic signature of the demographic dividend window — fewer dependents per working-age adult, in principle freeing up resources for savings, investment, and growth.</p>
+
+    <div class="box warn">
+      <div class="label">The dividend is not automatic</div>
+      A "demographic dividend" only materialises if the growing working-age population is <strong>employed productively</strong>. If job creation lags behind labour force growth, the same demographic trend becomes a <strong>"demographic burden"</strong> instead — rising youth unemployment/underemployment. This tension is central to current Indian policy debates (education quality, skilling missions, labour-intensive manufacturing).
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Distinguish "demographic dividend" (an <em>opportunity</em>, contingent on productive employment) from "demographic transition" (the underlying <em>process</em> of falling birth/death rates that creates the age-structure shift enabling the dividend).
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — FERTILITY, MORTALITY &amp; CENSUS</div>
+    <h2 class="sec-title">Fertility, Mortality Trends &amp; the Census Question</h2>
+    <table>
+      <caption>Table 7.1 — Key vital statistics (recent estimates)</caption>
+      <thead><tr><th>Indicator</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Total Fertility Rate (TFR)</td><td>≈1.9–2.0 (below replacement level of 2.1)</td></tr>
+        <tr><td>Crude Birth Rate</td><td>≈16 per 1,000 population</td></tr>
+        <tr><td>Crude Death Rate</td><td>≈9 per 1,000 population</td></tr>
+        <tr><td>Life Expectancy at Birth</td><td>≈71 years (men), ≈74 years (women)</td></tr>
+        <tr><td>Infant Mortality Rate (IMR)</td><td>Declining steadily (~20s per 1,000 live births)</td></tr>
+        <tr><td>Sex Ratio</td><td>≈1.06 males per female (imbalanced; historically skewed against females)</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">The delayed Census</div>
+      India's decennial Census, originally due in <strong>2021</strong>, has been delayed (initially attributed to the COVID-19 pandemic) — current estimates use projections from the Ministry of Health &amp; Family Welfare, the Sample Registration System (SRS), the National Family Health Survey (NFHS), and UN/UNFPA modelling, pending the next full Census.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Note the key data <strong>sources</strong> for Indian population statistics — since the Census itself is delayed, questions may ask which body/survey provides a given estimate: <strong>Census of India</strong> (decennial, Registrar General of India), <strong>SRS</strong> (annual, for birth/death rates), <strong>NFHS</strong> (periodic, for health/fertility indicators).
+    </div>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — DEBATE</div>
+    <h2 class="sec-title">Population: Asset or Liability? The Classic Debate</h2>
+    <table>
+      <caption>Table 8.1 — Two views</caption>
+      <thead><tr><th>Population as a "Liability" (Malthusian/pessimistic view)</th><th>Population as an "Asset" (Optimistic/human-capital view)</th></tr></thead>
+      <tbody>
+        <tr><td>Large population strains scarce resources, land, food supply (Malthusian trap)</td><td>Large population = large market size, larger labour force, more potential innovators (Julian Simon's "Ultimate Resource" view)</td></tr>
+        <tr><td>Raises the "dependency burden" if age structure is unfavourable</td><td>A youthful population offers a demographic dividend if skilled and employed</td></tr>
+        <tr><td>Environmental degradation, pressure on per capita availability of land/water</td><td>Economies of scale in production and provision of infrastructure/services</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Modern development economics increasingly treats population less as a fixed "problem" and more as a function of the <strong>quality</strong> of human capital (education, health, skills) — the same population size can be either a dividend or a burden depending on these investments.</p>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>Occupational Structure</h2></div>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — MEANING</div>
+    <h2 class="sec-title">Meaning &amp; the Historical Trend</h2>
+    <div class="box definition">
+      <div class="label">Occupational Structure</div>
+      The distribution of a country's <strong>working population (workforce)</strong> across the three broad sectors — Primary (agriculture &amp; allied), Secondary (industry/manufacturing), and Tertiary (services) — as distinct from the sectoral distribution of <em>output/GVA</em> covered in Part A.
+    </div>
+    <table>
+      <caption>Table 9.1 — Long-run shift in India's workforce distribution (illustrative, %)</caption>
+      <thead><tr><th>Year</th><th>Agriculture</th><th>Industry</th><th>Services</th></tr></thead>
+      <tbody>
+        <tr><td>1951</td><td>~72%</td><td>~11%</td><td>~17%</td></tr>
+        <tr><td>1987-88</td><td>~66%</td><td>~13%</td><td>~21%</td></tr>
+        <tr><td>2011-12</td><td>~49%</td><td>~24%</td><td>~27%</td></tr>
+        <tr><td>2023-24 (PLFS)</td><td>~46%</td><td>~25%</td><td>~29%</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The historical decline of agriculture's workforce share — from ~66% in 1987-88 to ~46% in 2023-24 — is real but has been <strong>far slower</strong> than the decline in agriculture's output (GVA) share over the same period (from ~30% to ~15%). This gap is the essence of the "structural transformation puzzle" (Section 12).
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — CURRENT DATA</div>
+    <h2 class="sec-title">Current Workforce Distribution (PLFS 2023-24)</h2>
+    <div class="box data">
+      <div class="label">Periodic Labour Force Survey (PLFS) 2023-24 — headline numbers</div>
+      Agriculture ≈ <strong>46.1%</strong> of workers (rising slightly from 45.5% in 2021-22 and 45.8% in 2022-23) &nbsp;|&nbsp; Labour Force Participation Rate (LFPR) rose to <strong>45.1%</strong> &nbsp;|&nbsp; Worker Population Ratio (WPR) rose to <strong>43.7%</strong> &nbsp;|&nbsp; Unemployment Rate stagnant at <strong>~3.2%</strong>. India's total workforce is estimated at roughly <strong>611 million</strong> (2023-24), with about 42 million jobs added over the year — nearly half of them in agriculture itself.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- simple stacked/pie-like bar comparison of GVA share vs workforce share -->
+        <text x="150" y="30" font-size="13" fill="#22303F" font-weight="600" text-anchor="middle">Share of GVA (Output)</text>
+        <text x="420" y="30" font-size="13" fill="#22303F" font-weight="600" text-anchor="middle">Share of Workforce</text>
+        <!-- GVA bar -->
+        <rect x="80" y="50" width="140" height="30" fill="#7C2E2E"/>
+        <text x="225" y="70" font-size="11" fill="#7C2E2E">Agri ~15%</text>
+        <rect x="80" y="85" width="140" height="65" fill="#A9793B"/>
+        <text x="225" y="120" font-size="11" fill="#A9793B">Industry ~31%</text>
+        <rect x="80" y="150" width="140" height="115" fill="#2C6E64"/>
+        <text x="225" y="210" font-size="11" fill="#2C6E64">Services ~55%</text>
+        <!-- workforce bar -->
+        <rect x="350" y="50" width="140" height="140" fill="#7C2E2E"/>
+        <text x="495" y="120" font-size="11" fill="#7C2E2E">Agri ~46%</text>
+        <rect x="350" y="190" width="140" height="75" fill="#A9793B"/>
+        <text x="495" y="228" font-size="11" fill="#A9793B">Industry ~25%</text>
+        <rect x="350" y="265" width="140" height="0" fill="#2C6E64"/>
+        <rect x="350" y="190" width="0" height="0"/>
+        <rect x="350" y="265" width="140" height="87" fill="#2C6E64"/>
+        <text x="495" y="305" font-size="11" fill="#2C6E64">Services ~29%</text>
+      </svg>
+      <figcaption>Fig 10.1 — Comparing output share vs workforce share by sector: Agriculture produces ~15% of GVA using ~46% of the workforce (very low productivity per worker); Services produces ~55% of GVA with only ~29% of the workforce (very high productivity per worker).</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 10.1 — Implied labour productivity gap (illustrative, GVA share ÷ workforce share)</caption>
+      <thead><tr><th>Sector</th><th>Share of GVA</th><th>Share of Workforce</th><th>Relative Labour Productivity</th></tr></thead>
+      <tbody>
+        <tr><td>Agriculture</td><td>~15%</td><td>~46%</td><td><strong>Low</strong> (~0.33× the economy average)</td></tr>
+        <tr><td>Industry</td><td>~31%</td><td>~25%</td><td>Above average (~1.24×)</td></tr>
+        <tr><td>Services</td><td>~55%</td><td>~29%</td><td><strong>High</strong> (~1.9× the economy average)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This GVA-share vs workforce-share mismatch is exactly why per-worker income (productivity) in agriculture is so much lower than in industry/services — a fact frequently tested via numbers or via the underlying logic (excess/"disguised" employment in agriculture; see Section 11).
+    </div>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — WHY AGRICULTURE PERSISTS</div>
+    <h2 class="sec-title">Why Does Agriculture Still Dominate the Workforce?</h2>
+    <ul>
+      <li><strong>Disguised unemployment</strong> — a large number of workers on farms whose Marginal Product of Labour is at or near zero; removing them would not reduce output (classic feature of an agrarian, labour-surplus economy — see Lewis's Dual-Sector Model)</li>
+      <li><strong>Slow pace of non-farm job creation</strong> — manufacturing (which should absorb surplus agricultural labour, per the classic development path) has not grown fast enough in employment-intensive segments</li>
+      <li><strong>Land as a safety net / fallback occupation</strong> — informal, self-employment and unpaid family labour on small landholdings absorb workers when formal opportunities are scarce, especially during downturns</li>
+      <li><strong>Low education/skill levels</strong> among rural workers limiting mobility into higher-productivity non-farm jobs</li>
+      <li><strong>Seasonal reverse migration</strong> — evidence (post-pandemic, and again in recent PLFS rounds) of workers moving <em>back</em> into agriculture during economic stress, partly explaining the slight recent uptick in agriculture's employment share (45.5% → 46.1%) even as its output share keeps falling</li>
+    </ul>
+    <div class="box definition">
+      <div class="label">Lewis Dual-Sector Model (brief)</div>
+      W. Arthur Lewis's model describes economic development as the gradual transfer of "surplus labour" from a low-productivity traditional (agricultural) sector to a high-productivity modern (industrial/urban) sector, drawn by a wage differential — until the surplus is exhausted (the "Lewis turning point").
+    </div>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — THE PUZZLE</div>
+    <h2 class="sec-title">Structural Transformation: A Puzzle, Not a Textbook Path</h2>
+    <div class="box warn">
+      <div class="label">India's atypical transformation</div>
+      Standard development theory (Fisher-Clark-Kuznets, Lewis) predicts workforce should move Agriculture → Industry → Services broadly <em>in step with</em> output. India instead saw <strong>output</strong> shift rapidly to Services while <strong>workforce</strong> remained disproportionately stuck in Agriculture, with Industry's employment share never rising as much as theory would predict (limited "labour-intensive manufacturing" phase).
+    </div>
+    <table>
+      <caption>Table 12.1 — India vs the "classic" development path</caption>
+      <thead><tr><th></th><th>Classic path (e.g., East Asian "Tigers")</th><th>India's actual path</th></tr></thead>
+      <tbody>
+        <tr><td>Sequence</td><td>Agriculture → labour-intensive manufacturing (absorbs surplus labour) → services</td><td>Agriculture → skill/capital-intensive services (bypassing a strong labour-absorbing manufacturing phase)</td></tr>
+        <tr><td>Employment generation</td><td>Manufacturing absorbs large numbers of low-skilled workers</td><td>Services growth (IT, finance) is often capital/skill-intensive, absorbing fewer low-skilled workers per unit of output</td></tr>
+        <tr><td>Consequence</td><td>Faster, broader-based poverty reduction via employment shift</td><td>Large "residual" workforce remains trapped in low-productivity agriculture/informal sector — a key structural challenge</td></tr>
+      </tbody>
+    </table>
+    <h4>Policy implications frequently discussed</h4>
+    <ul>
+      <li>Need to boost <strong>labour-intensive manufacturing</strong> (textiles, leather, food processing) to absorb agricultural surplus labour</li>
+      <li><strong>Skilling missions</strong> (e.g., Skill India) to enable workforce mobility into higher-productivity sectors</li>
+      <li>Addressing <strong>informality</strong> — the vast majority of India's workforce remains in informal employment, with limited social security</li>
+      <li>Raising agricultural productivity itself (irrigation, technology, market reforms) even as the sector's workforce share gradually falls</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This "output-employment elasticity mismatch" — the idea that GDP/GVA growth in India has often been <strong>less employment-intensive</strong> than historically expected — is one of the most important conceptual threads connecting national income trends (Part A), population/demographic dividend (Part B), and occupational structure (Part C) into a single coherent narrative. Expect integrated questions linking all three.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Data Table (Quick-Reference Snapshot)</h2>
+    <table>
+      <thead><tr><th>Indicator</th><th>Approximate Latest Value</th></tr></thead>
+      <tbody>
+        <tr><td>Population (2025)</td><td>≈146.4 crore (world's most populous country)</td></tr>
+        <tr><td>Population growth rate</td><td>≈0.89% per annum (falling)</td></tr>
+        <tr><td>Total Fertility Rate (TFR)</td><td>≈1.9–2.0 (below replacement level 2.1)</td></tr>
+        <tr><td>Working-age population share (15-64)</td><td>≈68%</td></tr>
+        <tr><td>Median age</td><td>≈29.8 years</td></tr>
+        <tr><td>Real GDP growth, FY 2024-25 (provisional)</td><td>≈6.5%</td></tr>
+        <tr><td>Services share of GVA</td><td>≈55%</td></tr>
+        <tr><td>Industry share of GVA</td><td>≈31%</td></tr>
+        <tr><td>Agriculture share of GVA</td><td>≈15%</td></tr>
+        <tr><td>Agriculture share of workforce (PLFS 2023-24)</td><td>≈46%</td></tr>
+        <tr><td>Labour Force Participation Rate (LFPR), 2023-24</td><td>≈45.1%</td></tr>
+        <tr><td>National accounts base year</td><td>2011-12</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Figures are drawn from MoSPI/NSO provisional estimates, PLFS annual reports, and UNFPA's 2025 World Population report — treat as approximate, exam-oriented reference points; always defer to the latest official release closer to your exam date.</p>
+  </section>
+
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula &amp; Concept Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Dependency Ratio</div>[(Pop 0-14)+(Pop 65+)] / (Pop 15-64) × 100</div>
+      <div class="box formula"><div class="label">Total Fertility Rate</div>Avg. number of children per woman over reproductive years</div>
+      <div class="box formula"><div class="label">Gross Domestic Savings Rate</div>GDS / GDP</div>
+      <div class="box formula"><div class="label">Labour Force Participation Rate</div>(Employed+Unemployed seeking work)/Working-age Population</div>
+      <div class="box formula"><div class="label">Worker Population Ratio (WPR)</div>Employed Persons / Total Population</div>
+      <div class="box formula"><div class="label">Occupational structure</div>Workforce share by sector (Primary/Secondary/Tertiary) — distinct from GVA share</div>
+      <div class="box formula"><div class="label">Replacement-level TFR</div>≈2.1 children per woman</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Services &gt; 50% of GVA, but only ~29% of workforce</span>
+      <span class="chip">Agriculture: ~15% of GVA, ~46% of workforce</span>
+      <span class="chip">India's TFR now below replacement level</span>
+      <span class="chip">Demographic dividend ≠ automatic — needs jobs</span>
+      <span class="chip">Census delayed since 2021</span>
+      <span class="chip">"Hindu rate of growth" = 1950-80, ~3.5%</span>
+      <span class="chip">Lewis model: surplus labour transfer</span>
+      <span class="chip">India skipped a strong labour-intensive manufacturing phase</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. The term "Hindu rate of growth" refers to India's average growth rate during: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1991-2000 &nbsp; (b) <strong>1950-1980</strong> &nbsp; (c) 2000-2010 &nbsp; (d) 2010-2020<br><br>
+      <span class="correct">Answer: (b)</span> — coined by economist Raj Krishna to describe the low (~3.5%) average growth of that period.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Which sector currently contributes the largest share of India's GVA? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Agriculture &nbsp; (b) Industry &nbsp; (c) <strong>Services</strong> &nbsp; (d) Mining<br><br>
+      <span class="correct">Answer: (c)</span> — services account for roughly 55% of GVA, the majority.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. India's occupational structure differs from its output structure mainly because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Industry employs the most workers &nbsp; (b) <strong>A disproportionately large share of the workforce remains in low-productivity agriculture despite its shrinking output share</strong> &nbsp; (c) Services employ the majority of workers &nbsp; (d) There is no difference between the two structures<br><br>
+      <span class="correct">Answer: (b)</span> — agriculture employs ~46% of workers but generates only ~15% of GVA.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. "Disguised unemployment" in Indian agriculture refers to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Workers who are registered as unemployed &nbsp; (b) <strong>Workers whose marginal product is near zero, so their removal would not reduce total output</strong> &nbsp; (c) Seasonal unemployment during off-harvest months &nbsp; (d) Unemployment among the urban educated<br><br>
+      <span class="correct">Answer: (b)</span> — a central feature of the Lewis Dual-Sector Model's "surplus labour."</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. India's Total Fertility Rate (TFR) as of recent estimates is: <span class="qmeta">Current Affairs</span></summary>
+      <div class="ans">(a) Above the replacement level of 2.1 &nbsp; (b) <strong>Below the replacement level, at approximately 1.9–2.0</strong> &nbsp; (c) Exactly at 3.0 &nbsp; (d) Rising rapidly<br><br>
+      <span class="correct">Answer: (b)</span> — a major demographic shift from earlier decades of high fertility.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. The "demographic dividend" refers to: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Guaranteed economic growth from any population increase &nbsp; (b) <strong>The growth potential from a rising working-age share of the population, realised only if that workforce is productively employed</strong> &nbsp; (c) Cash transfers to young workers &nbsp; (d) A tax on population growth<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. According to the Demographic Transition model, "Stage 2" is characterised by: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Both high birth and death rates &nbsp; (b) <strong>High birth rate but rapidly falling death rate, causing a population explosion</strong> &nbsp; (c) Low birth and death rates &nbsp; (d) Falling birth rate with stable death rate<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. India's national accounts currently measure GDP/GVA using which base year? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 2004-05 &nbsp; (b) <strong>2011-12</strong> &nbsp; (c) 2018-19 &nbsp; (d) 1999-2000<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. India's decennial Census, originally due in 2021, has been: <span class="qmeta">Current Affairs</span></summary>
+      <div class="ans">(a) Completed on schedule &nbsp; (b) <strong>Delayed</strong>, with current population figures relying on projections/surveys (SRS, NFHS, UNFPA) &nbsp; (c) Cancelled permanently &nbsp; (d) Replaced entirely by PLFS<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. Which of the following best describes India's structural transformation, compared to the "classic" East Asian development path? <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) India followed an identical Agriculture→Manufacturing→Services employment shift &nbsp; (b) <strong>India's output shifted rapidly to services, while a comparably strong labour-absorbing manufacturing phase was largely bypassed</strong> &nbsp; (c) India's agriculture sector's output share increased over time &nbsp; (d) India's workforce moved entirely into industry<br><br>
+      <span class="correct">Answer: (b)</span> — the central "structural transformation puzzle" of the Indian economy.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. The Periodic Labour Force Survey (PLFS) is conducted by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) RBI &nbsp; (b) <strong>Ministry of Statistics and Programme Implementation (MoSPI/NSO)</strong> &nbsp; (c) NITI Aayog &nbsp; (d) Ministry of Labour directly, without any survey agency<br><br>
+      <span class="correct">Answer: (b)</span> — conducted since 2017-18, on a July-June survey cycle.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. A rising Gross Domestic Savings Rate primarily reflects: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Rising government expenditure &nbsp; (b) <strong>A rising share of national income being saved rather than consumed, by households, firms, and government combined</strong> &nbsp; (c) Falling national income &nbsp; (d) Falling foreign investment<br><br>
+      <span class="correct">Answer: (b)</span> — GDS Rate = GDS/GDP, aggregated across the household, private corporate, and public sectors.</div>
+    </details>
+  </section>
+
+  <footer>
+    National Income, Population &amp; Occupational Structure — CUET PG Indian Economy Notes · Compiled for exam preparation · Sources: MoSPI/NSO provisional estimates, PLFS Annual Reports 2021-22 to 2023-24, UNFPA State of World Population 2025, RBI KLEMS database, ICRA &amp; SBI Research notes. Figures are approximate and rounded for exam use — verify against the latest official release before your exam.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

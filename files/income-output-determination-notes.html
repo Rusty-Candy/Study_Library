@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Income &amp; Output Determination — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:260px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:14px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.84rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.5rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:700px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.9rem; margin:.15em 0 0;}
+  section.block{padding:36px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.85rem; margin:0 0 6px;}
+  h3{font-size:1.24rem; margin:1.5em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.03rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.93rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.73rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.83rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Income &amp; Output Determination</div>
+  <div class="toc-sub">CUET PG · Macroeconomics</div>
+  <ol>
+    <div class="part-label">Part A — Classical Theory</div>
+    <li><a href="#s1">Classical Theory: Foundations</a></li>
+    <li><a href="#s2">Say's Law &amp; Wage-Price Flexibility</a></li>
+    <li><a href="#s3">Classical Dichotomy &amp; Quantity Theory</a></li>
+    <div class="part-label">Part B — Keynesian Theory</div>
+    <li><a href="#s4">Keynes's Critique of Classical Theory</a></li>
+    <li><a href="#s5">Effective Demand Principle</a></li>
+    <li><a href="#s6">Consumption Function</a></li>
+    <li><a href="#s7">Saving &amp; Investment Functions</a></li>
+    <li><a href="#s8">The Keynesian Cross (45° Diagram)</a></li>
+    <li><a href="#s9">Two/Three/Four-Sector Equilibrium</a></li>
+    <li><a href="#s10">The Multiplier</a></li>
+    <li><a href="#s11">Paradox of Thrift</a></li>
+    <div class="part-label">Part C — AD-AS Framework</div>
+    <li><a href="#s12">Aggregate Demand Curve</a></li>
+    <li><a href="#s13">Aggregate Supply: Classical vs Keynesian</a></li>
+    <li><a href="#s14">AD-AS Equilibrium &amp; Shocks</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s15">Master Comparison Table</a></li>
+    <li><a href="#s16">Formula Sheet</a></li>
+    <li><a href="#s17">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">MACROECONOMICS · UNIT: INCOME &amp; OUTPUT DETERMINATION</div>
+    <h1>Aggregate Demand, Aggregate Supply, Effective Demand &amp; the Classical–Keynesian Divide</h1>
+    <p class="lede">How is the equilibrium level of national income and employment determined? The Classical answer (self-correcting full employment via flexible wages/prices) versus Keynes's answer (effective demand can settle below full employment) — plus the modern AD-AS synthesis that reconciles both.</p>
+    <div class="tags">
+      <span class="tag">Say's Law</span><span class="tag">Keynesian Cross</span><span class="tag">Multiplier</span>
+      <span class="tag">Paradox of Thrift</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>The Classical Theory of Income &amp; Employment</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FOUNDATIONS</div>
+    <h2 class="sec-title">Classical Theory: Core Propositions</h2>
+    <p class="lead-p">The Classical school (Smith, Ricardo, Marshall, Pigou — pre-1936) held that a market economy is <strong>self-regulating</strong> and automatically gravitates to <strong>full employment</strong>, with no need for government intervention.</p>
+    <ul>
+      <li>Economy always tends toward <strong>full-employment equilibrium</strong> in the long run</li>
+      <li><strong>Say's Law</strong>: "Supply creates its own demand" — general overproduction (a demand shortfall for the economy as a whole) is impossible</li>
+      <li><strong>Perfectly flexible wages and prices</strong> ensure markets (labour, goods, loanable funds) always clear</li>
+      <li><strong>Laissez-faire</strong> — minimal government intervention is both necessary and sufficient</li>
+      <li>Money is <strong>neutral</strong> — it affects only the price level, not real output/employment (Classical Dichotomy)</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — SAY'S LAW</div>
+    <h2 class="sec-title">Say's Law &amp; Automatic Full Employment</h2>
+    <div class="box definition">
+      <div class="label">Say's Law of Markets</div>
+      "Supply creates its own demand" — the very act of producing goods generates income (wages, rent, interest, profit) exactly equal in value to the goods produced, which is then spent, so aggregate demand automatically equals aggregate supply. <strong>General glut (overproduction) is logically impossible.</strong>
+    </div>
+    <h4>The three markets that ensure automatic adjustment</h4>
+    <table>
+      <caption>Table 2.1 — Classical self-adjusting mechanisms</caption>
+      <thead><tr><th>Market</th><th>Adjusting price/variable</th><th>Ensures</th></tr></thead>
+      <tbody>
+        <tr><td>Labour market</td><td>Money wage rate (W)</td><td>Flexible wages clear the labour market → full employment (any unemployment is purely voluntary or frictional)</td></tr>
+        <tr><td>Loanable funds market</td><td>Rate of interest (r)</td><td>Interest rate adjusts to equate planned Saving (S) with planned Investment (I) — ensures any leakage from spending (saving) is automatically re-injected (investment)</td></tr>
+        <tr><td>Goods market</td><td>General price level (P)</td><td>Flexible prices clear the goods market, ensuring output = demand at full employment</td></tr>
+      </tbody>
+    </table>
+    <div class="box formula">
+      <div class="label">Classical Saving-Investment equality</div>
+      S(r) = I(r) &nbsp;&nbsp;— both S and I are functions of the interest rate; r adjusts until they are equal, automatically, at full-employment income
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      In the Classical model, the rate of interest is a <strong>real</strong> phenomenon determined in the loanable funds (S-I) market — this is a key point of departure from Keynes, who instead made interest a <strong>monetary</strong> phenomenon (liquidity preference: demand and supply of money).
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — MONEY IN THE CLASSICAL MODEL</div>
+    <h2 class="sec-title">The Classical Dichotomy &amp; Quantity Theory of Money</h2>
+    <div class="box definition">
+      <div class="label">Classical Dichotomy</div>
+      The idea that <strong>real variables</strong> (output, employment, relative prices, the real interest rate) are determined entirely in the <strong>real sector</strong> (production functions, labour market), completely independent of the <strong>monetary sector</strong>, which determines only the <strong>nominal price level</strong>.
+    </div>
+    <div class="box formula">
+      <div class="label">Quantity Theory of Money (Fisher's Equation of Exchange)</div>
+      M·V = P·Y &nbsp;&nbsp;(M = money supply, V = velocity of circulation, P = price level, Y = real output)
+    </div>
+    <p>With V and Y both assumed constant/fixed at full employment (Classical view), any change in M translates <strong>proportionately</strong> into a change in P alone — this is the doctrine of the <strong>neutrality of money</strong>: money is only a "veil" over the real economy.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="520" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="264" font-size="12" fill="#22303F">Output (Y)</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price Level (P)</text>
+        <!-- Vertical AS at full employment -->
+        <line x1="300" y1="260" x2="300" y2="40" stroke="#7C2E2E" stroke-width="2.6"/>
+        <text x="230" y="55" font-size="12" fill="#7C2E2E" font-style="italic">Classical AS (vertical at Yf)</text>
+        <text x="290" y="278" font-size="11" fill="#7C2E2E">Yf (Full Employment Output)</text>
+        <!-- two AD curves showing shift causing pure price change -->
+        <line x1="120" y1="230" x2="420" y2="90" stroke="#3E5C76" stroke-width="2"/>
+        <text x="428" y="88" font-size="11" fill="#3E5C76" font-style="italic">AD₁</text>
+        <line x1="160" y1="240" x2="460" y2="60" stroke="#2C6E64" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="466" y="58" font-size="11" fill="#2C6E64" font-style="italic">AD₂ (M↑)</text>
+        <circle cx="300" cy="150" r="4" fill="#3E5C76"/>
+        <circle cx="300" cy="100" r="4" fill="#2C6E64"/>
+      </svg>
+      <figcaption>Fig 3.1 — Money neutrality: an increase in money supply shifts AD rightward (AD₁→AD₂), but since AS is vertical at Yf, only the price level rises (P₁→P₂) — real output stays at Yf, unchanged.</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "Classical economists believed money is neutral" is a frequently tested True/False — it's <strong>True</strong>, and directly implies that monetary policy cannot affect real output/employment in the Classical model, only the price level.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>The Keynesian Revolution</h2></div>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — THE CRITIQUE</div>
+    <h2 class="sec-title">Keynes's Critique of Classical Theory (The General Theory, 1936)</h2>
+    <p class="lead-p">Writing against the backdrop of the Great Depression (mass, prolonged unemployment despite Classical predictions of self-correction), Keynes attacked the Classical model at its foundations.</p>
+    <table>
+      <caption>Table 4.1 — Point-by-point critique</caption>
+      <thead><tr><th>Classical claim</th><th>Keynes's counter-argument</th></tr></thead>
+      <tbody>
+        <tr><td>Say's Law: supply creates its own demand</td><td>Rejected — income earned need not all be spent; <strong>saving and investment decisions are made by different people for different reasons</strong>, so a demand shortfall (general glut) is entirely possible</td></tr>
+        <tr><td>Wages are perfectly flexible downward</td><td>Wages are <strong>"sticky" downward</strong> (rigid) — due to labour contracts, social norms, minimum wage laws, union resistance — so labour markets don't clear automatically</td></tr>
+        <tr><td>Interest rate equates S and I</td><td>Interest is a <strong>monetary</strong> phenomenon (determined by liquidity preference — demand and supply of money), not automatically equilibrating S and I; S and I are equilibrated instead by <strong>changes in the level of income (Y)</strong></td></tr>
+        <tr><td>Full employment is the "normal" state</td><td><strong>Underemployment equilibrium</strong> is possible and can persist — the economy can settle in equilibrium at an income level well below full employment, with no automatic forces pushing it to Yf</td></tr>
+        <tr><td>Unemployment is only voluntary/frictional</td><td>Introduced the idea of <strong>involuntary unemployment</strong> — workers willing to work at the prevailing wage but unable to find jobs</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — CENTRAL PRINCIPLE</div>
+    <h2 class="sec-title">The Effective Demand Principle</h2>
+    <div class="box definition">
+      <div class="label">Effective Demand</div>
+      The point of <strong>Aggregate Demand (AD)</strong> at which it equals <strong>Aggregate Supply (AS)</strong> — the level of expected sales revenue that actually induces entrepreneurs to produce and employ at a given level of output. Employment and income are determined at exactly this point.
+    </div>
+    <h4>Aggregate Demand Price (D) and Aggregate Supply Price (Z)</h4>
+    <ul>
+      <li><strong>Aggregate Supply Price (Z)</strong>: the minimum total sale-proceeds entrepreneurs must expect to receive to make it worthwhile to offer a given level of employment (covers cost of production, including normal profit) — rises with employment/output</li>
+      <li><strong>Aggregate Demand Price (D)</strong>: the total sale-proceeds entrepreneurs actually <strong>expect</strong> to receive from selling the output produced at a given level of employment — also generally rises with employment/output, but more slowly at high income (due to the consumption function)</li>
+    </ul>
+    <div class="box formula">
+      <div class="label">Effective Demand Point</div>
+      Effective Demand occurs where &nbsp; D = Z &nbsp;&nbsp;— entrepreneurs have no incentive to expand or contract employment further at that point.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="284" font-size="12" fill="#22303F">Employment (N)</text>
+        <text x="20" y="18" font-size="12" fill="#22303F">D, Z (Expected proceeds)</text>
+        <!-- Z curve: rises steadily, roughly linear/convex -->
+        <path d="M 90 240 C 200 190, 320 120, 460 60" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="466" y="56" font-size="12" fill="#7C2E2E" font-style="italic">Z (Aggregate Supply Price)</text>
+        <!-- D curve: rises but flattens (due to declining MPC) -->
+        <path d="M 90 260 C 220 170, 330 110, 460 100" fill="none" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="466" y="98" font-size="12" fill="#3E5C76" font-style="italic">D (Aggregate Demand Price)</text>
+        <circle cx="345" cy="128" r="5" fill="#22303F"/>
+        <text x="280" y="155" font-size="12" fill="#22303F" font-weight="600">E (Effective Demand: D=Z)</text>
+        <line x1="345" y1="128" x2="345" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="330" y="298" font-size="11" fill="#8B93A1">Ne</text>
+        <text x="460" y="290" font-size="10" fill="#8B93A1">Nf (full employment)</text>
+        <line x1="460" y1="280" x2="460" y2="270" stroke="#8B93A1"/>
+      </svg>
+      <figcaption>Fig 5.1 — Effective Demand: employment settles at Ne, where D=Z — which may fall short of the full-employment level Nf, unlike the Classical assumption of automatic full employment.</figcaption>
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Effective Demand is the core Keynesian principle underlying the entire theory of income/employment determination — it directly implies that <strong>equilibrium output can settle below full employment</strong>, with no automatic tendency to move to Nf, contradicting Say's Law.
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — CONSUMPTION</div>
+    <h2 class="sec-title">The Consumption Function</h2>
+    <div class="box definition">
+      <div class="label">Consumption Function</div>
+      C = f(Y) — the functional relationship between the level of national income (Y) and aggregate consumption expenditure (C). Keynes's simplest (linear) form:
+    </div>
+    <div class="box formula">
+      <div class="label">Linear Consumption Function</div>
+      C = C̄ + cY &nbsp;&nbsp;(C̄ = autonomous consumption, i.e. consumption even at zero income; c = Marginal Propensity to Consume, 0 &lt; c &lt; 1)
+    </div>
+    <div class="box definition">
+      <div class="label">Keynes's "Fundamental Psychological Law"</div>
+      As income rises, consumption also rises, but <strong>by a smaller amount than the rise in income</strong> — i.e., people tend to save a larger fraction of any income increase. This implies 0 &lt; MPC &lt; 1.
+    </div>
+
+    <table>
+      <caption>Table 6.1 — APC, MPC and their relationship</caption>
+      <thead><tr><th>Concept</th><th>Formula</th><th>Behaviour as Y rises</th></tr></thead>
+      <tbody>
+        <tr><td>Average Propensity to Consume (APC)</td><td>APC = C/Y</td><td>Falls (since some consumption is autonomous, fixed regardless of Y)</td></tr>
+        <tr><td>Marginal Propensity to Consume (MPC)</td><td>MPC = ΔC/ΔY</td><td>Assumed constant in the simple linear model (=c), typically 0&lt;MPC&lt;1</td></tr>
+        <tr><td>Average Propensity to Save (APS)</td><td>APS = S/Y = 1 − APC</td><td>Rises as income rises</td></tr>
+        <tr><td>Marginal Propensity to Save (MPS)</td><td>MPS = ΔS/ΔY = 1 − MPC</td><td>Constant (=1−c) in the simple linear model</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="480" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="486" y="284" font-size="12" fill="#22303F">Income (Y)</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Consumption (C)</text>
+        <!-- 45 degree line -->
+        <line x1="60" y1="280" x2="420" y2="30" stroke="#8B93A1" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="426" y="30" font-size="11" fill="#8B93A1" font-style="italic">45° line (C=Y)</text>
+        <!-- consumption function, starting above zero -->
+        <line x1="60" y1="230" x2="420" y2="90" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="426" y="90" font-size="12" fill="#3E5C76" font-style="italic">C = C̄ + cY</text>
+        <circle cx="60" cy="230" r="4" fill="#3E5C76"/>
+        <text x="30" y="235" font-size="10" fill="#3E5C76">C̄</text>
+        <!-- break-even point where C=Y -->
+        <circle cx="255" cy="167" r="5" fill="#7C2E2E"/>
+        <text x="200" y="155" font-size="11" fill="#7C2E2E" font-weight="600">Break-even (C=Y, S=0)</text>
+        <line x1="255" y1="167" x2="255" y2="280" stroke="#8B93A1" stroke-dasharray="2 2"/>
+      </svg>
+      <figcaption>Fig 6.1 — Consumption function: starts at positive autonomous consumption C̄ (even at zero income, via dissaving), rises with slope MPC. At the break-even point, the function crosses the 45° line (C=Y, so S=0); to its left, dissaving occurs; to its right, positive saving occurs.</figcaption>
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — SAVING &amp; INVESTMENT</div>
+    <h2 class="sec-title">Saving &amp; Investment Functions</h2>
+    <div class="box formula">
+      <div class="label">Saving Function (derived from consumption function)</div>
+      S = Y − C = Y − (C̄ + cY) = −C̄ + (1−c)Y
+    </div>
+    <div class="box definition">
+      <div class="label">Investment (Keynesian view)</div>
+      Investment is largely treated as <strong>autonomous</strong> (Ī) in the simple model — determined by business expectations, the <strong>Marginal Efficiency of Capital (MEC)</strong>, and the rate of interest — rather than by current income.
+    </div>
+    <div class="box formula">
+      <div class="label">Marginal Efficiency of Capital (MEC)</div>
+      The expected rate of return on an additional unit of capital investment. Investment is undertaken up to the point where MEC = rate of interest (r).
+    </div>
+    <p class="small">In more advanced models, investment also has an <strong>induced</strong> component (rising with income, via the "accelerator" effect) — but the simple Keynesian cross typically treats I as autonomous (I = Ī) for tractability.</p>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — THE KEYNESIAN CROSS</div>
+    <h2 class="sec-title">The 45° Diagram (Keynesian Cross)</h2>
+    <div class="box formula">
+      <div class="label">Equilibrium condition (two-sector economy)</div>
+      Y = C + I &nbsp;&nbsp;(Aggregate Expenditure = Aggregate Income) &nbsp;&nbsp;⟺&nbsp;&nbsp; S = I
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="520" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="304" font-size="12" fill="#22303F">Income (Y)</text>
+        <text x="20" y="18" font-size="12" fill="#22303F">Aggregate Expenditure (C+I)</text>
+        <line x1="60" y1="300" x2="440" y2="30" stroke="#8B93A1" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="446" y="30" font-size="11" fill="#8B93A1" font-style="italic">45° line (AE=Y)</text>
+        <!-- C+I line -->
+        <line x1="60" y1="240" x2="440" y2="90" stroke="#3E5C76" stroke-width="2.4"/>
+        <text x="446" y="90" font-size="12" fill="#3E5C76" font-style="italic">C+I (Aggregate Expenditure)</text>
+        <circle cx="270" cy="163" r="5" fill="#7C2E2E"/>
+        <text x="278" y="158" font-size="12" fill="#7C2E2E" font-weight="600">E (Equilibrium)</text>
+        <line x1="270" y1="163" x2="270" y2="300" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="255" y="318" font-size="11" fill="#8B93A1">Ye (Equilibrium Income)</text>
+        <!-- Full employment marker further right -->
+        <line x1="400" y1="300" x2="400" y2="115" stroke="#A9793B" stroke-dasharray="2 2" stroke-width="1.4"/>
+        <text x="380" y="318" font-size="10" fill="#A9793B">Yf</text>
+        <text x="150" y="130" font-size="10" fill="#A64B2A">Deflationary gap (if Ye&lt;Yf)</text>
+      </svg>
+      <figcaption>Fig 8.1 — The Keynesian Cross: equilibrium income Ye occurs where the C+I (Aggregate Expenditure) line crosses the 45° line. If Ye is less than the full-employment income Yf, a <strong>deflationary (recessionary) gap</strong> exists — AD is insufficient to generate full employment.</figcaption>
+    </div>
+
+    <h4>Deflationary Gap vs Inflationary Gap</h4>
+    <table>
+      <caption>Table 8.1 — The two disequilibrium "gaps"</caption>
+      <thead><tr><th>Gap</th><th>Meaning</th><th>Corresponding policy response</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Deflationary Gap</strong></td><td>Aggregate Demand at full employment income falls <strong>short of</strong> the AS needed for full employment — Ye &lt; Yf</td><td>Expansionary fiscal/monetary policy to boost AD (↑G, ↓T)</td></tr>
+        <tr><td><strong>Inflationary Gap</strong></td><td>Aggregate Demand at full employment income <strong>exceeds</strong> full-employment output capacity — demand-pull pressure on prices</td><td>Contractionary fiscal/monetary policy to curb AD (↓G, ↑T)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — EXTENDING THE MODEL</div>
+    <h2 class="sec-title">Two-, Three- and Four-Sector Equilibrium</h2>
+    <table>
+      <caption>Table 9.1 — Equilibrium conditions across models</caption>
+      <thead><tr><th>Model</th><th>Equilibrium (Income = Expenditure)</th><th>Equilibrium (Leakages = Injections)</th></tr></thead>
+      <tbody>
+        <tr><td>Two-sector</td><td>Y = C + I</td><td>S = I</td></tr>
+        <tr><td>Three-sector (+ Govt)</td><td>Y = C + I + G</td><td>S + T = I + G</td></tr>
+        <tr><td>Four-sector (+ Foreign)</td><td>Y = C + I + G + (X − M)</td><td>S + T + M = I + G + X</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The "leakages = injections" version is an equivalent, often more intuitive, way to state Keynesian equilibrium — leakages (S, T, M) withdraw purchasing power from the circular flow, while injections (I, G, X) inject it back in; equilibrium requires the two to balance exactly.
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — THE MULTIPLIER</div>
+    <h2 class="sec-title">The Investment (Keynesian) Multiplier</h2>
+    <div class="box definition">
+      <div class="label">Multiplier (k)</div>
+      The ratio of the <strong>change in equilibrium income</strong> to the <strong>initial change in autonomous expenditure</strong> (e.g., investment) that caused it. Captures the "ripple effect": one person's spending is another's income, which is partly re-spent, and so on.
+    </div>
+    <div class="box formula">
+      <div class="label">Formula (two-sector, simple model)</div>
+      k = ΔY/ΔI = 1/(1−MPC) = 1/MPS
+    </div>
+
+    <table>
+      <caption>Table 10.1 — Worked multiplier round-by-round (MPC = 0.8, initial ΔI = ₹100)</caption>
+      <thead><tr><th>Round</th><th>Additional income generated (₹)</th><th>Cumulative income (₹)</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1 (initial ΔI)</td><td class="num">100</td><td class="num">100</td></tr>
+        <tr><td class="num">2</td><td class="num">80</td><td class="num">180</td></tr>
+        <tr><td class="num">3</td><td class="num">64</td><td class="num">244</td></tr>
+        <tr><td class="num">4</td><td class="num">51.2</td><td class="num">295.2</td></tr>
+        <tr><td class="num">...</td><td class="num">...</td><td class="num">...</td></tr>
+        <tr><td class="num">∞ (converges)</td><td></td><td class="num"><strong>500</strong> (= 100 × 1/(1−0.8) = 100 × 5)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="460" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="466" y="264" font-size="12" fill="#22303F">Y</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">AE</text>
+        <line x1="60" y1="260" x2="400" y2="30" stroke="#8B93A1" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <!-- original AE line -->
+        <line x1="60" y1="220" x2="400" y2="100" stroke="#3E5C76" stroke-width="2.2"/>
+        <!-- shifted AE line (after ΔI) -->
+        <line x1="60" y1="180" x2="400" y2="60" stroke="#7C2E2E" stroke-width="2.2" stroke-dasharray="5 3"/>
+        <text x="405" y="60" font-size="11" fill="#7C2E2E" font-style="italic">AE + ΔI</text>
+        <text x="405" y="100" font-size="11" fill="#3E5C76" font-style="italic">AE (original)</text>
+        <circle cx="235" cy="158" r="4" fill="#3E5C76"/>
+        <circle cx="290" cy="130" r="4" fill="#7C2E2E"/>
+        <line x1="235" y1="260" x2="235" y2="158" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <line x1="290" y1="260" x2="290" y2="130" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <text x="220" y="275" font-size="10" fill="#8B93A1">Y₁</text>
+        <text x="278" y="275" font-size="10" fill="#8B93A1">Y₂</text>
+        <path d="M 235 245 L 290 245" stroke="#A9793B" stroke-width="1.6" marker-end="url(#am)"/>
+        <text x="240" y="240" font-size="10" fill="#A9793B">ΔY = k×ΔI (ΔY &gt; ΔI)</text>
+        <defs><marker id="am" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#A9793B"/></marker></defs>
+      </svg>
+      <figcaption>Fig 10.1 — The multiplier effect: a small upward shift in the AE line (from an initial ΔI) produces a <strong>larger</strong> change in equilibrium income (ΔY = k·ΔI), since k = 1/(1−MPC) &gt; 1.</figcaption>
+    </div>
+
+    <h4>Leakages reduce the size of the multiplier</h4>
+    <table>
+      <caption>Table 10.2 — Multiplier formula by model</caption>
+      <thead><tr><th>Model</th><th>Multiplier formula</th></tr></thead>
+      <tbody>
+        <tr><td>Two-sector</td><td>k = 1/(1−MPC) = 1/MPS</td></tr>
+        <tr><td>Three-sector (with taxes, MPC applies to disposable income)</td><td>k = 1/(1−MPC(1−t)) &nbsp;(t = tax rate)</td></tr>
+        <tr><td>Four-sector (with imports)</td><td>k = 1/(1−MPC+MPM) &nbsp;(MPM = marginal propensity to import — an added leakage)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Higher MPC (lower MPS) ⇒ <strong>larger</strong> multiplier (less leaked into saving at each round). Adding tax and import leakages always <strong>shrinks</strong> the multiplier relative to the simple two-sector case — a very common numerical MCQ setup.
+    </div>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — A KEYNESIAN PARADOX</div>
+    <h2 class="sec-title">Paradox of Thrift</h2>
+    <div class="box warn">
+      <div class="label">Paradox of Thrift</div>
+      An attempt by <strong>all</strong> individuals in the economy to save more (at any given income) can, paradoxically, lead to a <strong>fall</strong> in aggregate income and, in the simple closed model, even leave <strong>aggregate saving unchanged</strong> — even though saving more is individually rational.
+    </div>
+    <p><strong>Mechanism:</strong> if households collectively try to save more, consumption spending (C) falls → aggregate demand falls → firms cut production and lay off workers → national income falls → since income has fallen, saving may end up no higher (or even lower) than before, despite everyone's intention to save more.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="480" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="486" y="264" font-size="12" fill="#22303F">Y</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">S, I</text>
+        <!-- I line horizontal (autonomous) -->
+        <line x1="60" y1="180" x2="480" y2="180" stroke="#A9793B" stroke-width="2"/>
+        <text x="486" y="184" font-size="11" fill="#A9793B" font-style="italic">I</text>
+        <!-- original S curve -->
+        <line x1="90" y1="250" x2="440" y2="90" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="446" y="90" font-size="11" fill="#3E5C76" font-style="italic">S (original)</text>
+        <!-- new S curve, shifted up (more thrift) -->
+        <line x1="90" y1="210" x2="400" y2="50" stroke="#7C2E2E" stroke-width="2.2" stroke-dasharray="5 3"/>
+        <text x="406" y="50" font-size="11" fill="#7C2E2E" font-style="italic">S' (higher thrift)</text>
+        <circle cx="265" cy="180" r="5" fill="#3E5C76"/>
+        <circle cx="222" cy="180" r="5" fill="#7C2E2E"/>
+        <line x1="265" y1="180" x2="265" y2="260" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <line x1="222" y1="180" x2="222" y2="260" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <text x="255" y="278" font-size="10" fill="#3E5C76">Y₁</text>
+        <text x="205" y="278" font-size="10" fill="#7C2E2E">Y₂ (fallen)</text>
+      </svg>
+      <figcaption>Fig 11.1 — An upward shift of the saving function (S→S', more thrift at every income) lowers equilibrium income from Y₁ to Y₂ (since I is unchanged/autonomous), while equilibrium saving (=I) remains exactly the same at the new equilibrium — the paradox.</figcaption>
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A "fallacy of composition" — what is prudent for one individual (saving more) is not necessarily good for the economy as a whole if generalised, when investment doesn't rise correspondingly. Directly contradicts the Classical presumption that more saving is unambiguously good for capital formation.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>The Modern AD-AS Framework</h2></div>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — AGGREGATE DEMAND</div>
+    <h2 class="sec-title">The Aggregate Demand (AD) Curve</h2>
+    <div class="box definition">
+      <div class="label">Aggregate Demand (modern AD-AS sense)</div>
+      The total quantity of domestically produced goods and services that all sectors of the economy (households, firms, government, foreign sector) are willing to purchase at each possible <strong>price level</strong>, holding other factors constant.
+    </div>
+    <div class="box formula">
+      <div class="label">Composition</div>
+      AD = C + I + G + (X − M)
+    </div>
+    <h4>Why does the AD curve slope downward (in P–Y space)?</h4>
+    <ul>
+      <li><strong>Real balance (wealth) effect</strong> — a higher price level reduces the real value of money holdings, reducing consumption</li>
+      <li><strong>Interest rate effect</strong> — a higher price level raises money demand, pushing up interest rates, which discourages investment</li>
+      <li><strong>Net export (exchange rate) effect</strong> — a higher domestic price level makes exports relatively costlier and imports cheaper, reducing net exports</li>
+    </ul>
+    <div class="box warn">
+      <div class="label">Do not confuse</div>
+      This AD curve (price level vs total real output) is conceptually distinct from a single-market demand curve (own price vs quantity of one good) — the downward slope here comes from wealth/interest-rate/exchange-rate effects, <em>not</em> from a substitution effect between goods.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — AGGREGATE SUPPLY</div>
+    <h2 class="sec-title">Aggregate Supply: Classical vs Keynesian Shapes</h2>
+    <table>
+      <caption>Table 13.1 — Two polar views of the AS curve</caption>
+      <thead><tr><th></th><th>Classical (Long-Run) AS</th><th>Keynesian (Short-Run) AS</th></tr></thead>
+      <tbody>
+        <tr><td>Shape</td><td><strong>Vertical</strong>, at the full-employment (potential) output Yf</td><td><strong>Horizontal (flat)</strong> at low output levels, becoming steeper/vertical only as full employment is approached</td></tr>
+        <tr><td>Underlying assumption</td><td>Wages/prices fully flexible; markets always clear at full employment</td><td>Wages/prices are sticky, especially downward; considerable spare capacity/unemployed resources exist below Yf</td></tr>
+        <tr><td>Effect of a change in AD</td><td>Changes <strong>only the price level</strong>; real output unaffected</td><td>Changes <strong>only real output</strong> (in the flat range); price level unaffected — until near full employment</td></tr>
+        <tr><td>Policy implication</td><td>Demand management is <strong>ineffective</strong> for raising output; irrelevant except for controlling inflation</td><td>Demand management (fiscal/monetary policy) is <strong>effective</strong> for raising output and employment when below full employment</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="30" y1="280" x2="260" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="280" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <text x="266" y="284" font-size="11" fill="#22303F">Y</text>
+          <text x="8" y="26" font-size="11" fill="#22303F">P</text>
+          <line x1="160" y1="280" x2="160" y2="50" stroke="#7C2E2E" stroke-width="2.6"/>
+          <text x="90" y="60" font-size="11" fill="#7C2E2E" font-style="italic">Classical AS (vertical)</text>
+          <text x="150" y="298" font-size="10" fill="#7C2E2E">Yf</text>
+        </g>
+        <g transform="translate(320,0)">
+          <line x1="30" y1="280" x2="260" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="280" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <text x="266" y="284" font-size="11" fill="#22303F">Y</text>
+          <text x="8" y="26" font-size="11" fill="#22303F">P</text>
+          <path d="M 40 220 C 140 220, 170 220, 190 190 C 215 150, 230 90, 240 55" fill="none" stroke="#3E5C76" stroke-width="2.6"/>
+          <text x="60" y="205" font-size="11" fill="#3E5C76" font-style="italic">Keynesian AS (flat, then rising)</text>
+          <text x="230" y="298" font-size="10" fill="#3E5C76">Yf</text>
+        </g>
+      </svg>
+      <figcaption>Fig 13.1 — Left: Classical AS, vertical at Yf (full-employment output) — output is supply-determined, independent of price level. Right: Keynesian AS, flat over the range of unemployed resources, curving upward and becoming steep only as Yf is approached (bottleneck effects).</figcaption>
+    </div>
+  </section>
+
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SYNTHESIS</div>
+    <h2 class="sec-title">AD-AS Equilibrium &amp; the Effect of Demand Shocks</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="580" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="586" y="284" font-size="12" fill="#22303F">Y</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">P</text>
+        <!-- Keynesian AS flat then rising then vertical -->
+        <path d="M 90 240 C 220 240, 300 235, 360 210 C 420 170, 460 100, 480 50" fill="none" stroke="#7C2E2E" stroke-width="2.6"/>
+        <text x="486" y="50" font-size="12" fill="#7C2E2E" font-style="italic">AS</text>
+        <!-- AD1 -->
+        <line x1="90" y1="80" x2="420" y2="270" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="426" y="272" font-size="12" fill="#3E5C76" font-style="italic">AD₁</text>
+        <!-- AD2 shifted right -->
+        <line x1="150" y1="70" x2="480" y2="260" stroke="#2C6E64" stroke-width="2.2" stroke-dasharray="5 3"/>
+        <text x="486" y="258" font-size="12" fill="#2C6E64" font-style="italic">AD₂ (AD↑)</text>
+        <circle cx="220" cy="238" r="5" fill="#3E5C76"/>
+        <circle cx="280" cy="232" r="5" fill="#2C6E64"/>
+        <text x="140" y="305" font-size="10" fill="#8B93A1">In flat range: AD↑ raises Y a lot, P barely</text>
+      </svg>
+      <figcaption>Fig 14.1 — In the flat (Keynesian) region of AS, an AD increase raises output substantially with little price rise; as the economy nears Yf, further AD increases raise prices more and output less — approaching the vertical (Classical) segment.</figcaption>
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This composite AS curve (flat + rising + vertical) is often called the <strong>"Keynes-Classical synthesis" AS curve</strong> — it shows the Keynesian and Classical cases as two <em>special ranges</em> of a single more general curve, rather than as mutually exclusive theories.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table: Classical vs Keynesian</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Classical Theory</th><th>Keynesian Theory</th></tr></thead>
+      <tbody>
+        <tr><td>Core law</td><td>Say's Law (supply creates its own demand)</td><td>Effective Demand Principle (demand determines output/employment)</td></tr>
+        <tr><td>Wage-price flexibility</td><td>Fully flexible</td><td>Sticky, especially downward</td></tr>
+        <tr><td>Equilibrium employment</td><td>Always full employment (automatic)</td><td>Can be under full employment ("underemployment equilibrium")</td></tr>
+        <tr><td>Role of interest rate</td><td>Real phenomenon; equates S and I</td><td>Monetary phenomenon (liquidity preference); S=I via income changes</td></tr>
+        <tr><td>Money</td><td>Neutral — affects only prices</td><td>Not neutral in the short run — affects real output via interest/investment</td></tr>
+        <tr><td>Government's role</td><td>Laissez-faire; minimal intervention</td><td>Active fiscal/monetary intervention justified to close demand gaps</td></tr>
+        <tr><td>Time horizon emphasised</td><td>Long run ("in the long run, markets clear")</td><td>Short run ("in the long run we are all dead" — Keynes)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Quantity Theory of Money</div>M·V = P·Y</div>
+      <div class="box formula"><div class="label">Consumption function</div>C = C̄ + cY</div>
+      <div class="box formula"><div class="label">Saving function</div>S = −C̄ + (1−c)Y</div>
+      <div class="box formula"><div class="label">APC, MPC, APS, MPS</div>APC=C/Y &nbsp;|&nbsp; MPC=ΔC/ΔY &nbsp;|&nbsp; APS=1−APC &nbsp;|&nbsp; MPS=1−MPC</div>
+      <div class="box formula"><div class="label">Two-sector equilibrium</div>Y=C+I &nbsp;⟺&nbsp; S=I</div>
+      <div class="box formula"><div class="label">Three-sector equilibrium</div>Y=C+I+G &nbsp;⟺&nbsp; S+T=I+G</div>
+      <div class="box formula"><div class="label">Four-sector equilibrium</div>Y=C+I+G+(X−M) &nbsp;⟺&nbsp; S+T+M=I+G+X</div>
+      <div class="box formula"><div class="label">Simple multiplier</div>k = 1/(1−MPC) = 1/MPS</div>
+      <div class="box formula"><div class="label">Multiplier with tax</div>k = 1/(1−MPC(1−t))</div>
+      <div class="box formula"><div class="label">Multiplier with imports</div>k = 1/(1−MPC+MPM)</div>
+      <div class="box formula"><div class="label">Effective Demand</div>D = Z (Aggregate Demand Price = Aggregate Supply Price)</div>
+      <div class="box formula"><div class="label">Aggregate Demand (AD-AS)</div>AD = C+I+G+(X−M)</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Say's Law: supply creates its own demand</span>
+      <span class="chip">Effective Demand: D=Z determines employment</span>
+      <span class="chip">MPC + MPS = 1, always</span>
+      <span class="chip">Higher MPC ⇒ bigger multiplier</span>
+      <span class="chip">Classical AS: vertical at Yf</span>
+      <span class="chip">Keynesian AS: flat below Yf</span>
+      <span class="chip">Paradox of Thrift: more S can mean same/lower S in aggregate</span>
+      <span class="chip">Money neutral in Classical model only</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s17">
+    <div class="sec-eyebrow">17 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. Say's Law states that: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Demand creates its own supply &nbsp; (b) <strong>Supply creates its own demand</strong> &nbsp; (c) Government spending is always necessary &nbsp; (d) Wages are always rigid<br><br>
+      <span class="correct">Answer: (b)</span> — the foundational Classical proposition ruling out general overproduction.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. In the Classical model, the rate of interest is determined in the: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Money market (liquidity preference) &nbsp; (b) <strong>Loanable funds market, equating planned saving and investment</strong> &nbsp; (c) Labour market &nbsp; (d) Foreign exchange market<br><br>
+      <span class="correct">Answer: (b)</span> — a real, not monetary, phenomenon in the Classical framework.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. Keynes's "Effective Demand" is the point where: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Consumption equals Investment &nbsp; (b) <strong>Aggregate Demand Price equals Aggregate Supply Price</strong> &nbsp; (c) Saving equals zero &nbsp; (d) Money supply equals money demand<br><br>
+      <span class="correct">Answer: (b)</span> — D=Z determines the equilibrium level of employment and output.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. According to Keynes's "Fundamental Psychological Law of Consumption": <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Consumption rises by more than income &nbsp; (b) <strong>Consumption rises, but by less than the rise in income, as income increases</strong> &nbsp; (c) Consumption is unrelated to income &nbsp; (d) Consumption always exceeds income<br><br>
+      <span class="correct">Answer: (b)</span> — implying 0 &lt; MPC &lt; 1.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. If MPC = 0.75, the value of the simple (two-sector) multiplier is: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) 0.75 &nbsp; (b) 1.75 &nbsp; (c) <strong>4</strong> &nbsp; (d) 3<br><br>
+      <span class="correct">Answer: (c)</span> — k = 1/(1−0.75) = 1/0.25 = 4.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. Introducing a marginal propensity to import (MPM) into the multiplier formula will: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Increase the size of the multiplier &nbsp; (b) <strong>Decrease the size of the multiplier (an added leakage)</strong> &nbsp; (c) Have no effect &nbsp; (d) Make the multiplier negative<br><br>
+      <span class="correct">Answer: (b)</span> — k = 1/(1−MPC+MPM); a higher MPM raises the denominator, shrinking k.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. The "Paradox of Thrift" suggests that an economy-wide increase in the desire to save can lead to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) A proportionate increase in aggregate saving &nbsp; (b) <strong>A fall in national income, potentially leaving aggregate saving unchanged</strong> &nbsp; (c) An automatic rise in investment &nbsp; (d) No change in income or saving<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. The Classical Aggregate Supply curve is: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Horizontal &nbsp; (b) Upward-sloping throughout &nbsp; (c) <strong>Vertical, at the full-employment level of output</strong> &nbsp; (d) Downward-sloping<br><br>
+      <span class="correct">Answer: (c)</span> — reflecting the assumption that output is fixed at its full-employment (potential) level regardless of the price level.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. In the Keynesian (flat portion of the) AS curve, an increase in Aggregate Demand primarily causes: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) A rise in the price level only &nbsp; (b) <strong>A rise in real output/employment, with little or no rise in the price level</strong> &nbsp; (c) A fall in output &nbsp; (d) No change in either output or price<br><br>
+      <span class="correct">Answer: (b)</span> — because there is spare (unemployed) capacity in this range.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. Which of the following is one of the three "real balance / wealth, interest-rate, and net-export" reasons the AD curve slopes downward? <span class="qmeta">Assertion-set</span></summary>
+      <div class="ans">
+        I. A higher price level reduces the real value of money holdings, reducing consumption<br>
+        II. A higher price level raises money demand, raising interest rates and discouraging investment<br>
+        III. A higher price level makes exports relatively cheaper, boosting net exports<br>
+        IV. A higher price level makes domestic goods relatively costlier abroad, reducing net exports<br><br>
+        (a) I, II &amp; III &nbsp; (b) <strong>I, II &amp; IV</strong> &nbsp; (c) II &amp; III only &nbsp; (d) All four<br><br>
+        <span class="correct">Answer: (b)</span> — Statement III has the direction reversed: a higher domestic price level makes exports relatively <em>costlier</em>, not cheaper, reducing (not boosting) net exports.
+      </div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. "Money is neutral" is a proposition associated with: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Keynesian theory &nbsp; (b) <strong>Classical theory</strong> &nbsp; (c) Paradox of Thrift &nbsp; (d) Effective Demand Principle<br><br>
+      <span class="correct">Answer: (b)</span> — under the Classical Dichotomy, money affects only nominal variables (P), never real output/employment.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. A "deflationary gap" exists when: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Aggregate Demand at full-employment income exceeds full-employment output &nbsp; (b) <strong>Aggregate Demand at full-employment income falls short of the level needed for full employment</strong> &nbsp; (c) Prices are falling rapidly &nbsp; (d) The multiplier equals zero<br><br>
+      <span class="correct">Answer: (b)</span> — the mirror image of an inflationary gap.</div>
+    </details>
+  </section>
+
+  <footer>
+    Income &amp; Output Determination — CUET PG Economics Notes · Compiled for exam preparation · Sources: J.M. Keynes, <em>The General Theory of Employment, Interest and Money</em> (1936); Say, Fisher; H.L. Ahuja's Macroeconomics; standard Keynesian Cross &amp; AD-AS frameworks.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

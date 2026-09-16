@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Structures &amp; General Equilibrium, Efficiency and Welfare — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.68rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:16px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.83rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.5rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:26px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:2rem; margin:.15em 0 0;}
+  section.block{padding:36px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.85rem; margin:0 0 6px;}
+  h3{font-size:1.24rem; margin:1.5em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.03rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.93rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.73rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.76rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.83rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.84rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Market Structures &amp; Welfare</div>
+  <div class="toc-sub">CUET PG · Microeconomics</div>
+  <ol>
+    <div class="part-label">Part A — Market Structures</div>
+    <li><a href="#s1">Spectrum of Market Structures</a></li>
+    <li><a href="#s2">Perfect Competition — Assumptions</a></li>
+    <li><a href="#s3">PC — Short-Run Equilibrium</a></li>
+    <li><a href="#s4">PC — Long-Run Equilibrium</a></li>
+    <li><a href="#s5">Monopoly — Meaning &amp; Barriers</a></li>
+    <li><a href="#s6">Monopoly — Equilibrium &amp; DWL</a></li>
+    <li><a href="#s7">Price Discrimination</a></li>
+    <li><a href="#s8">Monopolistic Competition</a></li>
+    <li><a href="#s9">Duopoly Models</a></li>
+    <li><a href="#s10">Oligopoly Models</a></li>
+    <div class="part-label">Part B — General Equilibrium &amp; Welfare</div>
+    <li><a href="#s11">Partial vs General Equilibrium</a></li>
+    <li><a href="#s12">Efficiency in Exchange</a></li>
+    <li><a href="#s13">Efficiency in Production</a></li>
+    <li><a href="#s14">Overall Efficiency (MRS=MRT)</a></li>
+    <li><a href="#s15">Welfare Economics</a></li>
+    <li><a href="#s16">Externality &amp; Market Failure</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s17">Master Comparison Table</a></li>
+    <li><a href="#s18">Formula Sheet</a></li>
+    <li><a href="#s19">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">MICROECONOMICS · MARKET STRUCTURE + GENERAL EQUILIBRIUM &amp; WELFARE</div>
+    <h1>Price &amp; Output Determination Across Market Structures, and General Equilibrium, Efficiency &amp; Welfare</h1>
+    <p class="lede">A complete, exam-ready pass through Perfect Competition, Monopoly, Price Discrimination, Monopolistic Competition, Duopoly &amp; Oligopoly models — followed by General Equilibrium theory, Pareto efficiency in exchange and production, the Two Fundamental Theorems of Welfare Economics, and Externalities.</p>
+    <div class="tags">
+      <span class="tag">Chamberlin</span><span class="tag">Cournot–Bertrand–Stackelberg</span><span class="tag">Edgeworth Box</span>
+      <span class="tag">Pareto Efficiency</span><span class="tag">Pigou &amp; Coase</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Market Structures — Price &amp; Output Determination</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — OVERVIEW</div>
+    <h2 class="sec-title">The Spectrum of Market Structures</h2>
+    <p class="lead-p">Market structures form a spectrum from maximum competition to zero competition, distinguished chiefly by the <strong>number of sellers</strong>, <strong>nature of the product</strong>, and <strong>freedom of entry/exit</strong>.</p>
+    <table>
+      <caption>Table 1.1 — Snapshot of all five structures covered</caption>
+      <thead><tr><th>Feature</th><th>Perfect Competition</th><th>Monopolistic Competition</th><th>Oligopoly</th><th>Duopoly</th><th>Monopoly</th></tr></thead>
+      <tbody>
+        <tr><td>No. of sellers</td><td>Very large</td><td>Large (fairly many)</td><td>Few</td><td>Exactly two</td><td>One</td></tr>
+        <tr><td>Product</td><td>Homogeneous</td><td>Differentiated</td><td>Homogeneous or differentiated</td><td>Homogeneous or differentiated</td><td>Unique, no close substitute</td></tr>
+        <tr><td>Entry/exit</td><td>Completely free</td><td>Free</td><td>Restricted (barriers exist)</td><td>Restricted (only 2 firms)</td><td>Blocked (strong barriers)</td></tr>
+        <tr><td>Firm's demand curve</td><td>Perfectly elastic (horizontal)</td><td>Downward, relatively elastic</td><td>Kinked / indeterminate</td><td>Interdependent, reaction-based</td><td>Downward = market demand curve</td></tr>
+        <tr><td>Price control</td><td>Price-taker (none)</td><td>Some control</td><td>Some, constrained by rivals</td><td>Mutual dependence</td><td>Full price-maker (subject to demand)</td></tr>
+        <tr><td>Long-run profit</td><td>Zero (normal profit)</td><td>Zero (normal profit)</td><td>Can be positive (barriers protect it)</td><td>Can be positive</td><td>Can be positive (persists)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — PERFECT COMPETITION</div>
+    <h2 class="sec-title">Assumptions of Perfect Competition</h2>
+    <ul>
+      <li><strong>Large number of buyers and sellers</strong> — each too small to influence market price</li>
+      <li><strong>Homogeneous product</strong> — perfect substitutes, no branding</li>
+      <li><strong>Free entry and exit</strong> — no barriers, firms can enter/exit in the long run</li>
+      <li><strong>Perfect knowledge</strong> — of prices and market conditions, by both buyers and sellers</li>
+      <li><strong>Perfect mobility</strong> of factors of production</li>
+      <li><strong>No transport costs</strong>, no government intervention</li>
+      <li>Firms are <strong>price-takers</strong> — each faces a perfectly elastic (horizontal) demand curve at the ruling market price</li>
+    </ul>
+    <div class="box formula">
+      <div class="label">Firm's demand/revenue curve</div>
+      P = AR = MR &nbsp;(a single horizontal line at market price P*)
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Perfect competition is a <strong>theoretical benchmark</strong>, almost never observed exactly in reality — its value lies in providing the efficiency yardstick against which other market structures are judged (see Part B).
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — SHORT RUN</div>
+    <h2 class="sec-title">Perfect Competition: Short-Run Equilibrium of the Firm</h2>
+    <div class="box formula">
+      <div class="label">Equilibrium condition</div>
+      MR = MC, with MC cutting MR (=P) from <strong>below</strong>
+    </div>
+    <p>In the short run, at least one factor (plant size) is fixed, so a firm may earn <strong>supernormal profit</strong>, <strong>normal profit</strong>, or even a <strong>loss</strong> — yet still be in equilibrium as long as MR = MC holds.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="600" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="606" y="284" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price/Cost</text>
+        <!-- AC curve -->
+        <path d="M 100 160 C 200 70, 340 60, 420 90 C 480 115, 540 170, 580 220" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+        <text x="500" y="150" font-size="12" fill="#2C6E64" font-style="italic">AC</text>
+        <!-- MC curve -->
+        <path d="M 100 240 C 160 100, 260 40, 330 70 C 400 105, 480 180, 540 260" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="546" y="256" font-size="12" fill="#7C2E2E" font-style="italic">MC</text>
+        <!-- price line = AR = MR -->
+        <line x1="60" y1="110" x2="600" y2="110" stroke="#A9793B" stroke-width="2.2"/>
+        <text x="606" y="114" font-size="12" fill="#A9793B">P=AR=MR</text>
+        <!-- equilibrium point -->
+        <circle cx="360" cy="110" r="5" fill="#22303F"/>
+        <text x="368" y="105" font-size="12" fill="#22303F" font-weight="600">E</text>
+        <line x1="360" y1="110" x2="360" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="352" y="298" font-size="11" fill="#8B93A1">Q*</text>
+        <!-- AC at Q* -->
+        <circle cx="360" cy="78" r="4" fill="#2C6E64"/>
+        <line x1="60" y1="78" x2="360" y2="78" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <!-- shaded supernormal profit rectangle -->
+        <path d="M 60 110 L 360 110 L 360 78 L 60 78 Z" fill="#A9793B" opacity="0.18"/>
+        <text x="90" y="98" font-size="11" fill="#A9793B" font-weight="600">Supernormal Profit</text>
+      </svg>
+      <figcaption>Fig 3.1 — Short-run equilibrium with supernormal profit: E is where MC cuts MR (=P) from below; since P &gt; AC at Q*, the shaded rectangle (P−AC)×Q* is pure economic profit.</figcaption>
+    </div>
+
+    <h3>The Shutdown Point &amp; Short-Run Supply Curve</h3>
+    <div class="box definition">
+      <div class="label">Shutdown Point</div>
+      The point where P = minimum AVC. If price falls below minimum AVC, the firm cannot even cover its variable costs and should shut down immediately (rather than keep producing and losing more than TFC).
+    </div>
+    <table>
+      <caption>Table 3.1 — Firm's decision rule by price range</caption>
+      <thead><tr><th>Price range</th><th>Decision</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td>P &gt; min AC</td><td>Produce where MR=MC</td><td>Supernormal profit</td></tr>
+        <tr><td>P = min AC</td><td>Produce where MR=MC</td><td>Normal profit (break-even point)</td></tr>
+        <tr><td>min AVC &lt; P &lt; min AC</td><td>Produce where MR=MC</td><td>Loss, but less than TFC — continue producing (covers part of fixed cost)</td></tr>
+        <tr><td>P = min AVC</td><td>Indifferent (shutdown point)</td><td>Loss exactly equal to TFC</td></tr>
+        <tr><td>P &lt; min AVC</td><td>Shut down</td><td>Producing would increase losses beyond TFC</td></tr>
+      </tbody>
+    </table>
+    <div class="box formula">
+      <div class="label">Short-run supply curve of the firm</div>
+      = the portion of the MC curve <strong>above (and including) the minimum point of AVC</strong>
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — LONG RUN</div>
+    <h2 class="sec-title">Perfect Competition: Long-Run Equilibrium</h2>
+    <p>In the long run, entry and exit eliminate any economic profit or loss: firms enter when profits are positive (shifting supply right, price falls) and exit when losses exist (shifting supply left, price rises) — until only <strong>normal profit</strong> remains.</p>
+    <div class="box formula">
+      <div class="label">Long-run equilibrium condition</div>
+      P = AR = MR = AC = MC &nbsp;(at the minimum point of the AC curve)
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="520" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="264" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price/Cost</text>
+        <path d="M 90 200 C 170 90, 270 80, 330 95 C 390 112, 450 160, 480 210" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+        <text x="420" y="145" font-size="12" fill="#2C6E64" font-style="italic">AC</text>
+        <path d="M 90 240 C 150 110, 220 60, 270 90 C 330 125, 400 190, 460 250" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="466" y="248" font-size="12" fill="#7C2E2E" font-style="italic">MC</text>
+        <line x1="60" y1="90" x2="520" y2="90" stroke="#A9793B" stroke-width="2.2"/>
+        <text x="526" y="94" font-size="12" fill="#A9793B">P=AR=MR</text>
+        <circle cx="285" cy="90" r="5" fill="#22303F"/>
+        <text x="292" y="85" font-size="12" fill="#22303F" font-weight="600">E (AC minimum)</text>
+        <line x1="285" y1="90" x2="285" y2="260" stroke="#8B93A1" stroke-dasharray="3 3"/>
+      </svg>
+      <figcaption>Fig 4.1 — Long-run equilibrium: price settles exactly at the minimum point of the AC curve, so P = AC and profit = 0 (normal profit only), with MC also equal at that same point.</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The tangency-at-minimum condition (P = AC at its minimum) is unique to perfect competition's long run. This is the benchmark of <strong>productive efficiency</strong> (firms produce at minimum possible average cost) — contrast this with monopolistic competition's "excess capacity" (Section 8), where the tangency occurs left of AC's minimum.
+    </div>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — MONOPOLY</div>
+    <h2 class="sec-title">Monopoly: Meaning &amp; Sources of Market Power</h2>
+    <div class="box definition">
+      <div class="label">Monopoly</div>
+      A market structure with a <strong>single seller</strong> of a product with <strong>no close substitutes</strong>, facing the entire (downward-sloping) market demand curve, and protected by barriers to entry.
+    </div>
+    <h4>Sources / Barriers to Entry</h4>
+    <ul>
+      <li><strong>Legal barriers</strong> — patents, copyrights, licences, government franchise</li>
+      <li><strong>Natural monopoly</strong> — extreme economies of scale (e.g., utilities: water, electricity grids)</li>
+      <li><strong>Control over key/scarce raw material inputs</strong></li>
+      <li><strong>High capital/technology requirements</strong></li>
+      <li><strong>Network effects</strong> and brand loyalty (modern digital markets)</li>
+    </ul>
+
+    <h3>AR–MR relationship under Monopoly</h3>
+    <p>Since the monopolist's AR curve is the downward-sloping market demand curve, MR lies <strong>below</strong> AR at every output level (except the first unit), and MR can even become negative.</p>
+    <div class="box formula">
+      <div class="label">MR–elasticity relationship</div>
+      MR = P (1 − 1/e) &nbsp;&nbsp; where e = price elasticity of demand<br>
+      If e &gt; 1: MR &gt; 0 &nbsp;|&nbsp; e = 1: MR = 0 &nbsp;|&nbsp; e &lt; 1: MR &lt; 0
+    </div>
+    <p class="small">Consequence: a profit-maximising monopolist <strong>never</strong> operates on the inelastic portion of its demand curve (e &lt; 1), since MR would be negative there and MC is always positive.</p>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — MONOPOLY EQUILIBRIUM</div>
+    <h2 class="sec-title">Monopoly: Equilibrium &amp; Deadweight Loss</h2>
+    <div class="box formula">
+      <div class="label">Equilibrium condition</div>
+      MR = MC &nbsp;(MC cutting MR from below) — price is then read off the AR (demand) curve at that quantity, <strong>P &gt; MC</strong>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="580" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="586" y="304" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price/Cost</text>
+        <!-- demand/AR curve -->
+        <line x1="90" y1="50" x2="480" y2="260" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="486" y="262" font-size="12" fill="#3E5C76" font-style="italic">AR (D)</text>
+        <!-- MR curve, steeper, half the horizontal intercept -->
+        <line x1="90" y1="50" x2="290" y2="270" stroke="#A9793B" stroke-width="2.2"/>
+        <text x="296" y="272" font-size="12" fill="#A9793B" font-style="italic">MR</text>
+        <!-- MC curve rising -->
+        <line x1="90" y1="230" x2="500" y2="90" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="506" y="86" font-size="12" fill="#7C2E2E" font-style="italic">MC</text>
+        <!-- MR=MC intersection -->
+        <circle cx="230" cy="146" r="5" fill="#22303F"/>
+        <line x1="230" y1="146" x2="230" y2="300" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="216" y="316" font-size="11" fill="#8B93A1">Qm</text>
+        <!-- Price at Qm on AR curve -->
+        <circle cx="230" cy="177" r="5" fill="#3E5C76"/>
+        <line x1="60" y1="177" x2="230" y2="177" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="30" y="181" font-size="11" fill="#8B93A1">Pm</text>
+        <!-- competitive point where D=MC -->
+        <circle cx="330" cy="207" r="5" fill="#2C6E64"/>
+        <line x1="330" y1="207" x2="330" y2="300" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="322" y="316" font-size="11" fill="#2C6E64">Qc</text>
+        <line x1="60" y1="207" x2="330" y2="207" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="30" y="211" font-size="11" fill="#2C6E64">Pc</text>
+        <!-- deadweight loss triangle -->
+        <path d="M 230 146 L 230 207 L 330 207 Z" fill="#7C2E2E" opacity="0.25"/>
+        <text x="235" y="200" font-size="11" fill="#7C2E2E" font-weight="600">DWL</text>
+      </svg>
+      <figcaption>Fig 6.1 — Monopoly equilibrium at Qm, Pm (MR=MC) vs the competitive outcome Qc, Pc (where D=MC, i.e. P=MC). Monopoly restricts output and raises price, creating a Deadweight Loss (shaded) — the welfare cost of monopoly.</figcaption>
+    </div>
+
+    <h4>Key features of monopoly equilibrium</h4>
+    <ul>
+      <li>Price exceeds Marginal Cost: <strong>P &gt; MC</strong> (allocative inefficiency)</li>
+      <li>Output is restricted below the competitive/socially optimal level</li>
+      <li>Supernormal profit can persist into the long run (barriers block entry)</li>
+      <li><strong>No unique supply curve exists</strong> for a monopolist — the same price can be associated with different quantities depending on the shape of demand (unlike perfect competition, where supply = MC curve above AVC)</li>
+    </ul>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "Monopoly has no supply curve" is a classic true/false statement — true because output under monopoly depends on both MC <em>and</em> the elasticity/shape of the demand curve it faces, so price and quantity are not uniquely related the way they are under a competitive firm's MC-based supply curve.
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — PRICE DISCRIMINATION</div>
+    <h2 class="sec-title">Price Discrimination</h2>
+    <div class="box definition">
+      <div class="label">Price Discrimination</div>
+      Charging <strong>different prices</strong> to different buyers (or for different units) for the same good, where the price differences are not justified by cost differences.
+    </div>
+    <h4>Necessary conditions</h4>
+    <ul>
+      <li>Seller must have some degree of <strong>monopoly power</strong></li>
+      <li>Markets/buyers must be <strong>separable</strong> (segmentable)</li>
+      <li><strong>No resale/arbitrage</strong> possible between the segmented markets</li>
+      <li>Different segments must have <strong>different price elasticities of demand</strong></li>
+    </ul>
+
+    <table>
+      <caption>Table 7.1 — Degrees of Price Discrimination (Pigou's classification)</caption>
+      <thead><tr><th>Degree</th><th>Mechanism</th><th>Consumer Surplus captured</th><th>Real-world example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>First-degree</strong> (perfect)</td><td>Each unit sold at the maximum price the buyer is willing to pay</td><td>Entire consumer surplus extracted by the seller</td><td>Personalised/dynamic pricing, bargaining, auctions</td></tr>
+        <tr><td><strong>Second-degree</strong></td><td>Price varies by <strong>block/quantity</strong> purchased (block pricing)</td><td>Partial — some surplus remains with buyer</td><td>Electricity/water tariff slabs, bulk discounts</td></tr>
+        <tr><td><strong>Third-degree</strong></td><td>Different prices in <strong>different markets/segments</strong> based on elasticity</td><td>Partial — varies by segment</td><td>Student/senior discounts, export vs domestic pricing, peak/off-peak fares</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Third-Degree Price Discrimination — Equilibrium Condition</h3>
+    <div class="box formula">
+      <div class="label">Profit-maximising rule</div>
+      MR<sub>1</sub> = MR<sub>2</sub> = MC &nbsp;(aggregate marginal cost, split so marginal revenue is equalised across both markets)<br>
+      Price is <strong>lower</strong> in the market with more elastic demand, <strong>higher</strong> where demand is less elastic.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="30" y1="260" x2="230" y2="260" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="50" y1="50" x2="200" y2="240" stroke="#3E5C76" stroke-width="2"/>
+          <text x="205" y="242" font-size="11" fill="#3E5C76" font-style="italic">AR₁ (less elastic)</text>
+          <line x1="50" y1="50" x2="140" y2="250" stroke="#A9793B" stroke-width="1.8"/>
+          <line x1="30" y1="140" x2="230" y2="140" stroke="#7C2E2E" stroke-width="1.6" stroke-dasharray="3 3"/>
+          <text x="8" y="144" font-size="10" fill="#7C2E2E">MC</text>
+          <circle cx="110" cy="140" r="4" fill="#22303F"/>
+          <text x="100" y="284" font-size="10" fill="#22303F">Market 1: higher price</text>
+        </g>
+        <g transform="translate(280,0)">
+          <line x1="30" y1="260" x2="230" y2="260" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="30" stroke="#22303F" stroke-width="1.2"/>
+          <line x1="50" y1="90" x2="220" y2="250" stroke="#2C6E64" stroke-width="2"/>
+          <text x="225" y="252" font-size="11" fill="#2C6E64" font-style="italic">AR₂ (more elastic)</text>
+          <line x1="50" y1="90" x2="185" y2="256" stroke="#A9793B" stroke-width="1.8"/>
+          <line x1="30" y1="140" x2="230" y2="140" stroke="#7C2E2E" stroke-width="1.6" stroke-dasharray="3 3"/>
+          <text x="8" y="144" font-size="10" fill="#7C2E2E">MC</text>
+          <circle cx="150" cy="140" r="4" fill="#22303F"/>
+          <text x="90" y="284" font-size="10" fill="#22303F">Market 2: lower price</text>
+        </g>
+      </svg>
+      <figcaption>Fig 7.1 — Third-degree price discrimination: output allocated so MR₁=MR₂=MC. The market with the less elastic demand (steeper AR) is charged the higher price.</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Remember the inverse rule: <strong>Price is inversely related to elasticity</strong> across segments under third-degree discrimination — a very common numerical/conceptual MCQ (e.g., "which market gets the higher price: the one with e=1.5 or e=3?" → e=1.5, the less elastic one).
+    </div>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — MONOPOLISTIC COMPETITION</div>
+    <h2 class="sec-title">Monopolistic Competition (Chamberlin, 1933)</h2>
+    <p class="lead-p">A hybrid structure — many sellers (like perfect competition) but a <strong>differentiated</strong> product (like monopoly), giving each firm limited market power.</p>
+    <h4>Assumptions</h4>
+    <ul>
+      <li>Large number of sellers, each with a small market share</li>
+      <li><strong>Product differentiation</strong> — via branding, quality, packaging, location, service</li>
+      <li>Free entry and exit in the long run</li>
+      <li>Firms incur <strong>selling costs</strong> (advertising) in addition to production costs</li>
+      <li>Downward-sloping but relatively elastic demand curve for each firm (due to close, though imperfect, substitutes)</li>
+    </ul>
+
+    <h3>Short-Run Equilibrium</h3>
+    <p>Identical in form to monopoly's short-run: MR = MC, and the firm can earn supernormal profit, normal profit, or a loss depending on where AR sits relative to AC.</p>
+
+    <h3>Long-Run Equilibrium — the Tangency Solution</h3>
+    <div class="box formula">
+      <div class="label">Long-run condition</div>
+      MR = MC &nbsp;AND&nbsp; AR is <strong>tangent</strong> to AC (so AR = AC at that point) &nbsp;⇒&nbsp; zero economic (supernormal) profit
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="520" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="264" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price/Cost</text>
+        <path d="M 90 200 C 170 90, 270 80, 330 95 C 390 112, 450 160, 480 210" fill="none" stroke="#2C6E64" stroke-width="2.4"/>
+        <text x="420" y="145" font-size="12" fill="#2C6E64" font-style="italic">AC</text>
+        <path d="M 90 240 C 150 110, 220 60, 270 90 C 330 125, 400 190, 460 250" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="466" y="248" font-size="12" fill="#7C2E2E" font-style="italic">MC</text>
+        <!-- AR tangent at point left of AC minimum -->
+        <line x1="110" y1="130" x2="380" y2="210" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="386" y="212" font-size="12" fill="#3E5C76" font-style="italic">AR (=D)</text>
+        <line x1="110" y1="130" x2="290" y2="185" stroke="#A9793B" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="295" y="190" font-size="12" fill="#A9793B" font-style="italic">MR</text>
+        <circle cx="245" cy="172" r="5" fill="#22303F"/>
+        <text x="252" y="167" font-size="11" fill="#22303F" font-weight="600">E (tangency: AR=AC)</text>
+        <line x1="245" y1="172" x2="245" y2="260" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <!-- AC minimum point marked further right -->
+        <circle cx="330" cy="95" r="4" fill="#2C6E64"/>
+        <line x1="330" y1="95" x2="330" y2="260" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <text x="336" y="260" font-size="10" fill="#8B93A1">Q(AC min)</text>
+        <text x="150" y="280" font-size="10" fill="#7C2E2E">Excess capacity = Q(AC min) − Q*</text>
+      </svg>
+      <figcaption>Fig 8.1 — Long-run "tangency solution": AR is tangent to AC at E, to the <strong>left</strong> of AC's minimum point — the firm earns only normal profit but produces below the output that would minimise average cost.</figcaption>
+    </div>
+
+    <h4>Excess Capacity Theorem</h4>
+    <div class="box warn">
+      <div class="label">Excess Capacity</div>
+      Because the tangency point occurs where AC is still falling (left of its minimum), the firm under monopolistic competition produces <strong>less than the output that would minimise average cost</strong> — it operates with "excess" (unused) capacity relative to the perfectly competitive ideal, even though it earns zero economic profit.
+    </div>
+    <p class="small">Trade-off: consumers get more <strong>product variety</strong> (differentiation) at the cost of firms not operating at minimum efficient scale.</p>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Compare directly with Perfect Competition's long run (Section 4): both give <strong>zero economic profit</strong>, but PC achieves productive efficiency (P=min AC) while monopolistic competition does not (tangency left of min AC) — this contrast is a favourite CUET PG comparison question.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — DUOPOLY</div>
+    <h2 class="sec-title">Duopoly Models</h2>
+    <p class="lead-p">Duopoly — exactly two sellers — is the simplest case of strategic interdependence, and the launchpad for all oligopoly theory. Four classical models are commonly tested.</p>
+
+    <h3>1. Cournot Model (Quantity Competition, 1838)</h3>
+    <div class="box definition">
+      <div class="label">Key assumption</div>
+      Each duopolist chooses its <strong>output quantity</strong> to maximise profit, assuming the <strong>rival's output stays fixed</strong> at its current level (a naive/static conjecture).
+    </div>
+    <p>Each firm has a <strong>reaction curve</strong> (or reaction function) showing its profit-maximising output as a function of the rival's output. Equilibrium occurs where the two reaction curves intersect — neither firm wants to unilaterally change output, given the other's choice.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="70" y1="300" x2="460" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="70" y1="300" x2="70" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="466" y="304" font-size="12" fill="#22303F">q₁</text>
+        <text x="45" y="24" font-size="12" fill="#22303F">q₂</text>
+        <!-- reaction curve of firm 1: downward -->
+        <line x1="70" y1="60" x2="400" y2="300" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="404" y="298" font-size="12" fill="#3E5C76" font-style="italic">R₁ (Firm 1's reaction curve)</text>
+        <!-- reaction curve of firm 2: downward, other axis -->
+        <line x1="120" y1="300" x2="440" y2="70" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="300" y="85" font-size="12" fill="#7C2E2E" font-style="italic">R₂ (Firm 2's reaction curve)</text>
+        <circle cx="248" cy="190" r="5" fill="#22303F"/>
+        <text x="256" y="185" font-size="12" fill="#22303F" font-weight="600">Cournot Equilibrium</text>
+      </svg>
+      <figcaption>Fig 9.1 — Cournot equilibrium at the intersection of both firms' reaction curves. Each firm's quantity is the best response to the other's (current) quantity, and neither wants to deviate.</figcaption>
+    </div>
+
+    <div class="box formula">
+      <div class="label">Standard result (identical firms, linear demand, zero cost — textbook case)</div>
+      Each firm produces 1/3 of the competitive output; combined output = 2/3 of competitive output; price lies between the monopoly and competitive price.
+    </div>
+
+    <h3>2. Bertrand Model (Price Competition, 1883)</h3>
+    <div class="box definition">
+      <div class="label">Key assumption</div>
+      Each duopolist chooses <strong>price</strong> (not quantity), assuming the rival's <strong>price stays fixed</strong>. With homogeneous products, this triggers aggressive undercutting.
+    </div>
+    <p><strong>Bertrand Paradox:</strong> even with just two firms, price competition drives price all the way down to <strong>marginal cost (P = MC)</strong> — the same outcome as perfect competition — because each firm has an incentive to undercut the rival as long as price exceeds MC.</p>
+
+    <h3>3. Stackelberg Model (Leader–Follower, 1934)</h3>
+    <div class="box definition">
+      <div class="label">Key assumption</div>
+      One firm (the <strong>leader</strong>) moves first and sets its output, anticipating how the <strong>follower</strong> will react (using the follower's Cournot reaction curve); the follower then simply best-responds.
+    </div>
+    <p>The leader earns higher profit than under simultaneous Cournot competition (first-mover advantage) — it produces more, and the follower produces correspondingly less along its reaction curve.</p>
+
+    <h3>4. Edgeworth Model (1897)</h3>
+    <div class="box definition">
+      <div class="label">Key assumption</div>
+      Like Bertrand, firms compete on price, but each faces a <strong>capacity constraint</strong> — it cannot supply the entire market alone. This prevents price from being driven all the way to MC and instead leads to <strong>perpetual price fluctuation</strong> ("Edgeworth cycle") rather than a stable equilibrium.
+    </div>
+
+    <table>
+      <caption>Table 9.1 — Duopoly models compared</caption>
+      <thead><tr><th>Model</th><th>Strategic variable</th><th>Conjecture about rival</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td>Cournot</td><td>Quantity</td><td>Rival's quantity fixed</td><td>Stable equilibrium; output between monopoly &amp; competitive</td></tr>
+        <tr><td>Bertrand</td><td>Price</td><td>Rival's price fixed</td><td>P = MC (Bertrand Paradox)</td></tr>
+        <tr><td>Stackelberg</td><td>Quantity (sequential)</td><td>Leader anticipates follower's reaction</td><td>Leader advantage; asymmetric outputs</td></tr>
+        <tr><td>Edgeworth</td><td>Price, with capacity limits</td><td>Rival's price fixed, but capacity-constrained</td><td>No stable equilibrium — price cycles</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — OLIGOPOLY</div>
+    <h2 class="sec-title">Oligopoly Models</h2>
+    <div class="box definition">
+      <div class="label">Oligopoly</div>
+      A market with a <strong>few large sellers</strong>, each aware that its decisions materially affect, and are affected by, rivals' decisions — the defining feature is <strong>mutual interdependence</strong>.
+    </div>
+
+    <h3>Kinked Demand Curve Model (Sweezy, 1939)</h3>
+    <div class="box definition">
+      <div class="label">Core idea</div>
+      Explains <strong>price rigidity</strong> in oligopoly. Each firm believes: (i) if it <strong>raises</strong> price, rivals will <strong>not</strong> follow (so it loses substantial market share — demand is elastic above the current price); (ii) if it <strong>cuts</strong> price, rivals <strong>will</strong> match the cut (so demand is inelastic below the current price).
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="284" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Price</text>
+        <!-- kinked demand: flat above kink, steep below -->
+        <path d="M 100 90 L 260 150" stroke="#3E5C76" stroke-width="2.4" fill="none"/>
+        <path d="M 260 150 L 340 260" stroke="#3E5C76" stroke-width="2.4" fill="none"/>
+        <text x="345" y="262" font-size="12" fill="#3E5C76" font-style="italic">Kinked AR</text>
+        <!-- MR curve: discontinuous, gap at Q of kink -->
+        <path d="M 100 110 L 258 175" stroke="#A9793B" stroke-width="2.2" fill="none"/>
+        <line x1="260" y1="178" x2="260" y2="235" stroke="#A9793B" stroke-width="2.2" stroke-dasharray="1 0"/>
+        <path d="M 262 235 L 340 280" stroke="#A9793B" stroke-width="2.2" fill="none"/>
+        <text x="345" y="280" font-size="12" fill="#A9793B" font-style="italic">MR (discontinuous)</text>
+        <!-- MC range passing through the gap -->
+        <line x1="150" y1="240" x2="380" y2="150" stroke="#7C2E2E" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="386" y="146" font-size="12" fill="#7C2E2E" font-style="italic">MC (can shift within the gap)</text>
+        <circle cx="260" cy="150" r="5" fill="#22303F"/>
+        <text x="200" y="140" font-size="11" fill="#22303F" font-weight="600">Kink point (current P, Q)</text>
+      </svg>
+      <figcaption>Fig 10.1 — Kinked demand curve: the AR curve has a kink at the prevailing price; MR is discontinuous (a vertical gap) at that output. MC can shift up or down within this gap without changing the profit-maximising price — explaining observed price rigidity/stickiness in oligopoly.</figcaption>
+    </div>
+    <div class="box warn">
+      <div class="label">Limitation</div>
+      The model explains price <strong>rigidity</strong> once a price is established, but does not explain <strong>how the initial (kink) price</strong> is determined in the first place.
+    </div>
+
+    <h3>Collusive Models — Cartels</h3>
+    <div class="box definition">
+      <div class="label">Cartel</div>
+      A formal agreement among oligopolists to <strong>act jointly</strong> (fix price and/or output) as if they were a single monopolist, maximising <strong>joint industry profit</strong>.
+    </div>
+    <p>Cartel equilibrium: set industry MR = industry MC (as a monopolist would), then allocate output among members (often by individual MC, so each member's MC = industry MC). Cartels are inherently <strong>unstable</strong> — each member has an incentive to secretly cheat (produce more than its quota) since its own MC is below the agreed price.</p>
+
+    <h3>Price Leadership Model</h3>
+    <div class="box definition">
+      <div class="label">Dominant Firm Price Leadership</div>
+      A large, low-cost <strong>dominant firm</strong> sets the market price; smaller firms ("price followers" / competitive fringe) simply accept this price and sell as much as they wish at it, since they are too small to influence price individually.
+    </div>
+    <p>The dominant firm's demand = market demand minus the fringe firms' combined supply at each price; it sets MR (of this residual demand) = its own MC.</p>
+
+    <h3>Game Theory Basics in Oligopoly</h3>
+    <div class="box definition">
+      <div class="label">Nash Equilibrium</div>
+      A set of strategies (one per player) such that <strong>no player can improve their payoff by unilaterally changing strategy</strong>, given what the others are doing.
+    </div>
+    <table>
+      <caption>Table 10.1 — Classic Prisoner's Dilemma payoff matrix (Firm profits, in ₹ crore)</caption>
+      <thead><tr><th>Firm A \ Firm B</th><th>B: Low Price (Cheat)</th><th>B: High Price (Collude)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A: Low Price (Cheat)</strong></td><td>A=5, B=5</td><td>A=10, B=1</td></tr>
+        <tr><td><strong>A: High Price (Collude)</strong></td><td>A=1, B=10</td><td>A=8, B=8</td></tr>
+      </tbody>
+    </table>
+    <p>The <strong>dominant strategy</strong> for both firms is to cheat (low price), yielding the Nash Equilibrium (5,5) — even though mutual collusion (8,8) would make both better off. This captures why cartels are hard to sustain without enforcement.</p>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Distinguish clearly: <strong>Cournot</strong> = simultaneous quantity game (Nash equilibrium in quantities); <strong>Bertrand</strong> = simultaneous price game; <strong>Stackelberg</strong> = sequential quantity game (first-mover advantage); <strong>Kinked demand</strong> = explains rigidity, not initial price determination; <strong>Cartel</strong> = explicit collusion, monopoly-like joint outcome.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>General Equilibrium, Efficiency and Welfare</h2></div>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — FOUNDATIONS</div>
+    <h2 class="sec-title">Partial vs General Equilibrium</h2>
+    <table>
+      <caption>Table 11.1 — Two analytical frameworks</caption>
+      <thead><tr><th></th><th>Partial Equilibrium (Marshall)</th><th>General Equilibrium (Walras)</th></tr></thead>
+      <tbody>
+        <tr><td>Scope</td><td>Analyses <strong>one market</strong> in isolation, "other things equal"</td><td>Analyses <strong>all markets simultaneously</strong>, allowing for interdependence/feedback</td></tr>
+        <tr><td>Assumption</td><td>Spillover effects on other markets are negligible</td><td>Every market's price and quantity affects, and is affected by, every other market</td></tr>
+        <tr><td>Best suited for</td><td>A single small market (e.g., the market for onions)</td><td>Economy-wide questions (e.g., effect of a tax reform, trade liberalisation)</td></tr>
+        <tr><td>Key tool</td><td>Demand-supply diagram for one good</td><td>Edgeworth Box, Walrasian auctioneer, simultaneous equations across markets</td></tr>
+      </tbody>
+    </table>
+    <div class="box definition">
+      <div class="label">General Equilibrium</div>
+      A state in which <strong>all markets in the economy clear simultaneously</strong> — every price adjusts so that quantity demanded equals quantity supplied in every market at once.
+    </div>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — EXCHANGE EFFICIENCY</div>
+    <h2 class="sec-title">Efficiency in Exchange: The Edgeworth Box</h2>
+    <div class="box definition">
+      <div class="label">Edgeworth Box (Pure Exchange)</div>
+      A diagram representing the allocation of two fixed goods (X, Y) between two consumers (A, B) — the box's dimensions are the total endowments of each good; each consumer's indifference curves are drawn from opposite corners.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="30" width="400" height="270" fill="none" stroke="#22303F" stroke-width="1.5"/>
+        <text x="20" y="300" font-size="12" fill="#22303F">O<tspan baseline-shift="sub" font-size="9">A</tspan></text>
+        <text x="465" y="35" font-size="12" fill="#22303F">O<tspan baseline-shift="sub" font-size="9">B</tspan></text>
+        <!-- A's ICs from bottom-left -->
+        <path d="M 90 280 C 150 220, 220 190, 320 195" fill="none" stroke="#3E5C76" stroke-width="1.8"/>
+        <path d="M 120 260 C 180 195, 250 165, 360 170" fill="none" stroke="#3E5C76" stroke-width="1.8"/>
+        <text x="330" y="192" font-size="10" fill="#3E5C76" font-style="italic">IC(A)</text>
+        <!-- B's ICs from top-right, mirrored -->
+        <path d="M 420 60 C 350 120, 280 150, 200 145" fill="none" stroke="#7C2E2E" stroke-width="1.8"/>
+        <path d="M 390 80 C 320 140, 250 165, 160 165" fill="none" stroke="#7C2E2E" stroke-width="1.8"/>
+        <text x="150" y="150" font-size="10" fill="#7C2E2E" font-style="italic">IC(B)</text>
+        <!-- contract curve -->
+        <path d="M 60 300 C 150 230, 280 150, 460 30" fill="none" stroke="#A9793B" stroke-width="2.6" stroke-dasharray="6 3"/>
+        <text x="250" y="115" font-size="12" fill="#A9793B" font-weight="600" font-style="italic">Contract Curve</text>
+        <circle cx="220" cy="160" r="5" fill="#2C6E64"/>
+        <text x="228" y="155" font-size="11" fill="#2C6E64" font-weight="600">Tangency point (efficient)</text>
+      </svg>
+      <figcaption>Fig 12.1 — Edgeworth Box for exchange: O<sub>A</sub> and O<sub>B</sub> are the two consumers' origins. Points where an IC(A) is tangent to an IC(B) trace out the Contract Curve — the set of all Pareto-efficient allocations.</figcaption>
+    </div>
+
+    <div class="box formula">
+      <div class="label">Condition for efficiency in exchange</div>
+      MRS<sub>xy</sub><sup>A</sup> = MRS<sub>xy</sub><sup>B</sup> &nbsp;&nbsp; (both consumers' marginal rates of substitution between the two goods are equal)
+    </div>
+    <div class="box definition">
+      <div class="label">Contract Curve</div>
+      The locus of all Pareto-efficient allocations in the Edgeworth Box — every point <em>off</em> this curve permits a mutually beneficial trade that makes at least one party better off without harming the other; every point <em>on</em> it does not.
+    </div>
+    <div class="box definition">
+      <div class="label">Pareto Efficiency (Optimality)</div>
+      An allocation is Pareto efficient if <strong>no reallocation can make anyone better off without making someone else worse off</strong>.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      If MRS<sup>A</sup> ≠ MRS<sup>B</sup> at some allocation, the two consumers can always find a trade that benefits both (moving toward the contract curve) — this is the intuitive proof of why unequal MRS implies inefficiency.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — PRODUCTION EFFICIENCY</div>
+    <h2 class="sec-title">Efficiency in Production</h2>
+    <p>The identical Edgeworth Box logic applies to <strong>production</strong>, replacing consumers with two firms/industries and goods with two inputs (L, K), and indifference curves with isoquants.</p>
+    <div class="box formula">
+      <div class="label">Condition for efficiency in production</div>
+      MRTS<sub>LK</sub><sup>X</sup> = MRTS<sub>LK</sub><sup>Y</sup> &nbsp;&nbsp; (both industries' marginal rates of technical substitution between the two inputs are equal)
+    </div>
+    <p>The corresponding contract curve traces out all input allocations between industry X and industry Y that are technically efficient — this set of efficient output combinations (X, Y), when plotted in output space, generates the <strong>Production Possibility Frontier (PPF)</strong>.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="30" width="380" height="230" fill="none" stroke="#22303F" stroke-width="1.5"/>
+        <text x="20" y="270" font-size="12" fill="#22303F">O<tspan baseline-shift="sub" font-size="9">X</tspan></text>
+        <text x="445" y="35" font-size="12" fill="#22303F">O<tspan baseline-shift="sub" font-size="9">Y</tspan></text>
+        <path d="M 90 250 C 150 190, 220 165, 300 170" fill="none" stroke="#2C6E64" stroke-width="1.6"/>
+        <path d="M 400 55 C 330 110, 260 140, 180 140" fill="none" stroke="#7C2E2E" stroke-width="1.6"/>
+        <path d="M 60 260 C 150 200, 260 130, 440 30" fill="none" stroke="#A9793B" stroke-width="2.4" stroke-dasharray="6 3"/>
+        <text x="220" y="120" font-size="12" fill="#A9793B" font-weight="600" font-style="italic">Contract curve → maps to PPF</text>
+      </svg>
+      <figcaption>Fig 13.1 — Production Edgeworth Box: tangencies of Industry X's and Industry Y's isoquants trace a contract curve; converting these efficient (X,Y) output pairs into output space generates the PPF.</figcaption>
+    </div>
+  </section>
+
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — TOP-LEVEL EFFICIENCY</div>
+    <h2 class="sec-title">Overall (Top-Level) Efficiency: MRS = MRT</h2>
+    <div class="box definition">
+      <div class="label">Marginal Rate of Transformation (MRT)</div>
+      MRT<sub>xy</sub> = the (absolute) slope of the <strong>Production Possibility Frontier (PPF)</strong> — how much of good Y must be sacrificed to produce one more unit of good X, given full and efficient resource use. MRT<sub>xy</sub> = MC<sub>x</sub>/MC<sub>y</sub>.
+    </div>
+    <div class="box formula">
+      <div class="label">Condition for overall (top-level) efficiency</div>
+      MRS<sub>xy</sub> = MRT<sub>xy</sub> &nbsp;&nbsp;(for every consumer)
+    </div>
+    <p>This is the "grand" efficiency condition combining exchange and production efficiency: the rate at which consumers are <em>willing</em> to trade X for Y (MRS) must equal the rate at which the economy is <em>able</em> to transform X into Y (MRT) via production.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="480" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="486" y="284" font-size="12" fill="#22303F">Good X</text>
+        <text x="30" y="24" font-size="12" fill="#22303F">Good Y</text>
+        <!-- PPF concave (bowed outward) -->
+        <path d="M 80 60 C 200 90, 320 160, 420 260" fill="none" stroke="#7C2E2E" stroke-width="2.6"/>
+        <text x="390" y="255" font-size="12" fill="#7C2E2E" font-style="italic">PPF</text>
+        <!-- community IC tangent -->
+        <path d="M 150 250 C 200 180, 270 150, 380 155" fill="none" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="385" y="150" font-size="12" fill="#3E5C76" font-style="italic">Community IC</text>
+        <circle cx="255" cy="163" r="5" fill="#22303F"/>
+        <text x="200" y="200" font-size="11" fill="#22303F" font-weight="600">Efficient point: MRS = MRT</text>
+      </svg>
+      <figcaption>Fig 14.1 — Overall efficiency: a (concave, "bowed-out") Production Possibility Frontier is tangent to society's (representative) indifference curve — the slope of the PPF (MRT) equals the slope of the IC (MRS) at the efficient point.</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 14.1 — Three conditions for Pareto (economy-wide) efficiency</caption>
+      <thead><tr><th>#</th><th>Condition</th><th>Ensures</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>Efficiency in Exchange: MRS<sup>A</sup>=MRS<sup>B</sup></td><td>Goods are optimally distributed among consumers</td></tr>
+        <tr><td class="num">2</td><td>Efficiency in Production: MRTS<sup>X</sup>=MRTS<sup>Y</sup></td><td>Inputs are optimally allocated among industries</td></tr>
+        <tr><td class="num">3</td><td>Overall/Top-level Efficiency: MRS=MRT</td><td>The right <em>mix</em> of goods is produced, matching consumer preferences</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — WELFARE ECONOMICS</div>
+    <h2 class="sec-title">Welfare Economics &amp; the Fundamental Theorems</h2>
+
+    <h3>The Two Fundamental Theorems of Welfare Economics</h3>
+    <div class="box formula">
+      <div class="label">First Theorem</div>
+      Every <strong>competitive equilibrium</strong> (under perfect competition, with no externalities/public goods) is <strong>Pareto efficient</strong>. ("The invisible hand" formalised.)
+    </div>
+    <div class="box formula">
+      <div class="label">Second Theorem</div>
+      Any Pareto-efficient allocation can be achieved as a competitive equilibrium, <strong>provided</strong> an appropriate initial redistribution of endowments (lump-sum transfers) is carried out first.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      First theorem = efficiency claim (markets are efficient). Second theorem = equity-efficiency separation claim (any distributionally-desired efficient outcome is achievable via lump-sum redistribution + free markets, without needing direct price controls). This distinction is frequently tested.
+    </div>
+
+    <h3>Utility Possibility Frontier (UPF) &amp; Social Welfare</h3>
+    <div class="box definition">
+      <div class="label">Utility Possibility Frontier</div>
+      Plots the maximum utility one individual (B) can achieve for every given level of utility of another individual (A), given a fixed allocation of resources — derived by tracing all points on the contract curve into utility space.
+    </div>
+    <div class="box definition">
+      <div class="label">Grand Utility Possibility Frontier (GUPF)</div>
+      The outer envelope of UPFs corresponding to every possible efficient production point (i.e., incorporating both exchange <em>and</em> production efficiency) — the ultimate utility frontier for the economy.
+    </div>
+    <div class="box definition">
+      <div class="label">Social Welfare Function (SWF)</div>
+      A function (Bergson-Samuelson) that ranks different distributions of utility across individuals according to society's value judgements — W = W(U<sub>A</sub>, U<sub>B</sub>). The point where the highest social indifference curve (from the SWF) is tangent to the GUPF is the <strong>social welfare optimum</strong>.
+    </div>
+
+    <h3>Compensation Principles (comparing welfare when there are both gainers and losers)</h3>
+    <table>
+      <caption>Table 15.1 — Kaldor-Hicks vs Scitovsky</caption>
+      <thead><tr><th>Criterion</th><th>Test</th><th>Key point / weakness</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pareto criterion</strong></td><td>A change is an improvement only if <em>at least one</em> person gains and <em>no one</em> loses</td><td>Very restrictive — most real policy changes create some losers</td></tr>
+        <tr><td><strong>Kaldor Criterion</strong></td><td>A change is an improvement if <strong>gainers could potentially compensate losers</strong> and still be better off (compensation need not actually be paid)</td><td>Purely hypothetical compensation — doesn't require it happens</td></tr>
+        <tr><td><strong>Hicks Criterion</strong></td><td>A change is an improvement if <strong>losers cannot profitably bribe gainers</strong> to prevent the change</td><td>Mirror-image logic to Kaldor's, from the losers' side</td></tr>
+        <tr><td><strong>Kaldor-Hicks Criterion</strong></td><td>Combines both — the change is an improvement if it passes both the Kaldor and Hicks tests</td><td>Widely used in cost-benefit analysis</td></tr>
+        <tr><td><strong>Scitovsky Criterion (Scitovsky Paradox fix)</strong></td><td>Requires the Kaldor-Hicks test to hold in <em>both directions</em> (forward and reverse) to avoid contradictions</td><td>Addresses the "Scitovsky Paradox" where Kaldor-Hicks alone could rank A&gt;B and B&gt;A simultaneously under different reference points</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — MARKET FAILURE</div>
+    <h2 class="sec-title">Externality &amp; Market Failure</h2>
+    <div class="box definition">
+      <div class="label">Externality</div>
+      A cost or benefit affecting a <strong>third party</strong> who did not choose to incur it, arising from the production or consumption of a good — i.e., a spillover effect not reflected in market prices.
+    </div>
+
+    <table>
+      <caption>Table 16.1 — Four types of externality</caption>
+      <thead><tr><th>Type</th><th>Effect on third party</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Negative Production Externality</td><td>Harm from a firm's production activity</td><td>Factory pollution affecting nearby residents</td></tr>
+        <tr><td>Positive Production Externality</td><td>Benefit from a firm's production activity</td><td>A beekeeper's bees pollinating a neighbouring orchard</td></tr>
+        <tr><td>Negative Consumption Externality</td><td>Harm from someone's consumption</td><td>Second-hand smoke, loud music</td></tr>
+        <tr><td>Positive Consumption Externality</td><td>Benefit from someone's consumption</td><td>Getting vaccinated (herd immunity), education (informed citizenry)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box formula">
+      <div class="label">Core distinction</div>
+      Marginal <strong>Private</strong> Cost/Benefit (MPC / MPB) — borne/enjoyed by the decision-maker only<br>
+      Marginal <strong>Social</strong> Cost/Benefit (MSC / MSB) — includes the externality<br>
+      With a negative production externality: MSC = MPC + Marginal External Cost<br>
+      With a positive consumption externality: MSB = MPB + Marginal External Benefit
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="280" x2="520" y2="280" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="284" font-size="12" fill="#22303F">Q</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Cost/Price</text>
+        <!-- demand = MSB = MPB -->
+        <line x1="90" y1="60" x2="460" y2="260" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="464" y="262" font-size="12" fill="#3E5C76" font-style="italic">D = MPB = MSB</text>
+        <!-- MPC (private supply) -->
+        <line x1="90" y1="230" x2="440" y2="90" stroke="#2C6E64" stroke-width="2.2"/>
+        <text x="446" y="86" font-size="12" fill="#2C6E64" font-style="italic">MPC (private supply)</text>
+        <!-- MSC (social cost) shifted up -->
+        <line x1="90" y1="170" x2="440" y2="40" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="446" y="38" font-size="12" fill="#7C2E2E" font-style="italic">MSC = MPC + external cost</text>
+        <!-- market equilibrium (D=MPC) -->
+        <circle cx="290" cy="152" r="5" fill="#3E5C76"/>
+        <line x1="290" y1="152" x2="290" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="282" y="298" font-size="11" fill="#3E5C76">Qm (market/private)</text>
+        <!-- social optimum (D=MSC) -->
+        <circle cx="230" cy="180" r="5" fill="#7C2E2E"/>
+        <line x1="230" y1="180" x2="230" y2="280" stroke="#8B93A1" stroke-dasharray="3 3"/>
+        <text x="180" y="298" font-size="11" fill="#7C2E2E">Qs (social optimum)</text>
+        <!-- welfare loss triangle -->
+        <path d="M 230 180 L 290 152 L 290 200 Z" fill="#A64B2A" opacity="0.28"/>
+        <text x="235" y="205" font-size="10" fill="#A64B2A" font-weight="600">Welfare loss</text>
+      </svg>
+      <figcaption>Fig 16.1 — Negative production externality: unregulated market output Qm (where D=MPC) exceeds the socially optimal Qs (where D=MSC). The gap creates a deadweight welfare loss — the market <strong>over-produces</strong> the externality-generating good.</figcaption>
+    </div>
+
+    <h4>Correcting Externalities</h4>
+    <table>
+      <caption>Table 16.2 — Policy remedies</caption>
+      <thead><tr><th>Remedy</th><th>How it works</th><th>Best suited for</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pigouvian Tax</strong></td><td>A per-unit tax equal to the marginal external cost, imposed on producers/consumers to force them to internalise the externality (shifts MPC up to MSC)</td><td>Negative externalities (e.g., carbon/pollution tax)</td></tr>
+        <tr><td><strong>Pigouvian Subsidy</strong></td><td>A per-unit subsidy equal to the marginal external benefit, to raise private incentive to the socially optimal level</td><td>Positive externalities (e.g., education/vaccination subsidies)</td></tr>
+        <tr><td><strong>Coase Theorem</strong></td><td>If property rights are clearly defined and <strong>transaction costs are zero</strong>, private bargaining between the affected parties can achieve the efficient outcome <em>regardless of who initially holds the property right</em></td><td>Small-numbers bargaining situations (e.g., a factory and a single neighbouring farm)</td></tr>
+        <tr><td><strong>Regulation / Quotas</strong></td><td>Direct government limits on quantity produced/pollution emitted</td><td>Cases where price-based tools are hard to calibrate or enforce</td></tr>
+        <tr><td><strong>Tradable Permits</strong></td><td>Government sets a total quantity (cap) of allowable externality (e.g., emissions) and allows firms to trade permits</td><td>Combines quantity certainty with market-based efficiency ("cap-and-trade")</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box definition">
+      <div class="label">Coase Theorem — statement</div>
+      When transaction costs are negligible and property rights are well-defined, the parties affected by an externality can <strong>bargain to an efficient outcome</strong> privately, without government intervention — and the final efficient allocation of resources is <strong>independent</strong> of which party is initially assigned the property right (though the distribution of wealth between them differs).
+    </div>
+    <div class="box warn">
+      <div class="label">Real-world limitation of Coase</div>
+      Breaks down when transaction costs are high, property rights are ambiguous, or there are <strong>many</strong> affected parties (e.g., climate change, air pollution affecting millions) — making Pigouvian taxes/regulation more practical at scale.
+    </div>
+
+    <h4>Public Goods — a related market failure (brief)</h4>
+    <div class="box definition">
+      <div class="label">Public Good</div>
+      A good that is both <strong>non-excludable</strong> (cannot prevent non-payers from consuming it) and <strong>non-rivalrous</strong> (one person's consumption doesn't reduce availability for others) — e.g., national defence, street lighting. Leads to the <strong>free-rider problem</strong> and under-provision by private markets.
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Negative externality ⇒ market <strong>over-produces</strong> relative to the social optimum; positive externality ⇒ market <strong>under-produces</strong> relative to the social optimum. Always link the diagram direction (MSC above MPC, or MSB above MPB) to whether output should be taxed down or subsidised up.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s17">
+    <div class="sec-eyebrow">17 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table — Market Structures</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Perfect Competition</th><th>Monopoly</th><th>Monopolistic Competition</th><th>Oligopoly / Duopoly</th></tr></thead>
+      <tbody>
+        <tr><td>Short-run equilibrium rule</td><td>MR=MC, P=AR=MR</td><td>MR=MC, AR&gt;MR</td><td>MR=MC, AR&gt;MR</td><td>Model-dependent (Cournot/Bertrand/Kinked demand)</td></tr>
+        <tr><td>Long-run profit</td><td>Zero (P=AC min)</td><td>Can be positive (barriers)</td><td>Zero (tangency, AC not at min — excess capacity)</td><td>Can be positive (barriers, collusion)</td></tr>
+        <tr><td>Allocative efficiency (P=MC)?</td><td>Yes</td><td>No (P&gt;MC)</td><td>No (P&gt;MC)</td><td>No (P&gt;MC generally)</td></tr>
+        <tr><td>Productive efficiency (min AC)?</td><td>Yes</td><td>No</td><td>No (excess capacity)</td><td>No</td></tr>
+        <tr><td>Supply curve exists uniquely?</td><td>Yes (=MC above min AVC)</td><td>No</td><td>No</td><td>No (esp. kinked demand case)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s18">
+    <div class="sec-eyebrow">18 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Universal profit-max rule</div>MR = MC (MC cuts MR from below)</div>
+      <div class="box formula"><div class="label">MR–elasticity link</div>MR = P(1 − 1/e)</div>
+      <div class="box formula"><div class="label">Shutdown point (PC firm)</div>P = min AVC</div>
+      <div class="box formula"><div class="label">Break-even point (PC firm)</div>P = min AC</div>
+      <div class="box formula"><div class="label">Third-degree price discrimination</div>MR₁ = MR₂ = MC</div>
+      <div class="box formula"><div class="label">Monopolistic competition LR</div>MR=MC and AR tangent to AC</div>
+      <div class="box formula"><div class="label">Efficiency in exchange</div>MRS<sup>A</sup><sub>xy</sub> = MRS<sup>B</sup><sub>xy</sub></div>
+      <div class="box formula"><div class="label">Efficiency in production</div>MRTS<sup>X</sup><sub>LK</sub> = MRTS<sup>Y</sup><sub>LK</sub></div>
+      <div class="box formula"><div class="label">Overall efficiency</div>MRS<sub>xy</sub> = MRT<sub>xy</sub> = MC<sub>x</sub>/MC<sub>y</sub></div>
+      <div class="box formula"><div class="label">Negative externality</div>MSC = MPC + Marginal External Cost</div>
+      <div class="box formula"><div class="label">Positive externality</div>MSB = MPB + Marginal External Benefit</div>
+      <div class="box formula"><div class="label">First Welfare Theorem</div>Competitive equilibrium ⇒ Pareto efficient</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Monopoly: P &gt; MC always</span>
+      <span class="chip">Bertrand Paradox: P = MC with just 2 firms</span>
+      <span class="chip">Stackelberg: leader &gt; Cournot profit</span>
+      <span class="chip">Excess capacity ⇒ tangency left of AC min</span>
+      <span class="chip">Negative externality ⇒ over-production</span>
+      <span class="chip">Positive externality ⇒ under-production</span>
+      <span class="chip">Coase: property rights + zero transaction cost ⇒ efficient bargain</span>
+      <span class="chip">2nd theorem needs lump-sum redistribution</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s19">
+    <div class="sec-eyebrow">19 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation. Extended bank covering both Parts A and B.</p>
+
+    <details class="q">
+      <summary>Q1. Under perfect competition, a firm's short-run supply curve is: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) The entire MC curve &nbsp; (b) <strong>The MC curve above (and including) minimum AVC</strong> &nbsp; (c) The AC curve above its minimum &nbsp; (d) A horizontal line at market price<br><br>
+      <span class="correct">Answer: (b)</span> — below minimum AVC the firm shuts down rather than supplying anything.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. A profit-maximising monopolist will never produce where price elasticity of demand is: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Greater than 1 &nbsp; (b) Equal to 1 &nbsp; (c) <strong>Less than 1</strong> &nbsp; (d) Infinite<br><br>
+      <span class="correct">Answer: (c)</span> — MR would be negative there (since MR=P(1−1/e)), while MC is always positive, so MR=MC cannot hold.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. In third-degree price discrimination, the market with the more elastic demand is charged: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) A higher price &nbsp; (b) <strong>A lower price</strong> &nbsp; (c) The same price as other markets &nbsp; (d) Zero price<br><br>
+      <span class="correct">Answer: (b)</span> — price and elasticity are inversely related across segments under third-degree discrimination.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. The "excess capacity theorem" is associated with which market structure? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Perfect competition &nbsp; (b) Monopoly &nbsp; (c) <strong>Monopolistic competition</strong> &nbsp; (d) Oligopoly<br><br>
+      <span class="correct">Answer: (c)</span> — the long-run tangency of AR and AC occurs to the left of AC's minimum point, leaving the firm with unused (excess) capacity.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. In the Cournot duopoly model, each firm assumes that: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) The rival will match any price cut &nbsp; (b) <strong>The rival's output quantity will remain unchanged</strong> &nbsp; (c) The rival is a price leader &nbsp; (d) There is perfect collusion<br><br>
+      <span class="correct">Answer: (b)</span> — this is the defining "naive conjecture" of the Cournot model.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. The Bertrand Paradox refers to the result that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Duopoly price settles above monopoly price &nbsp; (b) <strong>With homogeneous products and price competition, just two firms can drive price down to marginal cost</strong> &nbsp; (c) Bertrand competition always leads to collusion &nbsp; (d) Price never changes under Bertrand competition<br><br>
+      <span class="correct">Answer: (b)</span> — the paradox is that competitive-market outcomes (P=MC) emerge even with only two firms.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. In the Stackelberg model, the "leader" firm's profit compared to the Cournot outcome is: <span class="qmeta">Comparative</span></summary>
+      <div class="ans">(a) Lower &nbsp; (b) <strong>Higher</strong> &nbsp; (c) Exactly equal &nbsp; (d) Zero<br><br>
+      <span class="correct">Answer: (b)</span> — moving first and committing to an output gives the leader a strategic ("first-mover") advantage over the simultaneous Cournot game.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. The kinked demand curve model primarily explains: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) How the initial oligopoly price is determined &nbsp; (b) <strong>Why prices tend to be sticky/rigid once set in an oligopoly</strong> &nbsp; (c) Why oligopolists always collude &nbsp; (d) Why monopoly output is inefficient<br><br>
+      <span class="correct">Answer: (b)</span> — it is silent on how the original kink price is arrived at; it only explains rigidity around that price.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. The efficiency condition in a pure exchange economy (Edgeworth Box) is: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) MRTS<sup>X</sup> = MRTS<sup>Y</sup> &nbsp; (b) <strong>MRS<sup>A</sup> = MRS<sup>B</sup></strong> &nbsp; (c) MRS = MRT &nbsp; (d) MC = AC<br><br>
+      <span class="correct">Answer: (b)</span> — both consumers' marginal rates of substitution between the two goods must be equal at every point on the contract curve.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. The "Second Fundamental Theorem of Welfare Economics" states that: <span class="qmeta">Advanced</span></summary>
+      <div class="ans">(a) All competitive equilibria are Pareto efficient &nbsp; (b) <strong>Any Pareto-efficient allocation can be reached as a competitive equilibrium, given an appropriate lump-sum redistribution of initial endowments</strong> &nbsp; (c) Monopoly is always inefficient &nbsp; (d) Externalities always lead to market failure<br><br>
+      <span class="correct">Answer: (b)</span> — (a) describes the First Theorem instead.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. A negative production externality (e.g., factory pollution) typically leads the free market to: <span class="qmeta">Diagram-based</span></summary>
+      <div class="ans">(a) Under-produce relative to the social optimum &nbsp; (b) <strong>Over-produce relative to the social optimum</strong> &nbsp; (c) Produce exactly the efficient quantity &nbsp; (d) Shut down entirely<br><br>
+      <span class="correct">Answer: (b)</span> — since MPC &lt; MSC, the market equilibrium (where D=MPC) occurs at a higher quantity than the social optimum (where D=MSC).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. The Coase Theorem requires which key condition to achieve an efficient outcome through private bargaining? <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Government price controls &nbsp; (b) <strong>Well-defined property rights and negligible transaction costs</strong> &nbsp; (c) A large number of affected parties &nbsp; (d) A Pigouvian tax<br><br>
+      <span class="correct">Answer: (b)</span> — with these conditions, the identity of the property-right holder affects the distribution of gains but not the efficiency of the final outcome.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q13. The correct remedy for a positive externality (e.g., education) is generally: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) A Pigouvian tax &nbsp; (b) <strong>A Pigouvian subsidy</strong> &nbsp; (c) A production quota &nbsp; (d) No intervention needed<br><br>
+      <span class="correct">Answer: (b)</span> — a subsidy raises private incentive toward the socially optimal (higher) level of the activity.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q14. Which of the following is/are true about a "public good"? <span class="qmeta">Assertion-set</span></summary>
+      <div class="ans">
+        I. It is non-rivalrous in consumption<br>
+        II. It is non-excludable<br>
+        III. Private markets tend to under-provide it due to free-riding<br>
+        IV. It always generates a negative externality<br><br>
+        (a) I &amp; II only &nbsp; (b) <strong>I, II &amp; III only</strong> &nbsp; (c) All four &nbsp; (d) III &amp; IV only<br><br>
+        <span class="correct">Answer: (b)</span> — Statement IV is false; public goods are a distinct market-failure category from externalities, not necessarily associated with negative externalities.
+      </div>
+    </details>
+
+    <details class="q">
+      <summary>Q15. Overall (top-level) efficiency in a two-good economy requires: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) MRTS<sup>X</sup>=MRTS<sup>Y</sup> only &nbsp; (b) MRS<sup>A</sup>=MRS<sup>B</sup> only &nbsp; (c) <strong>MRS<sub>xy</sub> = MRT<sub>xy</sub></strong> &nbsp; (d) AR=MR for all firms<br><br>
+      <span class="correct">Answer: (c)</span> — this is the third and final condition, linking consumer preferences (MRS) with the economy's production trade-off (MRT).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q16. In a cartel, individual members have an incentive to secretly produce more than their agreed quota because: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Their MC exceeds the cartel price &nbsp; (b) <strong>Their individual MC is below the agreed (monopoly-like) cartel price, making extra output profitable for them alone</strong> &nbsp; (c) Cartels are illegal &nbsp; (d) Demand is perfectly inelastic<br><br>
+      <span class="correct">Answer: (b)</span> — this incentive to "cheat" is exactly what makes cartels inherently unstable without strong enforcement mechanisms.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q17. In the dominant-firm price leadership model, smaller "fringe" firms: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Set the market price independently &nbsp; (b) <strong>Accept the price set by the dominant firm and sell as much as they wish at it</strong> &nbsp; (c) Always merge with the dominant firm &nbsp; (d) Set a lower price than the dominant firm<br><br>
+      <span class="correct">Answer: (b)</span> — they behave as price-takers with respect to the dominant firm's chosen price.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q18. Which welfare criterion requires the compensation test to hold in both directions to avoid contradictory rankings? <span class="qmeta">Advanced</span></summary>
+      <div class="ans">(a) Pareto criterion &nbsp; (b) Kaldor criterion &nbsp; (c) Hicks criterion &nbsp; (d) <strong>Scitovsky criterion</strong><br><br>
+      <span class="correct">Answer: (d)</span> — the Scitovsky criterion was devised precisely to resolve the "Scitovsky Paradox" that can arise from applying Kaldor-Hicks in only one direction.</div>
+    </details>
+  </section>
+
+  <footer>
+    Price &amp; Output Determination + General Equilibrium, Efficiency and Welfare — CUET PG Economics Notes · Compiled for exam preparation · Sources: Marshall, Chamberlin (1933), Cournot (1838), Bertrand (1883), Stackelberg (1934), Sweezy (1939), Edgeworth (1881, 1897), Walras, Pareto, Pigou (1920), Coase (1960), H.L. Ahuja's Microeconomics.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

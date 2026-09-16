@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colonial Economy: Agriculture, Railways &amp; Industry — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.82rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.4rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.06rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.85rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.debate{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.debate .label{font-weight:700; color:var(--slate); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.89rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.82rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Colonial Economy: Agriculture, Railways &amp; Industry</div>
+  <div class="toc-sub">CUET PG · Indian Economic History</div>
+  <ol>
+    <div class="part-label">Part A — Agriculture</div>
+    <li><a href="#s1">Land Revenue Systems</a></li>
+    <li><a href="#s2">Agrarian Structure &amp; Land Relations</a></li>
+    <li><a href="#s3">Agricultural Credit &amp; Indebtedness</a></li>
+    <li><a href="#s4">Commercialization of Agriculture</a></li>
+    <li><a href="#s5">Agricultural Technology &amp; Irrigation</a></li>
+    <li><a href="#s6">Trends in Performance &amp; Productivity</a></li>
+    <li><a href="#s7">Famines</a></li>
+    <div class="part-label">Part B — Railways &amp; Industry</div>
+    <li><a href="#s8">Railways</a></li>
+    <li><a href="#s9">The De-Industrialization Debate</a></li>
+    <li><a href="#s10">Entrepreneurial &amp; Industrial Structure</a></li>
+    <li><a href="#s11">Industrialization in the Interwar Period</a></li>
+    <li><a href="#s12">Constraints to Industrial Breakthrough</a></li>
+    <li><a href="#s13">Labour Relations</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s14">Master Comparison Table</a></li>
+    <li><a href="#s15">Concept &amp; Timeline Sheet</a></li>
+    <li><a href="#s16">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMIC HISTORY · COLONIAL PERIOD</div>
+    <h1>Agriculture, Railways &amp; Industry under Colonial Rule</h1>
+    <p class="lede">Land revenue systems and agrarian relations · rural credit, commerce and technology · agricultural stagnation and famines · the railway network and the de-industrialization debate · the rise of Indian entrepreneurship and interwar industrialization · the constraints that blocked a full industrial breakthrough · and colonial labour relations.</p>
+    <div class="tags">
+      <span class="tag">Zamindari/Ryotwari/Mahalwari</span><span class="tag">Blyn's Estimates</span><span class="tag">Managing Agency System</span>
+      <span class="tag">Bipan Chandra vs Morris D. Morris</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Agriculture under Colonial Rule</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — LAND REVENUE</div>
+    <h2 class="sec-title">Land Revenue Systems</h2>
+    <p class="lead-p">The British restructured land rights across India through three major land revenue settlements, each creating a distinct class of intermediaries and a distinct set of agrarian relations.</p>
+
+    <table>
+      <caption>Table 1.1 — The three land revenue systems compared</caption>
+      <thead><tr><th>Feature</th><th>Zamindari (Permanent Settlement)</th><th>Ryotwari</th><th>Mahalwari</th></tr></thead>
+      <tbody>
+        <tr><td>Introduced by</td><td>Lord Cornwallis, 1793</td><td>Thomas Munro / Reid, early 1800s</td><td>1822 onwards (Holt Mackenzie)</td></tr>
+        <tr><td>Regions</td><td>Bengal, Bihar, Orissa, parts of Madras/Varanasi</td><td>Madras, Bombay Presidency, Assam</td><td>Parts of North-Western Provinces, Punjab, Central India</td></tr>
+        <tr><td>Revenue payer</td><td><strong>Zamindar</strong> (a hereditary intermediary landlord)</td><td><strong>Individual cultivator (ryot)</strong> directly to the state</td><td><strong>Village community / Mahal</strong> (jointly, headed by village headman)</td></tr>
+        <tr><td>Assessment nature</td><td><strong>Permanently fixed</strong> revenue demand, in perpetuity</td><td>Periodically revised (typically every 20-30 years)</td><td>Periodically revised, assessed on the Mahal (estate/village) as a unit</td></tr>
+        <tr><td>Cultivator's status</td><td>Reduced to a <strong>tenant</strong> of the zamindar, no direct link to the state</td><td>Recognised as the actual landowner/proprietor</td><td>Joint responsibility within the village body</td></tr>
+        <tr><td>Key consequence</td><td>Rise of absentee landlordism, sub-infeudation, rack-renting of tenants (since zamindar's revenue was fixed, but he could raise rent freely)</td><td>Direct state-peasant relation; but периodic revision meant highly variable/uncertain burden</td><td>Joint liability could pressure the whole village if some members defaulted</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <rect x="20" y="20" width="170" height="50" rx="5" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.4"/>
+          <text x="105" y="50" text-anchor="middle" font-size="12" fill="#7C2E2E" font-weight="600">Zamindari</text>
+          <line x1="105" y1="70" x2="105" y2="100" stroke="#7C2E2E" stroke-width="1.6"/>
+          <rect x="20" y="100" width="170" height="40" rx="5" fill="#F6E3D8" stroke="#A64B2A" stroke-width="1.2"/>
+          <text x="105" y="124" text-anchor="middle" font-size="11" fill="#A64B2A">Zamindar (fixed revenue)</text>
+          <line x1="105" y1="140" x2="105" y2="170" stroke="#7C2E2E" stroke-width="1.6"/>
+          <rect x="20" y="170" width="170" height="40" rx="5" fill="#FFFDF8" stroke="#D8CFBC" stroke-width="1.2"/>
+          <text x="105" y="194" text-anchor="middle" font-size="11" fill="#22303F">Tenant cultivator (variable rent)</text>
+        </g>
+        <g transform="translate(225,0)">
+          <rect x="20" y="20" width="170" height="50" rx="5" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.4"/>
+          <text x="105" y="50" text-anchor="middle" font-size="12" fill="#2C6E64" font-weight="600">Ryotwari</text>
+          <line x1="105" y1="70" x2="105" y2="170" stroke="#2C6E64" stroke-width="1.6"/>
+          <rect x="20" y="170" width="170" height="40" rx="5" fill="#FFFDF8" stroke="#D8CFBC" stroke-width="1.2"/>
+          <text x="105" y="194" text-anchor="middle" font-size="11" fill="#22303F">Ryot (cultivator) — pays state directly</text>
+        </g>
+        <g transform="translate(430,0)">
+          <rect x="20" y="20" width="170" height="50" rx="5" fill="#F1E5CE" stroke="#A9793B" stroke-width="1.4"/>
+          <text x="105" y="50" text-anchor="middle" font-size="12" fill="#A9793B" font-weight="600">Mahalwari</text>
+          <line x1="105" y1="70" x2="105" y2="100" stroke="#A9793B" stroke-width="1.6"/>
+          <rect x="20" y="100" width="170" height="40" rx="5" fill="#F1E5CE" stroke="#A9793B" stroke-width="1"/>
+          <text x="105" y="124" text-anchor="middle" font-size="11" fill="#A9793B">Village/Mahal (joint liability)</text>
+          <line x1="105" y1="140" x2="105" y2="170" stroke="#A9793B" stroke-width="1.6"/>
+          <rect x="20" y="170" width="170" height="40" rx="5" fill="#FFFDF8" stroke="#D8CFBC" stroke-width="1.2"/>
+          <text x="105" y="194" text-anchor="middle" font-size="11" fill="#22303F">Individual cultivators within village</text>
+        </g>
+      </svg>
+      <figcaption>Fig 1.1 — Revenue-flow hierarchy under the three systems: Zamindari inserts a permanent intermediary; Ryotwari is a direct two-tier link; Mahalwari places joint liability on the village body.</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A frequent MCQ trap: the Permanent Settlement fixed the <strong>state's</strong> revenue demand on the zamindar forever — it did <strong>not</strong> fix the rent the zamindar could charge tenants, which is exactly why rack-renting and sub-infeudation flourished under Zamindari areas.
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — AGRARIAN STRUCTURE</div>
+    <h2 class="sec-title">Agrarian Structure &amp; Land Relations</h2>
+    <h4>Key structural features that emerged</h4>
+    <ul>
+      <li><strong>Sub-infeudation</strong> — zamindars leased out revenue-collection rights to intermediaries (under-tenures), who in turn sub-let further, creating layered chains of rent-extracting intermediaries between the state and the actual cultivator</li>
+      <li><strong>Absentee landlordism</strong> — many zamindars lived away from their estates, extracting rent with little investment in land improvement</li>
+      <li><strong>Rack-renting</strong> — since revenue to the state was fixed (Zamindari areas) but rent to tenants was not, zamindars had every incentive to raise tenant rents as high as possible</li>
+      <li><strong>Rise of tenancy &amp; insecurity of tenure</strong> — occupancy rights were poorly protected until later Tenancy Acts (e.g., Bengal Tenancy Act 1885) attempted (with limited success) to protect occupancy ryots</li>
+      <li><strong>Fragmentation and sub-division of holdings</strong> — driven by population pressure and inheritance practices, reducing average farm size over time</li>
+      <li><strong>Commercialization-driven land alienation</strong> — cash-crop dependence and debt often led to land passing from cultivators to moneylenders/merchants (especially where land became a marketable/mortgageable commodity under British law, unlike traditional customary tenure)</li>
+    </ul>
+    <div class="box definition">
+      <div class="label">Sub-infeudation</div>
+      The proliferation of multiple layers of rent-receiving intermediaries between the actual cultivator and the state — each layer extracting a share of the surplus, without necessarily investing in production, one of the most criticised features of the Permanent Settlement.
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — CREDIT</div>
+    <h2 class="sec-title">Agricultural Markets &amp; Institutions: Credit</h2>
+    <div class="box definition">
+      <div class="label">The centrality of the village moneylender</div>
+      In the absence of institutional/formal credit, the <strong>village moneylender (sahukar)</strong> was the dominant — often the only — source of rural credit, financing both consumption needs (between harvests) and production inputs, typically at very high interest rates.
+    </div>
+    <h4>Why did rural indebtedness deepen under colonial rule?</h4>
+    <ul>
+      <li><strong>Fixed/rigid land revenue demand</strong> (especially Zamindari) had to be paid in cash, in time, regardless of harvest outcome — forcing distress borrowing in bad years</li>
+      <li><strong>Monetization &amp; commercialization</strong> of agriculture increased cultivators' exposure to price risk and the need for cash</li>
+      <li><strong>Making land a transferable/mortgageable commodity</strong> under British legal reforms (unlike more protected customary tenures) allowed moneylenders to seize land on default — a new channel of dispossession</li>
+      <li><strong>Absence of formal/institutional rural banking</strong> for most of the colonial period left moneylenders as monopolistic credit providers, able to charge exorbitant, often usurious, interest rates</li>
+    </ul>
+
+    <h4>Institutional responses</h4>
+    <table>
+      <caption>Table 3.1 — Colonial-era attempts to address rural indebtedness</caption>
+      <thead><tr><th>Measure</th><th>Nature</th><th>Effectiveness</th></tr></thead>
+      <tbody>
+        <tr><td>Deccan Agriculturists' Relief Act, 1879</td><td>Restricted moneylenders' ability to seize peasant land in the Deccan (following the Deccan Riots of 1875)</td><td>Limited — moneylenders adapted via other legal/informal mechanisms</td></tr>
+        <tr><td>Cooperative Credit Societies Act, 1904</td><td>Introduced village cooperative credit societies as an institutional alternative to moneylenders</td><td>Slow to spread; often captured by richer peasants; limited outreach to the poorest</td></tr>
+        <tr><td>Land Alienation Acts (Punjab, 1900, and similar)</td><td>Restricted transfer/sale of agricultural land to non-agriculturist castes (chiefly to curb moneylender acquisition)</td><td>Partial success in specific regions; did not solve the underlying credit shortage</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The <strong>Deccan Riots (1875)</strong> — peasant uprisings against moneylenders in Maharashtra — are a classic reference point, directly leading to the Deccan Agriculturists' Relief Act and highlighting how commercialization-plus-fixed-revenue-plus-absent-credit institutions combined to fuel rural distress.
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — COMMERCE</div>
+    <h2 class="sec-title">Commercialization of Agriculture</h2>
+    <div class="box definition">
+      <div class="label">Commercialization of Agriculture</div>
+      The shift from subsistence food-crop cultivation toward <strong>cash/commercial crops</strong> (cotton, jute, indigo, tea, opium, oilseeds, sugarcane) grown primarily for sale in domestic and — crucially — <strong>export</strong> markets, rather than for the cultivator's own consumption.
+    </div>
+    <h4>Drivers</h4>
+    <ul>
+      <li>Growing demand from British/European industry for raw materials (cotton for Lancashire textile mills, jute for packaging, indigo as a dye)</li>
+      <li>Expansion of <strong>railways</strong>, which linked previously isolated agricultural regions to ports and international markets (see Section 8)</li>
+      <li>The need for <strong>cash</strong> to pay fixed land revenue demands, pushing cultivators toward marketable crops</li>
+      <li>Deliberate colonial policy encouragement of specific export crops (e.g., indigo under coercive contracts, opium under state monopoly)</li>
+    </ul>
+    <div class="box warn">
+      <div class="label">"Commercialization" was not always "modernization"</div>
+      Unlike a voluntary market-driven shift reflecting genuine comparative advantage and rising farmer welfare, much of colonial commercialization was driven by <strong>revenue compulsion and coercion</strong> (e.g., the indigo system in Bengal, forced cultivation contracts) — historians distinguish this "forced commercialization" from a healthy market-integration process, and link it to increased vulnerability to price fluctuations and famine (Section 7).
+    </div>
+    <h4>Consequences</h4>
+    <ul>
+      <li>Increased regional specialization and integration into world commodity markets (and thus exposure to global price volatility, e.g., the collapse of cotton/jute prices during the Great Depression)</li>
+      <li>Reduced acreage devoted to food crops in some regions, contributing to food insecurity</li>
+      <li>Growth of a class of rural traders/middlemen alongside the moneylender</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — TECHNOLOGY</div>
+    <h2 class="sec-title">Agricultural Technology &amp; Irrigation</h2>
+    <div class="box warn">
+      <div class="label">Broad technological stagnation</div>
+      Despite some improvements (railways, and expansion of irrigated area in specific tracts), Indian agriculture as a whole saw <strong>little technological transformation</strong> during the colonial period — cultivation techniques, implements, and seed varieties remained largely traditional; yields per acre stayed low and largely stagnant.
+    </div>
+    <h4>Irrigation — the partial exception</h4>
+    <ul>
+      <li>Major canal systems were built in select regions — notably <strong>Punjab</strong> (the "canal colonies") and parts of the <strong>United Provinces/Madras</strong> — significantly expanding irrigated acreage there</li>
+      <li>But irrigation investment was <strong>geographically uneven</strong>: large tracts (especially in eastern and central India) remained rain-fed and vulnerable to monsoon failure</li>
+      <li>Motivation was often as much about opening new revenue-generating, commercially cultivable tracts (canal colonies for cash crops) as about food security</li>
+    </ul>
+    <h4>Why did technology stagnate?</h4>
+    <ul>
+      <li>Low and uncertain returns to investment for small, indebted, insecure-tenure cultivators — little incentive/capacity to invest in land improvement</li>
+      <li>Colonial state investment priorities favoured railways and irrigation works serving <strong>export/revenue</strong> interests over broad-based agricultural research/extension</li>
+      <li>Absence of an institutional credit system to finance modern inputs</li>
+      <li>Fragmented, small holdings limiting scope for mechanization</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — PERFORMANCE</div>
+    <h2 class="sec-title">Trends in Agricultural Performance &amp; Productivity</h2>
+    <div class="box definition">
+      <div class="label">George Blyn's Estimates (a landmark quantitative study)</div>
+      Economic historian <strong>George Blyn's</strong> pioneering statistical reconstruction (covering roughly 1891-1947) remains the standard reference for colonial-era agricultural output trends, showing broadly <strong>stagnant to very slowly growing</strong> aggregate output, with output per capita <strong>declining</strong> due to population growth outpacing output growth.
+    </div>
+    <table>
+      <caption>Table 6.1 — Broad findings (illustrative, per Blyn-type estimates, 1891-1947)</caption>
+      <thead><tr><th>Indicator</th><th>Approximate trend</th></tr></thead>
+      <tbody>
+        <tr><td>All-crop output growth (aggregate)</td><td>~0.4% per annum (very slow)</td></tr>
+        <tr><td>Foodgrain output growth</td><td>Near-stagnant, or even mildly declining in per-capita terms</td></tr>
+        <tr><td>Non-foodgrain (commercial crop) output growth</td><td>Relatively higher, reflecting commercialization</td></tr>
+        <tr><td>Yield per acre</td><td>Largely stagnant across most regions</td></tr>
+        <tr><td>Regional variation</td><td>Sharp — e.g., Punjab (irrigated, canal colonies) performed markedly better than Bengal/Eastern India</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The key distinguishing point often tested: total agricultural output grew <strong>very slowly</strong>, but <strong>foodgrain output per capita actually declined</strong> over the late colonial period because population growth outpaced this slow output growth — a central piece of evidence in debates about colonial-era welfare/living standards.
+    </div>
+    <h4>Explanations offered for stagnation</h4>
+    <ul>
+      <li>Exploitative land revenue and tenurial systems reducing cultivator incentives to invest</li>
+      <li>Fragmentation of holdings</li>
+      <li>Lack of technological change/institutional credit (Section 5)</li>
+      <li>Diversion of good land to non-food commercial crops in some regions</li>
+      <li>Insufficient state investment in agricultural research and extension, relative to railways/irrigation-for-export priorities</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — FAMINES</div>
+    <h2 class="sec-title">Famines</h2>
+    <table>
+      <caption>Table 7.1 — Major famines of the colonial period</caption>
+      <thead><tr><th>Famine</th><th>Region</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Bengal Famine of 1770</td><td>Bengal</td><td>Occurred soon after the East India Company acquired Diwani rights (1765); an estimated one-third of the population of the affected region died; often linked to continued/inflexible revenue collection despite crop failure</td></tr>
+        <tr><td>Great Famine of 1876-78</td><td>Madras, Bombay, Mysore, Deccan</td><td>Severe drought-triggered famine; prompted the <strong>First Famine Commission (1880)</strong> under Richard Strachey</td></tr>
+        <tr><td>Indian Famine of 1896-97</td><td>Widespread — Central India, UP, Bihar, Bombay, Madras</td><td>Led to the Second Famine Commission (1898)</td></tr>
+        <tr><td>Indian Famine of 1899-1900</td><td>Central India, Gujarat, Rajputana</td><td>Led to the Third Famine Commission (1901)</td></tr>
+        <tr><td>Bengal Famine of 1943</td><td>Bengal</td><td>An estimated 2-3 million deaths; occurred during World War II; causes debated (see below)</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Causes of famine — the analytical debate</h4>
+    <div class="box debate">
+      <div class="label">Food Availability Decline (FAD) view</div>
+      Traditional explanation: famines were caused primarily by an absolute <strong>shortfall in food supply</strong> — crop failure due to drought/flood, reducing the total food available.
+    </div>
+    <div class="box debate">
+      <div class="label">Amartya Sen's Entitlement Approach (challenging FAD)</div>
+      Sen argued that famines — especially the <strong>1943 Bengal Famine</strong> — occurred even without a dramatic overall decline in food availability. Instead, famine resulted from a collapse in specific groups' <strong>"entitlements"</strong> (their ability to command/acquire food through production, wages, or market exchange) — e.g., wartime inflation, speculative hoarding, disrupted rice imports from Burma (after its 1942 occupation by Japan), and priority procurement for the war effort left agricultural labourers and other non-food-producing groups unable to buy food even though aggregate supply had not collapsed as sharply as believed.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Sen's Entitlement Approach (from <em>Poverty and Famines</em>, 1981) is one of the most frequently tested ideas in this topic — the key point is that famine is about <strong>failure of entitlement/access</strong>, not necessarily an absolute food-availability collapse; this shifted famine analysis from a purely agronomic question to one about markets, wages, and political economy.
+    </div>
+
+    <h4>Colonial policy response</h4>
+    <ul>
+      <li>Successive <strong>Famine Commissions</strong> (1880, 1898, 1901) recommended famine codes, relief works, and (limited) irrigation/railway investment for famine-prone tracts</li>
+      <li><strong>Railways</strong> were partly justified as a famine-prevention tool (enabling grain movement to deficit areas) — though their actual famine-mitigation effect is debated, since railways also facilitated grain <em>exports</em> out of deficit regions when prices were more favourable elsewhere</li>
+      <li>Relief measured largely through public works (wage employment) rather than direct food distribution for much of the period, reflecting laissez-faire administrative philosophy (notably under Lord Lytton during the 1876-78 famine, criticised for prioritising fiscal orthodoxy over relief)</li>
+    </ul>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>Railways and Industry</h2></div>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — RAILWAYS</div>
+    <h2 class="sec-title">Railways</h2>
+    <div class="box definition">
+      <div class="label">The Guarantee System</div>
+      Railway construction (from 1853 onward) was financed largely through <strong>private British companies</strong>, whose capital investment was <strong>guaranteed a fixed minimum rate of return (typically 5%)</strong> by the colonial government, regardless of actual profitability — a scheme designed to attract British capital with minimal risk to investors, but at significant fiscal cost to Indian taxpayers when returns fell short.
+    </div>
+    <h4>Motives behind railway construction (debated)</h4>
+    <table>
+      <caption>Table 8.1 — Stated vs critical view of railway motives</caption>
+      <thead><tr><th>Stated/official motives</th><th>Nationalist/critical view</th></tr></thead>
+      <tbody>
+        <tr><td>Facilitate trade and economic development</td><td>Primarily served to move raw materials to ports for export and manufactured British goods into the Indian interior</td></tr>
+        <tr><td>Enable famine relief via grain movement</td><td>Also enabled grain <em>exports</em> from famine-affected regions when export prices were attractive, sometimes worsening local scarcity</td></tr>
+        <tr><td>Administrative/military efficiency and troop movement</td><td>Reinforced colonial control and rapid deployment of British forces</td></tr>
+        <tr><td>A modernizing, "civilizing" infrastructure investment</td><td>Guarantee system was a lucrative, low-risk investment vehicle for British capital, with the fiscal burden of shortfalls borne by Indian revenues</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Economic impact of railways — a debated legacy</h4>
+    <ul>
+      <li><strong>Positive linkage effects</strong>: reduced transport costs, integrated regional grain markets (reducing local price volatility in normal years), stimulated some backward linkages (e.g., demand for coal, some engineering activity)</li>
+      <li><strong>Weak forward/backward linkages for Indian industry</strong>: most railway equipment (locomotives, rails, rolling stock) was <strong>imported from Britain</strong> rather than domestically manufactured, so the railways' potential to stimulate a domestic capital-goods/engineering industry (as happened in some other countries) was largely <strong>not realised</strong> under colonial policy</li>
+      <li><strong>Fiscal burden</strong>: the guarantee system's shortfall payments were a drain on Indian public finances</li>
+      <li>Facilitated the <strong>commercialization of agriculture</strong> (Section 4) and arguably accelerated the de-industrialization process by easing the penetration of British manufactured goods (especially textiles) into interior markets (Section 9)</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The railways are a classic "double-edged" topic: they did integrate markets and reduce transport costs (a real economic benefit), but critics (Bipan Chandra and other nationalist historians) stress that their <strong>linkage effects were captured mostly outside India</strong> (British locomotive/steel industry) rather than stimulating Indian industrialization — contrast this with how railways spurred domestic heavy industry in, say, the United States or Germany.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — DE-INDUSTRIALIZATION</div>
+    <h2 class="sec-title">The De-Industrialization Debate</h2>
+    <div class="box definition">
+      <div class="label">De-industrialization thesis</div>
+      The argument that India's traditional handicraft/artisanal manufacturing (especially <strong>handloom textiles</strong>) suffered a severe decline during the 19th century, as colonial trade policy and machine-made British imports destroyed indigenous industry, converting India from a manufacturing exporter into primarily a raw-material exporter/importer of manufactures.
+    </div>
+    <h4>Mechanisms cited by proponents</h4>
+    <ul>
+      <li><strong>One-way free trade</strong>: Britain imposed near-free entry for its machine-made textiles into India, while Indian handicraft exports to Britain faced high tariffs — an asymmetric "free trade" that favoured British industry</li>
+      <li><strong>Decline of princely courts</strong> and traditional patrons of luxury handicrafts after the establishment of British political dominance</li>
+      <li><strong>Railways</strong> easing the penetration of cheap machine-made goods into previously isolated rural markets, undercutting local artisans</li>
+      <li>Displaced artisans pushed into agriculture — swelling the already-large agricultural workforce, contributing to the "ruralization"/increasing pressure on land in the agrarian economy</li>
+    </ul>
+
+    <div class="box debate">
+      <div class="label">Critics of the strong de-industrialization thesis (Morris D. Morris and others)</div>
+      Question the reliability of the underlying data (occupation census categories were often ambiguous/inconsistent across years), argue that the decline of some traditional crafts was a <strong>normal consequence of economic change</strong> (comparable to craft decline during industrialization elsewhere), and note that certain crafts and some new small-scale/cottage industries also <em>grew</em> during this period, complicating a simple decline narrative.
+    </div>
+    <div class="box debate">
+      <div class="label">Bipan Chandra &amp; nationalist historians' response</div>
+      Maintain that even with data limitations, the qualitative and regional evidence — collapse of famous centres like Dhaka muslin weaving, sharp fall in yarn/cloth exports alongside a rise in raw cotton exports — supports a genuine, colonially-induced de-industrialization, distinct from "normal" structural change, because it was <strong>not accompanied by compensating growth in modern industry</strong> within India (unlike industrializing economies elsewhere where craft decline coincided with factory-sector growth).
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This is one of the most debated topics in Indian economic history — CUET PG may test it as a straightforward factual question (who argued what) or ask you to evaluate the debate. Key names to remember: <strong>Bipan Chandra, Amiya Bagchi</strong> (pro-de-industrialization thesis) vs <strong>Morris D. Morris</strong> (skeptic, data-critical view); also associated with debates around <strong>Daniel Thorner</strong> and the occupational census evidence.
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — ENTREPRENEURSHIP</div>
+    <h2 class="sec-title">Evolution of Entrepreneurial &amp; Industrial Structure</h2>
+    <div class="box definition">
+      <div class="label">The Managing Agency System</div>
+      A distinctive organisational form of colonial Indian industry: a <strong>"Managing Agency"</strong> — typically a British (and later also Indian) trading/business house — would <strong>manage</strong> one or more industrial companies (raising capital, controlling operations, marketing) in exchange for management fees/commissions, often without owning a majority equity stake — concentrating enormous control in a few agency houses (e.g., Andrew Yule, Bird &amp; Co., later Tata Sons, Birla Brothers).
+    </div>
+    <h4>Communities that emerged as industrial entrepreneurs</h4>
+    <table>
+      <caption>Table 10.1 — Key entrepreneurial communities and their industries</caption>
+      <thead><tr><th>Community/Group</th><th>Base region</th><th>Key industries entered</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Parsis</strong></td><td>Bombay</td><td>Early cotton textile mills (e.g., Tata), shipping, trade — among the earliest indigenous industrialists (from the mid-19th century)</td></tr>
+        <tr><td><strong>Gujarati/Bhatia merchants</strong></td><td>Bombay/Gujarat</td><td>Cotton textiles, trade</td></tr>
+        <tr><td><strong>Marwaris</strong></td><td>Originally Rajasthan, based largely in Calcutta/Bengal</td><td>Jute trade initially, later diversified widely into textiles, sugar, and diverse manufacturing — the Birla group being the most prominent example</td></tr>
+        <tr><td><strong>British managing agencies</strong></td><td>Calcutta (jute), various</td><td>Jute mills, tea plantations, coal mining, shipping — dominated eastern India's modern industry</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Bombay's cotton textile industry was pioneered largely by <strong>Indian (Parsi and Gujarati) capital</strong> from very early on, while Calcutta's jute industry remained predominantly under <strong>British managing agency</strong> control throughout the colonial period — a key regional/community contrast frequently tested.
+    </div>
+    <h4>Key features of the industrial structure</h4>
+    <ul>
+      <li><strong>Regional concentration</strong>: modern industry clustered heavily in Bombay (cotton textiles) and Calcutta/Bengal (jute), rather than spreading broadly</li>
+      <li>Heavy reliance on <strong>managing agencies</strong> for capital mobilisation and control, given underdeveloped formal capital markets</li>
+      <li>Gradual <strong>"Indianization"</strong> of industrial ownership over time, particularly accelerating after World War I and through the interwar period (Section 11)</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — INTERWAR INDUSTRY</div>
+    <h2 class="sec-title">Nature of Industrialization in the Interwar Period (1919–1939)</h2>
+    <div class="box definition">
+      <div class="label">Discriminating Protection</div>
+      A tariff policy adopted from 1923 (following the <strong>Indian Fiscal Commission, 1921-22</strong>) granting selective, "discriminating" tariff protection to specific Indian industries (notably cotton textiles, iron &amp; steel, sugar, paper, matches) deemed to have genuine prospects of becoming efficient/competitive — a significant, if limited and grudging, departure from the earlier free-trade orthodoxy.
+    </div>
+    <h4>Key features of interwar industrial growth</h4>
+    <ul>
+      <li>Relatively <strong>faster industrial growth</strong> than the pre-WWI period, aided by discriminating protection and reduced British competition during/after WWI</li>
+      <li>Growth of <strong>Indian-owned enterprise</strong> and capital, especially in cotton textiles (Bombay/Ahmedabad) and new sectors like sugar, cement, paper, and (from the 1910s-20s) iron &amp; steel (TISCO, established 1907, expanded significantly in this period)</li>
+      <li>Continued <strong>narrow industrial base</strong>: growth concentrated in a handful of consumer-goods industries (textiles, sugar) rather than a broad-based capital-goods/heavy industrial sector</li>
+      <li><strong>World War I</strong> (1914-18) gave a temporary boost to Indian industry by cutting off British imports and creating wartime demand, but also strained the economy through inflation and resource diversion</li>
+      <li><strong>The Great Depression (1929-33)</strong> hit agricultural export prices hard (cotton, jute) but had a comparatively milder/mixed effect on some protected domestic industries</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "Discriminating protection" (post-1923) is distinct from full protectionism — it was selectively granted industry-by-industry after Tariff Board inquiries, and often came with conditions (e.g., "imperial preference" clauses favouring British goods over other foreign competitors even within the "protected" framework) — a nuance worth remembering.
+    </div>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — CONSTRAINTS</div>
+    <h2 class="sec-title">Constraints to Industrial Breakthrough</h2>
+    <p class="lead-p">Despite pockets of growth, colonial India never achieved a broad-based industrial "takeoff." Historians point to several interlocking constraints.</p>
+    <table>
+      <caption>Table 12.1 — Categories of constraint</caption>
+      <thead><tr><th>Constraint</th><th>Explanation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Colonial trade &amp; tariff policy</strong></td><td>Free-trade orthodoxy for most of the period suppressed infant-industry protection; even post-1923 "discriminating protection" was limited and selective</td></tr>
+        <tr><td><strong>Narrow domestic market</strong></td><td>Low agricultural incomes and mass poverty (linked to agrarian stagnation, Section 6) kept purchasing power — and hence demand for manufactured goods — very limited</td></tr>
+        <tr><td><strong>Capital market underdevelopment</strong></td><td>Absence of well-developed banking/capital markets forced reliance on managing agencies and merchant capital, restricting the scale and sectoral spread of investment</td></tr>
+        <tr><td><strong>Weak capital-goods sector</strong></td><td>Machinery, equipment (including railway equipment) was overwhelmingly imported rather than domestically produced — no self-sustaining industrial "linkage" chain developed</td></tr>
+        <tr><td><strong>Government procurement &amp; policy bias</strong></td><td>Government purchases (railways, public works) often favoured British suppliers over Indian manufacturers</td></tr>
+        <tr><td><strong>Skill &amp; technical education gaps</strong></td><td>Limited state investment in technical/scientific education constrained the supply of skilled engineers and managers</td></tr>
+        <tr><td><strong>Entrepreneurial constraints</strong></td><td>Indian capital was concentrated in trade/moneylending for much of the period; the transition to industrial entrepreneurship, while real (Section 10), took time and remained regionally concentrated</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A "systemic" answer is usually expected here — no single constraint alone explains the absence of a broad industrial breakthrough; examiners often want you to connect agrarian stagnation (weak demand) with trade policy (external competition) and capital-market weakness (finance) as a mutually reinforcing set of constraints.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — LABOUR</div>
+    <h2 class="sec-title">Labour Relations</h2>
+    <h4>Nature of the industrial workforce</h4>
+    <ul>
+      <li>Predominantly <strong>migrant labour</strong>, drawn from famine-prone and agriculturally stressed rural areas (e.g., Bombay's textile mill workers migrating from the Konkan region; Calcutta's jute mill workers substantially from Bihar/UP/Odisha)</li>
+      <li>Retained strong <strong>rural ties</strong> — workers often moved back and forth between village and factory (a "circular migration" pattern), reflecting land as a fallback and the insecurity of urban industrial employment</li>
+      <li><strong>Jobber system</strong>: a labour intermediary (the "jobber" or "sardar") recruited, supervised, and often exploited workers on behalf of factory owners/managing agencies, acting as an informal but powerful labour-control mechanism, especially in Bombay's textile mills</li>
+    </ul>
+    <h4>Working conditions</h4>
+    <ul>
+      <li>Long working hours, low wages, unsafe/unsanitary factory conditions, extensive use of <strong>child labour</strong> and women workers (especially in textile mills), for much of the 19th century</li>
+      <li>Minimal legal protection for most of the colonial period</li>
+    </ul>
+    <h4>Evolution of labour legislation</h4>
+    <table>
+      <caption>Table 13.1 — Key colonial-era labour laws</caption>
+      <thead><tr><th>Legislation</th><th>Key provision</th></tr></thead>
+      <tbody>
+        <tr><td>Factories Act, 1881 (and amendments 1891, 1911, 1922, 1934)</td><td>Progressive (if slow and limited) restrictions on child labour, working hours, and factory safety — driven partly by British manufacturers' lobbying to reduce the cost advantage of unregulated Indian mills, not purely by welfare concern</td></tr>
+        <tr><td>Trade Unions Act, 1926</td><td>First formal legal recognition of trade unions in India</td></tr>
+        <tr><td>Trade Disputes Act, 1929</td><td>Provided mechanisms for conciliation in industrial disputes; also restricted certain strike actions</td></tr>
+      </tbody>
+    </table>
+    <h4>Rise of the trade union movement</h4>
+    <ul>
+      <li>Early, localized strikes and protests (Bombay textile strikes from the late 19th/early 20th century)</li>
+      <li>Formation of the <strong>All India Trade Union Congress (AITUC)</strong> in 1920 — the first national-level trade union federation, with early involvement of nationalist leaders</li>
+      <li>Growing labour unrest and strikes through the 1920s-30s, intersecting with the broader nationalist movement</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Note the layered motivation behind colonial factory legislation: it is often (correctly) framed not simply as benevolent regulation, but partly as a response to <strong>lobbying by British manufacturers</strong> (in Lancashire) who wanted to curb the competitive cost advantage that unregulated (long-hours, child-labour, low-wage) Indian mills enjoyed — a useful "political economy of regulation" angle.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Theme</th><th>Key institution/process</th><th>Central debate/tension</th></tr></thead>
+      <tbody>
+        <tr><td>Land revenue</td><td>Zamindari / Ryotwari / Mahalwari</td><td>Fixed vs revisable demand; intermediary vs direct cultivator relation</td></tr>
+        <tr><td>Credit</td><td>Village moneylender; Cooperative Credit Societies (1904)</td><td>Institutional credit vacuum vs usurious moneylending</td></tr>
+        <tr><td>Commerce</td><td>Commercialization of agriculture</td><td>Market integration vs "forced" cash-crop dependence and food insecurity</td></tr>
+        <tr><td>Technology</td><td>Canal irrigation (uneven), largely stagnant techniques</td><td>Regional disparity (Punjab vs Bengal)</td></tr>
+        <tr><td>Performance</td><td>Blyn's estimates</td><td>Near-stagnant aggregate output vs declining per-capita foodgrain output</td></tr>
+        <tr><td>Famine</td><td>Famine Commissions; 1770, 1876-78, 1943</td><td>Food Availability Decline vs Sen's Entitlement Approach</td></tr>
+        <tr><td>Railways</td><td>Guarantee system</td><td>Market integration benefit vs weak domestic linkage effects</td></tr>
+        <tr><td>Industry (handicrafts)</td><td>Decline of handloom textiles</td><td>Bipan Chandra/Bagchi (de-industrialization) vs Morris D. Morris (skeptic)</td></tr>
+        <tr><td>Industry (modern)</td><td>Managing Agency System</td><td>British-dominated (Calcutta/jute) vs Indian-owned (Bombay/textiles)</td></tr>
+        <tr><td>Industry (interwar)</td><td>Discriminating Protection (1923)</td><td>Genuine industrial growth vs narrow, selectively protected base</td></tr>
+        <tr><td>Labour</td><td>Jobber system; Factories Acts; AITUC (1920)</td><td>Welfare regulation vs British competitive-cost motive</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — QUICK REVISION</div>
+    <h2 class="sec-title">Concept &amp; Timeline Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Permanent Settlement</div>1793, Lord Cornwallis — Zamindari, Bengal/Bihar</div>
+      <div class="box formula"><div class="label">Ryotwari architects</div>Thomas Munro / Alexander Reid — Madras, Bombay</div>
+      <div class="box formula"><div class="label">Deccan Riots</div>1875 → Deccan Agriculturists' Relief Act, 1879</div>
+      <div class="box formula"><div class="label">Cooperative Credit</div>Societies Act, 1904</div>
+      <div class="box formula"><div class="label">First Railway</div>1853 (Bombay–Thane) — Guarantee System, ~5% return</div>
+      <div class="box formula"><div class="label">Famine Commissions</div>1880, 1898, 1901</div>
+      <div class="box formula"><div class="label">Bengal Famine</div>1943 — Sen's Entitlement Approach (1981)</div>
+      <div class="box formula"><div class="label">Discriminating Protection</div>From 1923, post Fiscal Commission 1921-22</div>
+      <div class="box formula"><div class="label">TISCO</div>Established 1907 (Tata Iron and Steel Co.)</div>
+      <div class="box formula"><div class="label">Trade Unions Act</div>1926 &nbsp;|&nbsp; AITUC founded 1920</div>
+      <div class="box formula"><div class="label">Blyn's estimates coverage</div>~1891–1947</div>
+      <div class="box formula"><div class="label">De-industrialization key critics</div>Bipan Chandra, Amiya Bagchi vs Morris D. Morris</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Zamindari: fixed revenue, variable rent</span>
+      <span class="chip">Ryotwari: direct state-cultivator link</span>
+      <span class="chip">Mahalwari: joint village liability</span>
+      <span class="chip">Foodgrain output per capita declined, 1891-1947</span>
+      <span class="chip">Sen: famine = entitlement failure, not just food shortage</span>
+      <span class="chip">Railways: market integration but weak linkage to Indian industry</span>
+      <span class="chip">Bombay textiles = Indian capital; Calcutta jute = British agency houses</span>
+      <span class="chip">Discriminating protection ≠ full protectionism</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. The Permanent Settlement of 1793 was introduced by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Thomas Munro &nbsp; (b) <strong>Lord Cornwallis</strong> &nbsp; (c) Holt Mackenzie &nbsp; (d) Lord Lytton<br><br>
+      <span class="correct">Answer: (b)</span> — established the Zamindari system in Bengal, Bihar, and parts of Orissa.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Under the Ryotwari system, land revenue was paid: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) By the zamindar on behalf of tenants &nbsp; (b) <strong>Directly by the individual cultivator (ryot) to the state</strong> &nbsp; (c) Jointly by the village community &nbsp; (d) By the British government to Indian landlords<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. The Deccan Riots of 1875 were primarily directed against: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) The British colonial government directly &nbsp; (b) <strong>Village moneylenders, over rural indebtedness and land alienation</strong> &nbsp; (c) Railway construction companies &nbsp; (d) Factory owners<br><br>
+      <span class="correct">Answer: (b)</span> — leading to the Deccan Agriculturists' Relief Act, 1879.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. George Blyn's estimates of colonial agricultural performance show: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Rapid and sustained output growth &nbsp; (b) <strong>Very slow aggregate output growth, with declining foodgrain output per capita</strong> &nbsp; (c) A sharp decline in total output &nbsp; (d) Uniform growth across all regions<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. Amartya Sen's "Entitlement Approach" to famine primarily argues that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Famines are always caused by an absolute decline in food supply &nbsp; (b) <strong>Famines can occur due to a collapse in specific groups' ability to command/access food, even without a sharp overall food-supply decline</strong> &nbsp; (c) Railways always prevent famines &nbsp; (d) Famine Commissions were fully effective<br><br>
+      <span class="correct">Answer: (b)</span> — most famously applied to the 1943 Bengal Famine.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. The railway "Guarantee System" refers to: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) A guarantee of free rail travel for Indians &nbsp; (b) <strong>A guaranteed minimum rate of return (~5%) to private British railway companies, funded by Indian revenues if shortfalls occurred</strong> &nbsp; (c) A government guarantee of employment for railway workers &nbsp; (d) Free import of Indian-made railway equipment<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. Which historian is most associated with a skeptical/critical view of the "de-industrialization" thesis? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Bipan Chandra &nbsp; (b) Amiya Bagchi &nbsp; (c) <strong>Morris D. Morris</strong> &nbsp; (d) Dadabhai Naoroji<br><br>
+      <span class="correct">Answer: (c)</span> — Morris questioned the reliability of occupational census data underlying the de-industrialization claim.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. India's modern cotton textile industry (Bombay) was pioneered predominantly by: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) British managing agencies exclusively &nbsp; (b) <strong>Indian (Parsi and Gujarati) capital</strong> &nbsp; (c) The colonial government directly &nbsp; (d) Marwari capital exclusively<br><br>
+      <span class="correct">Answer: (b)</span> — in contrast to Calcutta's jute industry, which remained predominantly under British managing agency control.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. "Discriminating Protection" in interwar India refers to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) A blanket tariff wall around all Indian industries &nbsp; (b) <strong>Selective tariff protection granted to specific industries after Tariff Board inquiry, from 1923 onward</strong> &nbsp; (c) A policy banning all imports &nbsp; (d) Free trade with no tariffs at all<br><br>
+      <span class="correct">Answer: (b)</span> — following the Indian Fiscal Commission of 1921-22.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. The "jobber" (or sardar) in colonial industrial labour relations was: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) A government labour inspector &nbsp; (b) <strong>A labour intermediary who recruited and supervised workers on behalf of mill owners, often with considerable informal power</strong> &nbsp; (c) A trade union leader &nbsp; (d) A British factory manager<br><br>
+      <span class="correct">Answer: (b)</span> — especially prominent in Bombay's textile mills.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. The All India Trade Union Congress (AITUC) was founded in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1885 &nbsp; (b) 1907 &nbsp; (c) <strong>1920</strong> &nbsp; (d) 1947<br><br>
+      <span class="correct">Answer: (c)</span> — the first national-level trade union federation in India.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. Which of the following is a reason often cited for the weak "linkage effects" of railways on Indian industry? <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Railways were never built in India &nbsp; (b) <strong>Railway equipment (locomotives, rails) was overwhelmingly imported from Britain rather than manufactured domestically</strong> &nbsp; (c) Railways only carried passengers, not goods &nbsp; (d) Railways were built entirely with Indian capital<br><br>
+      <span class="correct">Answer: (b)</span> — the potential domestic capital-goods/engineering stimulus was largely captured by British industry instead.</div>
+    </details>
+  </section>
+
+  <footer>
+    Agriculture, Railways &amp; Industry under Colonial Rule — CUET PG Indian Economic History Notes · Compiled for exam preparation · Sources: George Blyn, <em>Agricultural Trends in India</em> (1966); Amartya Sen, <em>Poverty and Famines</em> (1981); Bipan Chandra, <em>The Rise and Growth of Economic Nationalism in India</em>; Morris D. Morris's de-industrialization critique; Tirthankar Roy, <em>The Economic History of India</em>; Dietmar Rothermund's colonial economic histories.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

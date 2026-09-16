@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Income Accounting — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:260px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.05rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.72rem; color:var(--ink-soft); margin-bottom:18px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.86rem; padding:6px 8px 6px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.6rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:680px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  section.block{padding:38px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.9rem; margin:0 0 6px;}
+  h3{font-size:1.28rem; margin:1.6em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.02rem; margin:1.3em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.05rem; color:var(--ink-soft); max-width:680px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:18px 20px; margin:18px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.95rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.75rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  caption{text-align:left; font-size:.8rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.85rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block{padding:28px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">National Income Accounting</div>
+  <div class="toc-sub">CUET PG · Macroeconomics</div>
+  <ol>
+    <li><a href="#s1">Meaning &amp; Circular Flow</a></li>
+    <li><a href="#s2">Core Macro Aggregates</a></li>
+    <li><a href="#s3">GDP → GNP → NNP → NI</a></li>
+    <li><a href="#s4">Personal &amp; Disposable Income</a></li>
+    <li><a href="#s5">Methods of Measurement</a></li>
+    <li><a href="#s6">Value Added / Product Method</a></li>
+    <li><a href="#s7">Income Method</a></li>
+    <li><a href="#s8">Expenditure Method</a></li>
+    <li><a href="#s9">Nominal vs Real GDP &amp; Deflator</a></li>
+    <li><a href="#s10">Difficulties in Measurement</a></li>
+    <li><a href="#s11">GDP as a Welfare Measure</a></li>
+    <li><a href="#s12">India: CSO/NSO &amp; Base Year</a></li>
+    <li><a href="#s13">Master Comparison Table</a></li>
+    <li><a href="#s14">Formula Sheet</a></li>
+    <li><a href="#s15">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">MACROECONOMICS · UNIT: NATIONAL INCOME ACCOUNTING</div>
+    <h1>National Income Accounting</h1>
+    <p class="lede">Circular Flow of Income · GDP, GNP, NNP, NI, PI, DI · the three methods of measuring national income · nominal vs real GDP · double counting · GDP as a welfare measure — the complete measurement toolkit of macroeconomics.</p>
+    <div class="tags">
+      <span class="tag">Circular Flow</span><span class="tag">Value Added Method</span><span class="tag">Income Method</span>
+      <span class="tag">Expenditure Method</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FOUNDATION</div>
+    <h2 class="sec-title">Meaning &amp; the Circular Flow of Income</h2>
+    <div class="box definition">
+      <div class="label">National Income Accounting</div>
+      The systematic set of methods and rules by which a nation measures its <strong>total output, income, and expenditure</strong> over a specific period (usually a year) — the accounting framework underlying all macroeconomic aggregates.
+    </div>
+
+    <h3>The Circular Flow of Income</h3>
+    <p>The economy is modelled as a circular flow of money and goods/services between sectors. In every complete circuit, <strong>aggregate output = aggregate income = aggregate expenditure</strong> — the three ways of counting the same thing.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="40" width="180" height="80" rx="6" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.5"/>
+        <text x="150" y="85" font-size="14" text-anchor="middle" fill="#2C6E64" font-weight="600">Households</text>
+        <rect x="360" y="40" width="180" height="80" rx="6" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.5"/>
+        <text x="450" y="85" font-size="14" text-anchor="middle" fill="#7C2E2E" font-weight="600">Firms</text>
+        <!-- top arrow: factor services from HH to Firms -->
+        <path d="M 240 60 L 358 60" stroke="#3E5C76" stroke-width="2" fill="none" marker-end="url(#arrow1)"/>
+        <text x="300" y="52" font-size="11" fill="#3E5C76" text-anchor="middle">Factor services (L,K,Land,Entp.)</text>
+        <!-- bottom arrow: factor income from Firms to HH -->
+        <path d="M 358 100 L 240 100" stroke="#A9793B" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+        <text x="300" y="118" font-size="11" fill="#A9793B" text-anchor="middle">Factor income (rent, wages, interest, profit)</text>
+        <!-- lower loop: goods and money for goods -->
+        <path d="M 150 120 C 150 220, 150 220, 150 260" stroke="#3E5C76" stroke-width="1.6" fill="none"/>
+        <path d="M 450 120 C 450 220, 450 220, 450 260" stroke="#A9793B" stroke-width="1.6" fill="none"/>
+        <rect x="220" y="260" width="160" height="60" rx="6" fill="#E2E8EF" stroke="#3E5C76" stroke-width="1.5"/>
+        <text x="300" y="295" font-size="13" text-anchor="middle" fill="#3E5C76" font-weight="600">Goods &amp; Services Market</text>
+        <path d="M 150 260 L 218 288" stroke="#7C2E2E" stroke-width="1.8" fill="none"/>
+        <text x="175" y="255" font-size="10" fill="#7C2E2E">Goods flow</text>
+        <path d="M 382 288 L 450 260" stroke="#2C6E64" stroke-width="1.8" fill="none"/>
+        <text x="410" y="255" font-size="10" fill="#2C6E64">Consumption expenditure</text>
+        <defs>
+          <marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#3E5C76"/></marker>
+          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#A9793B"/></marker>
+        </defs>
+      </svg>
+      <figcaption>Fig 1.1 — Simple two-sector circular flow: Households supply factor services to Firms and receive factor incomes; Firms produce goods/services sold back to Households, who pay via consumption expenditure. Real flow (top/left) and money flow (bottom/right) move in opposite directions.</figcaption>
+    </div>
+
+    <h4>From two-sector to four-sector economy</h4>
+    <table>
+      <caption>Table 1.1 — Progressive realism of the circular flow model</caption>
+      <thead><tr><th>Model</th><th>Sectors included</th><th>New leakages / injections introduced</th></tr></thead>
+      <tbody>
+        <tr><td>Two-sector</td><td>Households + Firms</td><td>None (closed loop; assumes all income is spent)</td></tr>
+        <tr><td>Three-sector</td><td>+ Government</td><td>Leakage: Taxes (T) &nbsp;|&nbsp; Injection: Government spending (G)</td></tr>
+        <tr><td>Four-sector</td><td>+ Rest of the World</td><td>Leakage: Imports (M) &nbsp;|&nbsp; Injection: Exports (X)</td></tr>
+        <tr><td>(Also, within 2-sector)</td><td>Financial sector implied</td><td>Leakage: Savings (S) &nbsp;|&nbsp; Injection: Investment (I)</td></tr>
+      </tbody>
+    </table>
+    <div class="box formula">
+      <div class="label">Equilibrium condition (four-sector, leakages = injections)</div>
+      S + T + M = I + G + X
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — KEY AGGREGATES</div>
+    <h2 class="sec-title">Core Macroeconomic Aggregates — Overview</h2>
+    <div class="box definition">
+      <div class="label">Gross Domestic Product (GDP)</div>
+      The market value of <strong>all final goods and services</strong> produced <strong>within the domestic territory</strong> of a country in a given year, regardless of who owns the factors of production (residents or foreigners).
+    </div>
+    <div class="box definition">
+      <div class="label">Gross National Product (GNP)</div>
+      The market value of all final goods and services produced by <strong>a country's normal residents</strong> (nationals), whether located within the country or abroad, in a given year.
+    </div>
+    <div class="box formula">
+      <div class="label">Domestic ↔ National conversion</div>
+      GNP = GDP + Net Factor Income from Abroad (NFIA)<br>
+      NFIA = Factor income earned by residents from abroad − Factor income earned by non-residents within the domestic territory
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      <strong>Domestic</strong> = territory-based (where production happens); <strong>National</strong> = residency/ownership-based (who owns the factors). A country with large numbers of citizens working abroad (remittances) typically has GNP &gt; GDP; a country hosting large foreign-owned production (e.g., MNC factories) typically has GDP &gt; GNP.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — THE AGGREGATES LADDER</div>
+    <h2 class="sec-title">From GDP to National Income — the Full Ladder</h2>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 460" xmlns="http://www.w3.org/2000/svg">
+        <!-- stacked boxes representing the ladder -->
+        <rect x="60" y="20" width="440" height="50" rx="4" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.4"/>
+        <text x="280" y="50" text-anchor="middle" font-size="14" fill="#2C6E64" font-weight="600">GDP<tspan font-size="11">mp</tspan> (Gross Domestic Product at Market Price)</text>
+        <text x="510" y="55" font-size="18" fill="#7C2E2E">+</text>
+        <text x="510" y="45" font-size="10" fill="#7C2E2E">NFIA</text>
+
+        <rect x="60" y="90" width="440" height="50" rx="4" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.4"/>
+        <text x="280" y="120" text-anchor="middle" font-size="14" fill="#2C6E64" font-weight="600">GNP<tspan font-size="11">mp</tspan> (Gross National Product at Market Price)</text>
+        <text x="510" y="125" font-size="18" fill="#7C2E2E">−</text>
+        <text x="500" y="115" font-size="10" fill="#7C2E2E">Depreciation</text>
+
+        <rect x="60" y="160" width="440" height="50" rx="4" fill="#E2E8EF" stroke="#3E5C76" stroke-width="1.4"/>
+        <text x="280" y="190" text-anchor="middle" font-size="14" fill="#3E5C76" font-weight="600">NNP<tspan font-size="11">mp</tspan> (Net National Product at Market Price)</text>
+        <text x="510" y="195" font-size="18" fill="#7C2E2E">−</text>
+        <text x="500" y="185" font-size="10" fill="#7C2E2E">Net Indirect Taxes</text>
+
+        <rect x="60" y="230" width="440" height="50" rx="4" fill="#F1E5CE" stroke="#A9793B" stroke-width="1.4"/>
+        <text x="280" y="260" text-anchor="middle" font-size="14" fill="#A9793B" font-weight="700">NNP<tspan font-size="11">fc</tspan> = National Income (NI)</text>
+
+        <rect x="60" y="300" width="440" height="50" rx="4" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.4"/>
+        <text x="280" y="330" text-anchor="middle" font-size="14" fill="#7C2E2E" font-weight="600">Personal Income (PI)</text>
+        <text x="510" y="335" font-size="18" fill="#7C2E2E">−</text>
+        <text x="500" y="325" font-size="10" fill="#7C2E2E">Personal Taxes</text>
+
+        <rect x="60" y="370" width="440" height="50" rx="4" fill="#F6E3D8" stroke="#A64B2A" stroke-width="1.4"/>
+        <text x="280" y="400" text-anchor="middle" font-size="14" fill="#A64B2A" font-weight="600">Disposable Income (DI)</text>
+      </svg>
+      <figcaption>Fig 3.1 — The full aggregates ladder: each step down subtracts (or adds) a specific item to move from Gross Domestic Product to Disposable Income.</figcaption>
+    </div>
+
+    <h3>Market Price vs Factor Cost</h3>
+    <div class="box formula">
+      <div class="label">Conversion</div>
+      Market Price (mp) = Factor Cost (fc) + Indirect Taxes − Subsidies<br>
+      ⟹ Factor Cost = Market Price − Net Indirect Taxes &nbsp;(where Net Indirect Tax = Indirect Tax − Subsidy)
+    </div>
+    <p class="small"><strong>Market price</strong> is what the buyer pays (includes taxes, net of subsidies); <strong>factor cost</strong> is what accrues to the factors of production (wages, rent, interest, profit) — the two differ exactly by net indirect taxes.</p>
+
+    <h3>Gross vs Net</h3>
+    <div class="box formula">
+      <div class="label">Conversion</div>
+      Net = Gross − Depreciation (Consumption of Fixed Capital)
+    </div>
+    <div class="box definition">
+      <div class="label">Depreciation</div>
+      The estimated loss in value of fixed capital (machinery, buildings) due to wear and tear, obsolescence, and the passage of time during the production process.
+    </div>
+
+    <table>
+      <caption>Table 3.1 — Complete formula chain</caption>
+      <thead><tr><th>Aggregate</th><th>Formula</th></tr></thead>
+      <tbody>
+        <tr><td>GNP<sub>mp</sub></td><td>GDP<sub>mp</sub> + NFIA</td></tr>
+        <tr><td>NNP<sub>mp</sub></td><td>GNP<sub>mp</sub> − Depreciation</td></tr>
+        <tr><td>NNP<sub>fc</sub> = National Income (NI)</td><td>NNP<sub>mp</sub> − Net Indirect Taxes</td></tr>
+        <tr><td>GDP<sub>fc</sub></td><td>GDP<sub>mp</sub> − Net Indirect Taxes</td></tr>
+        <tr><td>NDP<sub>fc</sub></td><td>GDP<sub>fc</sub> − Depreciation</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — HOUSEHOLD-LEVEL INCOME</div>
+    <h2 class="sec-title">Personal Income &amp; Disposable Income</h2>
+    <div class="box definition">
+      <div class="label">Personal Income (PI)</div>
+      The <strong>actual income received</strong> by households/individuals, as distinct from National Income (which is income <em>earned</em>, whether or not it's actually received by households, e.g. undistributed corporate profits are earned but not received).
+    </div>
+    <div class="box formula">
+      <div class="label">From National Income to Personal Income</div>
+      PI = NI − (Corporate/Undistributed Profits + Corporate Tax + Social Security Contributions) + Transfer Payments
+    </div>
+    <div class="box definition">
+      <div class="label">Transfer Payments</div>
+      Payments made without any corresponding contribution to current production — e.g., pensions, unemployment benefits, scholarships, old-age assistance. These are <strong>excluded</strong> from National Income but <strong>included</strong> in Personal Income (received by households) and in Government expenditure accounting distinctly from purchases of goods/services.
+    </div>
+
+    <div class="box formula">
+      <div class="label">Disposable Income (DI)</div>
+      DI = PI − Direct Personal Taxes<br>
+      DI = Consumption (C) + Savings (S) &nbsp;&nbsp;<span class="small mono">(the household's actual spendable income)</span>
+    </div>
+
+    <h4>Per Capita Income</h4>
+    <div class="box formula">
+      <div class="label">Formula</div>
+      Per Capita Income = National Income / Total Population
+    </div>
+    <p class="small">A widely used (if imperfect) indicator of average living standards — imperfect because it says nothing about income <strong>distribution</strong> (inequality) or non-market welfare.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — MEASUREMENT</div>
+    <h2 class="sec-title">The Three Methods of Measuring National Income</h2>
+    <p class="lead-p">Because output = income = expenditure in the circular flow, national income can be measured from <strong>three independent, equivalent vantage points</strong>.</p>
+    <table>
+      <caption>Table 5.1 — Overview of the three methods</caption>
+      <thead><tr><th>Method</th><th>Also called</th><th>Measures</th><th>Sums up</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Product / Value Added Method</strong></td><td>Output method</td><td>Value of output produced</td><td>Gross Value Added at each stage of production, across all sectors</td></tr>
+        <tr><td><strong>Income Method</strong></td><td>Factor income method</td><td>Income earned by factors of production</td><td>Rent + Wages + Interest + Profit (factor payments)</td></tr>
+        <tr><td><strong>Expenditure Method</strong></td><td>Final expenditure method</td><td>Spending on final goods/services</td><td>C + I + G + (X − M)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      All three methods must yield the <strong>same</strong> total National Income (in principle) — this identity itself ("output = income = expenditure") is frequently tested as a standalone conceptual question.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — METHOD 1</div>
+    <h2 class="sec-title">Product / Value Added Method</h2>
+    <div class="box definition">
+      <div class="label">Gross Value Added (GVA)</div>
+      GVA = Value of Output − Intermediate Consumption (cost of raw materials/inputs bought from other firms)
+    </div>
+    <p>Summing the value added at <strong>every stage</strong> of production (rather than the full sale value at each stage) avoids <strong>double counting</strong>.</p>
+
+    <table>
+      <caption>Table 6.1 — Worked example: bread production chain</caption>
+      <thead><tr><th>Stage</th><th>Sale Value (₹)</th><th>Cost of Intermediate Inputs (₹)</th><th>Value Added (₹)</th></tr></thead>
+      <tbody>
+        <tr><td>Farmer sells wheat to Miller</td><td class="num">50</td><td class="num">0</td><td class="num">50</td></tr>
+        <tr><td>Miller sells flour to Baker</td><td class="num">80</td><td class="num">50</td><td class="num">30</td></tr>
+        <tr><td>Baker sells bread to Retailer</td><td class="num">120</td><td class="num">80</td><td class="num">40</td></tr>
+        <tr><td>Retailer sells bread to consumer</td><td class="num">150</td><td class="num">120</td><td class="num">30</td></tr>
+        <tr><td><strong>Total (sum of sale values)</strong></td><td class="num"><strong>400</strong></td><td></td><td></td></tr>
+        <tr><td><strong>Total Value Added (= correct GDP contribution)</strong></td><td></td><td></td><td class="num"><strong>150</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">Double Counting</div>
+      Simply summing all sale values (₹400) massively <strong>overstates</strong> true output — it counts the wheat's value four times over. The value-added approach (₹150, exactly equal to the final retail price) is the correct measure and automatically avoids this error.
+    </div>
+    <div class="box formula">
+      <div class="label">Formula</div>
+      GDP<sub>mp</sub> = Σ Gross Value Added at market price, across all sectors/industries of the economy
+    </div>
+    <p class="small">Sectors typically classified as: Primary (agriculture, mining), Secondary (manufacturing, construction), Tertiary (services).</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — METHOD 2</div>
+    <h2 class="sec-title">Income Method</h2>
+    <div class="box formula">
+      <div class="label">Formula</div>
+      National Income (NNP<sub>fc</sub>) = Compensation of Employees (wages, salaries, benefits) + Rent + Interest + Profit + Mixed Income of Self-Employed
+    </div>
+    <table>
+      <caption>Table 7.1 — Components of factor income</caption>
+      <thead><tr><th>Component</th><th>Factor</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr><td>Compensation of Employees</td><td>Labour</td><td>Wages, salaries, employer's social security contributions, wages/salaries in kind</td></tr>
+        <tr><td>Rent</td><td>Land</td><td>Actual rent + imputed rent of owner-occupied houses</td></tr>
+        <tr><td>Interest</td><td>Capital</td><td>Net interest received by households on loans given for productive purposes</td></tr>
+        <tr><td>Profit</td><td>Entrepreneurship</td><td>Corporate tax + dividends + undistributed profits</td></tr>
+        <tr><td>Mixed Income</td><td>Self-employed / unorganised sector</td><td>Combines wage, rent, interest, profit elements that can't be separated (farmers, small shopkeepers, professionals)</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">Items excluded from the income method</div>
+      Transfer payments (pensions, scholarships), windfall gains (lottery winnings), sale of second-hand goods, sale/purchase of financial assets (shares, bonds) — none of these represent payment for <strong>current production</strong>.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — METHOD 3</div>
+    <h2 class="sec-title">Expenditure Method</h2>
+    <div class="box formula">
+      <div class="label">Formula (the famous GDP identity)</div>
+      GDP<sub>mp</sub> = C + I + G + (X − M)
+    </div>
+    <table>
+      <caption>Table 8.1 — Components of aggregate expenditure</caption>
+      <thead><tr><th>Component</th><th>Symbol</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>Private Final Consumption Expenditure</td><td>C</td><td>Household spending on final goods and services</td></tr>
+        <tr><td>Gross Domestic Capital Formation (Investment)</td><td>I</td><td>Spending on capital goods + change in inventories (both by private &amp; public sector)</td></tr>
+        <tr><td>Government Final Consumption Expenditure</td><td>G</td><td>Government spending on final goods/services (excludes transfer payments)</td></tr>
+        <tr><td>Net Exports</td><td>(X − M)</td><td>Exports minus Imports — captures net foreign demand for domestic output</td></tr>
+      </tbody>
+    </table>
+    <div class="box definition">
+      <div class="label">Why subtract imports (M)?</div>
+      C, I, and G as typically measured include spending on <em>both</em> domestic and imported goods. Subtracting M removes the foreign-produced portion, ensuring GDP captures only <strong>domestically produced</strong> output.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Only spending on <strong>final</strong> goods and services counts — spending on intermediate goods is excluded (to avoid double counting, mirroring the value-added method's logic). Purely financial transactions (buying shares/bonds) and transfer payments are excluded from all three methods.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — REAL VS NOMINAL</div>
+    <h2 class="sec-title">Nominal GDP, Real GDP &amp; the GDP Deflator</h2>
+    <div class="box definition">
+      <div class="label">Nominal GDP</div>
+      GDP measured at <strong>current year prices</strong> — reflects changes in both output <em>and</em> price level.
+    </div>
+    <div class="box definition">
+      <div class="label">Real GDP</div>
+      GDP measured at <strong>constant (base year) prices</strong> — reflects changes in output alone, stripping out the effect of price changes (inflation).
+    </div>
+    <div class="box formula">
+      <div class="label">GDP Deflator</div>
+      GDP Deflator = (Nominal GDP / Real GDP) × 100<br>
+      Real GDP = (Nominal GDP / GDP Deflator) × 100
+    </div>
+    <p class="small">The GDP deflator is a broader price index than the CPI — it covers <strong>all</strong> domestically produced goods and services (not just a fixed consumer "basket"), and it is implicitly <strong>reweighted every year</strong> based on current output composition (unlike CPI's fixed basket).</p>
+
+    <table>
+      <caption>Table 9.1 — Worked example</caption>
+      <thead><tr><th>Year</th><th>Nominal GDP (₹ cr)</th><th>Real GDP (₹ cr, base=Year 1 prices)</th><th>GDP Deflator</th></tr></thead>
+      <tbody>
+        <tr><td>Year 1 (base)</td><td class="num">1,000</td><td class="num">1,000</td><td class="num">100</td></tr>
+        <tr><td>Year 2</td><td class="num">1,200</td><td class="num">1,050</td><td class="num">114.3</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Interpretation: nominal GDP grew 20%, but real output grew only 5% — the rest (≈14.3%) reflects price-level increase (inflation), as captured by the deflator.</p>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      CPI vs GDP Deflator is a classic comparison: CPI tracks a <strong>fixed basket of consumer goods</strong> (including imports); the GDP Deflator tracks <strong>all domestically produced goods</strong> (excludes imports, includes capital goods and government spending) with a <strong>changing basket</strong> each year.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — MEASUREMENT ISSUES</div>
+    <h2 class="sec-title">Difficulties &amp; Precautions in Measuring National Income</h2>
+    <h4>Conceptual/practical difficulties</h4>
+    <ul>
+      <li><strong>Non-monetary transactions</strong> — subsistence farming, domestic/household services (e.g., a homemaker's unpaid work) are real production but escape market measurement</li>
+      <li><strong>Unreported / informal / "black" economy</strong> — significant in developing countries; systematically under-counted</li>
+      <li><strong>Illegal activities</strong> — excluded by convention, even if economically substantial</li>
+      <li><strong>Owner-occupied housing</strong> — requires an <strong>imputed rent</strong> estimate (what the owner would pay to rent an equivalent house) to avoid inconsistency</li>
+      <li><strong>Government non-market services</strong> (defence, administration) — valued at <strong>cost</strong> (since there's no market price), which can misstate true value/efficiency</li>
+      <li><strong>Data/statistical reliability</strong> — especially in the unorganised sector</li>
+      <li><strong>Depreciation estimation</strong> — no precise market test; involves accounting judgement</li>
+    </ul>
+
+    <h4>Precautions to avoid errors</h4>
+    <ul>
+      <li>Avoid <strong>double counting</strong> — count only final goods (expenditure method) or only value added (product method)</li>
+      <li>Exclude <strong>transfer payments</strong></li>
+      <li>Exclude sale of <strong>second-hand goods</strong> (no new production; only include the dealer's margin/commission, which <em>is</em> a current service)</li>
+      <li>Exclude purely <strong>financial transactions</strong> (share/bond trading, gifts) — no corresponding production</li>
+      <li>Include <strong>imputed values</strong> (owner-occupied housing rent, self-consumed farm output) consistently</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — BEYOND THE NUMBERS</div>
+    <h2 class="sec-title">GDP as a Measure of Welfare — Limitations</h2>
+    <div class="box warn">
+      <div class="label">GDP is NOT a complete welfare measure</div>
+      A rising GDP does not automatically mean rising social welfare, because GDP ignores several dimensions that matter for wellbeing.
+    </div>
+    <ul>
+      <li><strong>Income distribution</strong> — GDP says nothing about inequality; a rising average can mask a worsening distribution</li>
+      <li><strong>Composition of output</strong> — GDP treats a rupee of arms spending the same as a rupee of healthcare spending</li>
+      <li><strong>Externalities</strong> — pollution, environmental degradation from production are not subtracted (indeed, cleanup spending <em>adds</em> to GDP)</li>
+      <li><strong>Non-market welfare activities</strong> — leisure, unpaid domestic/care work, volunteering are excluded</li>
+      <li><strong>Quality-of-life factors</strong> — health, education outcomes, political freedom are not captured</li>
+      <li><strong>Defensive/regrettable expenditures</strong> — e.g., spending on security due to rising crime boosts GDP without boosting true welfare</li>
+    </ul>
+    <div class="box definition">
+      <div class="label">Green GNP / Green GDP</div>
+      An adjusted measure that <strong>subtracts</strong> the estimated cost of environmental degradation and depletion of natural resources from conventional GNP/GDP — an attempt to reflect <em>sustainable</em> income.
+    </div>
+    <h4>Alternative/supplementary measures</h4>
+    <ul>
+      <li><strong>Human Development Index (HDI)</strong> — combines income, education, and health/longevity</li>
+      <li><strong>Genuine Progress Indicator (GPI)</strong>, Gross National Happiness (GNH) — broader welfare-oriented composite indices</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — INDIAN CONTEXT</div>
+    <h2 class="sec-title">National Income Accounting in India</h2>
+    <ul>
+      <li><strong>National Statistical Office (NSO)</strong> (under MoSPI — Ministry of Statistics and Programme Implementation) compiles India's National Accounts Statistics; the Central Statistics Office (CSO) and NSSO were merged to form NSO in 2019</li>
+      <li>India shifted its national accounts base year to <strong>2011-12</strong> (from the earlier 2004-05 base) in the 2015 revision</li>
+      <li>India adopted <strong>Gross Value Added (GVA) at basic prices</strong> as the primary measure alongside GDP, aligning more closely with the UN's System of National Accounts (SNA) 2008 framework</li>
+      <li><strong>GVA at basic prices → GDP at market prices</strong>: GDP = GVA at basic prices + Product Taxes − Product Subsidies</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      CUET PG occasionally tests current-affairs-adjacent facts like the base year in use, or which body compiles national accounts — worth keeping an eye on official MoSPI/NSO updates closer to the exam.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Concept</th><th>Definition in one line</th><th>Key formula</th></tr></thead>
+      <tbody>
+        <tr><td>GDP</td><td>Output within domestic territory</td><td>Σ GVA at market price (domestic)</td></tr>
+        <tr><td>GNP</td><td>Output by normal residents (anywhere)</td><td>GDP + NFIA</td></tr>
+        <tr><td>NNP</td><td>GNP net of capital wear-and-tear</td><td>GNP − Depreciation</td></tr>
+        <tr><td>National Income (NNP<sub>fc</sub>)</td><td>NNP valued at factor cost</td><td>NNP<sub>mp</sub> − Net Indirect Taxes</td></tr>
+        <tr><td>Personal Income</td><td>Income actually received by households</td><td>NI − retained corp. profit − corp. tax − social security + transfers</td></tr>
+        <tr><td>Disposable Income</td><td>Households' spendable income</td><td>PI − Direct Taxes = C + S</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">GNP</div>GNP = GDP + NFIA</div>
+      <div class="box formula"><div class="label">NNP</div>NNP = GNP − Depreciation</div>
+      <div class="box formula"><div class="label">National Income</div>NI = NNP<sub>fc</sub> = NNP<sub>mp</sub> − Net Indirect Taxes</div>
+      <div class="box formula"><div class="label">Factor Cost ↔ Market Price</div>Market Price = Factor Cost + Indirect Tax − Subsidy</div>
+      <div class="box formula"><div class="label">Personal Income</div>PI = NI − Undistributed Profit − Corp. Tax − Soc. Security + Transfers</div>
+      <div class="box formula"><div class="label">Disposable Income</div>DI = PI − Direct Taxes = C + S</div>
+      <div class="box formula"><div class="label">Expenditure Method</div>GDP<sub>mp</sub> = C + I + G + (X−M)</div>
+      <div class="box formula"><div class="label">Income Method</div>NI = Wages+Rent+Interest+Profit+Mixed Income</div>
+      <div class="box formula"><div class="label">GDP Deflator</div>Deflator = (Nominal GDP/Real GDP) × 100</div>
+      <div class="box formula"><div class="label">Value Added</div>GVA = Value of Output − Intermediate Consumption</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Output = Income = Expenditure (always, by identity)</span>
+      <span class="chip">Transfer payments excluded from NI, included in PI</span>
+      <span class="chip">Only final goods counted — never intermediate</span>
+      <span class="chip">Depreciation: Gross → Net</span>
+      <span class="chip">NFIA: GDP → GNP</span>
+      <span class="chip">Net Indirect Tax: Market Price → Factor Cost</span>
+      <span class="chip">India base year: 2011-12</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. GNP differs from GDP by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Depreciation &nbsp; (b) <strong>Net Factor Income from Abroad</strong> &nbsp; (c) Net Indirect Taxes &nbsp; (d) Transfer payments<br><br>
+      <span class="correct">Answer: (b)</span> — GNP = GDP + NFIA.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Which of the following is correctly excluded from National Income estimation? <span class="qmeta">Assertion-set</span></summary>
+      <div class="ans">
+        I. Sale of second-hand cars<br>
+        II. Wages paid to a domestic cook<br>
+        III. Old-age pension payments<br>
+        IV. Dividends paid by a company<br><br>
+        (a) I &amp; III only &nbsp; (b) <strong>I, III only (II and IV are included)</strong> &nbsp; (c) All four &nbsp; (d) II &amp; IV only<br><br>
+        <span class="correct">Answer: (b)</span> — II (wages, a factor payment for current production) and IV (dividends, a form of profit distribution) are included; I (no new production) and III (a transfer payment) are excluded.
+      </div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. The value-added method avoids double counting by: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Counting only the final seller's output &nbsp; (b) <strong>Subtracting the cost of intermediate consumption at each stage of production</strong> &nbsp; (c) Ignoring the informal sector &nbsp; (d) Using only import data<br><br>
+      <span class="correct">Answer: (b)</span> — GVA = Value of Output − Intermediate Consumption at every stage.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. In the expenditure method, why are imports (M) subtracted? <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Imports are illegal to count &nbsp; (b) <strong>C, I, and G include spending on both domestic and imported goods, so M must be removed to isolate domestically produced output</strong> &nbsp; (c) Imports always exceed exports &nbsp; (d) To adjust for inflation<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. Real GDP differs from Nominal GDP because Real GDP: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Uses current year prices &nbsp; (b) <strong>Uses constant (base year) prices, isolating quantity/output change from price change</strong> &nbsp; (c) Excludes government spending &nbsp; (d) Is always higher than Nominal GDP<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. The GDP Deflator is calculated as: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) Real GDP / Nominal GDP × 100 &nbsp; (b) <strong>Nominal GDP / Real GDP × 100</strong> &nbsp; (c) Nominal GDP − Real GDP &nbsp; (d) (Nominal GDP + Real GDP)/2<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. Which of these correctly converts Market Price to Factor Cost? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Factor Cost = Market Price + Net Indirect Tax &nbsp; (b) <strong>Factor Cost = Market Price − Net Indirect Tax</strong> &nbsp; (c) Factor Cost = Market Price × Net Indirect Tax &nbsp; (d) They are always identical<br><br>
+      <span class="correct">Answer: (b)</span> — Net Indirect Tax = Indirect Taxes − Subsidies.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. Imputed rent of owner-occupied houses is: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Excluded from National Income, since no actual payment is made &nbsp; (b) <strong>Included in National Income as an estimated value, to maintain consistency with rented houses</strong> &nbsp; (c) Counted as a transfer payment &nbsp; (d) Counted twice, once under rent and once under profit<br><br>
+      <span class="correct">Answer: (b)</span> — otherwise, identical housing services would be valued differently depending on tenancy status alone.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. Which of the following is a key limitation of GDP as a welfare measure? <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) It is too difficult to calculate &nbsp; (b) <strong>It does not account for income distribution, non-market activities, or environmental externalities</strong> &nbsp; (c) It only includes agricultural output &nbsp; (d) It cannot be compared across years<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. Personal Income differs from National Income mainly because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) National Income includes transfer payments while Personal Income excludes them &nbsp; (b) <strong>Some income is earned but not received by households (e.g., undistributed corporate profits, corporate tax), while transfer payments are received but not earned from current production</strong> &nbsp; (c) They are always numerically equal &nbsp; (d) Personal Income includes depreciation while National Income excludes it<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. India's national accounts currently use which base year? <span class="qmeta">Current Affairs</span></summary>
+      <div class="ans">(a) 2004-05 &nbsp; (b) <strong>2011-12</strong> &nbsp; (c) 2015-16 &nbsp; (d) 1999-2000<br><br>
+      <span class="correct">Answer: (b)</span> — revised in 2015, shifting the base from 2004-05 to 2011-12.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. "Green GNP" is a concept that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Measures only agricultural income &nbsp; (b) <strong>Adjusts GNP downward for environmental degradation and natural resource depletion</strong> &nbsp; (c) Is identical to Nominal GNP &nbsp; (d) Measures foreign exchange reserves<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+  </section>
+
+  <footer>
+    National Income Accounting — CUET PG Economics Notes · Compiled for exam preparation · Sources: UN System of National Accounts (SNA), MoSPI/NSO India, H.L. Ahuja's Macroeconomics, standard circular flow framework.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>
