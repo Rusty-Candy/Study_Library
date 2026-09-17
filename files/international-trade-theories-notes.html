@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Trade Theories — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:260px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.05rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.72rem; color:var(--ink-soft); margin-bottom:18px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.87rem; padding:6px 8px 6px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.6rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:680px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  section.block{padding:38px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.9rem; margin:0 0 6px;}
+  h3{font-size:1.28rem; margin:1.6em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.02rem; margin:1.3em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.05rem; color:var(--ink-soft); max-width:680px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:18px 20px; margin:18px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.95rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.75rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  caption{text-align:left; font-size:.8rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.85rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block{padding:28px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">International Trade Theories</div>
+  <div class="toc-sub">CUET PG · International Economics</div>
+  <ol>
+    <li><a href="#s1">Why Do Nations Trade?</a></li>
+    <li><a href="#s2">Adam Smith: Absolute Advantage</a></li>
+    <li><a href="#s3">Ricardo: Comparative Advantage</a></li>
+    <li><a href="#s4">Gains from Trade &amp; Terms of Trade Range</a></li>
+    <li><a href="#s5">Limitations of Classical Theories</a></li>
+    <li><a href="#s6">Heckscher-Ohlin: Factor Proportions</a></li>
+    <li><a href="#s7">H-O Theorem &amp; Factor Price Equalization</a></li>
+    <li><a href="#s8">Stolper-Samuelson &amp; Rybczynski Theorems</a></li>
+    <li><a href="#s9">The Leontief Paradox</a></li>
+    <li><a href="#s10">New Trade Theory: Krugman</a></li>
+    <li><a href="#s11">Other Modern Trade Theories</a></li>
+    <li><a href="#s12">Master Comparison Table</a></li>
+    <li><a href="#s13">Formula Sheet</a></li>
+    <li><a href="#s14">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INTERNATIONAL ECONOMICS · TRADE THEORY</div>
+    <h1>International Trade Theories: From Smith to New Trade Theory</h1>
+    <p class="lede">Why do nations trade at all? From Adam Smith's absolute advantage and Ricardo's comparative advantage, through the Heckscher-Ohlin factor-proportions model and its associated theorems, to Krugman's New Trade Theory explaining trade between similar economies — the full evolution of trade theory.</p>
+    <div class="tags">
+      <span class="tag">Comparative Advantage</span><span class="tag">Factor Proportions</span><span class="tag">Leontief Paradox</span>
+      <span class="tag">Intra-Industry Trade</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FOUNDATION</div>
+    <h2 class="sec-title">Why Do Nations Trade?</h2>
+    <p class="lead-p">International trade theory asks a deceptively simple question: why should countries specialise and exchange goods, rather than each producing everything it needs domestically? The answer has evolved across four broad waves of theory.</p>
+    <table>
+      <caption>Table 1.1 — The evolution of trade theory</caption>
+      <thead><tr><th>Theory</th><th>Originator</th><th>Core basis for trade</th></tr></thead>
+      <tbody>
+        <tr><td>Absolute Advantage</td><td>Adam Smith (1776)</td><td>Differences in absolute labour productivity</td></tr>
+        <tr><td>Comparative Advantage</td><td>David Ricardo (1817)</td><td>Differences in <em>relative</em> labour productivity (opportunity cost)</td></tr>
+        <tr><td>Factor Proportions (H-O)</td><td>Eli Heckscher &amp; Bertil Ohlin (1919, 1933)</td><td>Differences in relative factor endowments (capital vs labour abundance)</td></tr>
+        <tr><td>New Trade Theory</td><td>Paul Krugman et al. (1979-80s)</td><td>Economies of scale &amp; product differentiation — explains trade even between <em>similar</em> countries</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — CLASSICAL THEORY I</div>
+    <h2 class="sec-title">Adam Smith: The Theory of Absolute Advantage</h2>
+    <div class="box definition">
+      <div class="label">Absolute Advantage</div>
+      A country has an absolute advantage in producing a good if it can produce <strong>more output per unit of input</strong> (or use fewer resources per unit of output) than another country. Smith argued each country should specialise in producing the good(s) in which it has an absolute advantage, and trade for the rest — mirroring his broader argument for the division of labour, applied to nations.
+    </div>
+
+    <table>
+      <caption>Table 2.1 — Illustrative example (units of output per labour-hour)</caption>
+      <thead><tr><th>Country</th><th>Wheat</th><th>Cloth</th></tr></thead>
+      <tbody>
+        <tr><td>Country A</td><td class="num">6</td><td class="num">2</td></tr>
+        <tr><td>Country B</td><td class="num">1</td><td class="num">5</td></tr>
+      </tbody>
+    </table>
+    <p>Here, Country A has an absolute advantage in Wheat (6 &gt; 1); Country B has an absolute advantage in Cloth (5 &gt; 2). Smith's theory predicts A specialises in Wheat, B in Cloth, and both trade to mutual benefit.</p>
+
+    <div class="box warn">
+      <div class="label">The gap Smith left open</div>
+      Absolute advantage theory cannot explain <strong>what happens if one country is absolutely more efficient at producing everything</strong> — Smith's framework offers no reason for such a country to trade at all, since it has nothing to "gain" in absolute terms from a less efficient partner. This gap was resolved by Ricardo (Section 3).
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A very common conceptual question: "Absolute advantage is a special/limiting case of comparative advantage" is <strong>True</strong> — Ricardo's theory is the more general framework, of which Smith's absolute advantage is a special case where relative efficiencies happen to align with absolute ones.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — CLASSICAL THEORY II</div>
+    <h2 class="sec-title">Ricardo: The Theory of Comparative Advantage</h2>
+    <div class="box definition">
+      <div class="label">Comparative Advantage</div>
+      A country has a comparative advantage in producing a good if it can produce it at a <strong>lower opportunity cost</strong> (relative to its other production alternative) than another country — <strong>even if</strong> it is absolutely less efficient at producing everything. Mutually beneficial trade is possible whenever relative (opportunity) costs of production <strong>differ</strong> between countries, regardless of absolute efficiency levels.
+    </div>
+
+    <table>
+      <caption>Table 3.1 — Ricardo's classic numerical example (labour hours needed per unit)</caption>
+      <thead><tr><th>Country</th><th>Wine (hours/unit)</th><th>Cloth (hours/unit)</th><th>Opportunity cost of Wine (in Cloth)</th></tr></thead>
+      <tbody>
+        <tr><td>Portugal</td><td class="num">80</td><td class="num">90</td><td class="num">80/90 = 0.89 units of cloth</td></tr>
+        <tr><td>England</td><td class="num">120</td><td class="num">100</td><td class="num">120/100 = 1.2 units of cloth</td></tr>
+      </tbody>
+    </table>
+    <p>Portugal is absolutely more efficient at producing <strong>both</strong> goods (needs fewer hours for each). But Portugal's <strong>opportunity cost</strong> of Wine (0.89 cloth) is lower than England's (1.2 cloth) — so Portugal has a <strong>comparative advantage in Wine</strong>; England, correspondingly, has a comparative advantage in Cloth (lower opportunity cost of cloth = 100/120 = 0.83 wine, vs Portugal's 90/80 = 1.125 wine). Both gain by specialising accordingly and trading.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="500" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="506" y="264" font-size="12" fill="#22303F">Cloth</text>
+        <text x="30" y="24" font-size="12" fill="#22303F">Wine</text>
+        <!-- Portugal PPF, flatter/steeper depending on opp cost -->
+        <line x1="80" y1="60" x2="420" y2="240" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="426" y="242" font-size="11" fill="#3E5C76" font-style="italic">Portugal PPF</text>
+        <!-- England PPF -->
+        <line x1="80" y1="150" x2="300" y2="250" stroke="#7C2E2E" stroke-width="2.2"/>
+        <text x="306" y="252" font-size="11" fill="#7C2E2E" font-style="italic">England PPF</text>
+        <text x="150" y="290" font-size="10" fill="#8B93A1">Different slopes = different opportunity costs = basis for gains from trade</text>
+      </svg>
+      <figcaption>Fig 3.1 — Production Possibility Frontiers with different slopes (opportunity costs) — the very source of mutually beneficial trade under comparative advantage, regardless of which country's PPF is closer to the origin (absolute efficiency).</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Ricardo's model rests on the <strong>Labour Theory of Value</strong> — assuming labour is the only factor of production and productivity differences (technology) alone drive trade patterns. This single-factor assumption is exactly what later theories (Heckscher-Ohlin) relaxed by introducing multiple factors of production.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — GAINS FROM TRADE</div>
+    <h2 class="sec-title">Gains from Trade &amp; the Terms of Trade Range</h2>
+    <div class="box formula">
+      <div class="label">Range of mutually beneficial Terms of Trade (using the Ricardo example)</div>
+      0.89 (Portugal's domestic opportunity cost of wine) &lt; International price ratio (Wine/Cloth) &lt; 1.2 (England's domestic opportunity cost of wine)
+    </div>
+    <p>As long as the <strong>international exchange ratio</strong> (terms of trade) settles somewhere <strong>between the two countries' domestic opportunity cost ratios</strong>, both countries gain from trade relative to producing everything domestically — each gets to consume outside its own PPF. The exact terms of trade within this range (and hence how the gains are split) depends on relative demand strength between the two countries (reciprocal demand, per J.S. Mill's later refinement).</p>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A frequently tested numerical/conceptual point: if the international terms of trade equal <em>exactly</em> one country's domestic opportunity cost ratio, <strong>that country gains nothing from trade</strong> (it's indifferent between trading and not), while the <em>other</em> country captures the entire gain from trade — a useful edge case to remember.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — CRITIQUE</div>
+    <h2 class="sec-title">Limitations of the Classical (Smith-Ricardo) Theories</h2>
+    <ul>
+      <li><strong>Single factor of production</strong> (labour only) — ignores capital, land, and other resources entirely</li>
+      <li><strong>Constant costs / linear PPF</strong> — assumes constant opportunity costs (a straight-line PPF), unrealistic given diminishing returns in most real production</li>
+      <li><strong>Doesn't explain the source of productivity differences</strong> — simply assumes technology/productivity differences exist, without explaining <em>why</em> they arise between countries</li>
+      <li><strong>No transport costs, perfect factor immobility between countries but perfect mobility within</strong> — simplifying assumptions that limit real-world applicability</li>
+      <li><strong>Assumes full employment and no unemployment effects</strong> of trade/specialisation</li>
+      <li><strong>Two-country, two-good framework</strong> — a simplification relaxed in more advanced extensions</li>
+    </ul>
+    <p>The Heckscher-Ohlin model (Section 6) directly addresses the biggest gap — the single-factor assumption — by introducing <strong>multiple factors of production</strong> and asking what determines comparative advantage in the first place.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — NEOCLASSICAL THEORY</div>
+    <h2 class="sec-title">Heckscher-Ohlin Model: The Factor Proportions Theory</h2>
+    <div class="box definition">
+      <div class="label">Core Idea</div>
+      Unlike Ricardo (who assumed away the <em>source</em> of comparative advantage), Heckscher-Ohlin (H-O) explains comparative advantage as arising from differences in countries' <strong>relative factor endowments</strong> (capital vs labour abundance) combined with differences in goods' <strong>relative factor intensities</strong> (capital-intensive vs labour-intensive production).
+    </div>
+    <h4>Key assumptions</h4>
+    <ul>
+      <li>Two countries, two goods, two factors of production (capital K, labour L) — the "2×2×2" model</li>
+      <li>Identical technology (production functions) across countries</li>
+      <li>Identical, homothetic consumer preferences across countries</li>
+      <li>Perfect competition in both goods and factor markets</li>
+      <li>No factor mobility between countries; perfect factor mobility within a country</li>
+      <li>No transport costs or trade barriers</li>
+    </ul>
+
+    <div class="box formula">
+      <div class="label">The Heckscher-Ohlin (H-O) Theorem</div>
+      A country will export the good that <strong>intensively uses its relatively abundant factor</strong>, and import the good that intensively uses its relatively scarce factor.
+    </div>
+    <p class="small">Example: a capital-abundant country (like the US, relative to its trading partners) will export capital-intensive goods (machinery) and import labour-intensive goods (textiles); a labour-abundant country (like India or Bangladesh) will do the reverse.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <rect x="30" y="30" width="220" height="90" rx="6" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.4"/>
+          <text x="140" y="60" text-anchor="middle" font-size="13" fill="#2C6E64" font-weight="600">Capital-Abundant Country</text>
+          <text x="140" y="85" text-anchor="middle" font-size="11" fill="#2C6E64">Exports: Capital-intensive goods</text>
+          <text x="140" y="103" text-anchor="middle" font-size="11" fill="#2C6E64">Imports: Labour-intensive goods</text>
+        </g>
+        <g transform="translate(280,0)">
+          <rect x="30" y="30" width="220" height="90" rx="6" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.4"/>
+          <text x="140" y="60" text-anchor="middle" font-size="13" fill="#7C2E2E" font-weight="600">Labour-Abundant Country</text>
+          <text x="140" y="85" text-anchor="middle" font-size="11" fill="#7C2E2E">Exports: Labour-intensive goods</text>
+          <text x="140" y="103" text-anchor="middle" font-size="11" fill="#7C2E2E">Imports: Capital-intensive goods</text>
+        </g>
+        <path d="M 260 75 L 270 75" stroke="#A9793B" stroke-width="2" marker-end="url(#ar)"/>
+        <path d="M 270 95 L 260 95" stroke="#A9793B" stroke-width="2" marker-end="url(#ar2)"/>
+        <defs>
+          <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#A9793B"/></marker>
+          <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#A9793B"/></marker>
+        </defs>
+      </svg>
+      <figcaption>Fig 6.1 — The H-O theorem's trade prediction: each country exports the good that intensively uses its abundant factor.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — RELATED THEOREMS</div>
+    <h2 class="sec-title">Factor Price Equalization Theorem</h2>
+    <div class="box formula">
+      <div class="label">Factor Price Equalization (FPE) Theorem (Samuelson's extension of H-O)</div>
+      Free trade in goods, under H-O assumptions, will tend to <strong>equalise the relative and absolute returns to factors of production</strong> (wages and returns to capital) across trading countries — even without any actual movement of the factors (labour or capital) themselves across borders.
+    </div>
+    <p><strong>Intuition:</strong> trade in goods acts as an indirect substitute for factor mobility — a labour-abundant country exporting labour-intensive goods effectively "exports" its abundant labour <em>embodied</em> in those goods, raising domestic demand for labour (and wages) until, in the theoretical limit, wage rates converge across countries.</p>
+    <div class="box warn">
+      <div class="label">A strong, rarely-observed theoretical result</div>
+      In reality, wages and capital returns are <strong>far from equalised</strong> internationally — reflecting the theorem's strict, unrealistic assumptions (identical technology, no trade barriers/transport costs, perfect competition) rarely holding in practice. It remains an important theoretical benchmark rather than an empirical prediction.
+    </div>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — RELATED THEOREMS</div>
+    <h2 class="sec-title">Stolper-Samuelson &amp; Rybczynski Theorems</h2>
+    <div class="box formula">
+      <div class="label">Stolper-Samuelson Theorem</div>
+      An increase in the relative price of a good will increase the real return to the factor used <strong>intensively</strong> in producing that good, and decrease the real return to the other factor — meaning <strong>trade liberalisation has clear winners and losers</strong> among factor owners within each country.
+    </div>
+    <p class="small">Example: if a labour-abundant country opens to trade and the relative price of its labour-intensive export good rises, real wages rise while the real return to capital falls — even though the country as a whole gains from trade in aggregate.</p>
+
+    <div class="box formula">
+      <div class="label">Rybczynski Theorem</div>
+      At constant relative goods prices, an increase in the endowment of one factor (say, capital) will lead to a <strong>more than proportionate increase</strong> in the output of the good that uses that factor intensively, and an <strong>absolute decrease</strong> in the output of the other good.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Stolper-Samuelson Theorem is the theoretical backbone of debates about trade and inequality — it formally shows why, even when a country gains overall from trade, <strong>owners of the scarce factor lose in real terms</strong>, providing an economic rationale for the political economy of protectionism (e.g., capital owners in a labour-abundant developing country opposing trade liberalisation).
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — THE EMPIRICAL CHALLENGE</div>
+    <h2 class="sec-title">The Leontief Paradox</h2>
+    <div class="box warn">
+      <div class="label">Leontief Paradox (1953)</div>
+      Wassily Leontief empirically tested the H-O theorem using US trade data and found the <strong>opposite</strong> of what H-O predicted: despite the US being the most <strong>capital-abundant</strong> country in the world at the time, its <strong>exports</strong> were found to be relatively more <strong>labour-intensive</strong> than its <strong>imports</strong> — directly contradicting the H-O theorem's prediction.
+    </div>
+    <h4>Proposed explanations for the paradox</h4>
+    <ul>
+      <li><strong>Human capital augmentation</strong> — US labour should be counted as effectively more "capital-intensive" once skill/education (human capital) embodied in workers is properly accounted for, not just physical capital</li>
+      <li><strong>Factor-intensity reversals</strong> — the same good might be produced capital-intensively in one country and labour-intensively in another, violating a key H-O assumption of identical technology/production functions</li>
+      <li><strong>Trade barriers &amp; tariff structure</strong> — US tariff policy at the time may have protected labour-intensive domestic industries, distorting the trade pattern the theorem would otherwise predict</li>
+      <li><strong>Natural resources as a third factor</strong> — some US exports were natural-resource-intensive, a factor the simple 2-factor (K, L) model ignores</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Leontief Paradox is one of the most important named empirical results in trade theory — always tied to <strong>Wassily Leontief, 1953, using US data</strong> — and its resolution (particularly the human capital argument) is frequently tested as a follow-up.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — MODERN THEORY</div>
+    <h2 class="sec-title">New Trade Theory (Krugman)</h2>
+    <div class="box definition">
+      <div class="label">The Puzzle New Trade Theory Solves</div>
+      Classical and H-O theories predict trade should occur <strong>between dissimilar</strong> countries (different productivities or factor endowments) and should be <strong>inter-industry</strong> (exchanging entirely different types of goods). But in reality, a huge share of world trade is <strong>intra-industry</strong> (e.g., Germany exports cars to France and imports different car models from France) and occurs predominantly <strong>between similar, developed economies</strong> — a pattern classical/H-O theory cannot explain.
+    </div>
+    <h4>Krugman's key building blocks</h4>
+    <ul>
+      <li><strong>Economies of scale (increasing returns)</strong> — average costs fall as a firm's output rises, giving large firms/countries a cost advantage independent of factor endowments or technology differences</li>
+      <li><strong>Monopolistic competition</strong> — many firms producing <strong>differentiated varieties</strong> of a similar product (e.g., different car brands/models), giving consumers a "love of variety"</li>
+      <li><strong>Intra-industry trade</strong> emerges naturally: even identical countries benefit from trading different <em>varieties</em> of the same broad product category, since consumers value variety and firms benefit from larger combined markets to exploit scale economies</li>
+    </ul>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="60" width="200" height="70" rx="6" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.4"/>
+        <text x="140" y="90" text-anchor="middle" font-size="13" fill="#2C6E64" font-weight="600">Germany</text>
+        <text x="140" y="110" text-anchor="middle" font-size="10" fill="#2C6E64">produces Car Variety A</text>
+        <rect x="320" y="60" width="200" height="70" rx="6" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.4"/>
+        <text x="420" y="90" text-anchor="middle" font-size="13" fill="#7C2E2E" font-weight="600">France</text>
+        <text x="420" y="110" text-anchor="middle" font-size="10" fill="#7C2E2E">produces Car Variety B</text>
+        <path d="M 245 80 L 315 80" stroke="#A9793B" stroke-width="2.4" marker-end="url(#arrA)"/>
+        <text x="280" y="72" font-size="9" fill="#A9793B">Variety A exported</text>
+        <path d="M 315 105 L 245 105" stroke="#3E5C76" stroke-width="2.4" marker-end="url(#arrB)"/>
+        <text x="280" y="120" font-size="9" fill="#3E5C76">Variety B exported</text>
+        <defs>
+          <marker id="arrA" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#A9793B"/></marker>
+          <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#3E5C76"/></marker>
+        </defs>
+        <text x="280" y="180" text-anchor="middle" font-size="11" fill="#22303F">Both countries are similarly capital/labour-endowed —</text>
+        <text x="280" y="198" text-anchor="middle" font-size="11" fill="#22303F">trade arises from variety/scale, not factor differences</text>
+      </svg>
+      <figcaption>Fig 10.1 — Intra-industry trade: two similarly-endowed countries trade different varieties of the same product category, driven by economies of scale and consumers' preference for variety — a pattern H-O cannot explain.</figcaption>
+    </div>
+
+    <div class="box formula">
+      <div class="label">Measuring Intra-Industry Trade — Grubel-Lloyd Index</div>
+      GL = 1 − |X − M| / (X + M) &nbsp;&nbsp;(X = exports, M = imports, of a given industry)<br>
+      GL close to 1 → high intra-industry trade; GL close to 0 → trade is purely inter-industry
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      New Trade Theory does not <strong>replace</strong> H-O — it <strong>complements</strong> it: H-O still explains <strong>inter-industry</strong> trade (why a labour-abundant country exports textiles and a capital-abundant one exports machinery), while New Trade Theory explains the large volume of <strong>intra-industry</strong> trade between similar, developed economies. Real-world trade combines both patterns.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — OTHER MODERN THEORIES</div>
+    <h2 class="sec-title">Other Modern Trade Theories (Brief)</h2>
+    <table>
+      <caption>Table 11.1 — Additional named theories worth recognising</caption>
+      <thead><tr><th>Theory</th><th>Originator</th><th>Core idea</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Product Life Cycle Theory</strong></td><td>Raymond Vernon (1966)</td><td>A product moves through stages (innovation → maturity → standardisation), with production location shifting over time from the innovating (developed) country to lower-cost developing countries as the product/technology matures and standardises</td></tr>
+        <tr><td><strong>Linder Hypothesis</strong></td><td>Staffan Linder (1961)</td><td>Countries with <strong>similar per capita income levels</strong> (and hence similar demand patterns/tastes) trade more manufactured goods with each other than the factor-proportions theory would predict — demand-side explanation for trade between similar, developed economies</td></tr>
+        <tr><td><strong>Porter's Diamond / National Competitive Advantage</strong></td><td>Michael Porter (1990)</td><td>A country's competitiveness in an industry depends on four interrelated factors: factor conditions, demand conditions, related/supporting industries, and firm strategy/structure/rivalry — a more dynamic, firm/industry-level view of trade competitiveness beyond simple factor endowments</td></tr>
+        <tr><td><strong>Gravity Model of Trade</strong></td><td>Jan Tinbergen (1962), widely used since</td><td>Bilateral trade volume between two countries is predicted to be proportional to the product of their economic sizes (GDP) and inversely related to the distance between them — an empirically robust, widely-used applied trade model</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Smith (Absolute Advantage)</th><th>Ricardo (Comparative Advantage)</th><th>Heckscher-Ohlin</th><th>New Trade Theory</th></tr></thead>
+      <tbody>
+        <tr><td>Basis of trade</td><td>Absolute productivity differences</td><td>Relative (opportunity cost) productivity differences</td><td>Relative factor endowments &amp; intensities</td><td>Economies of scale &amp; product differentiation</td></tr>
+        <tr><td>Factors of production</td><td>Labour only</td><td>Labour only</td><td>Labour + Capital (2×2×2)</td><td>Not endowment-based; scale/variety-based</td></tr>
+        <tr><td>Best explains</td><td>Simple cases of mutual absolute efficiency differences</td><td>Trade even when one country is absolutely more efficient at everything</td><td>Inter-industry trade between dissimilar countries</td><td>Intra-industry trade between similar countries</td></tr>
+        <tr><td>Key limitation</td><td>Can't explain trade if one country dominates in everything</td><td>Single-factor, constant-cost assumptions unrealistic</td><td>Empirically contradicted in part by Leontief Paradox</td><td>Requires imperfect competition, more complex to model</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Absolute Advantage</div>Higher output per unit input, in absolute terms</div>
+      <div class="box formula"><div class="label">Comparative Advantage</div>Lower opportunity cost, in relative terms</div>
+      <div class="box formula"><div class="label">Gains-from-trade range</div>Domestic opp. cost (Country 1) &lt; Terms of Trade &lt; Domestic opp. cost (Country 2)</div>
+      <div class="box formula"><div class="label">H-O Theorem</div>Export good using abundant factor intensively</div>
+      <div class="box formula"><div class="label">Factor Price Equalization</div>Free trade in goods ⇒ tends to equalise factor returns across countries</div>
+      <div class="box formula"><div class="label">Stolper-Samuelson</div>↑ Price of good ⇒ ↑ real return to factor used intensively in it</div>
+      <div class="box formula"><div class="label">Rybczynski</div>↑ Factor endowment ⇒ &gt;proportionate ↑ output of good using it intensively; ↓ other good's output</div>
+      <div class="box formula"><div class="label">Grubel-Lloyd Index</div>GL = 1 − |X−M|/(X+M)</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Absolute advantage = special case of comparative advantage</span>
+      <span class="chip">Ricardo: labour theory of value, single factor</span>
+      <span class="chip">H-O: export the abundant-factor-intensive good</span>
+      <span class="chip">Leontief Paradox: US exports were labour-intensive (1953)</span>
+      <span class="chip">Stolper-Samuelson: trade creates winners &amp; losers within a country</span>
+      <span class="chip">New Trade Theory: explains intra-industry trade via scale + variety</span>
+      <span class="chip">GL index near 1 = high intra-industry trade</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. Adam Smith's theory of trade is based on: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Relative factor endowments &nbsp; (b) <strong>Absolute differences in labour productivity</strong> &nbsp; (c) Economies of scale &nbsp; (d) Consumer preference for variety<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Ricardo's key contribution over Smith was to show that mutually beneficial trade is possible: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Only when absolute advantage exists &nbsp; (b) <strong>Even when one country is absolutely more efficient at producing everything, as long as opportunity costs differ</strong> &nbsp; (c) Only under a common currency &nbsp; (d) Only between countries of similar size<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. The Heckscher-Ohlin theorem predicts that a country will export: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) The good that uses its scarce factor intensively &nbsp; (b) <strong>The good that uses its abundant factor intensively</strong> &nbsp; (c) Only agricultural goods &nbsp; (d) Whatever good has the lowest absolute cost<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. The Factor Price Equalization Theorem argues that free trade in goods will: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Widen wage gaps between trading countries permanently &nbsp; (b) <strong>Tend to equalise factor returns (wages, capital returns) across countries, even without factor mobility</strong> &nbsp; (c) Have no effect on factor prices &nbsp; (d) Only apply to capital, not labour<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. The Stolper-Samuelson Theorem implies that trade liberalisation in a labour-abundant country will tend to: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Reduce real wages and raise real returns to capital &nbsp; (b) <strong>Raise real wages (the abundant factor) and reduce real returns to capital (the scarce factor)</strong> &nbsp; (c) Leave both factor returns unchanged &nbsp; (d) Only affect government revenue<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. The Leontief Paradox refers to the empirical finding that: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) US imports were more capital-intensive than predicted, confirming H-O &nbsp; (b) <strong>US exports were found to be relatively more labour-intensive than its imports, contradicting the H-O prediction for a capital-abundant country</strong> &nbsp; (c) The US exported no goods at all &nbsp; (d) Trade between the US and Europe was zero<br><br>
+      <span class="correct">Answer: (b)</span> — Wassily Leontief, 1953.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. New Trade Theory (Krugman) primarily explains: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Inter-industry trade between dissimilar countries &nbsp; (b) <strong>Intra-industry trade between similar countries, via economies of scale and product differentiation</strong> &nbsp; (c) Why comparative advantage doesn't exist &nbsp; (d) Trade only in agricultural commodities<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. A Grubel-Lloyd Index value close to 1 indicates: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) Purely inter-industry trade &nbsp; (b) <strong>High intra-industry trade</strong> &nbsp; (c) No trade at all &nbsp; (d) A trade deficit<br><br>
+      <span class="correct">Answer: (b)</span> — GL = 1 − |X−M|/(X+M); a small gap between exports and imports in the same industry implies high intra-industry trade.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. The Linder Hypothesis suggests that trade in manufactured goods is greatest between countries with: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Very different factor endowments &nbsp; (b) <strong>Similar per capita income levels and demand patterns</strong> &nbsp; (c) No diplomatic relations &nbsp; (d) Identical population sizes only<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. According to Vernon's Product Life Cycle theory, as a product matures and becomes standardised, production tends to shift to: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) The original innovating country permanently &nbsp; (b) <strong>Lower-cost, typically developing, countries</strong> &nbsp; (c) No country — production stops &nbsp; (d) Only countries with the most R&amp;D spending<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. Ricardo's model of comparative advantage rests critically on the assumption of: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Multiple factors of production &nbsp; (b) <strong>A single factor of production (labour) and the labour theory of value</strong> &nbsp; (c) Increasing returns to scale &nbsp; (d) Imperfect competition<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. The Rybczynski Theorem states that, at constant goods prices, an increase in a country's capital endowment will: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Increase output of both goods proportionately &nbsp; (b) <strong>Increase the capital-intensive good's output more than proportionately, and decrease the labour-intensive good's output absolutely</strong> &nbsp; (c) Have no effect on output &nbsp; (d) Decrease the capital-intensive good's output<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+  </section>
+
+  <footer>
+    International Trade Theories — CUET PG Economics Notes · Compiled for exam preparation · Sources: Adam Smith, <em>The Wealth of Nations</em> (1776); David Ricardo, <em>Principles of Political Economy</em> (1817); Eli Heckscher &amp; Bertil Ohlin; Paul Samuelson (FPE, Stolper-Samuelson); Wassily Leontief (1953); Paul Krugman (New Trade Theory, 1979-80s); Raymond Vernon, Staffan Linder, Michael Porter.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

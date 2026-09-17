@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changes &amp; Continuities, Fiscal Policy, New Economic Policy — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.82rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.3rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.06rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.8rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.debate{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.debate .label{font-weight:700; color:var(--slate); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.89rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.82rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Continuities · Fiscal Policy · New Economic Policy</div>
+  <div class="toc-sub">CUET PG · Indian Economy</div>
+  <ol>
+    <div class="part-label">Part A — Colonial to Independent India</div>
+    <li><a href="#s1">What Changed at Independence</a></li>
+    <li><a href="#s2">What Continued: Structural Legacies</a></li>
+    <div class="part-label">Part B — The Planning Era (1950-1991)</div>
+    <li><a href="#s3">The Mixed Economy &amp; Planning Framework</a></li>
+    <li><a href="#s4">Industrial Policy Resolutions</a></li>
+    <li><a href="#s5">Fiscal Policy under Planning</a></li>
+    <li><a href="#s6">The Public Sector &amp; "Commanding Heights"</a></li>
+    <li><a href="#s7">Crises of the Planning Era</a></li>
+    <div class="part-label">Part C — New Economic Policy, 1991</div>
+    <li><a href="#s8">Background: The 1991 BoP Crisis</a></li>
+    <li><a href="#s9">NEP 1991: The LPG Framework</a></li>
+    <li><a href="#s10">Industrial Policy, 1991</a></li>
+    <li><a href="#s11">Trade &amp; Exchange Rate Reforms</a></li>
+    <li><a href="#s12">Financial &amp; Fiscal Sector Reforms</a></li>
+    <li><a href="#s13">Assessing the NEP: Gains &amp; Criticisms</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s14">Master Comparison Table</a></li>
+    <li><a href="#s15">Concept &amp; Timeline Sheet</a></li>
+    <li><a href="#s16">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMY · FROM COLONY TO PLANNING TO LIBERALIZATION</div>
+    <h1>Changes &amp; Continuities, Government and Fiscal Policy, and the New Economic Policy</h1>
+    <p class="lede">What did 1947 actually change — and what colonial-era structures persisted? How did the planning-era state build a mixed economy and manage fiscal policy for four decades? And why, in 1991, did India abandon that model for Liberalization, Privatization and Globalization (LPG)? A single connected arc from empire to reform.</p>
+    <div class="tags">
+      <span class="tag">Continuity vs Rupture</span><span class="tag">Five Year Plans</span><span class="tag">Licence-Permit Raj</span>
+      <span class="tag">1991 BoP Crisis</span><span class="tag">LPG Reforms</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Colonial to Independent India: Changes &amp; Continuities</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — RUPTURE</div>
+    <h2 class="sec-title">What Changed at Independence (1947)</h2>
+    <ul>
+      <li><strong>Political sovereignty</strong> — economic policy could now, for the first time, be set with Indian development as the explicit primary objective, not subordinated to metropolitan (British) interests</li>
+      <li><strong>End of the "Drain"</strong> — Home Charges and the structural, compulsory outward transfer of resources to Britain ceased</li>
+      <li><strong>Adoption of centralised economic planning</strong> — the Planning Commission (1950) and the Five Year Plans introduced a wholly new instrument of state-directed development absent under colonial rule</li>
+      <li><strong>State-led industrialization strategy</strong> — a deliberate policy choice (influenced by the Soviet model and the Mahalanobis strategy) to build heavy industry and a large public sector, a sharp departure from colonial-era neglect of Indian capital-goods industry</li>
+      <li><strong>Abolition of intermediary land tenures</strong> — zamindari abolition acts (1950s) formally ended the zamindari system, aiming to establish direct state-cultivator relations (though implementation and effectiveness varied significantly by state)</li>
+      <li><strong>New currency/central banking framework</strong> oriented toward domestic developmental priorities rather than London-favourable exchange stability</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — CONTINUITY</div>
+    <h2 class="sec-title">What Continued: Structural Legacies of Colonialism</h2>
+    <div class="box warn">
+      <div class="label">Independence was a political rupture, not an instant economic one</div>
+      Despite the change in political control, many <strong>structural features</strong> of the colonial economy persisted well into the independent period, shaping the starting conditions and constraints planners had to work with.
+    </div>
+    <table>
+      <caption>Table 2.1 — Persisting colonial-era structures</caption>
+      <thead><tr><th>Legacy</th><th>How it persisted</th></tr></thead>
+      <tbody>
+        <tr><td>Agrarian structure</td><td>Fragmented, unequal landholding patterns; tenancy insecurity persisted in many regions despite land reform legislation, due to weak implementation and loopholes</td></tr>
+        <tr><td>Occupational structure</td><td>Overwhelming majority of the workforce remained in agriculture (see the Occupational Structure topic notes) — the colonial-era imbalance between output and employment structure did not disappear overnight</td></tr>
+        <tr><td>Low savings &amp; capital base</td><td>Decades of drain and limited reinvestment left India with very low initial capital stock and a low savings rate (~10% of GDP at Independence) to fund development</td></tr>
+        <tr><td>Narrow industrial base</td><td>The limited, colonially-constrained industrial structure (Section 12, prior notes) — weak capital-goods sector, import-dependent for machinery — remained the starting point</td></tr>
+        <tr><td>Regional industrial concentration</td><td>Bombay and Calcutta/Bengal (and a few other pockets) remained India's dominant industrial centres, reflecting colonial-era location patterns</td></tr>
+        <tr><td>Administrative &amp; legal institutions</td><td>The colonial civil service (reformed into the Indian Administrative Service), legal system, and much administrative machinery were retained rather than rebuilt from scratch</td></tr>
+        <tr><td>Trade orientation</td><td>Continued significant trade dependence on former colonial-era patterns/partners in the early independence decades, only gradually diversifying</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This "changes vs continuities" framing is a favourite essay-style prompt — the expected answer explicitly separates <strong>political/institutional changes</strong> (planning, sovereignty, end of the drain) from <strong>persisting structural/material conditions</strong> (low savings, agrarian backwardness, narrow industrial base) that planning had to address as inherited constraints, not choices.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>Government &amp; Fiscal Policy: The Planning Era (1950-1991)</h2></div>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — THE MODEL</div>
+    <h2 class="sec-title">The Mixed Economy &amp; Planning Framework</h2>
+    <div class="box definition">
+      <div class="label">Mixed Economy</div>
+      India's post-Independence development strategy combined <strong>state ownership/control of "commanding heights"</strong> industries (heavy industry, infrastructure, banking) with a <strong>continuing private sector</strong> (especially in consumer goods, agriculture), guided by centralized indicative/directive planning — distinct from both pure capitalism and full Soviet-style central planning.
+    </div>
+    <ul>
+      <li><strong>Planning Commission</strong> established in 1950; first <strong>Five Year Plan</strong> launched 1951-56</li>
+      <li><strong>Mahalanobis Strategy</strong> (Second Plan, 1956-61) — prioritised rapid build-up of <strong>basic and heavy industry</strong> (capital goods), on the reasoning that a strong capital-goods base was the key to long-run self-sufficient industrial growth, even at the cost of slower near-term consumer-goods growth</li>
+      <li>Emphasis on <strong>import substitution</strong> — building domestic capacity to replace imports, protected by high tariffs and quantitative restrictions</li>
+      <li>Extensive system of <strong>industrial licensing</strong> ("Licence-Permit-Quota Raj") governing what could be produced, by whom, in what quantity</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Mahalanobis strategy is frequently tested for its <strong>logic</strong>: prioritising Department-I (capital/producer goods) industries over Department-II (consumer goods) was meant to build a self-reliant industrial base immune to foreign exchange constraints — critics later argued this contributed to chronic consumer-goods shortages and inefficiency.
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — INDUSTRIAL POLICY</div>
+    <h2 class="sec-title">Industrial Policy Resolutions</h2>
+    <table>
+      <caption>Table 4.1 — Key Industrial Policy Resolutions before 1991</caption>
+      <thead><tr><th>Resolution</th><th>Key provisions</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Industrial Policy Resolution, 1948</strong></td><td>First post-Independence statement; divided industry into categories — state monopoly (e.g., defence, atomic energy), mixed public-private, and private sector with state regulation — an early, still moderate articulation of the mixed-economy approach</td></tr>
+        <tr><td><strong>Industrial Policy Resolution, 1956</strong></td><td>The definitive statement of the mixed-economy/socialistic pattern — classified industries into three schedules: <strong>Schedule A</strong> (exclusive state responsibility — e.g., railways, atomic energy, heavy industry), <strong>Schedule B</strong> (state-plus-private, state taking the lead), <strong>Schedule C</strong> (left to the private sector, subject to regulation). Formed the basis of India's industrial structure for decades</td></tr>
+        <tr><td><strong>Industrial Policy Statement, 1977 &amp; 1980</strong></td><td>Some emphasis shifts (e.g., 1977's focus on small-scale/cottage industry), but the overall licensing-based, state-dominated framework remained largely intact</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — FISCAL POLICY</div>
+    <h2 class="sec-title">Fiscal Policy under Planning</h2>
+    <h4>Revenue side</h4>
+    <ul>
+      <li>Heavy reliance on <strong>indirect taxes</strong> (excise, customs) rather than direct taxes for most of the period — a continuity of colonial-era regressivity in some respects, though income tax coverage gradually expanded</li>
+      <li><strong>Very high marginal income tax rates</strong> at various points (reaching over 90% combined with surcharges by the early 1970s) — intended to reduce inequality but widely criticised for encouraging tax evasion and discouraging investment/entrepreneurship</li>
+      <li>Progressive expansion of the tax base and administrative capacity over the decades, but the system remained complex and narrow (a small proportion of the population within the income tax net)</li>
+    </ul>
+    <h4>Expenditure side</h4>
+    <ul>
+      <li>Large and growing <strong>Plan expenditure</strong> — funding public sector enterprises, infrastructure, agricultural investment (irrigation especially post-Green Revolution)</li>
+      <li>Significant and rising <strong>subsidies</strong> (food, fertiliser, and later petroleum) becoming a persistent fiscal burden</li>
+      <li>Growth of the <strong>fiscal deficit</strong> over time, especially from the 1980s, as expenditure commitments outpaced revenue mobilisation — a key structural weakness feeding into the 1991 crisis (Section 8)</li>
+    </ul>
+    <div class="box formula">
+      <div class="label">Fiscal Deficit</div>
+      Fiscal Deficit = Total Expenditure − Total Receipts (excluding borrowings) &nbsp;&nbsp;— i.e., the government's total borrowing requirement
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — PUBLIC SECTOR</div>
+    <h2 class="sec-title">The Public Sector &amp; "Commanding Heights"</h2>
+    <div class="box definition">
+      <div class="label">"Commanding Heights" of the Economy</div>
+      A phrase (borrowed from Lenin, popularised in the Indian context by Nehru) referring to the strategic, capital-intensive core sectors — steel, heavy machinery, power, mining, banking, insurance — that the state deliberately took direct ownership/control of, on the belief that leaving them to private capital (domestic or foreign) would be either insufficient in scale or contrary to national developmental priorities.
+    </div>
+    <h4>Major milestones of public sector expansion</h4>
+    <table>
+      <caption>Table 6.1 — Key nationalization/public sector milestones</caption>
+      <thead><tr><th>Year</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>1955</td><td>Imperial Bank of India nationalized/reconstituted into the <strong>State Bank of India</strong></td></tr>
+        <tr><td>1956</td><td>Life Insurance Corporation (LIC) formed by nationalizing private insurers</td></tr>
+        <tr><td>1969</td><td><strong>Nationalization of 14 major commercial banks</strong> (a further 6 in 1980) — aimed at redirecting credit toward priority sectors (agriculture, small industry) rather than only large urban industrial borrowers</td></tr>
+        <tr><td>1973</td><td>Coal mines nationalized</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Bank nationalization (1969, 1980) is one of the most tested public-sector milestones — remember it was explicitly justified on <strong>"social control"/priority-sector lending</strong> grounds (extending credit to agriculture and small-scale industry, previously underserved by private banks focused on large urban clients), not simply ideological state expansion for its own sake.
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — STRAINS</div>
+    <h2 class="sec-title">Crises of the Planning Era</h2>
+    <ul>
+      <li><strong>Slow ("Hindu rate of") growth</strong> — average growth of only ~3.5% for decades, widely attributed to over-regulation, licensing inefficiency, and limited competition (see National Income notes)</li>
+      <li><strong>Recurrent Balance of Payments pressures</strong> — import-substitution strategy still required importing capital goods/technology and, periodically, food (before the Green Revolution), straining scarce foreign exchange; the 1966 devaluation was one notable episode</li>
+      <li><strong>Fiscal deficits widening</strong> through the 1980s, financed increasingly by borrowing (including external commercial borrowing), building unsustainable debt-service obligations</li>
+      <li><strong>Inefficiency of the public sector</strong> — many public sector enterprises ran chronic losses, absorbing further fiscal resources rather than generating surpluses for reinvestment</li>
+      <li><strong>"Licence-Permit-Quota Raj"</strong> criticised for stifling competition, discouraging efficiency, and creating rent-seeking opportunities</li>
+    </ul>
+    <div class="box warn">
+      <div class="label">The road to 1991</div>
+      By the late 1980s, India was running twin deficits — rising fiscal deficits domestically and a worsening current account — financed increasingly through external borrowing, setting the stage for the acute 1991 Balance of Payments crisis (Section 8).
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>The New Economic Policy, 1991</h2></div>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — THE TRIGGER</div>
+    <h2 class="sec-title">Background: The 1991 Balance of Payments Crisis</h2>
+    <h4>Proximate causes</h4>
+    <ul>
+      <li><strong>Gulf War (1990-91)</strong> — sharp oil price spike raised India's import bill; remittances from Indian workers in the Gulf region also disrupted</li>
+      <li>Years of <strong>fiscal profligacy</strong> and mounting external commercial borrowing through the 1980s had left India with a heavy external debt-service burden</li>
+      <li>Political instability (frequent changes of government in the late 1980s-early 1990s) undermined investor confidence</li>
+      <li><strong>Foreign exchange reserves collapsed</strong> to a critical level — reportedly enough to cover only about <strong>two to three weeks of imports</strong> by mid-1991</li>
+      <li>India's <strong>sovereign credit rating was downgraded</strong>, making fresh external borrowing even harder/costlier</li>
+    </ul>
+    <div class="box warn">
+      <div class="label">The gold pledge</div>
+      In an extraordinary, widely-cited emergency measure, India <strong>physically pledged a portion of its gold reserves</strong> (transported to the Bank of England and the Union Bank of Switzerland) in 1991 to raise emergency foreign exchange loans and avert a sovereign default — a powerful symbol of just how severe the crisis had become.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The "reserves down to about two weeks of imports" and "gold pledged abroad" facts are near-guaranteed exam reference points for the severity of the 1991 crisis — remember the trigger was a <strong>Balance of Payments/external sector</strong> crisis, not primarily a domestic banking or currency crisis in the way some other countries' reform episodes were triggered.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — THE FRAMEWORK</div>
+    <h2 class="sec-title">New Economic Policy, 1991: The LPG Framework</h2>
+    <div class="box definition">
+      <div class="label">New Economic Policy (NEP), 1991</div>
+      A sweeping package of structural reforms launched under Prime Minister <strong>P.V. Narasimha Rao</strong> and Finance Minister <strong>Dr. Manmohan Singh</strong> (with technocratic input including from the IMF/World Bank as a condition of the emergency loan), marking a decisive shift away from the planning-era mixed-economy model toward <strong>market-oriented reform</strong> — commonly summarised by the acronym <strong>LPG</strong>.
+    </div>
+    <table>
+      <caption>Table 9.1 — The three pillars of LPG</caption>
+      <thead><tr><th>Pillar</th><th>Core idea</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Liberalization</strong></td><td>Dismantling the Licence-Permit-Quota Raj — abolishing industrial licensing for most industries, removing many restrictions on private investment and production decisions</td></tr>
+        <tr><td><strong>Privatization</strong></td><td>Reducing the role/scope of the public sector — disinvestment (partial sale of government equity) in public sector enterprises, opening previously reserved sectors to private participation</td></tr>
+        <tr><td><strong>Globalization</strong></td><td>Opening the economy to international trade and capital flows — reducing tariffs, easing restrictions on foreign investment (FDI/FII), integrating India more closely into world markets</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "New Economic Policy" (capital letters, a specific named 1991 policy package) should not be confused with generic "new economic policies" in other contexts — in Indian usage, especially in CUET PG-level questions, NEP almost always refers specifically to the 1991 reforms.
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — INDUSTRIAL REFORM</div>
+    <h2 class="sec-title">Industrial Policy, 1991</h2>
+    <ul>
+      <li><strong>Abolition of industrial licensing</strong> for all but a very short list of industries (initially retained for reasons of security, strategic concern, or environmental hazard — e.g., defence equipment, certain hazardous chemicals)</li>
+      <li><strong>Drastic reduction in the list of industries reserved exclusively for the public sector</strong> — from 17 industries (under earlier policy) down to a handful (initially 8, later reduced further over subsequent years)</li>
+      <li><strong>Automatic approval for foreign investment/technology agreements</strong> up to specified equity limits in many industries, replacing case-by-case government clearance</li>
+      <li><strong>MRTP Act (Monopolies and Restrictive Trade Practices Act) restrictions eased</strong> — removing the requirement for large firms ("MRTP companies") to seek special government permission before expanding capacity</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — EXTERNAL SECTOR</div>
+    <h2 class="sec-title">Trade &amp; Exchange Rate Reforms</h2>
+    <ul>
+      <li><strong>Rupee devaluation</strong> (in two steps, July 1991) to correct overvaluation and improve export competitiveness</li>
+      <li>Gradual transition from a fixed/managed exchange rate toward a more <strong>market-determined exchange rate</strong> — the Liberalized Exchange Rate Management System (LERMS, 1992) introduced a dual/partial convertibility mechanism, followed by full <strong>current account convertibility</strong> of the rupee by 1994</li>
+      <li>Substantial <strong>reduction in import tariffs</strong> — peak customs duty rates cut sharply over subsequent years from very high (over 200% in some cases) levels</li>
+      <li><strong>Removal of most quantitative restrictions (QRs)</strong> on imports over time</li>
+      <li>Liberalization of rules for <strong>Foreign Direct Investment (FDI)</strong> and <strong>Foreign Institutional Investment (FII)</strong>, allowing much greater foreign capital participation than the pre-1991 regime permitted</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — FINANCIAL &amp; FISCAL REFORM</div>
+    <h2 class="sec-title">Financial Sector &amp; Fiscal Reforms</h2>
+    <ul>
+      <li><strong>Narasimham Committee (1991, and again 1998)</strong> recommendations on banking sector reform — reducing statutory pre-emptions (CRR/SLR), strengthening prudential norms (capital adequacy, income recognition/asset classification), and greater operational autonomy for banks</li>
+      <li>Capital market reforms — establishment of <strong>SEBI (Securities and Exchange Board of India)</strong> with statutory powers (1992) as an independent capital market regulator, following the Harshad Mehta securities scam, which itself became a symbol of the risks of an unreformed, poorly-supervised financial system</li>
+      <li>Gradual <strong>fiscal consolidation</strong> efforts — reducing the fiscal deficit as a share of GDP, reducing/rationalising subsidies (though only partially and gradually, given political sensitivities), broadening the tax base and simplifying tax structures (reduction of peak income tax rates, moves toward a more rationalised indirect tax structure — a process that would eventually culminate much later in the Goods and Services Tax, GST, 2017)</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      SEBI's establishment (1988 administratively, given statutory powers in 1992) is often linked directly to the <strong>Harshad Mehta stock market scam (1992)</strong> — a useful cause-effect pairing for exam answers connecting financial-sector reform to a specific triggering event.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — ASSESSMENT</div>
+    <h2 class="sec-title">Assessing the NEP: Gains &amp; Criticisms</h2>
+    <table>
+      <caption>Table 13.1 — The balanced assessment</caption>
+      <thead><tr><th>Argued gains</th><th>Argued criticisms/limitations</th></tr></thead>
+      <tbody>
+        <tr><td>Sharp acceleration in GDP growth over subsequent decades (from ~3.5-5.5% to 6-9% ranges in various periods)</td><td>Growth has often been criticised as <strong>less employment-intensive</strong> ("jobless growth" debates) — see the Occupational Structure notes on the structural transformation puzzle</td></tr>
+        <tr><td>Sharp rise in foreign exchange reserves and resilience to subsequent external shocks (contrast the comfortable reserve position in later crises with the 1991 near-default)</td><td>Rising inequality debates — growth benefits perceived as unevenly distributed across regions, sectors, and income groups</td></tr>
+        <tr><td>Growth of globally competitive Indian firms in IT/services and some manufacturing sectors</td><td>Agriculture was comparatively neglected in the reform agenda for years, contributing to continued agrarian distress in various periods</td></tr>
+        <tr><td>Consumer choice/product availability expanded dramatically (end of chronic shortages typical of the licence-raj era)</td><td>Public sector reform/disinvestment proceeded slowly and unevenly compared to original ambitions; many loss-making PSUs persisted for decades</td></tr>
+        <tr><td>India's greater integration into and resilience within the global economy</td><td>Increased exposure to global financial volatility (capital flow reversals, contagion risk) as a cost of greater openness</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A well-rounded answer on "assess the impact of the NEP" should avoid a purely celebratory or purely critical tone — the expected structure is usually: acknowledge the clear <strong>growth acceleration and crisis-resilience gains</strong>, while noting genuine, still-debated concerns about <strong>employment intensity, inequality, and the incomplete nature</strong> of public-sector and agricultural reform.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Era</th><th>Core policy framework</th><th>Defining institution/event</th><th>Dominant weakness that ended it</th></tr></thead>
+      <tbody>
+        <tr><td>Colonial (pre-1947)</td><td>Extraction, free trade imperialism</td><td>Home Charges, Drain of Wealth</td><td>Political independence</td></tr>
+        <tr><td>Planning era (1950-1991)</td><td>Mixed economy, import substitution, licence raj</td><td>Planning Commission, Industrial Policy Resolution 1956, bank nationalization (1969)</td><td>Fiscal indiscipline + BoP crisis (1991)</td></tr>
+        <tr><td>Post-1991 (NEP/LPG)</td><td>Liberalization, Privatization, Globalization</td><td>Industrial Policy 1991, rupee devaluation, SEBI (1992)</td><td>(Ongoing — debates on inclusivity, employment intensity)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — QUICK REVISION</div>
+    <h2 class="sec-title">Concept &amp; Timeline Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Planning Commission established</div>1950</div>
+      <div class="box formula"><div class="label">First Five Year Plan</div>1951-56</div>
+      <div class="box formula"><div class="label">Mahalanobis Strategy</div>Second Plan, 1956-61 — heavy industry priority</div>
+      <div class="box formula"><div class="label">Industrial Policy Resolution</div>1948 &amp; 1956 (Schedules A/B/C)</div>
+      <div class="box formula"><div class="label">Bank nationalization</div>1969 (14 banks) &amp; 1980 (6 more)</div>
+      <div class="box formula"><div class="label">SBI formed</div>1955 (from Imperial Bank of India)</div>
+      <div class="box formula"><div class="label">1991 crisis trigger</div>Gulf War oil shock + fiscal/external debt buildup</div>
+      <div class="box formula"><div class="label">Gold pledge</div>1991 — Bank of England &amp; UBS</div>
+      <div class="box formula"><div class="label">NEP 1991 architects</div>PM P.V. Narasimha Rao, FM Dr. Manmohan Singh</div>
+      <div class="box formula"><div class="label">Rupee devaluation</div>Two-step, July 1991</div>
+      <div class="box formula"><div class="label">SEBI statutory powers</div>1992, post Harshad Mehta scam</div>
+      <div class="box formula"><div class="label">Rupee current account convertibility</div>1994</div>
+      <div class="box formula"><div class="label">Narasimham Committee</div>1991 &amp; 1998 — banking reform</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Independence changed political control, not overnight structure</span>
+      <span class="chip">Mahalanobis: capital goods first, consumer goods later</span>
+      <span class="chip">Bank nationalization = priority-sector lending rationale</span>
+      <span class="chip">1991: reserves ~2-3 weeks of imports</span>
+      <span class="chip">LPG = Liberalization + Privatization + Globalization</span>
+      <span class="chip">Industries reserved for public sector: 17 → 8 → fewer</span>
+      <span class="chip">SEBI (1992) ← Harshad Mehta scam</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. The "Mahalanobis Strategy" refers to the priority given to: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Consumer goods industries &nbsp; (b) <strong>Basic and heavy (capital goods) industries</strong> &nbsp; (c) Agricultural exports &nbsp; (d) Small-scale/cottage industry exclusively<br><br>
+      <span class="correct">Answer: (b)</span> — adopted in the Second Five Year Plan (1956-61).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Which Industrial Policy Resolution classified industries into Schedules A, B, and C? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1948 &nbsp; (b) <strong>1956</strong> &nbsp; (c) 1977 &nbsp; (d) 1991<br><br>
+      <span class="correct">Answer: (b)</span> — the Industrial Policy Resolution of 1956, the foundational statement of India's socialistic mixed-economy pattern.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. The primary justification for bank nationalization in 1969 was: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) To eliminate all private banking entirely &nbsp; (b) <strong>To redirect credit toward priority sectors like agriculture and small industry, previously underserved by private banks</strong> &nbsp; (c) To increase foreign investment in banking &nbsp; (d) To reduce government control over credit<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. The immediate trigger for the 1991 Balance of Payments crisis included: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) A stock market crash &nbsp; (b) <strong>The Gulf War oil price shock, combined with years of fiscal and external debt buildup</strong> &nbsp; (c) A sudden trade surplus &nbsp; (d) Bank nationalization<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. In 1991, India's foreign exchange reserves fell to a level sufficient to cover approximately: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Six months of imports &nbsp; (b) One year of imports &nbsp; (c) <strong>Two to three weeks of imports</strong> &nbsp; (d) Five years of imports<br><br>
+      <span class="correct">Answer: (c)</span> — reflecting the severity of the crisis, which led to the pledging of gold reserves abroad.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. "LPG" in the context of India's 1991 reforms stands for: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Liquid Petroleum Gas policy &nbsp; (b) <strong>Liberalization, Privatization, Globalization</strong> &nbsp; (c) Land, Planning, Growth &nbsp; (d) Licence, Permit, Grant<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. SEBI was granted statutory regulatory powers in 1992, largely in response to: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) The Gulf War &nbsp; (b) <strong>The Harshad Mehta securities/stock market scam</strong> &nbsp; (c) Bank nationalization &nbsp; (d) The Green Revolution<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. Which of the following is a genuine "continuity" from the colonial to the independent Indian economy, rather than a change? <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Centralized Five Year Plans &nbsp; (b) <strong>A workforce still overwhelmingly concentrated in low-productivity agriculture</strong> &nbsp; (c) End of the Home Charges &nbsp; (d) Abolition of zamindari in law<br><br>
+      <span class="correct">Answer: (b)</span> — a structural feature that persisted well beyond 1947 despite policy changes.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. The Industrial Policy of 1991 reduced the number of industries reserved exclusively for the public sector from 17 to approximately: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 15 &nbsp; (b) <strong>8</strong> &nbsp; (c) 0 &nbsp; (d) 25<br><br>
+      <span class="correct">Answer: (b)</span> — later reduced further in subsequent years.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. A commonly cited criticism of India's post-1991 growth is that it has been: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Too slow compared to the pre-1991 period &nbsp; (b) <strong>Relatively less employment-intensive ("jobless growth" concerns)</strong> &nbsp; (c) Entirely agriculture-led &nbsp; (d) Free of any inequality concerns<br><br>
+      <span class="correct">Answer: (b)</span> — connecting to the broader structural transformation debate covered in the Occupational Structure notes.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. Full current account convertibility of the Indian rupee was achieved in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1991 &nbsp; (b) 1992 &nbsp; (c) <strong>1994</strong> &nbsp; (d) 2000<br><br>
+      <span class="correct">Answer: (c)</span> — following the transitional LERMS mechanism introduced in 1992.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. The Narasimham Committee's recommendations primarily addressed reform in which sector? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Agriculture &nbsp; (b) <strong>Banking and the financial sector</strong> &nbsp; (c) Railways &nbsp; (d) Education<br><br>
+      <span class="correct">Answer: (b)</span> — recommendations delivered in 1991 and again in 1998.</div>
+    </details>
+  </section>
+
+  <footer>
+    Changes &amp; Continuities, Government and Fiscal Policy, and the New Economic Policy — CUET PG Indian Economy Notes · Compiled for exam preparation · Companion to the colonial-era Indian Economic History notes. Sources: Planning Commission historical records, Industrial Policy Resolutions (1948, 1956, 1991), Narasimham Committee Reports, RBI/MoF accounts of the 1991 crisis and reforms, standard Indian economy textbooks (Uma Kapila, Ruddar Datt &amp; K.P.M. Sundharam).
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

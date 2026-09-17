@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Economics — CUET PG Economics Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.82rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.5rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.8rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.9rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.83rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Public Economics</div>
+  <div class="toc-sub">CUET PG · Public Finance</div>
+  <ol>
+    <div class="part-label">Part A — Public Goods &amp; Market Failure</div>
+    <li><a href="#s1">Public vs Private Goods: Classification</a></li>
+    <li><a href="#s2">The Free Rider Problem</a></li>
+    <li><a href="#s3">Externalities Recap</a></li>
+    <div class="part-label">Part B — Government Budget</div>
+    <li><a href="#s4">Structure of the Government Budget</a></li>
+    <li><a href="#s5">Types of Budget Balance</a></li>
+    <div class="part-label">Part C — Deficits &amp; Debt</div>
+    <li><a href="#s6">Measures of Deficit</a></li>
+    <li><a href="#s7">Deficit Financing</a></li>
+    <li><a href="#s8">Public Debt: Internal &amp; External</a></li>
+    <li><a href="#s9">Debt Sustainability &amp; the Debt Trap</a></li>
+    <div class="part-label">Part D — Fiscal Federalism in India</div>
+    <li><a href="#s10">Constitutional Framework</a></li>
+    <li><a href="#s11">The Finance Commission</a></li>
+    <li><a href="#s12">GST Council &amp; Cooperative Federalism</a></li>
+    <li><a href="#s13">Vertical &amp; Horizontal Fiscal Imbalance</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s14">Master Comparison Table</a></li>
+    <li><a href="#s15">Formula Sheet</a></li>
+    <li><a href="#s16">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">PUBLIC FINANCE / PUBLIC ECONOMICS</div>
+    <h1>Public Economics: Goods, Externalities, Budget, Deficits, Debt &amp; Fiscal Federalism</h1>
+    <p class="lede">Why does the market fail to provide some goods at all? How is a government budget structured, and what do its many deficit measures actually mean? When does public debt become unsustainable? And how does India divide fiscal powers and resources between the Centre and the States?</p>
+    <div class="tags">
+      <span class="tag">Free Rider Problem</span><span class="tag">Fiscal &amp; Revenue Deficit</span><span class="tag">Finance Commission</span>
+      <span class="tag">GST Council</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Public Goods &amp; Market Failure</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — CLASSIFICATION</div>
+    <h2 class="sec-title">Public vs Private Goods: The Classification</h2>
+    <p class="lead-p">Goods are classified along two independent dimensions — <strong>rivalry</strong> (does one person's consumption reduce what's available to others?) and <strong>excludability</strong> (can non-payers be prevented from consuming it?) — giving a four-way matrix.</p>
+
+    <table>
+      <caption>Table 1.1 — The four-way goods classification matrix</caption>
+      <thead><tr><th></th><th>Excludable</th><th>Non-Excludable</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rivalrous</strong></td><td><strong>Private Goods</strong> — food, clothing, a haircut</td><td><strong>Common Pool Resources</strong> — ocean fish stocks, groundwater, open grazing land</td></tr>
+        <tr><td><strong>Non-Rivalrous</strong></td><td><strong>Club Goods</strong> — cable TV, a toll road (uncongested), a private park with membership</td><td><strong>Pure Public Goods</strong> — national defence, lighthouse, street lighting, clean air (locally)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box definition">
+      <div class="label">Rivalry (Rivalrousness)</div>
+      One person's consumption of a unit of the good <strong>reduces</strong> the quantity available for others (e.g., eating an apple).
+    </div>
+    <div class="box definition">
+      <div class="label">Excludability</div>
+      It is <strong>possible (at reasonable cost) to prevent</strong> someone who hasn't paid from consuming the good (e.g., a locked cinema requiring a ticket).
+    </div>
+    <div class="box definition">
+      <div class="label">Pure Public Good</div>
+      A good that is both <strong>non-rivalrous</strong> (one person's consumption doesn't diminish another's) and <strong>non-excludable</strong> (impossible/very costly to prevent anyone from consuming it once provided) — e.g., national defence, a lighthouse's beam, street lighting, basic scientific research.
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="200" y1="30" x2="200" y2="270" stroke="#22303F" stroke-width="1.4"/>
+        <line x1="60" y1="150" x2="520" y2="150" stroke="#22303F" stroke-width="1.4"/>
+        <text x="20" y="90" font-size="11" fill="#22303F" transform="rotate(-90 20,90)">Rivalrous</text>
+        <text x="20" y="240" font-size="11" fill="#22303F" transform="rotate(-90 20,240)">Non-Rivalrous</text>
+        <text x="130" y="20" font-size="11" fill="#22303F" text-anchor="middle">Excludable</text>
+        <text x="360" y="20" font-size="11" fill="#22303F" text-anchor="middle">Non-Excludable</text>
+        <text x="130" y="90" font-size="12" fill="#7C2E2E" text-anchor="middle" font-weight="600">Private Goods</text>
+        <text x="130" y="108" font-size="10" fill="#7C2E2E" text-anchor="middle">food, clothing</text>
+        <text x="360" y="90" font-size="12" fill="#A9793B" text-anchor="middle" font-weight="600">Common Pool</text>
+        <text x="360" y="108" font-size="10" fill="#A9793B" text-anchor="middle">fisheries, groundwater</text>
+        <text x="130" y="220" font-size="12" fill="#3E5C76" text-anchor="middle" font-weight="600">Club Goods</text>
+        <text x="130" y="238" font-size="10" fill="#3E5C76" text-anchor="middle">cable TV, toll roads</text>
+        <text x="360" y="220" font-size="12" fill="#2C6E64" text-anchor="middle" font-weight="600">Pure Public Goods</text>
+        <text x="360" y="238" font-size="10" fill="#2C6E64" text-anchor="middle">defence, lighthouse</text>
+      </svg>
+      <figcaption>Fig 1.1 — The two-dimensional classification of goods, by rivalry and excludability.</figcaption>
+    </div>
+
+    <h4>Two key properties of pure public goods</h4>
+    <ul>
+      <li><strong>Non-rivalry</strong> implies the marginal cost of serving one more person is <strong>zero</strong> — efficiency requires a zero (or near-zero) price, which conflicts with the need to fund provision through some payment mechanism</li>
+      <li><strong>Non-excludability</strong> means the market <strong>cannot exclude non-payers</strong>, so private firms have no way to charge for it profitably — hence the market <strong>under-provides or fails to provide it at all</strong></li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A common trap: not everything the <em>government</em> provides is a "public good" in the technical sense (e.g., a government-run hospital bed is <strong>rivalrous and excludable</strong> — a private-good-like service merely provided by the state for equity reasons). Conversely, some privately-run goods are technically public goods (a privately-funded fireworks display, freely visible to all, is non-rivalrous and non-excludable). The classification is about the good's inherent economic characteristics, not who provides it.
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — THE FREE RIDER PROBLEM</div>
+    <h2 class="sec-title">The Free Rider Problem &amp; Provision of Public Goods</h2>
+    <div class="box definition">
+      <div class="label">Free Rider Problem</div>
+      Because non-excludability prevents charging non-payers, each individual has an incentive to <strong>understate their true willingness to pay</strong> (or not pay at all) for a public good, hoping to enjoy it anyway once others fund its provision — leading to systematic <strong>under-provision</strong> relative to the socially efficient quantity, if left entirely to private/voluntary contribution.
+    </div>
+    <div class="box formula">
+      <div class="label">Efficient provision condition for a public good (Samuelson condition)</div>
+      Σ MRS<sub>i</sub> = MRT &nbsp;&nbsp;— the <strong>sum</strong> of all individuals' marginal rates of substitution (willingness to pay) for the public good must equal the marginal rate of transformation (marginal cost of provision)
+    </div>
+    <p class="small">Contrast with private goods, where efficiency requires <em>each individual's</em> MRS = MRT (price) separately — for public goods, since everyone consumes the same unit simultaneously (non-rivalry), their willingnesses-to-pay are <strong>added vertically</strong>, not chosen individually at a common price.</p>
+    <h4>Why government provision is the standard solution</h4>
+    <ul>
+      <li>The state can fund provision through <strong>compulsory taxation</strong>, bypassing the free-rider problem inherent in voluntary payment</li>
+      <li>Alternative/partial solutions: club arrangements (converting non-excludable goods into excludable "club goods" via technology, e.g., subscription/paywall models), social norms and community-based provision (in small groups, per Elinor Ostrom's work on common-pool resource management), and Coasean private bargaining in small-numbers cases</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Samuelson condition (Σ MRS = MRT) is one of the most important formula-based distinctions in this topic — remember it contrasts directly with the private-good efficiency condition from General Equilibrium (MRS = MRT for each individual), covered in the Market Structures &amp; Welfare notes.
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — EXTERNALITIES</div>
+    <h2 class="sec-title">Externalities: Quick Recap in the Public Economics Frame</h2>
+    <p class="small">Externalities were covered in depth in the "Market Structures &amp; General Equilibrium, Efficiency and Welfare" notes (Section 16) — this section recaps the core points as they apply specifically to public economics and government intervention.</p>
+    <div class="box definition">
+      <div class="label">Externality</div>
+      A cost or benefit affecting a third party, not reflected in market prices — <strong>negative</strong> (pollution) or <strong>positive</strong> (education, vaccination).
+    </div>
+    <table>
+      <caption>Table 3.1 — Government correction tools</caption>
+      <thead><tr><th>Tool</th><th>Used for</th><th>Mechanism</th></tr></thead>
+      <tbody>
+        <tr><td>Pigouvian Tax</td><td>Negative externality</td><td>Per-unit tax = marginal external cost, shifting MPC to MSC</td></tr>
+        <tr><td>Pigouvian Subsidy</td><td>Positive externality</td><td>Per-unit subsidy = marginal external benefit, shifting MPB to MSB</td></tr>
+        <tr><td>Coase Theorem (private bargaining)</td><td>Either type, with well-defined property rights &amp; low transaction costs</td><td>Affected parties bargain directly to the efficient outcome</td></tr>
+        <tr><td>Regulation/Quotas, Tradable Permits</td><td>Negative externality, especially large-scale (e.g., emissions)</td><td>Direct quantity limits, or a capped, tradable permit market</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Externalities and public goods are both classic forms of <strong>market failure</strong> justifying government intervention — but they are <strong>conceptually distinct</strong>: an externality is a spillover from an otherwise normal (rival, excludable) transaction; a public good's non-provision stems from its own inherent non-rivalry/non-excludability, with no "normal" private transaction to spill over from in the first place.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>The Government Budget</h2></div>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — BUDGET STRUCTURE</div>
+    <h2 class="sec-title">Structure of the Government Budget (Indian Framework)</h2>
+    <div class="box definition">
+      <div class="label">Government Budget</div>
+      An annual financial statement of the government's estimated receipts and expenditure for the coming fiscal year (in India, April-March), presented to Parliament under Article 112 of the Constitution (termed the "Annual Financial Statement").
+    </div>
+    <table>
+      <caption>Table 4.1 — The two-part budget structure</caption>
+      <thead><tr><th></th><th>Revenue Budget</th><th>Capital Budget</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Receipts</strong></td><td><strong>Revenue Receipts</strong>: Tax revenue (income tax, GST, customs, excise) + Non-tax revenue (interest receipts, dividends/profits from PSUs, fees) — do <strong>not</strong> create a liability or reduce an asset</td><td><strong>Capital Receipts</strong>: Market borrowings, recovery of loans, disinvestment proceeds — <strong>do</strong> either create a liability (borrowing) or reduce an asset (disinvestment, loan recovery)</td></tr>
+        <tr><td><strong>Expenditure</strong></td><td><strong>Revenue Expenditure</strong>: Day-to-day/consumption spending — salaries, pensions, interest payments, subsidies — does <strong>not</strong> create an asset</td><td><strong>Capital Expenditure</strong>: Spending that creates an asset or reduces a liability — infrastructure, machinery, loans given out, defence equipment</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The test for classifying any budget item: does it <strong>create/reduce an asset or liability</strong>? If yes → Capital item. If no (routine, consumption-like) → Revenue item. Interest <em>payments</em> are revenue expenditure (routine, no asset created), but a <em>loan given out</em> by the government is capital expenditure (creates a financial asset — the right to future repayment).
+    </div>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — BUDGET BALANCE</div>
+    <h2 class="sec-title">Types of Budget Balance</h2>
+    <table>
+      <caption>Table 5.1 — Balanced, surplus, and deficit budgets</caption>
+      <thead><tr><th>Type</th><th>Condition</th><th>Implication</th></tr></thead>
+      <tbody>
+        <tr><td>Balanced Budget</td><td>Total Receipts = Total Expenditure</td><td>No net borrowing requirement; classical/conservative fiscal ideal, rarely achieved in modern practice</td></tr>
+        <tr><td>Surplus Budget</td><td>Total Receipts &gt; Total Expenditure</td><td>Government saves; can be used to pay down existing debt; rare, sometimes used to cool an overheating economy</td></tr>
+        <tr><td>Deficit Budget</td><td>Total Expenditure &gt; Total Receipts</td><td>Government must borrow to finance the gap; the norm for most modern economies, especially developing ones with large investment needs</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>Deficits &amp; Public Debt</h2></div>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — DEFICIT MEASURES</div>
+    <h2 class="sec-title">Measures of Deficit — The Full Family</h2>
+    <table>
+      <caption>Table 6.1 — The deficit hierarchy (India-specific terminology)</caption>
+      <thead><tr><th>Deficit measure</th><th>Formula</th><th>What it captures</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Revenue Deficit</strong></td><td>Revenue Expenditure − Revenue Receipts</td><td>Government is unable to cover even its routine/consumption spending from current income — has to borrow just to meet day-to-day expenses (widely seen as fiscally unhealthy)</td></tr>
+        <tr><td><strong>Fiscal Deficit</strong></td><td>Total Expenditure − Total Receipts (excluding borrowings)</td><td>The government's <strong>total borrowing requirement</strong> for the year — the single most-watched deficit indicator</td></tr>
+        <tr><td><strong>Primary Deficit</strong></td><td>Fiscal Deficit − Interest Payments</td><td>The borrowing requirement <strong>excluding the burden of past debt</strong> — isolates the deficit generated by the current year's fiscal decisions alone</td></tr>
+        <tr><td><strong>Effective Revenue Deficit</strong></td><td>Revenue Deficit − Grants for Creation of Capital Assets</td><td>A refinement recognising that some "revenue expenditure" (grants to states for capital projects) still creates real assets, even though classified as revenue spending</td></tr>
+        <tr><td><strong>Monetized Deficit</strong></td><td>Portion of the deficit financed by borrowing directly from the RBI (money creation)</td><td>Historically important (pre-1997 "ad hoc Treasury Bills" system in India); largely discontinued as a formal mechanism after 1997</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="30" width="520" height="40" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.2"/>
+        <text x="300" y="55" text-anchor="middle" font-size="13" fill="#7C2E2E" font-weight="600">Fiscal Deficit (Total borrowing requirement)</text>
+        <rect x="40" y="90" width="380" height="40" fill="#F1E5CE" stroke="#A9793B" stroke-width="1.2"/>
+        <text x="230" y="115" text-anchor="middle" font-size="13" fill="#A9793B" font-weight="600">Primary Deficit</text>
+        <rect x="420" y="90" width="140" height="40" fill="#E2E8EF" stroke="#3E5C76" stroke-width="1.2"/>
+        <text x="490" y="115" text-anchor="middle" font-size="12" fill="#3E5C76">Interest Payments</text>
+        <text x="300" y="160" text-anchor="middle" font-size="11" fill="#22303F">Fiscal Deficit = Primary Deficit + Interest Payments</text>
+        <text x="300" y="185" text-anchor="middle" font-size="11" fill="#22303F">Revenue Deficit ⊂ part of Fiscal Deficit funding routine expenditure shortfall</text>
+      </svg>
+      <figcaption>Fig 6.1 — Fiscal Deficit decomposed into Primary Deficit (current-year decisions) and Interest Payments (legacy of past borrowing).</figcaption>
+    </div>
+
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      <strong>Primary Deficit = 0</strong> means the government is borrowing <em>exactly enough</em> to cover interest on past debt — i.e., it has stabilised new net borrowing at zero for current operations, even though the Fiscal Deficit remains positive (equal to interest payments). This is a classic numerical/conceptual trap.
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — FINANCING</div>
+    <h2 class="sec-title">Deficit Financing</h2>
+    <table>
+      <caption>Table 7.1 — How governments finance a fiscal deficit</caption>
+      <thead><tr><th>Method</th><th>Mechanism</th><th>Key risk</th></tr></thead>
+      <tbody>
+        <tr><td>Market borrowing (domestic)</td><td>Issuing government bonds/securities (G-Secs) purchased by banks, institutions, individuals</td><td>Can "crowd out" private investment by raising interest rates / absorbing loanable funds</td></tr>
+        <tr><td>External borrowing</td><td>Loans from foreign governments, multilateral institutions (World Bank, IMF), or international bond issuance</td><td>Exposes the country to exchange-rate risk and external payment obligations</td></tr>
+        <tr><td>Monetization (deficit financing via money creation)</td><td>Government borrows directly from the central bank, effectively "printing money"</td><td>Highly inflationary if used excessively; India moved away from automatic (ad hoc) monetization after 1997</td></tr>
+        <tr><td>Disinvestment / asset sales</td><td>One-off capital receipts from selling government equity/assets</td><td>Not a recurring/sustainable source; only a temporary bridge</td></tr>
+      </tbody>
+    </table>
+    <div class="box definition">
+      <div class="label">Crowding Out</div>
+      When government borrowing to finance its deficit raises interest rates (competing with private borrowers for loanable funds) or otherwise displaces private investment that would have occurred in the deficit's absence — a key argument against excessive reliance on domestic market borrowing.
+    </div>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — PUBLIC DEBT</div>
+    <h2 class="sec-title">Public Debt: Internal &amp; External</h2>
+    <table>
+      <caption>Table 8.1 — Internal vs external public debt</caption>
+      <thead><tr><th></th><th>Internal (Domestic) Debt</th><th>External Debt</th></tr></thead>
+      <tbody>
+        <tr><td>Lenders</td><td>Domestic banks, institutions, households (via G-Secs, small savings schemes)</td><td>Foreign governments, multilateral agencies, foreign bondholders</td></tr>
+        <tr><td>Currency denomination</td><td>Typically domestic currency (rupee)</td><td>Often foreign currency (dollar, yen, etc.) — exposes to exchange rate risk</td></tr>
+        <tr><td>Repayment burden</td><td>A transfer <strong>within</strong> the domestic economy (from taxpayers to bondholders) — does not directly reduce national resources, though it has distributional and crowding-out effects</td><td>A <strong>real resource outflow</strong> to foreigners — genuinely reduces resources available to the domestic economy</td></tr>
+        <tr><td>Share of India's total public debt</td><td>Overwhelmingly dominant (typically 90%+ of total public debt)</td><td>A comparatively small share, reflecting cautious, calibrated external borrowing policy since the 1991 crisis lesson</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A classic conceptual point: <strong>internal debt is a burden of redistribution</strong> (within the country, from future taxpayers to bondholders) while <strong>external debt is a burden of real resource transfer</strong> (claims by foreigners on domestic output) — this distinction is frequently tested, especially regarding why economists worry more, ceteris paribus, about rising external debt.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — SUSTAINABILITY</div>
+    <h2 class="sec-title">Debt Sustainability &amp; the Debt Trap</h2>
+    <div class="box formula">
+      <div class="label">Debt-GDP Ratio — the standard sustainability metric</div>
+      Debt-GDP Ratio = (Total Public Debt / GDP) × 100
+    </div>
+    <div class="box definition">
+      <div class="label">Debt Sustainability Condition (intuitive)</div>
+      Public debt is considered sustainable if the <strong>rate of GDP growth (g) exceeds the effective interest rate on debt (r)</strong> — under this condition, the debt-GDP ratio tends to stabilise or fall over time even with a modest ongoing primary deficit; if r &gt; g persistently, the debt-GDP ratio tends to explode.
+    </div>
+    <div class="box warn">
+      <div class="label">Debt Trap</div>
+      A situation where a government must borrow <strong>increasingly just to service (pay interest on) existing debt</strong> — new borrowing goes toward interest payments rather than productive investment, causing the debt burden to spiral upward in a self-reinforcing cycle, often necessitating painful fiscal adjustment or restructuring/default.
+    </div>
+    <h4>India's institutional response: the FRBM Act</h4>
+    <div class="box definition">
+      <div class="label">Fiscal Responsibility and Budget Management (FRBM) Act, 2003</div>
+      Institutionalised numerical targets for the fiscal deficit and (originally) the revenue deficit, aiming to enforce fiscal discipline and prevent unsustainable debt accumulation — targets and timelines have been revised several times (e.g., via subsequent FRBM Review Committees) in response to changing fiscal circumstances (including a formal "escape clause" allowing deviation during exceptional circumstances such as the COVID-19 pandemic).
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The <strong>r vs g comparison</strong> (interest rate vs growth rate) is a high-value, frequently tested sustainability condition — remember it in this simple, intuitive form even without deriving the full debt-dynamics equation.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part D</div><h2>Fiscal Federalism in India</h2></div>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — CONSTITUTIONAL FRAMEWORK</div>
+    <h2 class="sec-title">Constitutional Framework of Fiscal Federalism</h2>
+    <div class="box definition">
+      <div class="label">Fiscal Federalism</div>
+      The division of fiscal powers, responsibilities, and resources between different levels of government (Centre, States, and — under the 73rd/74th Amendments — local bodies) in a federal system.
+    </div>
+    <table>
+      <caption>Table 10.1 — Constitutional allocation of fiscal powers (illustrative)</caption>
+      <thead><tr><th>List</th><th>Examples of tax/subject allocation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Union List</strong></td><td>Income tax (non-agricultural), customs duties, corporation tax, GST on inter-state supply (IGST)</td></tr>
+        <tr><td><strong>State List</strong></td><td>Agricultural income tax, state excise (alcohol), stamp duty, land revenue, GST on intra-state supply (SGST)</td></tr>
+        <tr><td><strong>Concurrent List / Shared</strong></td><td>GST design itself is a landmark cooperative arrangement (CGST + SGST + IGST) jointly administered via the GST Council (Section 12)</td></tr>
+      </tbody>
+    </table>
+    <p class="small">A structural feature of India's fiscal federalism: <strong>revenue-raising powers are more centralised</strong> (the Centre collects a larger share of total tax revenue) while <strong>expenditure responsibilities are more decentralised</strong> (states bear larger responsibility for many welfare/development functions) — creating a built-in <strong>vertical fiscal imbalance</strong> (Section 13) that transfer mechanisms (Finance Commission, Centrally Sponsored Schemes) are designed to bridge.</p>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — FINANCE COMMISSION</div>
+    <h2 class="sec-title">The Finance Commission</h2>
+    <div class="box definition">
+      <div class="label">Finance Commission (Article 280)</div>
+      A constitutional body, <strong>appointed by the President every five years</strong> (or earlier if needed), whose primary role is to recommend the <strong>distribution of the net proceeds of central taxes between the Centre and the States (vertical devolution)</strong>, and the <strong>allocation of the states' share among individual states (horizontal devolution)</strong>, along with principles governing grants-in-aid.
+    </div>
+    <h4>Key functions</h4>
+    <ul>
+      <li>Recommends the <strong>vertical devolution</strong> ratio — what share of the central divisible pool of taxes goes to states as a whole</li>
+      <li>Recommends the <strong>horizontal devolution</strong> formula — how that state share is split among individual states, based on criteria such as population, income distance (how far a state's per capita income is below the highest), area, forest cover, demographic performance, and tax effort</li>
+      <li>Recommends principles for <strong>grants-in-aid</strong> to states in need of assistance (Article 275)</li>
+      <li>Reviews the finances of local bodies (Panchayats and Municipalities) and recommends measures to augment their resources</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The <strong>15th Finance Commission</strong> (chaired by N.K. Singh, recommendations covering 2021-22 to 2025-26) notably recommended a vertical devolution share of <strong>41% of the divisible pool</strong> to states (adjusted down slightly from the 14th Finance Commission's 42%, to account for the changed status of Jammu &amp; Kashmir into Union Territories) — a frequently tested current-affairs-adjacent fact. Always verify the currently applicable Finance Commission and its period closer to your exam, since a new Commission's recommendations may become relevant.
+    </div>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — GST COUNCIL</div>
+    <h2 class="sec-title">GST Council &amp; Cooperative Federalism</h2>
+    <div class="box definition">
+      <div class="label">GST Council (Article 279A)</div>
+      A constitutional body (established following the 101st Constitutional Amendment Act, 2016, which introduced GST) comprising the Union Finance Minister (Chairperson) and Finance/Revenue Ministers of every state, responsible for making recommendations on GST rates, exemptions, thresholds, and administration — the flagship modern institution of India's <strong>"cooperative federalism"</strong> approach.
+    </div>
+    <h4>Significance</h4>
+    <ul>
+      <li>Requires <strong>both Centre and States to cede some individual taxation autonomy</strong> in favour of a jointly-decided, harmonised indirect tax structure across the country</li>
+      <li>Voting structure gives the <strong>Centre one-third weightage</strong> and <strong>States collectively two-thirds weightage</strong>, with decisions requiring a three-fourths majority — designed so that neither the Centre alone nor a small subset of states can unilaterally dictate outcomes</li>
+      <li>Introduced a temporary <strong>GST compensation mechanism</strong> (cess-funded) to compensate states for revenue loss in GST's initial years — a recurring point of Centre-State friction, especially during the COVID-19 revenue shortfall period</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The GST Council is frequently cited as India's most significant recent institutional innovation in fiscal federalism — remember its <strong>voting weights</strong> (Centre 1/3, States 2/3 collectively) and its basis in <strong>Article 279A</strong>, added via the 101st Amendment.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — FISCAL IMBALANCE</div>
+    <h2 class="sec-title">Vertical &amp; Horizontal Fiscal Imbalance</h2>
+    <table>
+      <caption>Table 13.1 — Two distinct imbalance concepts</caption>
+      <thead><tr><th>Concept</th><th>Meaning</th><th>Corrective mechanism</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Vertical Fiscal Imbalance</strong></td><td>Mismatch between the Centre's greater revenue-raising capacity and the States' greater expenditure responsibilities</td><td>Tax devolution (Finance Commission), grants-in-aid, Centrally Sponsored Schemes</td></tr>
+        <tr><td><strong>Horizontal Fiscal Imbalance</strong></td><td>Disparities <strong>among states themselves</strong> in revenue-raising capacity and developmental needs (richer vs poorer states)</td><td>Finance Commission's horizontal devolution formula (weighted toward "income distance"/need-based criteria, favouring less-developed states)</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">The "income distance" tension</div>
+      Weighting devolution formulas toward poorer states (via the "income distance" criterion) is often criticised by wealthier, better-performing states as penalising fiscal responsibility and economic success — a recurring, politically sensitive tension in Finance Commission deliberations, and a good example of the equity-vs-incentive trade-off in transfer design.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Don't confuse the two imbalances: <strong>vertical</strong> is Centre-vs-States-as-a-whole; <strong>horizontal</strong> is state-vs-state. Both are addressed by the Finance Commission, but through <strong>different</strong> parts of its recommendations (the vertical share vs the horizontal distribution formula).
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Theme</th><th>Key concept/institution</th><th>Central distinction</th></tr></thead>
+      <tbody>
+        <tr><td>Goods classification</td><td>Rivalry × Excludability matrix</td><td>Private / Club / Common Pool / Pure Public goods</td></tr>
+        <tr><td>Public good provision</td><td>Free rider problem, Samuelson condition</td><td>Σ MRS = MRT (public) vs individual MRS = MRT (private)</td></tr>
+        <tr><td>Externalities</td><td>Pigouvian tax/subsidy, Coase theorem</td><td>Negative → over-production; Positive → under-production</td></tr>
+        <tr><td>Budget structure</td><td>Revenue vs Capital Budget</td><td>Does the item create/reduce an asset or liability?</td></tr>
+        <tr><td>Deficit measures</td><td>Revenue, Fiscal, Primary, Effective Revenue, Monetized</td><td>Fiscal = Primary + Interest; Revenue Deficit = routine spending shortfall</td></tr>
+        <tr><td>Public debt</td><td>Internal vs External</td><td>Redistribution burden (internal) vs real resource transfer (external)</td></tr>
+        <tr><td>Debt sustainability</td><td>r vs g; FRBM Act, 2003</td><td>g &gt; r → sustainable; r &gt; g → debt trap risk</td></tr>
+        <tr><td>Fiscal federalism</td><td>Finance Commission (Art. 280), GST Council (Art. 279A)</td><td>Vertical devolution (Centre-States) vs Horizontal devolution (State-State)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Public good efficiency (Samuelson)</div>Σ MRS<sub>i</sub> = MRT</div>
+      <div class="box formula"><div class="label">Revenue Deficit</div>Revenue Expenditure − Revenue Receipts</div>
+      <div class="box formula"><div class="label">Fiscal Deficit</div>Total Expenditure − Total Receipts (excl. borrowings)</div>
+      <div class="box formula"><div class="label">Primary Deficit</div>Fiscal Deficit − Interest Payments</div>
+      <div class="box formula"><div class="label">Effective Revenue Deficit</div>Revenue Deficit − Grants for Capital Asset Creation</div>
+      <div class="box formula"><div class="label">Debt-GDP Ratio</div>(Total Public Debt / GDP) × 100</div>
+      <div class="box formula"><div class="label">Sustainability condition</div>Sustainable if GDP growth rate (g) &gt; interest rate (r)</div>
+      <div class="box formula"><div class="label">GST Council voting</div>Centre: 1/3 weight &nbsp;|&nbsp; States (collectively): 2/3 weight</div>
+      <div class="box formula"><div class="label">15th Finance Commission</div>41% vertical devolution (2021-22 to 2025-26)</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Pure public good = non-rivalrous + non-excludable</span>
+      <span class="chip">Free rider problem → market under-provides public goods</span>
+      <span class="chip">Fiscal Deficit = Primary Deficit + Interest Payments</span>
+      <span class="chip">Internal debt = redistribution; External debt = real transfer</span>
+      <span class="chip">FRBM Act, 2003 — institutionalised deficit targets</span>
+      <span class="chip">Finance Commission every 5 years (Article 280)</span>
+      <span class="chip">GST Council: Article 279A, cooperative federalism</span>
+      <span class="chip">Vertical imbalance: Centre-States; Horizontal: State-State</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. A pure public good is characterised by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Rivalry and excludability &nbsp; (b) Rivalry but non-excludability &nbsp; (c) <strong>Non-rivalry and non-excludability</strong> &nbsp; (d) Excludability but non-rivalry<br><br>
+      <span class="correct">Answer: (c)</span> — e.g., national defence, street lighting.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. A congested toll road with metering technology to charge users is an example of a: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Pure public good &nbsp; (b) <strong>Club good (or, if congested, closer to a common pool resource)</strong> &nbsp; (c) Common pool resource only &nbsp; (d) Private good with no externality<br><br>
+      <span class="correct">Answer: (b)</span> — excludable via tolling; largely non-rivalrous unless congestion sets in.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. The efficient provision condition for a public good requires: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Each individual's MRS = MRT separately &nbsp; (b) <strong>The sum of all individuals' MRS = MRT</strong> &nbsp; (c) MRS = 0 for all individuals &nbsp; (d) MRT = 0<br><br>
+      <span class="correct">Answer: (b)</span> — the Samuelson condition, reflecting that all individuals consume the same unit simultaneously.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. If Fiscal Deficit equals Interest Payments exactly, then: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) Revenue Deficit is zero &nbsp; (b) <strong>Primary Deficit is zero</strong> &nbsp; (c) Total Expenditure is zero &nbsp; (d) The budget is in surplus<br><br>
+      <span class="correct">Answer: (b)</span> — since Primary Deficit = Fiscal Deficit − Interest Payments.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. Government expenditure on salaries and pensions is classified as: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Capital expenditure &nbsp; (b) <strong>Revenue expenditure</strong> &nbsp; (c) Capital receipts &nbsp; (d) Revenue receipts<br><br>
+      <span class="correct">Answer: (b)</span> — routine spending that does not create an asset.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. Compared to internal public debt, external public debt is generally considered more concerning because: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) It is always larger in absolute size &nbsp; (b) <strong>It represents a real transfer of domestic resources to foreigners, rather than a purely internal redistribution</strong> &nbsp; (c) It cannot be measured &nbsp; (d) It is illegal in most countries<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. Public debt is generally considered sustainable when: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) The interest rate on debt exceeds the GDP growth rate &nbsp; (b) <strong>The GDP growth rate exceeds the interest rate on debt</strong> &nbsp; (c) The debt is entirely external &nbsp; (d) The primary deficit is always positive and rising<br><br>
+      <span class="correct">Answer: (b)</span> — the g &gt; r condition.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. The Finance Commission is constituted under which Article of the Indian Constitution? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Article 275 &nbsp; (b) <strong>Article 280</strong> &nbsp; (c) Article 279A &nbsp; (d) Article 112<br><br>
+      <span class="correct">Answer: (b)</span> — Article 275 deals with grants-in-aid; Article 279A established the GST Council; Article 112 requires the Annual Financial Statement (Budget).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. In the GST Council's voting structure: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) The Centre has two-thirds weightage &nbsp; (b) <strong>The Centre has one-third weightage and all states collectively have two-thirds</strong> &nbsp; (c) Each state and the Centre have exactly equal individual votes &nbsp; (d) Only the Centre votes<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. "Vertical fiscal imbalance" in Indian fiscal federalism refers to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Disparities between richer and poorer states &nbsp; (b) <strong>The mismatch between the Centre's greater revenue-raising power and the States' greater expenditure responsibilities</strong> &nbsp; (c) A budget deficit within a single state &nbsp; (d) The gap between fiscal and revenue deficit<br><br>
+      <span class="correct">Answer: (b)</span> — contrasted with "horizontal" imbalance, which is state-vs-state.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. Which Act institutionalised numerical fiscal deficit targets in India? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) GST Act, 2017 &nbsp; (b) <strong>FRBM Act, 2003</strong> &nbsp; (c) FEMA, 1999 &nbsp; (d) SEBI Act, 1992<br><br>
+      <span class="correct">Answer: (b)</span> — the Fiscal Responsibility and Budget Management Act.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. The Pigouvian tax is a policy tool used to correct: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) A free rider problem in public goods &nbsp; (b) <strong>A negative externality, by raising private cost to match social cost</strong> &nbsp; (c) A vertical fiscal imbalance &nbsp; (d) An unsustainable debt-GDP ratio<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+  </section>
+
+  <footer>
+    Public Economics — CUET PG Economics Notes · Compiled for exam preparation · Companion to the "Market Structures &amp; General Equilibrium, Efficiency and Welfare" and Indian Economy notes. Sources: Samuelson's public goods theory, Finance Commission reports (14th &amp; 15th), Constitution of India (Articles 112, 275, 279A, 280), FRBM Act 2003, RBI/MoF public debt statistics, standard public finance textbooks.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

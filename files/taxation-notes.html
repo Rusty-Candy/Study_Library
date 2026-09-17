@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taxation: Effects, Incidence &amp; Optimal Taxation — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:260px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.05rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.72rem; color:var(--ink-soft); margin-bottom:18px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:2px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.87rem; padding:6px 8px 6px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.6rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:680px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  section.block{padding:38px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.9rem; margin:0 0 6px;}
+  h3{font-size:1.28rem; margin:1.6em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.02rem; margin:1.3em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.05rem; color:var(--ink-soft); max-width:680px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:18px 20px; margin:18px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.95rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.75rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  caption{text-align:left; font-size:.8rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.82rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.85rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.7rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block{padding:28px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Taxation</div>
+  <div class="toc-sub">CUET PG · Public Finance</div>
+  <ol>
+    <li><a href="#s1">Purposes &amp; Canons of Taxation</a></li>
+    <li><a href="#s2">Classification of Taxes</a></li>
+    <li><a href="#s3">Economic Effects of Taxation</a></li>
+    <li><a href="#s4">Excess Burden / Deadweight Loss</a></li>
+    <li><a href="#s5">Determinants of Deadweight Loss</a></li>
+    <li><a href="#s6">Tax Incidence: Statutory vs Economic</a></li>
+    <li><a href="#s7">Incidence &amp; Elasticity</a></li>
+    <li><a href="#s8">Specific vs Ad Valorem Taxes</a></li>
+    <li><a href="#s9">Equity: Horizontal, Vertical &amp; Principles</a></li>
+    <li><a href="#s10">The Efficiency-Equity Trade-off</a></li>
+    <li><a href="#s11">Optimal Commodity Taxation: Ramsey Rule</a></li>
+    <li><a href="#s12">Optimal Income Taxation</a></li>
+    <li><a href="#s13">The Laffer Curve</a></li>
+    <li><a href="#s14">Master Comparison Table</a></li>
+    <li><a href="#s15">Formula Sheet</a></li>
+    <li><a href="#s16">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">PUBLIC FINANCE · UNIT: TAXATION</div>
+    <h1>Taxation: Effects, Deadweight Loss, Incidence &amp; Optimal Design</h1>
+    <p class="lede">Why does every tax cost society more than the revenue it raises? Who really bears a tax's burden — and does it depend on who legally pays it? How should a government balance efficiency against fairness? And what does economic theory say about the "best" way to design a tax system?</p>
+    <div class="tags">
+      <span class="tag">Deadweight Loss</span><span class="tag">Tax Incidence</span><span class="tag">Ramsey Rule</span>
+      <span class="tag">Horizontal &amp; Vertical Equity</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FOUNDATIONS</div>
+    <h2 class="sec-title">Purposes &amp; Canons of Taxation</h2>
+    <h4>Why governments tax</h4>
+    <ul>
+      <li><strong>Revenue generation</strong> — the primary purpose, funding public goods and government functions</li>
+      <li><strong>Redistribution</strong> — progressive taxation to reduce income/wealth inequality</li>
+      <li><strong>Resource allocation / correcting market failure</strong> — Pigouvian taxes on negative externalities, discouraging demerit goods (tobacco, alcohol)</li>
+      <li><strong>Economic stabilisation</strong> — counter-cyclical fiscal policy tool (raising/lowering tax rates to manage aggregate demand)</li>
+      <li><strong>Protecting domestic industry</strong> — via customs duties</li>
+    </ul>
+
+    <h4>Adam Smith's Canons of Taxation (1776)</h4>
+    <table>
+      <caption>Table 1.1 — The four classical canons</caption>
+      <thead><tr><th>Canon</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Canon of Equity</strong></td><td>Tax burden should be distributed fairly, in proportion to ability to pay</td></tr>
+        <tr><td><strong>Canon of Certainty</strong></td><td>The amount, timing, and manner of tax payment should be clear and predictable, not arbitrary</td></tr>
+        <tr><td><strong>Canon of Convenience</strong></td><td>Taxes should be collected at a time/manner most convenient for the taxpayer</td></tr>
+        <tr><td><strong>Canon of Economy</strong></td><td>Cost of collection should be minimal relative to revenue raised</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Later economists added further canons: <strong>Canon of Productivity</strong> (should yield sufficient revenue), <strong>Canon of Elasticity</strong> (should be flexible to changing needs), <strong>Canon of Simplicity</strong>, and <strong>Canon of Diversity</strong> (a mix of tax sources, not overreliance on one).</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — CLASSIFICATION</div>
+    <h2 class="sec-title">Classification of Taxes</h2>
+    <table>
+      <caption>Table 2.1 — Direct vs Indirect taxes</caption>
+      <thead><tr><th></th><th>Direct Tax</th><th>Indirect Tax</th></tr></thead>
+      <tbody>
+        <tr><td>Definition</td><td>Levied on and paid directly by the person/entity on whom it is imposed (income, wealth)</td><td>Levied on goods/services; burden can be shifted to another party (e.g., from seller to buyer)</td></tr>
+        <tr><td>Incidence &amp; impact</td><td>Impact and incidence fall on the <strong>same</strong> person — cannot be shifted</td><td>Impact (initial payment) and incidence (final burden) can fall on <strong>different</strong> people</td></tr>
+        <tr><td>Examples</td><td>Income tax, corporate tax, wealth tax</td><td>GST, excise duty, customs duty</td></tr>
+        <tr><td>Equity</td><td>Can be made progressive — generally considered more equitable</td><td>Often regressive in effect (same rate regardless of income) unless carefully designed with exemptions</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>Table 2.2 — By rate structure</caption>
+      <thead><tr><th>Type</th><th>Definition</th><th>Effect on burden as income rises</th></tr></thead>
+      <tbody>
+        <tr><td>Progressive</td><td>Tax rate rises as the tax base (income) rises</td><td>Higher earners pay a larger <em>percentage</em> of income</td></tr>
+        <tr><td>Proportional</td><td>A constant tax rate regardless of income level</td><td>Same percentage burden at all income levels</td></tr>
+        <tr><td>Regressive</td><td>Tax rate falls as income rises (in effective/relative terms)</td><td>Lower earners bear a larger percentage burden — e.g., a flat-rate tax on a necessity consumed by all</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — ECONOMIC EFFECTS</div>
+    <h2 class="sec-title">Economic Effects of Taxation</h2>
+    <p class="lead-p">Beyond simply transferring resources from taxpayers to the government, taxes change relative prices and incentives — altering behaviour across the economy.</p>
+    <table>
+      <caption>Table 3.1 — Behavioural channels affected by taxation</caption>
+      <thead><tr><th>Channel</th><th>Typical effect</th></tr></thead>
+      <tbody>
+        <tr><td>Production &amp; supply decisions</td><td>A tax on a good raises its effective marginal cost, reducing the quantity firms are willing to supply at any given price</td></tr>
+        <tr><td>Consumption decisions</td><td>A tax on a good raises its effective price to consumers, reducing quantity demanded and substituting toward untaxed alternatives</td></tr>
+        <tr><td>Savings &amp; investment</td><td>Taxes on interest/capital income reduce the after-tax return to saving, potentially discouraging saving and capital formation (though empirical responsiveness is debated)</td></tr>
+        <tr><td>Labour supply / work effort</td><td>High marginal income tax rates can discourage additional work effort (substitution effect toward leisure) — though offset by an income effect (working more to maintain target income) in some cases</td></tr>
+        <tr><td>Resource allocation</td><td>Differential tax treatment across sectors/goods distorts the allocation of resources away from what undistorted market prices would signal</td></tr>
+        <tr><td>Risk-taking &amp; entrepreneurship</td><td>High taxes on business profit/capital gains can reduce the after-tax reward to risk-taking, potentially discouraging entrepreneurial activity</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A key distinction: a <strong>lump-sum tax</strong> (a fixed amount, independent of any economic decision) does <em>not</em> distort behaviour at the margin, since it cannot be avoided by changing behaviour — this is why lump-sum taxes are the theoretical benchmark for "non-distortionary" taxation, even though they are rarely usable in practice (they cannot be made income-sensitive/progressive, and information constraints make personalised lump-sum taxes infeasible).
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — EXCESS BURDEN</div>
+    <h2 class="sec-title">Excess Burden / Deadweight Loss of Taxation</h2>
+    <div class="box definition">
+      <div class="label">Deadweight Loss (Excess Burden) of a Tax</div>
+      The loss of total economic surplus (consumer + producer surplus) caused by a tax, <strong>over and above</strong> the revenue the tax actually raises for the government. It represents transactions that would have been mutually beneficial (efficient) but no longer occur because the tax distorts the price signal.
+    </div>
+    <p>A tax drives a <strong>wedge</strong> between the price buyers pay and the price sellers receive — output falls below the efficient (no-tax) equilibrium quantity, eliminating trades where the buyer's willingness to pay still exceeded the seller's cost, purely because of the tax wedge.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="520" y2="300" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="300" x2="60" y2="30" stroke="#22303F" stroke-width="1.5"/>
+        <text x="526" y="304" font-size="12" fill="#22303F">Q</text>
+        <text x="35" y="24" font-size="12" fill="#22303F">Price</text>
+        <!-- demand -->
+        <line x1="90" y1="50" x2="460" y2="270" stroke="#3E5C76" stroke-width="2.2"/>
+        <text x="466" y="272" font-size="12" fill="#3E5C76" font-style="italic">D</text>
+        <!-- supply -->
+        <line x1="90" y1="260" x2="460" y2="70" stroke="#2C6E64" stroke-width="2.2"/>
+        <text x="466" y="68" font-size="12" fill="#2C6E64" font-style="italic">S</text>
+        <!-- original equilibrium -->
+        <circle cx="275" cy="160" r="4" fill="#22303F"/>
+        <line x1="275" y1="160" x2="275" y2="300" stroke="#8B93A1" stroke-dasharray="2 2"/>
+        <text x="265" y="316" font-size="10" fill="#8B93A1">Q*</text>
+        <!-- after tax: new quantity Qt < Q*, price to buyer Pb above, price to seller Ps below -->
+        <line x1="220" y1="300" x2="220" y2="120" stroke="#A9793B" stroke-dasharray="3 3"/>
+        <text x="205" y="316" font-size="10" fill="#A9793B">Qt</text>
+        <circle cx="220" cy="120" r="4" fill="#7C2E2E"/>
+        <text x="150" y="115" font-size="10" fill="#7C2E2E">Pb (buyer pays)</text>
+        <line x1="60" y1="120" x2="220" y2="120" stroke="#7C2E2E" stroke-dasharray="2 2"/>
+        <circle cx="220" cy="200" r="4" fill="#2C6E64"/>
+        <text x="150" y="215" font-size="10" fill="#2C6E64">Ps (seller receives)</text>
+        <line x1="60" y1="200" x2="220" y2="200" stroke="#2C6E64" stroke-dasharray="2 2"/>
+        <!-- Tax revenue rectangle -->
+        <path d="M 60 120 L 220 120 L 220 200 L 60 200 Z" fill="#A9793B" opacity="0.18"/>
+        <text x="80" y="165" font-size="10" fill="#A9793B" font-weight="600">Tax Revenue</text>
+        <!-- DWL triangle -->
+        <path d="M 220 120 L 220 200 L 275 160 Z" fill="#7C2E2E" opacity="0.3"/>
+        <text x="225" y="150" font-size="10" fill="#7C2E2E" font-weight="600">DWL</text>
+      </svg>
+      <figcaption>Fig 4.1 — A per-unit tax creates a wedge (Pb − Ps = tax) and reduces quantity from Q* to Qt. The shaded rectangle is government tax revenue; the shaded triangle is the Deadweight Loss — surplus lost to society with no offsetting gain to anyone.</figcaption>
+    </div>
+
+    <div class="box formula">
+      <div class="label">DWL formula (approximation, linear demand/supply)</div>
+      DWL ≈ ½ × (Tax per unit) × (Reduction in quantity traded)
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The deadweight loss triangle is sometimes called the <strong>"Harberger Triangle,"</strong> after Arnold Harberger, who pioneered empirical estimation of excess burden — a useful named reference for exam recall.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — WHAT DRIVES DWL</div>
+    <h2 class="sec-title">Determinants of Deadweight Loss</h2>
+    <div class="box formula">
+      <div class="label">Key relationship</div>
+      Deadweight Loss <strong>increases with the square of the tax rate</strong> — doubling a tax rate roughly <strong>quadruples</strong> the deadweight loss, holding elasticities constant. Deadweight loss also rises with the <strong>price elasticities</strong> of demand and supply.
+    </div>
+    <ul>
+      <li><strong>Higher elasticity (demand or supply) → larger DWL</strong> — the more responsive buyers/sellers are to the price wedge, the more the quantity traded shrinks, and the bigger the loss of mutually beneficial trades</li>
+      <li><strong>Perfectly inelastic demand or supply → zero DWL</strong> — if quantity doesn't respond to the tax at all, no efficient trades are lost; the tax is purely a transfer, not a source of inefficiency (though it still affects who receives the surplus — see incidence, Section 6)</li>
+      <li><strong>Higher tax rate → disproportionately larger DWL</strong> — because DWL depends on the tax rate <em>squared</em>, small taxes create relatively little distortion, but distortion accelerates rapidly as rates rise</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This "DWL rises with the square of the tax rate" result underlies a common <strong>public finance policy prescription</strong>: it is generally more efficient to levy <strong>small taxes on many goods</strong> than one very high tax on a single good, all else equal — a rationale connected directly to Ramsey optimal taxation (Section 11).
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — WHO REALLY PAYS</div>
+    <h2 class="sec-title">Tax Incidence: Statutory vs Economic Incidence</h2>
+    <div class="box definition">
+      <div class="label">Statutory (Legal) Incidence</div>
+      Who is <strong>legally responsible</strong> for remitting the tax to the government (e.g., the law says the seller must pay a per-unit excise tax).
+    </div>
+    <div class="box definition">
+      <div class="label">Economic Incidence</div>
+      Who <strong>actually bears the real burden</strong> of the tax, in terms of reduced welfare/purchasing power — determined by how the tax-induced price change is shared between buyers and sellers in the market, <strong>regardless of who is legally required to pay it</strong>.
+    </div>
+    <div class="box warn">
+      <div class="label">The central insight</div>
+      Statutory and economic incidence <strong>need not coincide</strong> — a tax legally imposed on sellers can still be substantially (even mostly) borne by buyers in the form of higher prices, and vice versa. The <strong>market</strong>, not the law, ultimately determines who really pays.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "It doesn't matter, in terms of economic incidence, whether a tax is legally imposed on buyers or sellers — the market outcome (price paid, price received, quantity, and burden split) is identical either way" is a classic, frequently tested proposition, directly following from the fact that supply and demand curves (and hence equilibrium) depend only on the total tax wedge, not on which side of the market is nominally responsible for remitting it.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — THE ELASTICITY RULE</div>
+    <h2 class="sec-title">Incidence &amp; Elasticity: Who Bears the Burden?</h2>
+    <div class="box formula">
+      <div class="label">The Golden Rule of Tax Incidence</div>
+      The <strong>relatively more inelastic side of the market bears the greater share of the tax burden</strong>. The side that can more easily walk away from the transaction (more elastic) ends up bearing less of the burden.
+    </div>
+    <div class="box formula">
+      <div class="label">Burden-sharing ratio</div>
+      Burden on Buyers / Burden on Sellers = E<sub>s</sub> / E<sub>d</sub> &nbsp;&nbsp;(ratio of supply elasticity to demand elasticity, in absolute value)
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <line x1="30" y1="280" x2="270" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="280" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <text x="80" y="20" font-size="11" fill="#22303F" text-anchor="middle">Inelastic Demand</text>
+          <line x1="60" y1="50" x2="90" y2="260" stroke="#3E5C76" stroke-width="2.2"/>
+          <text x="95" y="255" font-size="10" fill="#3E5C76">D (steep)</text>
+          <line x1="60" y1="230" x2="240" y2="90" stroke="#2C6E64" stroke-width="2"/>
+          <text x="245" y="88" font-size="10" fill="#2C6E64">S</text>
+          <circle cx="130" cy="155" r="4" fill="#22303F"/>
+          <circle cx="90" cy="105" r="4" fill="#7C2E2E"/>
+          <circle cx="90" cy="215" r="4" fill="#2C6E64"/>
+          <line x1="30" y1="105" x2="90" y2="105" stroke="#7C2E2E" stroke-dasharray="2 2"/>
+          <line x1="30" y1="215" x2="90" y2="215" stroke="#2C6E64" stroke-dasharray="2 2"/>
+          <text x="8" y="290" font-size="9" fill="#22303F">Buyers bear most of the tax</text>
+        </g>
+        <g transform="translate(320,0)">
+          <line x1="30" y1="280" x2="270" y2="280" stroke="#22303F" stroke-width="1.3"/>
+          <line x1="30" y1="280" x2="30" y2="30" stroke="#22303F" stroke-width="1.3"/>
+          <text x="80" y="20" font-size="11" fill="#22303F" text-anchor="middle">Elastic Demand</text>
+          <line x1="60" y1="120" x2="240" y2="230" stroke="#3E5C76" stroke-width="2.2"/>
+          <text x="245" y="232" font-size="10" fill="#3E5C76">D (flat)</text>
+          <line x1="60" y1="230" x2="240" y2="90" stroke="#2C6E64" stroke-width="2"/>
+          <text x="245" y="88" font-size="10" fill="#2C6E64">S</text>
+          <circle cx="150" cy="167" r="4" fill="#22303F"/>
+          <circle cx="120" cy="180" r="4" fill="#7C2E2E"/>
+          <circle cx="120" cy="140" r="4" fill="#2C6E64"/>
+          <line x1="30" y1="180" x2="120" y2="180" stroke="#7C2E2E" stroke-dasharray="2 2"/>
+          <line x1="30" y1="140" x2="120" y2="140" stroke="#2C6E64" stroke-dasharray="2 2"/>
+          <text x="8" y="290" font-size="9" fill="#22303F">Sellers bear most of the tax</text>
+        </g>
+      </svg>
+      <figcaption>Fig 7.1 — Left: with inelastic demand (steep D), a tax's burden falls mostly on buyers (price rises close to the full tax amount). Right: with elastic demand (flat D), the burden shifts mostly onto sellers (price barely rises; sellers absorb most of the wedge).</figcaption>
+    </div>
+
+    <table>
+      <caption>Table 7.1 — Extreme cases</caption>
+      <thead><tr><th>Scenario</th><th>Incidence outcome</th></tr></thead>
+      <tbody>
+        <tr><td>Perfectly inelastic demand</td><td>Buyers bear <strong>100%</strong> of the tax; price rises by the full tax amount</td></tr>
+        <tr><td>Perfectly elastic demand</td><td>Sellers bear <strong>100%</strong> of the tax; price to buyers unchanged</td></tr>
+        <tr><td>Perfectly inelastic supply</td><td>Sellers bear <strong>100%</strong> of the tax (classic example: a tax on land, in fixed supply)</td></tr>
+        <tr><td>Perfectly elastic supply</td><td>Buyers bear <strong>100%</strong> of the tax</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The "tax on land" example (perfectly inelastic supply) is a classic illustration that <strong>sellers bear the full burden</strong> when supply cannot respond — this is also why economists often favour land-value taxation as relatively efficient (low/zero deadweight loss, since quantity supplied of land doesn't shrink in response).
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — TAX STRUCTURE</div>
+    <h2 class="sec-title">Specific vs Ad Valorem Taxes</h2>
+    <table>
+      <caption>Table 8.1 — Two ways to structure a commodity tax</caption>
+      <thead><tr><th></th><th>Specific Tax</th><th>Ad Valorem Tax</th></tr></thead>
+      <tbody>
+        <tr><td>Basis</td><td>A fixed amount per physical unit (e.g., ₹5 per litre)</td><td>A percentage of the price/value (e.g., 18% of price)</td></tr>
+        <tr><td>Effect on supply curve</td><td>Parallel upward shift (same absolute amount at every price)</td><td>Pivots the supply curve (proportional shift, larger absolute gap at higher prices)</td></tr>
+        <tr><td>Revenue behaviour with inflation</td><td>Erodes in real terms as prices rise (fixed nominal amount)</td><td>Automatically keeps pace with inflation (since it's a percentage of price)</td></tr>
+        <tr><td>Common use case</td><td>Excise duties on fuel, alcohol, tobacco (often to discourage quantity consumed regardless of price)</td><td>GST/VAT-type consumption taxes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — FAIRNESS</div>
+    <h2 class="sec-title">Equity Considerations: Horizontal, Vertical &amp; Guiding Principles</h2>
+    <div class="box definition">
+      <div class="label">Horizontal Equity</div>
+      Individuals in <strong>equal economic circumstances</strong> (equal income/ability to pay) should be taxed <strong>equally</strong> — "equals should be treated equally."
+    </div>
+    <div class="box definition">
+      <div class="label">Vertical Equity</div>
+      Individuals in <strong>different economic circumstances</strong> should be taxed <strong>differently</strong>, appropriately — typically meaning those with greater ability to pay should contribute proportionally more ("unequals should be treated unequally, in proportion to their differences").
+    </div>
+
+    <h4>Two competing principles for determining a "fair" tax</h4>
+    <table>
+      <caption>Table 9.1 — Ability-to-Pay vs Benefit Principle</caption>
+      <thead><tr><th>Principle</th><th>Basis</th><th>Example application</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ability-to-Pay Principle</strong></td><td>Tax burden should be linked to a person's <strong>economic capacity</strong> (income/wealth) to bear it, regardless of how much they personally benefit from government spending</td><td>Progressive income tax</td></tr>
+        <tr><td><strong>Benefit Principle</strong></td><td>Those who <strong>benefit more</strong> from a public good/service should pay more toward its cost — closer to a "user-pays" logic</td><td>Fuel taxes earmarked for road construction/maintenance; toll roads</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Benefit Principle runs into an obvious limitation for <strong>redistributive</strong> goals: if the poor benefit most from welfare spending, the Benefit Principle would suggest the poor should pay the most for it — the opposite of what most redistributive tax systems intend. This is why the Ability-to-Pay principle dominates modern income tax design, while the Benefit Principle survives mainly in specific "earmarked" user-fee-like taxes.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — THE CORE TENSION</div>
+    <h2 class="sec-title">The Efficiency-Equity Trade-off</h2>
+    <div class="box warn">
+      <div class="label">The fundamental tension</div>
+      Taxes that are most <strong>efficient</strong> (lowest deadweight loss — e.g., lump-sum taxes, or taxes on perfectly inelastic bases) are often the <strong>least equitable</strong> (a lump-sum "head tax" charges everyone the same amount regardless of income — highly regressive). Conversely, taxes designed to be most <strong>equitable</strong> (steeply progressive income taxes) tend to create larger behavioural distortions (on labour supply, saving, investment) and hence <strong>greater deadweight loss</strong>.
+    </div>
+    <p>Optimal tax design (Sections 11-12) is fundamentally about finding the best <strong>trade-off point</strong> along this efficiency-equity frontier, given a society's specific value judgements about the relative importance of fairness versus minimising economic distortion.</p>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This trade-off is the unifying theme connecting nearly every sub-topic in taxation theory — expect essay-style questions asking you to discuss this tension directly, using DWL (efficiency side) and horizontal/vertical equity or ability-to-pay (equity side) as your two anchor concepts.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — OPTIMAL COMMODITY TAXATION</div>
+    <h2 class="sec-title">Optimal Commodity Taxation: The Ramsey Rule</h2>
+    <div class="box definition">
+      <div class="label">The Problem Ramsey Solved (1927)</div>
+      Given that the government must raise a fixed amount of revenue through <strong>distortionary</strong> commodity taxes (lump-sum taxes being unavailable/infeasible), how should tax rates be set <strong>across different goods</strong> to minimise the <strong>total deadweight loss</strong>?
+    </div>
+    <div class="box formula">
+      <div class="label">The Ramsey Rule (Inverse Elasticity Rule)</div>
+      t<sub>i</sub> / t<sub>j</sub> = E<sub>j</sub> / E<sub>i</sub> &nbsp;&nbsp;— optimal tax rates should be set in <strong>inverse proportion</strong> to the price elasticity of demand for each good.
+    </div>
+    <p>Intuition: since DWL rises with elasticity (Section 5), minimising total DWL for a given revenue target means taxing <strong>inelastic goods more heavily</strong> (little quantity response, little distortion) and <strong>elastic goods more lightly</strong> (large quantity response, large distortion if taxed heavily).</p>
+
+    <table>
+      <caption>Table 11.1 — Illustrative application</caption>
+      <thead><tr><th>Good</th><th>Elasticity of demand</th><th>Ramsey-optimal tax rate</th></tr></thead>
+      <tbody>
+        <tr><td>Salt (a necessity)</td><td>Very low (inelastic)</td><td>Relatively <strong>high</strong> tax rate</td></tr>
+        <tr><td>Luxury cars</td><td>High (elastic)</td><td>Relatively <strong>low</strong> tax rate (from a pure efficiency standpoint)</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">The equity critique of pure Ramsey taxation</div>
+      A strict Ramsey approach conflicts sharply with equity — necessities like salt or basic food are disproportionately consumed (as a share of income) by the poor, so heavily taxing inelastic necessities would be highly <strong>regressive</strong>. Real-world tax design (e.g., GST's exemption/lower rates for essential goods) deliberately <strong>departs</strong> from pure Ramsey efficiency to protect equity — a direct illustration of the efficiency-equity trade-off (Section 10) in practice.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The Ramsey Rule is one of the highest-value formulas in this topic — expect it tested both as a direct formula/numerical question and as a conceptual question about why real-world tax systems (like GST) deliberately deviate from it for equity reasons.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — OPTIMAL INCOME TAXATION</div>
+    <h2 class="sec-title">Optimal Income Taxation</h2>
+    <div class="box definition">
+      <div class="label">The Mirrlees Problem (James Mirrlees, 1971)</div>
+      How should the government design an income tax schedule (rates at each income level) to <strong>maximise social welfare</strong>, given that: (i) it wants to redistribute from high-ability/high-income to low-ability/low-income individuals (equity), but (ii) it cannot directly observe individual "ability" — only observed income, which itself responds to the tax rate (people can adjust work effort) — creating an <strong>informational constraint</strong> on how much redistribution is achievable without excessive efficiency loss?
+    </div>
+    <h4>Key insights from optimal income tax theory</h4>
+    <ul>
+      <li>There is generally an <strong>optimal, finite top marginal tax rate</strong> — pushing the top rate toward 100% would eliminate the incentive to earn additional income at the top, undermining both efficiency and (perversely) the very revenue needed for redistribution</li>
+      <li>The <strong>shape</strong> of the optimal tax schedule (how marginal rates vary across the income distribution) depends on the underlying distribution of "ability" (income-earning potential) in the population and the social planner's specific equity preferences (how much weight is placed on the welfare of the poorest)</li>
+      <li>This is a much harder, more information-intensive problem than optimal commodity taxation (Ramsey), because it must simultaneously handle the <strong>self-selection/incentive-compatibility</strong> problem — a high-ability person could always choose to earn less and mimic a low-ability person to pay less tax, so the schedule must be designed so nobody wants to misrepresent their true ability</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Mirrlees's key, often-tested finding: the <strong>marginal tax rate at the very top of the income distribution</strong> should optimally be <strong>zero</strong> under certain theoretical assumptions (since there's no one above the top earner to redistribute from that person to, and a positive marginal rate there only distorts effort without any redistributive benefit) — a counter-intuitive result frequently contrasted with popular political intuitions about taxing the rich.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — REVENUE &amp; RATES</div>
+    <h2 class="sec-title">The Laffer Curve</h2>
+    <div class="box definition">
+      <div class="label">Laffer Curve</div>
+      A stylised relationship (popularised by economist Arthur Laffer) showing that tax <strong>revenue</strong> first <strong>rises</strong> and then <strong>falls</strong> as the tax rate increases beyond some point — because sufficiently high rates discourage the underlying economic activity (labour supply, production, or encourage evasion/avoidance) enough to shrink the tax base faster than the rate itself is rising.
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="480" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="486" y="264" font-size="12" fill="#22303F">Tax Rate (%)</text>
+        <text x="30" y="18" font-size="12" fill="#22303F">Tax Revenue</text>
+        <path d="M 60 260 C 180 60, 320 60, 460 250" fill="none" stroke="#7C2E2E" stroke-width="2.6"/>
+        <circle cx="270" cy="68" r="5" fill="#A9793B"/>
+        <text x="220" y="55" font-size="11" fill="#A9793B" font-weight="600">Revenue-maximising rate t*</text>
+        <text x="70" y="250" font-size="10" fill="#8B93A1">0%</text>
+        <text x="450" y="250" font-size="10" fill="#8B93A1">100%</text>
+      </svg>
+      <figcaption>Fig 13.1 — The Laffer Curve: revenue is zero at both a 0% tax rate (no tax collected) and a 100% tax rate (no incentive to earn taxable income at all), peaking at some intermediate revenue-maximising rate t*.</figcaption>
+    </div>
+    <div class="box warn">
+      <div class="label">A widely misused concept</div>
+      The Laffer Curve is a valid theoretical point (there exists <em>some</em> revenue-maximising rate), but its practical policy use is heavily debated — the actual shape and the location of t* depend enormously on the specific tax, the elasticity of the relevant tax base, and the country/context; it has often been invoked to justify tax cuts without robust evidence that a country was actually on the "downward-sloping" side of its curve.
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Concept</th><th>Core idea</th><th>Key formula/result</th></tr></thead>
+      <tbody>
+        <tr><td>Deadweight Loss</td><td>Efficiency cost of a tax beyond revenue raised</td><td>DWL ∝ tax rate², rises with elasticity</td></tr>
+        <tr><td>Tax Incidence</td><td>Who really bears the burden (≠ who legally pays)</td><td>More inelastic side bears more burden</td></tr>
+        <tr><td>Horizontal Equity</td><td>Equals taxed equally</td><td>—</td></tr>
+        <tr><td>Vertical Equity</td><td>Unequals taxed unequally, by ability</td><td>Progressive rate structure</td></tr>
+        <tr><td>Ramsey Rule</td><td>Optimal commodity tax minimises total DWL</td><td>t<sub>i</sub>/t<sub>j</sub> = E<sub>j</sub>/E<sub>i</sub> (inverse elasticity)</td></tr>
+        <tr><td>Mirrlees Optimal Income Tax</td><td>Balances redistribution against effort-distortion under informational constraints</td><td>Optimal top marginal rate is finite (theoretically even zero at the very top)</td></tr>
+        <tr><td>Laffer Curve</td><td>Revenue-rate relationship is non-monotonic</td><td>Revenue = 0 at both 0% and 100% rates</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — QUICK REVISION</div>
+    <h2 class="sec-title">Formula Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Deadweight Loss (approx.)</div>DWL ≈ ½ × Tax per unit × ΔQ</div>
+      <div class="box formula"><div class="label">DWL and tax rate</div>DWL rises with the <em>square</em> of the tax rate</div>
+      <div class="box formula"><div class="label">Incidence burden ratio</div>Burden(Buyers)/Burden(Sellers) = E<sub>s</sub>/E<sub>d</sub></div>
+      <div class="box formula"><div class="label">Ramsey (Inverse Elasticity) Rule</div>t<sub>i</sub>/t<sub>j</sub> = E<sub>j</sub>/E<sub>i</sub></div>
+      <div class="box formula"><div class="label">Perfectly inelastic demand/supply</div>100% burden falls on that (inelastic) side</div>
+      <div class="box formula"><div class="label">Lump-sum tax</div>No substitution effect ⇒ zero deadweight loss</div>
+      <div class="box formula"><div class="label">Laffer Curve</div>Revenue = 0 at t=0% and t=100%; maximised at some t*</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Statutory incidence ≠ economic incidence</span>
+      <span class="chip">More inelastic side bears more of the tax</span>
+      <span class="chip">Land tax: sellers bear 100% (perfectly inelastic supply)</span>
+      <span class="chip">Efficiency vs equity: a persistent trade-off</span>
+      <span class="chip">Ramsey: tax inelastic goods more (efficiency-only view)</span>
+      <span class="chip">GST exemptions on necessities = equity overriding Ramsey efficiency</span>
+      <span class="chip">Mirrlees: optimal top rate is finite, not 100%</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. The deadweight loss of a tax refers to: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) The total tax revenue collected &nbsp; (b) <strong>The loss of economic surplus beyond the tax revenue raised</strong> &nbsp; (c) The administrative cost of tax collection &nbsp; (d) The amount of tax evasion<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. If a good has perfectly inelastic demand, a per-unit tax on it will result in: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Sellers bearing the entire burden &nbsp; (b) <strong>Buyers bearing the entire burden, with zero deadweight loss</strong> &nbsp; (c) The tax having no effect on price &nbsp; (d) Maximum deadweight loss<br><br>
+      <span class="correct">Answer: (b)</span> — quantity doesn't change, so no efficient trades are lost, but price rises by the full tax amount.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. Doubling a tax rate, holding elasticities constant, will cause deadweight loss to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Double &nbsp; (b) Stay the same &nbsp; (c) <strong>Roughly quadruple</strong> &nbsp; (d) Fall to zero<br><br>
+      <span class="correct">Answer: (c)</span> — DWL rises with the square of the tax rate.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. Whether a per-unit tax is legally imposed on buyers or sellers: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Determines who bears the full economic burden &nbsp; (b) <strong>Does not affect the economic incidence — the market outcome is identical either way</strong> &nbsp; (c) Always means sellers bear more burden &nbsp; (d) Eliminates deadweight loss if imposed on sellers<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. A tax on land (in fixed supply) results in: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Buyers bearing the full burden &nbsp; (b) <strong>Sellers (landowners) bearing the full burden, with no deadweight loss</strong> &nbsp; (c) Maximum deadweight loss &nbsp; (d) No tax revenue at all<br><br>
+      <span class="correct">Answer: (b)</span> — perfectly inelastic supply means the burden falls entirely on sellers.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. "Horizontal equity" in taxation means: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Unequals should be taxed unequally &nbsp; (b) <strong>Individuals in equal economic circumstances should be taxed equally</strong> &nbsp; (c) All taxes should be indirect &nbsp; (d) Tax rates should rise with income<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. The Ramsey Rule states that optimal commodity tax rates should be set: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Equally across all goods &nbsp; (b) <strong>In inverse proportion to each good's price elasticity of demand</strong> &nbsp; (c) In direct proportion to elasticity of demand &nbsp; (d) Based only on the good's price level<br><br>
+      <span class="correct">Answer: (b)</span> — the inverse elasticity rule.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. A key criticism of applying the Ramsey Rule strictly in practice is that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) It would eliminate all tax revenue &nbsp; (b) <strong>It would tax necessities (often inelastic, disproportionately consumed by the poor) heavily, conflicting with equity goals</strong> &nbsp; (c) It only applies to income tax &nbsp; (d) It requires lump-sum taxation<br><br>
+      <span class="correct">Answer: (b)</span> — illustrating the efficiency-equity trade-off.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. According to Mirrlees's optimal income tax theory, the marginal tax rate at the very top of the income distribution should theoretically be: <span class="qmeta">Advanced</span></summary>
+      <div class="ans">(a) 100% &nbsp; (b) <strong>Zero (under certain standard assumptions)</strong> &nbsp; (c) Exactly equal to the average tax rate &nbsp; (d) Negative<br><br>
+      <span class="correct">Answer: (b)</span> — a well-known, counter-intuitive result from optimal income tax theory.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. The Laffer Curve illustrates that: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Tax revenue always rises as the tax rate rises &nbsp; (b) <strong>Tax revenue rises and then falls as the tax rate increases, being zero at both 0% and 100%</strong> &nbsp; (c) Deadweight loss is unrelated to the tax rate &nbsp; (d) Tax incidence is always on the seller<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. A lump-sum tax is considered efficient (non-distortionary) because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) It only applies to the rich &nbsp; (b) <strong>It cannot be avoided by changing behaviour, so it creates no substitution effect / deadweight loss</strong> &nbsp; (c) It raises no revenue &nbsp; (d) It is always progressive<br><br>
+      <span class="correct">Answer: (b)</span> — though it is rarely used in practice due to equity/feasibility concerns.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. An ad valorem tax, compared to a specific tax, has the advantage that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) It is always lower in amount &nbsp; (b) <strong>Its real revenue automatically keeps pace with inflation, since it is a percentage of price</strong> &nbsp; (c) It cannot be shifted to buyers &nbsp; (d) It eliminates deadweight loss<br><br>
+      <span class="correct">Answer: (b)</span> — a fixed specific tax erodes in real value as prices rise.</div>
+    </details>
+  </section>
+
+  <footer>
+    Taxation: Effects, Deadweight Loss, Incidence &amp; Optimal Taxation — CUET PG Economics Notes · Compiled for exam preparation · Sources: Adam Smith's Canons of Taxation, Frank Ramsey (1927), James Mirrlees (1971), Arnold Harberger's excess burden estimation, Arthur Laffer, standard public finance textbooks (Musgrave &amp; Musgrave, Stiglitz).
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

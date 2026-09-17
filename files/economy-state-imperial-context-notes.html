@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economy and State in the Imperial Context — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.82rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.4rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.06rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.85rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.debate{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.debate .label{font-weight:700; color:var(--slate); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.89rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.82rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Economy and State in the Imperial Context</div>
+  <div class="toc-sub">CUET PG · Indian Economic History</div>
+  <ol>
+    <div class="part-label">Part A — The Colonial State</div>
+    <li><a href="#s1">Nature of the Colonial State</a></li>
+    <li><a href="#s2">Public Finance: Revenue Structure</a></li>
+    <li><a href="#s3">Public Expenditure &amp; "Home Charges"</a></li>
+    <li><a href="#s4">Currency &amp; Exchange Rate Policy</a></li>
+    <div class="part-label">Part B — The Drain of Wealth</div>
+    <li><a href="#s5">The Drain of Wealth Theory</a></li>
+    <li><a href="#s6">Mechanisms of the Drain</a></li>
+    <li><a href="#s7">Critiques &amp; Counter-Critiques</a></li>
+    <div class="part-label">Part C — Trade &amp; Historiography</div>
+    <li><a href="#s8">Trade Policy: Free Trade Imperialism</a></li>
+    <li><a href="#s9">Nationalist vs Imperialist Historiography</a></li>
+    <li><a href="#s10">National Income &amp; Poverty Estimates</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s11">Master Comparison Table</a></li>
+    <li><a href="#s12">Concept &amp; Timeline Sheet</a></li>
+    <li><a href="#s13">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMIC HISTORY · COLONIAL PERIOD</div>
+    <h1>Economy and State in the Imperial Context</h1>
+    <p class="lede">How did the colonial state organise its finances, currency, and trade policy — and whose interests did it serve? The Drain of Wealth theory, the "Home Charges," the gold-exchange standard, free-trade imperialism, and the long-running historiographical battle between nationalist and imperialist interpretations of colonial economic policy.</p>
+    <div class="tags">
+      <span class="tag">Drain of Wealth</span><span class="tag">Home Charges</span><span class="tag">Gold Exchange Standard</span>
+      <span class="tag">Naoroji vs Morris D. Morris</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>The Colonial State's Economic Role</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — THE STATE'S CHARACTER</div>
+    <h2 class="sec-title">Nature of the Colonial State</h2>
+    <p class="lead-p">The colonial state in India was not a neutral, welfare-maximising government — it was an instrument primarily oriented toward securing <strong>British commercial, financial, and strategic interests</strong>, while sustaining itself through Indian revenues.</p>
+    <h4>Defining features</h4>
+    <ul>
+      <li><strong>Revenue-extractive orientation</strong> — the East India Company era (till 1858) in particular prioritised maximising land revenue collection to fund trade and administration</li>
+      <li><strong>Laissez-faire rhetoric, selective intervention in practice</strong> — free-trade ideology was preached (and largely enforced against Indian industry) even as the state actively intervened to protect British commercial and financial interests (railways guarantee, currency policy, selective tariffs favouring British goods)</li>
+      <li><strong>"Guardian" vs "extractive" state debate</strong> — imperialist historians framed the colonial state as a modernising, law-and-order-providing "guardian"; nationalist historians framed it as fundamentally extractive, structured to serve metropolitan (British) interests over Indian welfare</li>
+      <li>Shift over time from Company rule (mercantile extraction) → Crown rule post-1858 (more bureaucratic, "trusteeship" rhetoric) → gradual, limited economic concessions in the interwar period (discriminating protection, some fiscal autonomy debates) under nationalist political pressure</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A recurring framing question: was the colonial state's economic policy driven by <strong>ideology</strong> (classical free-trade economics, as its officials claimed) or by <strong>interest</strong> (protecting British capital and manufactures)? Most historians argue policy was selectively "free trade" — free trade was enforced when it suited British interests (crushing Indian handicrafts, Section on de-industrialization) and quietly abandoned when it didn't (tariff protection for British goods even within "discriminating protection," imperial preference).
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — PUBLIC FINANCE</div>
+    <h2 class="sec-title">Public Finance: Revenue Structure</h2>
+    <h4>Evolution of the colonial revenue base</h4>
+    <table>
+      <caption>Table 2.1 — Shifting composition of colonial state revenue over time</caption>
+      <thead><tr><th>Period</th><th>Dominant revenue source</th><th>Trend</th></tr></thead>
+      <tbody>
+        <tr><td>Early-to-mid 19th century</td><td><strong>Land revenue</strong></td><td>The single largest source for most of the colonial period — often 40-50%+ of total revenue in earlier decades</td></tr>
+        <tr><td>Late 19th century onward</td><td>Land revenue share gradually falls; <strong>customs, excise, salt tax</strong> and other indirect taxes rise</td><td>Reflects both growth of trade/commercialization and deliberate diversification of the tax base</td></tr>
+        <tr><td>Early 20th century</td><td>Introduction/expansion of <strong>income tax</strong> (from 1860, expanded later) alongside continuing land revenue &amp; customs</td><td>Slow but real diversification, still regressive overall (heavy reliance on indirect/consumption-linked taxes such as the salt tax, which fell disproportionately on the poor)</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">Regressivity of the colonial tax system</div>
+      Even as the revenue base diversified, the system remained <strong>regressive</strong> — reliance on land revenue (a near-fixed burden regardless of harvest outcome) and on indirect taxes like the <strong>salt tax</strong> (a necessity consumed by rich and poor alike) meant the tax burden fell disproportionately on the poorer, agrarian population, while income tax (a more progressive instrument) remained limited in coverage and rate for most of the period.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The <strong>salt tax</strong> is a recurring reference point — its regressive burden on the poorest Indians made it a powerful symbol of colonial fiscal injustice, most famously the target of Gandhi's <strong>Dandi Salt March (1930)</strong>, directly linking public finance history to the nationalist movement.
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — EXPENDITURE</div>
+    <h2 class="sec-title">Public Expenditure &amp; the "Home Charges"</h2>
+    <h4>Composition of colonial state expenditure</h4>
+    <ul>
+      <li><strong>Military expenditure</strong> — consistently one of the largest expenditure heads, including the cost of the Indian Army (used both for internal control and for British imperial campaigns <em>outside</em> India, with India often bearing costs disproportionate to its own defence needs)</li>
+      <li><strong>Civil administration</strong> — salaries and pensions of a largely British-staffed higher bureaucracy (the Indian Civil Service), at wage levels far above what an equivalent Indian administration would have cost</li>
+      <li>Comparatively <strong>low spending on social/developmental sectors</strong> — education, public health, and agricultural research received a small fraction of the budget relative to military and administrative costs</li>
+    </ul>
+    <div class="box definition">
+      <div class="label">"Home Charges"</div>
+      Payments made by the Government of India, in London, to the British government/British-based creditors and pensioners — covering items such as interest on India's public debt (much of it incurred for railway guarantees and other British-interest infrastructure), pensions and furlough payments to retired British officials, costs of the India Office in London, and purchase of stores/military equipment from Britain. These were a <strong>recurring, compulsory drain</strong> of resources out of India, paid regardless of India's own fiscal condition.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      "Home Charges" is one of the most important technical terms in this topic — it is the <strong>institutional/administrative channel</strong> through which the broader "Drain of Wealth" (Part B) was actually transferred out of India, so expect questions linking the two concepts directly.
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — MONETARY POLICY</div>
+    <h2 class="sec-title">Currency &amp; Exchange Rate Policy</h2>
+    <p class="lead-p">Colonial currency policy repeatedly prioritised the stability and predictability of the <strong>Home Charges' sterling value</strong> and British commercial/financial interests, often at real cost to the Indian economy.</p>
+
+    <table>
+      <caption>Table 4.1 — Evolution of India's currency regime</caption>
+      <thead><tr><th>Period/Event</th><th>Regime</th><th>Key issue</th></tr></thead>
+      <tbody>
+        <tr><td>Pre-1893</td><td><strong>Silver Standard</strong> (Rupee freely convertible to silver)</td><td>Global silver price decline (from the 1870s) caused the rupee to depreciate steadily against sterling — raising the rupee cost of fixed sterling Home Charges obligations</td></tr>
+        <tr><td>1893</td><td>Mints closed to free silver coinage (following <strong>Herschell Committee</strong> recommendations)</td><td>First step toward delinking the rupee from pure silver value, to stabilise the exchange rate</td></tr>
+        <tr><td>1898-99</td><td><strong>Fowler Committee</strong> recommends, and India moves toward, a <strong>Gold Exchange Standard</strong></td><td>Rupee pegged at a fixed sterling rate (1 Rupee = 1 shilling 4 pence) without actually circulating gold domestically — reserves held partly in gold/sterling securities in London</td></tr>
+        <tr><td>1920s</td><td><strong>Hilton Young Commission (Royal Commission on Indian Currency and Finance), 1926</strong></td><td>Recommended a new fixed rupee-sterling ratio (1 Rupee = 1 shilling 6 pence) and the establishment of a central bank (leading eventually to the Reserve Bank of India, 1935)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box debate">
+      <div class="label">The "Ratio Controversy"</div>
+      Fixing the rupee at 1s 6d (post-1926) rather than a lower rate was fiercely contested — Indian merchants, industrialists (especially exporters) and nationalist economists argued this <strong>overvalued</strong> the rupee, making Indian exports less competitive and imports (including British manufactures) cheaper, benefiting British exporters/financial interests at the cost of Indian producers. Colonial officials defended it as necessary for exchange stability and to protect the value of sterling-denominated obligations (Home Charges, debt service).
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Currency policy is a favourite "who recommended what" factual set: <strong>Herschell Committee (1893)</strong> → closing mints/silver standard exit; <strong>Fowler Committee (1898-99)</strong> → Gold Exchange Standard; <strong>Hilton Young Commission (1926)</strong> → 1s 6d ratio + recommended the RBI (established 1935, after the Commission's proposal was implemented with a delay).
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>The Drain of Wealth</h2></div>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — THE CENTRAL THESIS</div>
+    <h2 class="sec-title">The Drain of Wealth Theory</h2>
+    <div class="box definition">
+      <div class="label">Drain of Wealth Theory</div>
+      The argument, pioneered by <strong>Dadabhai Naoroji</strong> (in <em>Poverty and Un-British Rule in India</em>, 1901) and developed further by <strong>Romesh Chunder Dutt</strong> (in <em>The Economic History of India</em>, 1902-04), that a substantial part of India's wealth/national income was <strong>transferred to Britain without any equivalent economic or material return</strong> to India — a one-way, unrequited outflow, distinct from ordinary payment for goods/services received.
+    </div>
+    <h4>Why Naoroji called it a "drain" and not ordinary trade</h4>
+    <p>Naoroji distinguished the drain from normal international commerce: in a typical trade/investment relationship, a country either receives goods/services in exchange for its exports, or (for foreign investment) retains ownership and future earning capacity domestically. The colonial drain, by contrast, represented a continuous, structurally-embedded transfer for which <strong>India received nothing back</strong> — no goods, no reinvestment within India, no debt reduction — funding instead Britain's own capital accumulation, administration, and imperial expenses.</p>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — MECHANISMS</div>
+    <h2 class="sec-title">Mechanisms of the Drain</h2>
+    <table>
+      <caption>Table 6.1 — Channels through which the "drain" was said to occur</caption>
+      <thead><tr><th>Channel</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Home Charges</strong></td><td>Interest on India's public debt, pensions/furlough pay to retired British officials, India Office administrative costs in London, army/stores purchases in Britain — all payable in sterling from Indian revenues (Section 3)</td></tr>
+        <tr><td><strong>Salaries &amp; remittances of British officials/employees</strong></td><td>High salaries paid to British civil servants and employees of British firms in India, a large share of which was remitted/saved in Britain rather than spent/invested within India</td></tr>
+        <tr><td><strong>"Unrequited" exports</strong></td><td>India ran a large merchandise trade <strong>surplus</strong> for much of the colonial period, but this surplus was not used to import capital goods or build reserves for India's own benefit — instead it was absorbed by the Home Charges and other drain payments, meaning real resources (goods) left India without a corresponding real or financial return flowing back</td></tr>
+        <tr><td><strong>Profits of British capital invested in India</strong> (railways, plantations, trade, managing agencies)</td><td>Profits substantially repatriated to Britain rather than reinvested within the Indian economy</td></tr>
+        <tr><td><strong>Guaranteed returns to railway investors</strong></td><td>Guaranteed interest payments (Section 8 of previous topic) financed by Indian taxpayers, flowing to British shareholders</td></tr>
+      </tbody>
+    </table>
+
+    <div class="diagram">
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="40" width="200" height="70" rx="6" fill="#DCEBE6" stroke="#2C6E64" stroke-width="1.5"/>
+        <text x="160" y="80" text-anchor="middle" font-size="14" fill="#2C6E64" font-weight="600">India</text>
+        <text x="160" y="98" text-anchor="middle" font-size="10" fill="#2C6E64">(revenue, exports, taxes)</text>
+        <rect x="340" y="40" width="200" height="70" rx="6" fill="#F1DCDC" stroke="#7C2E2E" stroke-width="1.5"/>
+        <text x="440" y="80" text-anchor="middle" font-size="14" fill="#7C2E2E" font-weight="600">Britain</text>
+        <text x="440" y="98" text-anchor="middle" font-size="10" fill="#7C2E2E">(Home Charges, profits, salaries)</text>
+        <path d="M 262 65 L 338 65" stroke="#A9793B" stroke-width="3" fill="none" marker-end="url(#dm)"/>
+        <text x="270" y="55" font-size="10" fill="#A9793B">Continuous outflow</text>
+        <path d="M 338 100 L 262 100" stroke="#8B93A1" stroke-width="1.4" stroke-dasharray="4 3" fill="none"/>
+        <text x="270" y="120" font-size="10" fill="#8B93A1">No equivalent return flow</text>
+        <defs><marker id="dm" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A9793B"/></marker></defs>
+        <!-- list of channels below -->
+        <text x="160" y="160" font-size="11" fill="#22303F" text-anchor="middle" font-weight="600">Channels:</text>
+        <text x="160" y="182" font-size="10" fill="#3E5C76" text-anchor="middle">Home Charges · Official Salaries/Pensions</text>
+        <text x="160" y="202" font-size="10" fill="#3E5C76" text-anchor="middle">Repatriated Profits · Guaranteed Railway Interest</text>
+        <text x="160" y="222" font-size="10" fill="#3E5C76" text-anchor="middle">Unrequited Export Surplus</text>
+      </svg>
+      <figcaption>Fig 6.1 — Schematic of the "Drain of Wealth": a continuous, structurally embedded outflow of resources from India to Britain, without a matching return flow of goods, capital, or reinvestment.</figcaption>
+    </div>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — THE COUNTER-DEBATE</div>
+    <h2 class="sec-title">Critiques &amp; Counter-Critiques of the Drain Theory</h2>
+    <div class="box debate">
+      <div class="label">Imperialist/apologist critique</div>
+      Some colonial-era and later historians (e.g., associated with a broadly "imperialist" school) argued that Home Charges and remittances were legitimate <strong>payments for real services rendered</strong> — interest on genuinely useful infrastructure investment (railways), fair payment for administrative/military services that provided order and security, and that British capital/expertise brought real economic benefits (railways, irrigation, modern institutions) that more than offset the outflow.
+    </div>
+    <div class="box debate">
+      <div class="label">Nationalist rebuttal</div>
+      Naoroji, Dutt and later nationalist economists countered that: (i) India had <strong>no say</strong> in whether these "services" were needed or how much they should cost (an externally imposed, non-negotiated burden); (ii) the scale of military/administrative spending vastly exceeded India's own genuine security/administrative needs, reflecting imperial rather than Indian priorities; (iii) railway "returns" were guaranteed regardless of actual usefulness/profitability, making them a form of assured extraction rather than a market-tested investment.
+    </div>
+    <div class="box warn">
+      <div class="label">Measurement difficulties</div>
+      Quantifying the exact magnitude of the "drain" is methodologically difficult — how should one value "services" like administration or security? Should military expenditure used partly for British imperial purposes elsewhere (outside India) count entirely against India? These ambiguities mean drain estimates (Naoroji's and later scholars') vary considerably and remain contested, even though the broad structural argument is widely accepted by economic historians today.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A good exam answer typically doesn't just state "the drain existed" — it engages with <strong>both</strong> sides: acknowledging genuine infrastructure benefits (railways, some administrative order) while stressing that the terms, scale, and lack of Indian control over these "payments" is what made the arrangement exploitative/extractive rather than a mutually negotiated commercial relationship.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>Trade Policy &amp; the Historiographical Divide</h2></div>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — TRADE POLICY</div>
+    <h2 class="sec-title">Trade Policy: Free Trade Imperialism</h2>
+    <div class="box definition">
+      <div class="label">"Free Trade Imperialism"</div>
+      A term describing how 19th-century British colonial trade policy imposed <strong>free trade on India</strong> — removing India's own historic ability to protect its handicraft industries via tariffs — while Britain itself had used protectionist measures during its own earlier industrialization, and continued imposing tariffs on Indian goods (like textiles) entering Britain during the transition period. The "free trade" was thus asymmetric, serving British manufacturing interests rather than being a genuinely neutral policy.
+    </div>
+    <h4>Key features of colonial trade policy over time</h4>
+    <table>
+      <caption>Table 8.1 — Evolution of trade policy</caption>
+      <thead><tr><th>Period</th><th>Policy stance</th></tr></thead>
+      <tbody>
+        <tr><td>Early-to-mid 19th century</td><td>Near-total <strong>free trade</strong> imposed on India (low/no tariffs on British imports); Indian export tariffs to Britain remained comparatively high during the transitional early phase</td></tr>
+        <tr><td>Late 19th century (from 1894)</td><td>Limited revenue tariffs introduced (fiscal necessity), but paired with an <strong>excise duty on Indian cotton goods</strong> specifically to neutralise any protective effect and keep Indian mills from gaining an edge over Lancashire — a widely criticised move</td></tr>
+        <tr><td>Post-1919 (Montford Reforms) &amp; 1921-23</td><td>Growing <strong>fiscal autonomy</strong> conceded to India in principle; Indian Fiscal Commission (1921-22) recommends "discriminating protection"</td></tr>
+        <tr><td>From 1923</td><td><strong>Discriminating Protection</strong> era — selective tariffs for specific industries (see prior topic notes), still constrained by "Imperial Preference" clauses favouring British goods</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The <strong>1894 cotton excise duty</strong> is a classic, frequently tested fact — a countervailing excise imposed specifically on Indian-manufactured cotton goods to cancel out the protective benefit of an import tariff that had been introduced mainly for revenue reasons, illustrating how "free trade" was selectively bent to still favour British manufacturers even when fiscal necessity briefly permitted some tariff.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — THE HISTORIOGRAPHICAL DIVIDE</div>
+    <h2 class="sec-title">Nationalist vs Imperialist Historiography</h2>
+    <p class="lead-p">Interpretations of colonial economic policy have long divided along broadly "nationalist" and "imperialist/liberal-apologist" lines — understanding both schools, and their key figures, is essential for this topic.</p>
+    <table>
+      <caption>Table 9.1 — The two schools compared</caption>
+      <thead><tr><th></th><th>Nationalist School</th><th>Imperialist / "Colonial Apologist" School</th></tr></thead>
+      <tbody>
+        <tr><td>Key figures</td><td>Dadabhai Naoroji, R.C. Dutt, M.G. Ranade; later, Bipan Chandra, Amiya Bagchi, Irfan Habib</td><td>Vera Anstey, Morris D. Morris; some colonial-era officials/economists</td></tr>
+        <tr><td>Core view of colonialism's impact</td><td>Colonialism was fundamentally <strong>extractive and impoverishing</strong> — the drain of wealth, de-industrialization, and agrarian stagnation are causally linked to specific colonial policies</td><td>Colonialism, whatever its faults, brought <strong>genuine modernization</strong> — railways, administrative unity, rule of law, some industrial growth — and India's economic problems stemmed more from pre-existing traditional structures than colonial policy per se</td></tr>
+        <tr><td>View of pre-colonial economy</td><td>India had a relatively prosperous, sophisticated traditional economy (including renowned handicraft industries) disrupted by colonial rule</td><td>Pre-colonial India was already poor/technologically backward by world standards; colonial rule is not the primary explanation for continued poverty</td></tr>
+        <tr><td>Methodological approach</td><td>Emphasises structural/political-economy analysis, qualitative and quantitative evidence of extraction</td><td>Emphasises statistical data limitations, cautions against overstating decline (e.g., Morris's critique of de-industrialization data)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Remember the <strong>same debate structure recurs across multiple sub-topics</strong> — de-industrialization (Bipan Chandra vs Morris D. Morris), the drain of wealth (Naoroji/Dutt vs imperialist critics), and overall colonial impact assessment (nationalist vs Cambridge/imperialist historians) — these are variations of one overarching historiographical divide about whether colonialism was net extractive or net (however imperfectly) modernizing.
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — MEASURING POVERTY</div>
+    <h2 class="sec-title">National Income &amp; Poverty Estimates</h2>
+    <div class="box definition">
+      <div class="label">Dadabhai Naoroji's Per Capita Income Estimate</div>
+      Naoroji produced one of the <strong>earliest attempts to estimate India's national/per capita income</strong> (in <em>Poverty and Un-British Rule in India</em>), arriving at a very low per capita income figure, which he used as direct evidence of the impoverishing effect of colonial rule and the drain — a pioneering, if methodologically rough, exercise in what we would now call national income accounting (compare with the far more rigorous methods covered in the National Income Accounting topic).
+    </div>
+    <h4>Later estimates &amp; the broader debate</h4>
+    <table>
+      <caption>Table 10.1 — Key national income estimators for colonial India</caption>
+      <thead><tr><th>Estimator</th><th>Approx. period</th><th>Significance</th></tr></thead>
+      <tbody>
+        <tr><td>Dadabhai Naoroji</td><td>1867 onward (published 1901)</td><td>Pioneering, politically motivated estimate; very low per-capita figure to highlight poverty</td></tr>
+        <tr><td>William Digby, Findlay Shirras, and other early 20th-century estimators</td><td>Early 1900s-1920s</td><td>Refined methodology somewhat; estimates still varied widely due to data limitations</td></tr>
+        <tr><td>V.K.R.V. Rao</td><td>1931-32 estimate (published 1939)</td><td>A landmark, more methodologically rigorous estimate of India's national income for the interwar period — often considered the first "modern," systematic Indian national income estimate</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">Why these estimates matter beyond the numbers themselves</div>
+      Beyond their (much-debated) precision, these estimates were politically significant — they gave nationalist arguments about colonial impoverishment an empirical, quantitative foundation, shifting the debate from purely qualitative/moral argument to statistical evidence, however imperfect.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      <strong>V.K.R.V. Rao's 1931-32 national income estimate</strong> is frequently cited as the first rigorous, "modern" attempt at Indian national income accounting — worth distinguishing clearly from Naoroji's earlier, cruder (though historically pioneering and politically significant) estimate.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Theme</th><th>Key institution/event</th><th>Central tension/debate</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue structure</td><td>Land revenue → diversification (customs, excise, income tax)</td><td>Regressive burden (salt tax) vs limited progressive taxation (income tax)</td></tr>
+        <tr><td>Expenditure</td><td>Military spending, Home Charges</td><td>Imperial priorities vs India's own developmental needs</td></tr>
+        <tr><td>Currency</td><td>Silver Standard → Gold Exchange Standard → 1s 6d ratio (Hilton Young, 1926)</td><td>Exchange stability for British interests vs competitiveness of Indian exports ("Ratio Controversy")</td></tr>
+        <tr><td>Drain of Wealth</td><td>Naoroji (1901), R.C. Dutt (1902-04)</td><td>Unrequited extraction vs "legitimate payment for services" (imperialist critique)</td></tr>
+        <tr><td>Trade policy</td><td>Free trade imposition; 1894 cotton excise duty; Discriminating Protection (1923)</td><td>"Free Trade Imperialism" — asymmetric, favouring British manufactures</td></tr>
+        <tr><td>Historiography</td><td>Naoroji/Dutt/Bipan Chandra vs Anstey/Morris D. Morris</td><td>Extractive-colonialism thesis vs modernization/apologist thesis</td></tr>
+        <tr><td>National income measurement</td><td>Naoroji (1867/1901) → V.K.R.V. Rao (1931-32)</td><td>Politically-motivated early estimate vs rigorous "modern" estimate</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — QUICK REVISION</div>
+    <h2 class="sec-title">Concept &amp; Timeline Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Naoroji's key work</div><em>Poverty and Un-British Rule in India</em>, 1901</div>
+      <div class="box formula"><div class="label">R.C. Dutt's key work</div><em>The Economic History of India</em>, 1902 &amp; 1904 (2 vols.)</div>
+      <div class="box formula"><div class="label">Herschell Committee</div>1893 — closed mints to free silver coinage</div>
+      <div class="box formula"><div class="label">Fowler Committee</div>1898-99 — Gold Exchange Standard, 1 Re = 1s 4d</div>
+      <div class="box formula"><div class="label">Hilton Young Commission</div>1926 — 1 Re = 1s 6d; recommended RBI</div>
+      <div class="box formula"><div class="label">RBI established</div>1935</div>
+      <div class="box formula"><div class="label">Cotton Excise Duty</div>1894 — neutralised Indian textile tariff protection</div>
+      <div class="box formula"><div class="label">Indian Fiscal Commission</div>1921-22 — recommended Discriminating Protection</div>
+      <div class="box formula"><div class="label">V.K.R.V. Rao's estimate</div>Published 1939, for the year 1931-32</div>
+      <div class="box formula"><div class="label">Home Charges include</div>Debt interest, pensions, India Office costs, stores purchase</div>
+      <div class="box formula"><div class="label">Key imperialist-school names</div>Vera Anstey, Morris D. Morris</div>
+      <div class="box formula"><div class="label">Key nationalist-school names</div>Naoroji, Dutt, Ranade, Bipan Chandra, Bagchi</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Drain = unrequited, one-way resource transfer</span>
+      <span class="chip">Home Charges = the institutional channel of the drain</span>
+      <span class="chip">Salt tax = regressive, symbolic of fiscal injustice</span>
+      <span class="chip">1894 excise duty neutralised tariff protection</span>
+      <span class="chip">"Free Trade Imperialism" = asymmetric policy</span>
+      <span class="chip">Ratio Controversy: 1s 6d seen as overvalued rupee</span>
+      <span class="chip">Naoroji (1901) → crude but pioneering; Rao (1931-32) → rigorous</span>
+      <span class="chip">Same nationalist-vs-imperialist debate recurs across sub-topics</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. The "Drain of Wealth" theory was pioneered by: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Vera Anstey &nbsp; (b) <strong>Dadabhai Naoroji</strong> &nbsp; (c) Morris D. Morris &nbsp; (d) Lord Cornwallis<br><br>
+      <span class="correct">Answer: (b)</span> — in <em>Poverty and Un-British Rule in India</em> (1901), later developed further by R.C. Dutt.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. "Home Charges" refers to: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Taxes collected within Indian villages &nbsp; (b) <strong>Payments made by the Government of India in London, covering debt interest, pensions, and administrative costs</strong> &nbsp; (c) Charges levied on British goods entering India &nbsp; (d) Local municipal taxes<br><br>
+      <span class="correct">Answer: (b)</span> — the institutional channel through which much of the "drain" was transmitted.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. Which committee recommended India's move to a Gold Exchange Standard? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Herschell Committee &nbsp; (b) <strong>Fowler Committee</strong> &nbsp; (c) Hilton Young Commission &nbsp; (d) Simon Commission<br><br>
+      <span class="correct">Answer: (b)</span> — the Fowler Committee (1898-99); the Herschell Committee (1893) had earlier closed the mints to free silver coinage.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. The 1894 excise duty on Indian cotton goods was imposed primarily to: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Raise general government revenue only &nbsp; (b) <strong>Neutralise the protective effect of an import tariff, preventing Indian mills from gaining an edge over Lancashire</strong> &nbsp; (c) Encourage Indian textile exports &nbsp; (d) Fund railway construction<br><br>
+      <span class="correct">Answer: (b)</span> — a widely cited example of trade policy tilted toward British manufacturing interests.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. The Hilton Young Commission (1926) recommended fixing the rupee-sterling rate at: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1 Rupee = 1 shilling 4 pence &nbsp; (b) <strong>1 Rupee = 1 shilling 6 pence</strong> &nbsp; (c) 1 Rupee = 2 shillings &nbsp; (d) 1 Rupee = 1 shilling<br><br>
+      <span class="correct">Answer: (b)</span> — a rate widely criticised by Indian merchants/industrialists as an overvaluation ("Ratio Controversy").</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. Which of the following is most associated with the "imperialist" or apologist school of colonial economic historiography? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Dadabhai Naoroji &nbsp; (b) R.C. Dutt &nbsp; (c) <strong>Morris D. Morris</strong> &nbsp; (d) Bipan Chandra<br><br>
+      <span class="correct">Answer: (c)</span> — along with Vera Anstey, associated with a more skeptical/less extraction-focused view of colonial impact.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. India's persistent merchandise trade surplus during the colonial period is significant to the Drain theory because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) It proves colonial rule benefited India economically &nbsp; (b) <strong>The surplus was absorbed by Home Charges and other drain payments rather than returning as capital goods or reserves for India's own benefit</strong> &nbsp; (c) It shows India had no exports &nbsp; (d) It disproves the existence of any drain<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. "Free Trade Imperialism" describes a trade policy that was: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Genuinely neutral and symmetric between Britain and India &nbsp; (b) <strong>Asymmetric — imposing free entry for British goods into India while India's own industries received little protection</strong> &nbsp; (c) Fully protectionist on both sides &nbsp; (d) Applied equally to all of Britain's colonies with identical terms<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. Which of the following produced the first rigorous, "modern" national income estimate for colonial India? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Dadabhai Naoroji, 1901 &nbsp; (b) William Digby &nbsp; (c) <strong>V.K.R.V. Rao, for 1931-32 (published 1939)</strong> &nbsp; (d) The Fowler Committee<br><br>
+      <span class="correct">Answer: (c)</span> — while Naoroji's estimate was historically pioneering and politically significant, it was methodologically much cruder.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. The colonial tax system, despite gradual diversification, remained broadly "regressive" mainly because of: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) High and progressive income tax rates &nbsp; (b) <strong>Continued heavy reliance on land revenue and consumption-linked indirect taxes like the salt tax</strong> &nbsp; (c) Complete absence of any taxation &nbsp; (d) Exclusive reliance on customs duties on luxury imports<br><br>
+      <span class="correct">Answer: (b)</span> — the salt tax, falling equally on rich and poor for a basic necessity, became a potent symbol (Gandhi's Salt March, 1930).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. The Reserve Bank of India was established in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1926 &nbsp; (b) 1929 &nbsp; (c) <strong>1935</strong> &nbsp; (d) 1947<br><br>
+      <span class="correct">Answer: (c)</span> — following the recommendation of the Hilton Young Commission (1926), implemented with a delay.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. R.C. Dutt's contribution to the Drain of Wealth theory primarily involved: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Founding the Reserve Bank of India &nbsp; (b) <strong>Extending Naoroji's drain argument with detailed economic-historical analysis in "The Economic History of India"</strong> &nbsp; (c) Chairing the Fowler Committee &nbsp; (d) Advocating for the Gold Exchange Standard<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+  </section>
+
+  <footer>
+    Economy and State in the Imperial Context — CUET PG Indian Economic History Notes · Compiled for exam preparation · Sources: Dadabhai Naoroji, <em>Poverty and Un-British Rule in India</em> (1901); R.C. Dutt, <em>The Economic History of India</em> (1902, 1904); Vera Anstey, <em>The Economic Development of India</em>; Morris D. Morris's writings; Bipan Chandra's economic nationalism studies; Tirthankar Roy's and Dietmar Rothermund's colonial economic histories; standard accounts of the Fowler Committee and Hilton Young Commission.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

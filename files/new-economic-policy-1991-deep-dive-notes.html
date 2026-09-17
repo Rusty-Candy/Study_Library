@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Economic Policy, 1991 — CUET PG Deep-Dive Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.8rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.5rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.08rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.8rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.debate{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.debate .label{font-weight:700; color:var(--slate); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.89rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.82rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">New Economic Policy, 1991</div>
+  <div class="toc-sub">CUET PG · Indian Economy — Deep Dive</div>
+  <ol>
+    <div class="part-label">Part A — Why 1991?</div>
+    <li><a href="#s1">Background: Structural Weaknesses</a></li>
+    <li><a href="#s2">The 1991 Crisis in Detail</a></li>
+    <li><a href="#s3">Philosophy: From Plan to Market</a></li>
+    <div class="part-label">Part B — The Reform Package</div>
+    <li><a href="#s4">Industrial Policy, 1991</a></li>
+    <li><a href="#s5">Trade Policy Reforms</a></li>
+    <li><a href="#s6">Exchange Rate Reforms</a></li>
+    <li><a href="#s7">Financial Sector (Banking) Reforms</a></li>
+    <li><a href="#s8">Capital Market Reforms</a></li>
+    <li><a href="#s9">Fiscal Sector Reforms</a></li>
+    <li><a href="#s10">Public Sector &amp; Disinvestment</a></li>
+    <li><a href="#s11">FDI &amp; Foreign Investment Policy</a></li>
+    <div class="part-label">Part C — Sequencing &amp; Impact</div>
+    <li><a href="#s12">First vs Second Generation Reforms</a></li>
+    <li><a href="#s13">Impact: Growth &amp; Structural Change</a></li>
+    <li><a href="#s14">Social Impact: Poverty, Inequality, Jobs</a></li>
+    <li><a href="#s15">Criticisms of the NEP</a></li>
+    <li><a href="#s16">NEP in Comparative Perspective</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s17">Master Timeline</a></li>
+    <li><a href="#s18">Concept Sheet</a></li>
+    <li><a href="#s19">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMY · POLICY DEEP-DIVE</div>
+    <h1>The New Economic Policy, 1991</h1>
+    <p class="lede">A full, ground-up treatment of India's defining economic turning point: the crisis that forced it, the Liberalization-Privatization-Globalization package that answered it, sector-by-sector reform detail (industry, trade, finance, fiscal, public sector, FDI), the first-vs-second-generation reform sequence, and a rounded assessment of what changed — and what didn't.</p>
+    <div class="tags">
+      <span class="tag">1991 BoP Crisis</span><span class="tag">LPG Reforms</span><span class="tag">Narasimham Committee</span>
+      <span class="tag">Disinvestment</span><span class="tag">Second-Generation Reforms</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Why 1991? Background &amp; the Crisis</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — ROOT CAUSES</div>
+    <h2 class="sec-title">Background: Structural Weaknesses of the Planning Model</h2>
+    <p class="lead-p">The 1991 crisis was not a sudden accident — it was the culmination of structural weaknesses that had been building for over a decade within the planning-era mixed economy.</p>
+    <table>
+      <caption>Table 1.1 — Accumulated structural weaknesses (1980s)</caption>
+      <thead><tr><th>Weakness</th><th>Nature</th></tr></thead>
+      <tbody>
+        <tr><td>Chronic, widening fiscal deficits</td><td>Government expenditure (subsidies, public sector losses, administration) persistently outpaced revenue mobilisation through the 1980s</td></tr>
+        <tr><td>Growing external commercial borrowing</td><td>India increasingly financed its current account deficit via costly, short-term external commercial borrowings rather than stable long-term flows (FDI was minimal)</td></tr>
+        <tr><td>Inefficient, loss-making public sector</td><td>Many public sector enterprises operated at chronic losses, becoming a fiscal drain rather than a source of investible surplus</td></tr>
+        <tr><td>"Licence-Permit-Quota Raj"</td><td>Extensive industrial licensing suppressed competition, discouraged scale efficiency, and encouraged rent-seeking rather than productivity growth</td></tr>
+        <tr><td>Import-substitution exhaustion</td><td>Decades of inward-looking industrialization left Indian industry globally uncompetitive, with limited export dynamism to earn foreign exchange</td></tr>
+        <tr><td>Overvalued, inflexible exchange rate</td><td>Made Indian exports less competitive while keeping imports relatively cheap, worsening the trade balance</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A strong answer frames 1991 as the point where <strong>long-building structural weaknesses met an external shock</strong> (Gulf War) — not as a reform that could have been avoided by better luck alone; the underlying model itself had become unsustainable.
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — THE CRISIS</div>
+    <h2 class="sec-title">The 1991 Crisis in Detail</h2>
+    <h4>Timeline of the acute crisis</h4>
+    <table>
+      <caption>Table 2.1 — Key events, 1990-91</caption>
+      <thead><tr><th>Event</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Gulf War (Aug 1990 – Feb 1991)</td><td>Oil price spike raised India's import bill sharply; disrupted remittances and evacuation costs from Indian workers in the Gulf</td></tr>
+        <tr><td>Political instability (frequent government changes, 1989-91)</td><td>Undermined investor and creditor confidence in India's policy continuity</td></tr>
+        <tr><td>Credit rating downgrades by international agencies</td><td>Made fresh external commercial borrowing far more difficult and expensive</td></tr>
+        <tr><td>Non-Resident Indian (NRI) deposit withdrawals</td><td>Accelerated the drain on foreign exchange reserves as confidence collapsed</td></tr>
+        <tr><td>Reserves fall to ~$1.2 billion (barely 2-3 weeks of import cover) by June 1991</td><td>India stood on the brink of sovereign default on external payment obligations</td></tr>
+        <tr><td>Gold pledged as collateral (Bank of England, Union Bank of Switzerland), 1991</td><td>Emergency measure to raise foreign exchange and signal creditworthiness, averting imminent default</td></tr>
+        <tr><td>IMF Structural Adjustment loan negotiated</td><td>Came with conditionalities pushing toward the liberalization package ultimately announced</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">A sovereign default was narrowly avoided</div>
+      The severity of mid-1991 is hard to overstate: without the gold pledge and emergency IMF assistance, India would very likely have defaulted on its external payment obligations — a scenario with severe, long-lasting consequences for India's international creditworthiness and economic sovereignty.
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — THE SHIFT</div>
+    <h2 class="sec-title">Philosophy: From Plan to Market</h2>
+    <table>
+      <caption>Table 3.1 — The underlying philosophical shift</caption>
+      <thead><tr><th>Dimension</th><th>Pre-1991 (Planning-era) philosophy</th><th>Post-1991 (NEP) philosophy</th></tr></thead>
+      <tbody>
+        <tr><td>Role of the state</td><td>Direct producer/owner in "commanding heights" sectors</td><td>Regulator and facilitator; direct production role reduced</td></tr>
+        <tr><td>Resource allocation</td><td>Administrative allocation (licensing, quotas)</td><td>Market-based allocation, price signals</td></tr>
+        <tr><td>Trade orientation</td><td>Inward-looking, import substitution</td><td>Outward-looking, export promotion &amp; global integration</td></tr>
+        <tr><td>Foreign capital</td><td>Viewed with suspicion; tightly restricted</td><td>Actively courted (FDI/FII) as a growth driver</td></tr>
+        <tr><td>Competition</td><td>Suppressed (licensing, reservation)</td><td>Encouraged as an efficiency driver</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This is not merely a technical policy shift — it reflects a genuine change in <strong>development philosophy</strong>, from state-led import-substitution industrialization to market-led, globally-integrated growth — a shift that, while triggered by crisis, has broadly persisted (with adjustments) across subsequent governments of differing political orientations, suggesting a degree of durable political-economy consensus.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>The Reform Package, Sector by Sector</h2></div>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — INDUSTRY</div>
+    <h2 class="sec-title">Industrial Policy, 1991</h2>
+    <table>
+      <caption>Table 4.1 — Specific measures</caption>
+      <thead><tr><th>Measure</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Abolition of industrial licensing</td><td>Removed for all industries except a short negative list (initially ~18 industries retained for security/strategic/environmental/health reasons — later pruned further)</td></tr>
+        <tr><td>Reduction of public-sector-reserved industries</td><td>From 17 industries reserved exclusively for the public sector, down to 8 initially, then progressively fewer over subsequent years — by the 2000s, only atomic energy and railway operations remained fully reserved</td></tr>
+        <tr><td>Automatic approval for foreign technology/equity</td><td>Automatic approval up to specified thresholds (e.g., 51% foreign equity in many industries) replaced case-by-case government clearance for a wide range of sectors</td></tr>
+        <tr><td>MRTP Act amendments</td><td>Removed the requirement for large ("MRTP") firms to seek prior government approval before expanding capacity or undertaking mergers — the asset-size threshold trigger was abolished</td></tr>
+        <tr><td>Location policy liberalization</td><td>Relaxed restrictions requiring government approval for setting up industrial units in/near large cities</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — TRADE</div>
+    <h2 class="sec-title">Trade Policy Reforms</h2>
+    <ul>
+      <li><strong>Sharp cuts in customs tariffs</strong> — peak import tariff rates, which had exceeded 200-300% in the 1980s on some items, were brought down in successive budgets to double digits by the 2000s</li>
+      <li><strong>Removal of import licensing</strong> for most capital goods and intermediate goods; quantitative restrictions on most consumer goods were phased out more gradually, largely eliminated by 2001 (partly under WTO commitments)</li>
+      <li><strong>Export incentive schemes</strong> rationalised and expanded (Duty Drawback, Export Promotion Capital Goods scheme, Export Processing/Special Economic Zones)</li>
+      <li>India became a founding member of the <strong>World Trade Organization (WTO)</strong> in 1995, binding many of these trade liberalization commitments internationally</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Note the <strong>gradual, phased</strong> nature of trade liberalization — quantitative restrictions on many consumer goods persisted through the 1990s and were fully removed only around 2001, distinct from the much faster, immediate abolition of industrial licensing in 1991 itself.
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — EXCHANGE RATE</div>
+    <h2 class="sec-title">Exchange Rate Reforms</h2>
+    <table>
+      <caption>Table 6.1 — Steps toward a market-determined rupee</caption>
+      <thead><tr><th>Step</th><th>Year</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Two-step rupee devaluation</td><td>July 1991</td><td>Cumulative devaluation of roughly 18-19% against major currencies, correcting prior overvaluation</td></tr>
+        <tr><td>LERMS (Liberalized Exchange Rate Management System)</td><td>1992</td><td>A dual exchange rate mechanism — partial market-determined rate for a portion of foreign exchange transactions, transitional step toward full convertibility</td></tr>
+        <tr><td>Unified market-determined exchange rate</td><td>1993</td><td>LERMS's dual rate replaced by a single, market-determined exchange rate</td></tr>
+        <tr><td>Full Current Account Convertibility</td><td>1994</td><td>Rupee made fully convertible for current account transactions (trade, remittances), accepting IMF Article VIII obligations</td></tr>
+        <tr><td>Capital Account Convertibility</td><td>Ongoing/partial</td><td>India has moved toward greater, but still not full, capital account convertibility — remaining a cautious, calibrated process given lessons from other countries' currency crises (e.g., the 1997 East Asian crisis)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — BANKING</div>
+    <h2 class="sec-title">Financial Sector (Banking) Reforms</h2>
+    <div class="box definition">
+      <div class="label">Narasimham Committee I (1991) &amp; II (1998)</div>
+      Two landmark committee reports (chaired by M. Narasimham, a former RBI Governor) that shaped India's banking-sector reform agenda.
+    </div>
+    <table>
+      <caption>Table 7.1 — Key recommendations implemented</caption>
+      <thead><tr><th>Reform area</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td>Statutory pre-emptions</td><td>Gradual reduction of the Cash Reserve Ratio (CRR) and Statutory Liquidity Ratio (SLR) from very high levels, freeing up more bank funds for commercial lending rather than mandatory government securities holding</td></tr>
+        <tr><td>Interest rate deregulation</td><td>Progressive deregulation of lending and deposit interest rates, previously administratively controlled</td></tr>
+        <tr><td>Prudential norms</td><td>Introduction of international (Basel-aligned) capital adequacy norms, income recognition and asset classification (IRAC) norms for non-performing assets (NPAs)</td></tr>
+        <tr><td>New private sector banks</td><td>Licences granted to a new generation of private banks from the mid-1990s (e.g., ICICI Bank, HDFC Bank, Axis Bank), ending the effective moratorium on new private banking since 1969 nationalization</td></tr>
+        <tr><td>Recapitalisation of public sector banks</td><td>Government infusion of capital into weak public sector banks to meet new capital adequacy requirements</td></tr>
+        <tr><td>Debt Recovery Tribunals</td><td>Established (from 1993) to speed up recovery of bad loans, later supplemented by the SARFAESI Act (2002) and eventually the Insolvency and Bankruptcy Code (2016)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — CAPITAL MARKETS</div>
+    <h2 class="sec-title">Capital Market Reforms</h2>
+    <ul>
+      <li><strong>SEBI (Securities and Exchange Board of India)</strong> — established administratively in 1988, given full statutory powers in 1992 (SEBI Act, 1992), directly in response to regulatory gaps exposed by the <strong>Harshad Mehta securities scam (1992)</strong></li>
+      <li><strong>Abolition of the Controller of Capital Issues</strong> (1992) — companies no longer needed government approval to determine share pricing for public issues, moving to a market-determined, disclosure-based regime</li>
+      <li><strong>National Stock Exchange (NSE)</strong> established (1992, trading from 1994) — introduced screen-based electronic trading, dramatically improving transparency and efficiency versus the traditional open-outcry system</li>
+      <li><strong>Dematerialisation of shares</strong> via the National Securities Depository Limited (NSDL, 1996) — eliminated risks associated with physical share certificates (theft, forgery, transfer delays)</li>
+      <li>Opening of capital markets to <strong>Foreign Institutional Investors (FIIs)</strong> from 1992</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — FISCAL POLICY</div>
+    <h2 class="sec-title">Fiscal Sector Reforms</h2>
+    <ul>
+      <li><strong>Tax reform</strong> — reduction of peak personal income tax rates (from over 50% to more moderate levels) and corporate tax rates; simplification and widening of the tax base, based partly on recommendations of the Tax Reforms Committee (Raja Chelliah Committee, 1991)</li>
+      <li><strong>Indirect tax rationalisation</strong> — gradual simplification of the excise and customs structure, a long process that eventually culminated in the unified <strong>Goods and Services Tax (GST)</strong> in July 2017 — the logical endpoint of decades of indirect tax reform begun in this era</li>
+      <li><strong>Fiscal deficit reduction targets</strong> — efforts (with mixed and uneven success over the years) to reduce the fiscal deficit as a percentage of GDP, later institutionalised through the <strong>Fiscal Responsibility and Budget Management (FRBM) Act, 2003</strong></li>
+      <li><strong>Subsidy rationalisation</strong> — gradual, politically difficult attempts to reduce and better target food, fertiliser, and petroleum subsidies</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      GST (2017) is frequently framed as the <strong>culmination of the indirect tax reform process that began with the 1991 NEP</strong> — a useful long-arc connection for essay-type answers, even though it falls chronologically well outside the immediate 1991-93 reform window.
+    </div>
+  </section>
+
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — PUBLIC SECTOR</div>
+    <h2 class="sec-title">Public Sector Reform &amp; Disinvestment</h2>
+    <div class="box definition">
+      <div class="label">Disinvestment</div>
+      The sale of a portion (not necessarily majority/full) of government equity holding in Public Sector Undertakings (PSUs) to private/public investors — distinct from full "privatization" (complete transfer of ownership/control), though India has, over time, also undertaken genuine strategic sales (full ownership transfer) in some cases.
+    </div>
+    <ul>
+      <li>Disinvestment began cautiously in 1991-92, initially through minority stake sales, with proceeds used partly to help fund the fiscal deficit</li>
+      <li>A separate <strong>Department of Disinvestment</strong> (later Department of Investment and Public Asset Management, DIPAM) was eventually created to manage the process systematically</li>
+      <li><strong>Strategic sales</strong> (full/majority ownership transfer to private buyers) picked up pace in specific phases — e.g., several PSUs sold in the early 2000s (BALCO, Hindustan Zinc, VSNL)</li>
+      <li>Progress remained slower and more politically contentious than in industrial/trade liberalization — labour concerns, political resistance, and valuation disputes frequently delayed or diluted disinvestment plans</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Distinguish carefully: <strong>disinvestment</strong> (partial equity sale, government retains control) is not the same as <strong>privatization</strong> (full transfer of ownership and control) — India's post-1991 approach has predominantly been the former, with genuine full privatization/strategic sale remaining comparatively rare and episodic.
+    </div>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — FOREIGN INVESTMENT</div>
+    <h2 class="sec-title">FDI &amp; Foreign Investment Policy Evolution</h2>
+    <table>
+      <caption>Table 11.1 — Liberalization of the FDI regime over time</caption>
+      <thead><tr><th>Period/Event</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td>1991</td><td>Automatic approval introduced for FDI up to 51% equity in a specified list of 34 "priority" industries</td></tr>
+        <tr><td>1997 onward</td><td>Automatic approval route progressively extended to more sectors and higher equity caps</td></tr>
+        <tr><td>1999</td><td><strong>Foreign Exchange Management Act (FEMA)</strong> replaced the older, more restrictive Foreign Exchange Regulation Act (FERA, 1973) — a shift in tone from "regulation/control" to "management" of foreign exchange</td></tr>
+        <tr><td>1999-2000</td><td><strong>Insurance sector opened</strong> to private and foreign participation (up to specified caps) following the setting up of the <strong>IRDA (Insurance Regulatory and Development Authority)</strong>, ending the decades-long LIC/GIC state monopoly</td></tr>
+        <tr><td>2000s onward</td><td>Progressive relaxation of FDI caps across telecom, civil aviation, retail (multi-brand retail FDI permitted with conditions from 2012), defence, and other sectors, in phases, across successive governments</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      <strong>FERA → FEMA (1999)</strong> is a frequently tested transition — FERA (1973) treated foreign exchange dealings as something to be tightly <em>regulated/restricted</em> (with criminal penalties for violations), while FEMA (1999) reframed it as something to be <em>managed/facilitated</em> for a liberalizing economy (civil penalties, not criminal, for most violations) — a symbolic and substantive shift in regulatory philosophy.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>Sequencing, Impact &amp; Assessment</h2></div>
+
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — SEQUENCING</div>
+    <h2 class="sec-title">First-Generation vs Second-Generation Reforms</h2>
+    <table>
+      <caption>Table 12.1 — Two broad phases of reform</caption>
+      <thead><tr><th></th><th>First-Generation Reforms (early-mid 1990s)</th><th>Second-Generation Reforms (late 1990s onward)</th></tr></thead>
+      <tbody>
+        <tr><td>Focus</td><td>Macro-stabilisation and initial liberalization — de-licensing, devaluation, initial trade opening, initial financial deregulation</td><td>Deeper, more structural/institutional reforms — factor markets (land, labour), public sector restructuring, state-level reforms, infrastructure regulation</td></tr>
+        <tr><td>Nature</td><td>Relatively easier to implement quickly (administrative/executive decisions, fewer entrenched interest-group veto points)</td><td>Politically harder — require legislative change, touch entrenched interests (labour laws, land acquisition, agricultural marketing), often state-government-dependent</td></tr>
+        <tr><td>Examples</td><td>Industrial de-licensing, rupee devaluation, initial tariff cuts, SEBI, initial bank reforms</td><td>Labour law reform (slow, politically difficult, partly addressed via the 2020 Labour Codes), agricultural market reforms (attempted, contentious), disinvestment/privatization, GST (2017), Insolvency and Bankruptcy Code (2016)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A very common essay framing: India completed <strong>first-generation reforms relatively successfully and quickly</strong>, but <strong>second-generation reforms have been slower, more contested, and remain incomplete</strong> in several areas (labour markets, land acquisition, agricultural marketing) even decades later — this "incomplete reform" framing is central to most balanced assessments of the NEP's legacy.
+    </div>
+  </section>
+
+  <section class="block" id="s13">
+    <div class="sec-eyebrow">13 — GROWTH IMPACT</div>
+    <h2 class="sec-title">Impact: Growth &amp; Structural Change</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="260" x2="560" y2="260" stroke="#22303F" stroke-width="1.5"/>
+        <line x1="60" y1="260" x2="60" y2="20" stroke="#22303F" stroke-width="1.5"/>
+        <text x="566" y="264" font-size="12" fill="#22303F">Year</text>
+        <text x="20" y="18" font-size="12" fill="#22303F">GDP Growth %</text>
+        <!-- pre-1991 flat low line -->
+        <line x1="90" y1="210" x2="230" y2="200" stroke="#8B93A1" stroke-width="2.4"/>
+        <text x="95" y="225" font-size="10" fill="#8B93A1">Pre-1991: ~3.5-5.5%</text>
+        <!-- dip at 1991 crisis -->
+        <path d="M 230 200 C 250 230, 260 235, 270 220" fill="none" stroke="#7C2E2E" stroke-width="2.4"/>
+        <text x="235" y="250" font-size="9" fill="#7C2E2E">'91 dip</text>
+        <!-- rise post reform -->
+        <path d="M 270 220 C 340 140, 420 110, 540 80" fill="none" stroke="#2C6E64" stroke-width="2.6"/>
+        <text x="400" y="105" font-size="10" fill="#2C6E64">Post-1991: rising trend, 6-9% in various periods</text>
+      </svg>
+      <figcaption>Fig 13.1 — Stylised growth trajectory: a sharp dip during the 1991 crisis itself, followed by a step-up to a higher average growth trend in subsequent decades (with continued cyclical fluctuation).</figcaption>
+    </div>
+    <h4>Structural shifts accelerated by reform</h4>
+    <ul>
+      <li>Accelerated growth of the <strong>services sector</strong>, especially IT/ITeS, benefiting from global integration and reduced regulatory friction</li>
+      <li>Significant expansion of <strong>foreign exchange reserves</strong> — from crisis-level near-zero in 1991 to a far more comfortable cushion in subsequent decades, providing resilience against later external shocks</li>
+      <li>Diversification of the export basket and trading partners, reducing dependence on any single market</li>
+      <li>Emergence of globally competitive Indian firms in select sectors (IT services, pharmaceuticals, auto components)</li>
+    </ul>
+  </section>
+
+  <section class="block" id="s14">
+    <div class="sec-eyebrow">14 — SOCIAL IMPACT</div>
+    <h2 class="sec-title">Social Impact: Poverty, Inequality &amp; Jobs</h2>
+    <table>
+      <caption>Table 14.1 — The debated social record</caption>
+      <thead><tr><th>Indicator</th><th>General finding</th><th>Key debate</th></tr></thead>
+      <tbody>
+        <tr><td>Poverty (headcount ratio)</td><td>Declined over the post-reform decades</td><td>Debate over the pace of decline relative to growth (did growth translate efficiently into poverty reduction?), and over which poverty line/methodology is used</td></tr>
+        <tr><td>Inequality</td><td>Various measures (e.g., Gini coefficient, income/wealth concentration at the top) suggest rising inequality in the post-reform period</td><td>Debate over whether this is an inevitable/acceptable cost of faster growth, or a policy failure requiring correction</td></tr>
+        <tr><td>Employment intensity of growth</td><td>Growth has generally been less employment-intensive than in the pre-reform decades ("jobless growth" concern)</td><td>Linked to the broader occupational-structure puzzle (see Occupational Structure notes) — services-led growth often being less labour-absorbing per unit of output than agriculture/traditional manufacturing</td></tr>
+        <tr><td>Regional disparities</td><td>Some states/regions (especially those with better infrastructure, human capital, coastal access) grew significantly faster than others post-reform</td><td>Concerns about widening inter-state inequality, as reforms rewarded states better positioned to attract investment</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s15">
+    <div class="sec-eyebrow">15 — CRITICISMS</div>
+    <h2 class="sec-title">Criticisms of the NEP</h2>
+    <ul>
+      <li><strong>Agriculture neglected</strong> — the reform agenda focused heavily on industry, trade, and finance for many years, with agricultural market reforms (APMC Act changes, etc.) coming much later and remaining highly contested (as seen in the 2020-21 farm laws controversy)</li>
+      <li><strong>Incomplete factor market reform</strong> — labour and land markets remained heavily regulated for decades after 1991, creating a mismatch between liberalized product/capital markets and rigid factor markets</li>
+      <li><strong>Jobless growth concerns</strong> — critics argue the growth model has not generated employment at a pace matching the growing working-age population (linking to the demographic dividend concerns in the Population notes)</li>
+      <li><strong>Crony capitalism concerns</strong> — critics argue that liberalization sometimes replaced state-controlled rent-seeking (licence raj) with new forms of concentrated corporate influence over policy (natural resource allocation controversies of the 2010s, for instance)</li>
+      <li><strong>External vulnerability</strong> — greater integration into global capital markets exposes India to capital flow reversals and global financial contagion (evident during episodes like the 2013 "Taper Tantrum")</li>
+      <li><strong>Uneven regional/social benefit</strong> — as noted in Section 14, gains have not been evenly distributed</li>
+    </ul>
+    <div class="box debate">
+      <div class="label">The IMF/World Bank "conditionality" critique</div>
+      Some critics frame the 1991 reforms as externally imposed via IMF/World Bank loan conditionalities rather than a genuinely home-grown policy choice — defenders counter that the underlying reform logic (de-licensing, trade opening, fiscal discipline) had already been building as a domestic policy consensus through the 1980s, and the crisis merely accelerated/forced through changes that were arguably overdue on their own economic merits.
+    </div>
+  </section>
+
+  <section class="block" id="s16">
+    <div class="sec-eyebrow">16 — COMPARATIVE VIEW</div>
+    <h2 class="sec-title">NEP in Comparative Perspective</h2>
+    <table>
+      <caption>Table 16.1 — India's reform path vs other major developing/transition economies</caption>
+      <thead><tr><th>Country/Region</th><th>Reform character</th><th>Contrast with India</th></tr></thead>
+      <tbody>
+        <tr><td>China (from 1978, Deng Xiaoping reforms)</td><td>Gradual, sequenced, export-manufacturing-led, retained significant state control over key levers (currency, land ownership)</td><td>China began reforms over a decade earlier, under less acute crisis pressure, with a stronger initial manufacturing/export push; India's reform was crisis-triggered and services-led</td></tr>
+        <tr><td>Former Soviet Bloc ("shock therapy" transitions, e.g., Russia, early 1990s)</td><td>Very rapid, simultaneous liberalization of prices, trade, and privatization</td><td>India's approach was comparatively more gradual/calibrated (especially in capital account opening and privatization), often credited with avoiding some of the severe transitional output collapses seen in shock-therapy economies</td></tr>
+        <tr><td>East Asian "Tiger" economies (earlier decades)</td><td>Strong export-oriented manufacturing push, often with significant state industrial policy guidance</td><td>India's post-1991 growth has been comparatively more services-led, with manufacturing's share of GDP/employment rising much more modestly than in the East Asian experience</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      India's reform path is often characterised as "gradualist" — a useful contrast term against the more abrupt "shock therapy" approach of some transition economies, and worth having ready for comparative-essay-style questions.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s17">
+    <div class="sec-eyebrow">17 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Timeline</h2>
+    <table>
+      <thead><tr><th>Year</th><th>Event</th></tr></thead>
+      <tbody>
+        <tr><td>1990-91</td><td>Gulf War oil shock; political instability; reserves collapse</td></tr>
+        <tr><td>June-July 1991</td><td>Gold pledged abroad; rupee devalued in two steps; New Industrial Policy announced</td></tr>
+        <tr><td>1991</td><td>Narasimham Committee I (banking reform); Chelliah Committee (tax reform)</td></tr>
+        <tr><td>1992</td><td>LERMS introduced; SEBI given statutory powers (post-Harshad Mehta scam); NSE established; FIIs permitted</td></tr>
+        <tr><td>1993</td><td>Unified market-determined exchange rate; Debt Recovery Tribunals established</td></tr>
+        <tr><td>1994</td><td>Full current account convertibility of the rupee</td></tr>
+        <tr><td>1995</td><td>India joins the WTO</td></tr>
+        <tr><td>1996</td><td>NSDL (dematerialisation of shares)</td></tr>
+        <tr><td>1998</td><td>Narasimham Committee II</td></tr>
+        <tr><td>1999</td><td>FEMA replaces FERA; Insurance sector opened (IRDA established)</td></tr>
+        <tr><td>2001</td><td>Remaining quantitative restrictions on imports largely removed</td></tr>
+        <tr><td>2002</td><td>SARFAESI Act (faster bad-loan recovery)</td></tr>
+        <tr><td>2003</td><td>FRBM Act (fiscal deficit targets institutionalised)</td></tr>
+        <tr><td>2012</td><td>Multi-brand retail FDI permitted (with conditions)</td></tr>
+        <tr><td>2016</td><td>Insolvency and Bankruptcy Code</td></tr>
+        <tr><td>2017</td><td>Goods and Services Tax (GST) implemented</td></tr>
+        <tr><td>2020</td><td>Labour Codes passed (consolidating/reforming labour laws)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s18">
+    <div class="sec-eyebrow">18 — QUICK REVISION</div>
+    <h2 class="sec-title">Concept Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">LPG</div>Liberalization, Privatization, Globalization</div>
+      <div class="box formula"><div class="label">Disinvestment ≠ Privatization</div>Partial equity sale vs full ownership/control transfer</div>
+      <div class="box formula"><div class="label">FERA → FEMA</div>1973 (restrictive/criminal) → 1999 (management/civil)</div>
+      <div class="box formula"><div class="label">Narasimham Committees</div>I (1991), II (1998) — banking reform</div>
+      <div class="box formula"><div class="label">Chelliah Committee</div>1991 — direct tax reform</div>
+      <div class="box formula"><div class="label">SEBI statutory powers</div>1992, triggered by Harshad Mehta scam</div>
+      <div class="box formula"><div class="label">Exchange rate path</div>Devaluation (1991) → LERMS (1992) → Unified rate (1993) → Convertibility (1994)</div>
+      <div class="box formula"><div class="label">First vs Second Gen Reforms</div>Macro/industry/trade (fast) vs factor markets/PSU/agriculture (slow, incomplete)</div>
+      <div class="box formula"><div class="label">GST</div>2017 — culmination of indirect tax reform begun in 1991</div>
+      <div class="box formula"><div class="label">India's reform style</div>"Gradualist" — contrast with USSR/E.Europe "shock therapy"</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">1991: reserves ~2-3 weeks of imports</span>
+      <span class="chip">Public-sector-reserved industries: 17 → 8 → fewer</span>
+      <span class="chip">India joined WTO in 1995</span>
+      <span class="chip">Full current account convertibility: 1994</span>
+      <span class="chip">Capital account convertibility: still only partial</span>
+      <span class="chip">Growth up, but employment-intensity debated</span>
+      <span class="chip">Second-generation reforms remain incomplete decades later</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s19">
+    <div class="sec-eyebrow">19 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. Which committee's recommendations most directly shaped India's post-1991 banking sector reforms? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Chelliah Committee &nbsp; (b) <strong>Narasimham Committee</strong> &nbsp; (c) Fowler Committee &nbsp; (d) Hilton Young Commission<br><br>
+      <span class="correct">Answer: (b)</span> — Narasimham Committee I (1991) and II (1998).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. FEMA replaced FERA in which year, reflecting a shift from "regulation" to "management" of foreign exchange? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1991 &nbsp; (b) 1995 &nbsp; (c) <strong>1999</strong> &nbsp; (d) 2003<br><br>
+      <span class="correct">Answer: (c)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. "Disinvestment" in the Indian public sector context refers to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Complete closure of a PSU &nbsp; (b) <strong>Sale of a portion of government equity holding in a PSU, with government typically retaining some control</strong> &nbsp; (c) Nationalization of a private firm &nbsp; (d) A ban on foreign investment<br><br>
+      <span class="correct">Answer: (b)</span> — distinct from full privatization/strategic sale.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. India achieved full current account convertibility of the rupee in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1991 &nbsp; (b) 1992 &nbsp; (c) <strong>1994</strong> &nbsp; (d) 2000<br><br>
+      <span class="correct">Answer: (c)</span> — after the transitional LERMS (1992) and unified market rate (1993).</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. Which of the following best describes India's approach to economic reform, compared to the "shock therapy" of some transition economies? <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Equally rapid and simultaneous across all fronts &nbsp; (b) <strong>Comparatively gradual and calibrated, especially regarding capital account opening and privatization</strong> &nbsp; (c) Entirely state-controlled with no market elements &nbsp; (d) Focused solely on agriculture<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. "Second-generation reforms" in the Indian context primarily refer to: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) The initial 1991 de-licensing measures &nbsp; (b) <strong>Deeper structural reforms in factor markets (land, labour), the public sector, and state-level institutions, generally slower and more contested</strong> &nbsp; (c) The Green Revolution &nbsp; (d) Bank nationalization<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. The Goods and Services Tax (GST), implemented in 2017, is best understood as: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) An entirely new, unrelated policy with no link to 1991 &nbsp; (b) <strong>The culmination of the indirect tax reform and rationalisation process that began with the 1991 NEP</strong> &nbsp; (c) A reversal of the 1991 reforms &nbsp; (d) A purely agricultural policy<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. Which sector, previously a state monopoly (LIC/GIC), was opened to private and foreign participation around 1999-2000? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Banking &nbsp; (b) <strong>Insurance</strong> &nbsp; (c) Railways &nbsp; (d) Coal mining<br><br>
+      <span class="correct">Answer: (b)</span> — following the establishment of the IRDA.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. A commonly cited criticism of post-1991 reforms is that: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Agriculture and factor market (land/labour) reforms lagged well behind industrial and trade liberalization &nbsp; (b) Industrial licensing was never actually abolished &nbsp; (c) The fiscal deficit was eliminated immediately &nbsp; (d) Foreign investment was completely banned after 1991<br><br>
+      <span class="correct">Answer: (a)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. The National Stock Exchange (NSE), established in 1992, is significant mainly because it: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) Was India's first-ever stock exchange &nbsp; (b) <strong>Introduced modern, transparent, screen-based electronic trading, improving efficiency over the older open-outcry system</strong> &nbsp; (c) Banned all foreign investors &nbsp; (d) Replaced the Reserve Bank of India<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q11. Which of the following is true regarding India's foreign exchange reserves before and after the 1991 reforms? <span class="qmeta">Comparative</span></summary>
+      <div class="ans">(a) They fell continuously after 1991 &nbsp; (b) <strong>They rose substantially over subsequent decades from the crisis-level lows of 1991, providing greater resilience to later shocks</strong> &nbsp; (c) They remained unchanged &nbsp; (d) India stopped holding foreign exchange reserves after 1991<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q12. The Fiscal Responsibility and Budget Management (FRBM) Act, which institutionalised fiscal deficit targets, was enacted in: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) 1991 &nbsp; (b) 1998 &nbsp; (c) <strong>2003</strong> &nbsp; (d) 2010<br><br>
+      <span class="correct">Answer: (c)</span>.</div>
+    </details>
+  </section>
+
+  <footer>
+    The New Economic Policy, 1991 — CUET PG Indian Economy Deep-Dive Notes · Compiled for exam preparation · Companion to the "Changes &amp; Continuities, Fiscal Policy" notes. Sources: Narasimham Committee Reports (1991, 1998), Chelliah Committee Report (1991), RBI/Ministry of Finance historical accounts of the 1991 crisis and reform sequence, SEBI/NSE institutional histories, standard Indian economy textbooks (Uma Kapila, Ruddar Datt &amp; K.P.M. Sundharam, Bimal Jalan's accounts of the 1991 crisis).
+  </footer>
+
+</main>
+</div>
+</body>
+</html>

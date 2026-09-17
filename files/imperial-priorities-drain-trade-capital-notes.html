@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperial Priorities, Drain of Wealth, Trade &amp; Capital — CUET PG Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-raised:#FFFDF8; --ink:#22303F; --ink-soft:#4C5A68; --rule:#D8CFBC;
+    --oxblood:#7C2E2E; --oxblood-soft:#F1DCDC; --teal:#2C6E64; --teal-soft:#DCEBE6;
+    --gold:#A9793B; --gold-soft:#F1E5CE; --slate:#3E5C76; --slate-soft:#E2E8EF;
+    --good:#2C6E64; --bad:#7C2E2E; --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.6; font-size:16px;}
+  h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif; font-weight:600; color:var(--ink); letter-spacing:-0.01em;}
+  a{color:var(--oxblood);}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  .shell{display:flex; max-width:1240px; margin:0 auto;}
+  nav.toc{width:270px; flex-shrink:0; position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto; padding:28px 18px 40px 24px; border-right:1px solid var(--rule);}
+  nav.toc .toc-title{font-family:'Newsreader',serif; font-size:1.0rem; font-weight:600; margin:0 0 4px; color:var(--oxblood);}
+  nav.toc .toc-sub{font-size:.7rem; color:var(--ink-soft); margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em;}
+  nav.toc .part-label{font-size:.66rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 4px;}
+  nav.toc ol{list-style:none; margin:0; padding:0; counter-reset:sec;}
+  nav.toc li{counter-increment:sec; margin-bottom:1px;}
+  nav.toc a{display:block; text-decoration:none; color:var(--ink-soft); font-size:.82rem; padding:5px 8px 5px 0; border-left:2px solid transparent; padding-left:10px;}
+  nav.toc a:before{content: counter(sec) ".  "; color:var(--gold); font-weight:600;}
+  nav.toc a:hover{color:var(--oxblood); border-left-color:var(--gold);}
+  main{flex:1; min-width:0; padding:0 0 80px;}
+  .hero{padding:56px 56px 40px; border-bottom:1px solid var(--rule); background:var(--paper-raised);}
+  .hero .kicker{color:var(--oxblood); font-size:.8rem; letter-spacing:.08em; font-weight:600;}
+  .hero h1{font-size:2.35rem; margin:.3em 0 .2em; line-height:1.1;}
+  .hero p.lede{font-size:1.06rem; color:var(--ink-soft); max-width:720px; margin:0 0 18px;}
+  .hero .tags{display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{background:var(--slate-soft); color:var(--slate); font-size:.75rem; padding:4px 10px; border-radius:20px; font-weight:600;}
+  .part-banner{ background:var(--slate); color:#fff; padding:24px 56px; margin:0;}
+  .part-banner .p-eyebrow{font-size:.78rem; letter-spacing:.1em; opacity:.8; text-transform:uppercase;}
+  .part-banner h2{color:#fff; font-size:1.85rem; margin:.15em 0 0;}
+  section.block{padding:34px 56px; border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .sec-eyebrow{font-size:.78rem; color:var(--gold); font-weight:700; margin-bottom:2px;}
+  h2.sec-title{font-size:1.8rem; margin:0 0 6px;}
+  h3{font-size:1.22rem; margin:1.4em 0 .5em; color:var(--oxblood);}
+  h4{font-size:1.0rem; margin:1.2em 0 .4em; color:var(--slate);}
+  p{margin:.6em 0;}
+  ul,ol{padding-left:1.3em;}
+  li{margin:.3em 0;}
+  .lead-p{font-size:1.02rem; color:var(--ink-soft); max-width:700px;}
+  .box{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px 20px; margin:16px 0;}
+  .box.formula{border-left:4px solid var(--oxblood); background:var(--oxblood-soft); font-family:'JetBrains Mono',monospace; font-size:.92rem;}
+  .box.formula .label{font-family:'Inter',sans-serif; font-weight:700; font-size:.72rem; color:var(--oxblood); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px;}
+  .box.definition{border-left:4px solid var(--teal); background:var(--teal-soft);}
+  .box.definition .label{font-weight:700; color:var(--teal); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.exam{border-left:4px solid var(--gold); background:var(--gold-soft);}
+  .box.exam .label{font-weight:700; color:var(--gold); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.warn{border-left:4px solid #A64B2A; background:#F6E3D8;}
+  .box.warn .label{font-weight:700; color:#A64B2A; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .box.debate{border-left:4px solid var(--slate); background:var(--slate-soft);}
+  .box.debate .label{font-weight:700; color:var(--slate); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.89rem;}
+  caption{text-align:left; font-size:.78rem; color:var(--ink-soft); margin-bottom:6px; font-style:italic;}
+  th,td{border:1px solid var(--rule); padding:7px 9px; text-align:left; vertical-align:top;}
+  th{background:var(--slate-soft); color:var(--slate); font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#FBF8F1;}
+  td.num{font-family:'JetBrains Mono',monospace; text-align:right;}
+  .diagram{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); padding:16px; margin:20px 0; text-align:center;}
+  .diagram figcaption{font-size:.8rem; color:var(--ink-soft); margin-top:8px; font-style:italic;}
+  .diagram svg{max-width:100%; height:auto;}
+  .chiprow{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0;}
+  .chip{background:var(--paper-raised); border:1px solid var(--rule); border-radius:20px; padding:6px 14px; font-size:.82rem;}
+  details.q{border:1px solid var(--rule); border-radius:var(--radius); background:var(--paper-raised); margin:10px 0; padding:12px 16px;}
+  details.q summary{cursor:pointer; font-weight:600; list-style:none;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary:before{content:"▸ "; color:var(--oxblood);}
+  details.q[open] summary:before{content:"▾ "; }
+  details.q .ans{margin-top:10px; padding-top:10px; border-top:1px dashed var(--rule);}
+  details.q .ans .correct{color:var(--good); font-weight:700;}
+  .qmeta{display:inline-block; font-size:.68rem; background:var(--slate-soft); color:var(--slate); padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle;}
+  .divider-label{text-align:center; margin:34px 0 18px; position:relative; color:var(--gold); font-family:'Newsreader',serif; font-style:italic; font-size:1rem;}
+  .divider-label:before, .divider-label:after{content:""; display:inline-block; width:60px; height:1px; background:var(--rule); vertical-align:middle; margin:0 12px;}
+  .keyword{color:var(--oxblood); font-weight:600;}
+  .small{font-size:.85rem; color:var(--ink-soft);}
+  footer{padding:30px 56px; color:var(--ink-soft); font-size:.85rem; text-align:center;}
+  @media(max-width:900px){ nav.toc{display:none;} .hero, section.block, .part-banner{padding:26px 22px;} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-title">Imperial Priorities · Drain · Trade · Capital</div>
+  <div class="toc-sub">CUET PG · Indian Economic History</div>
+  <ol>
+    <div class="part-label">Part A — Imperial Priorities</div>
+    <li><a href="#s1">Imperial Priorities &amp; Economic Policy</a></li>
+    <li><a href="#s2">India as a Military-Strategic Resource</a></li>
+    <div class="part-label">Part B — Drain of Wealth</div>
+    <li><a href="#s3">Drain of Wealth: Theory &amp; Mechanisms</a></li>
+    <li><a href="#s4">Quantifying the Drain — Estimates &amp; Debate</a></li>
+    <div class="part-label">Part C — International Trade</div>
+    <li><a href="#s5">Direction &amp; Composition of Foreign Trade</a></li>
+    <li><a href="#s6">Terms of Trade &amp; Balance of Payments</a></li>
+    <div class="part-label">Part D — Foreign Capital</div>
+    <li><a href="#s7">Forms &amp; Channels of Foreign Capital</a></li>
+    <li><a href="#s8">Extent, Distribution &amp; Effects of Foreign Capital</a></li>
+    <li><a href="#s9">World Wars &amp; the Sterling Balances</a></li>
+    <div class="part-label">Synthesis</div>
+    <li><a href="#s10">Master Comparison Table</a></li>
+    <li><a href="#s11">Concept &amp; Timeline Sheet</a></li>
+    <li><a href="#s12">Practice MCQs</a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="kicker">INDIAN ECONOMIC HISTORY · COLONIAL PERIOD</div>
+    <h1>Imperial Priorities and the Indian Economy: Drain of Wealth, International Trade &amp; Capital</h1>
+    <p class="lede">How Britain's strategic and commercial priorities shaped Indian economic policy; the structural transfer of resources known as the "Drain of Wealth"; the direction, composition and terms of India's foreign trade under colonial rule; and the forms, scale and effects of foreign (mostly British) capital in India — culminating in the extraordinary reversal of the sterling balances during the Second World War.</p>
+    <div class="tags">
+      <span class="tag">Imperial Priorities</span><span class="tag">Drain of Wealth</span><span class="tag">Terms of Trade</span>
+      <span class="tag">Foreign Capital</span><span class="tag">Sterling Balances</span><span class="tag">CUET PG COQP10</span>
+    </div>
+  </div>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part A</div><h2>Imperial Priorities &amp; the Indian Economy</h2></div>
+
+  <section class="block" id="s1">
+    <div class="sec-eyebrow">01 — FRAMING</div>
+    <h2 class="sec-title">Imperial Priorities &amp; Economic Policy</h2>
+    <p class="lead-p">A recurring interpretive lens in Indian economic history: colonial economic policy is best understood not as neutral "development administration," but as a set of choices systematically ordered around <strong>Britain's own commercial, financial, and strategic priorities</strong> — with Indian welfare a distant, secondary consideration at best.</p>
+    <table>
+      <caption>Table 1.1 — Imperial priorities and their economic policy expression</caption>
+      <thead><tr><th>Imperial priority</th><th>Economic policy expression</th></tr></thead>
+      <tbody>
+        <tr><td>Secure markets for British manufactures</td><td>Free-trade imposition on India; the 1894 cotton excise duty neutralising Indian tariff protection</td></tr>
+        <tr><td>Guarantee returns to British investors</td><td>The railway Guarantee System; stable, London-favourable currency management</td></tr>
+        <tr><td>Fund imperial administration &amp; defence at minimal cost to the British taxpayer</td><td>Home Charges borne entirely by Indian revenues; India's Army used for extra-territorial imperial campaigns, cost shared disproportionately by India</td></tr>
+        <tr><td>Maintain exchange stability favourable to sterling-denominated obligations</td><td>Currency Committees (Herschell, Fowler, Hilton Young) consistently prioritised a stable/high rupee-sterling rate over Indian export competitiveness</td></tr>
+        <tr><td>Preserve political control &amp; order (the precondition for extraction)</td><td>Investment in railways/telegraph partly for troop mobility and administrative control, alongside commercial rationale</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A strong exam answer treats "imperial priorities" as the <strong>unifying causal thread</strong> linking otherwise separate-seeming topics — currency policy, trade policy, public finance, and the drain are not independent accidents of administration, but consistent expressions of the same underlying metropolitan interest.
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <div class="sec-eyebrow">02 — MILITARY-STRATEGIC ROLE</div>
+    <h2 class="sec-title">India as a Military-Strategic Resource for the Empire</h2>
+    <ul>
+      <li>India's army was one of the <strong>largest standing forces available to the British Empire</strong>, deployed not only for internal control but extensively in British campaigns <strong>outside India</strong> — in Africa, the Middle East, and elsewhere — with India frequently bearing a disproportionate share of the cost of these extra-territorial deployments</li>
+      <li>India served as a base for projecting British power across Asia and the Indian Ocean region ("the jewel in the crown" partly for this strategic reason, not only commercial)</li>
+      <li>Military expenditure was consistently among the <strong>largest single items</strong> in colonial India's budget (Section 3, prior topic notes) — a direct fiscal expression of this strategic role</li>
+      <li>The debate over "who should pay" for India's military contributions to imperial campaigns (versus purely Indian defence needs) was a recurring point of nationalist grievance and occasional colonial policy adjustment</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This military dimension reinforces why the "Home Charges" and overall fiscal burden cannot be understood as pure "payment for defence services rendered to India" — a meaningful share funded Britain's <em>wider imperial</em> strategic interests, not India's own security needs alone.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part B</div><h2>Drain of Wealth</h2></div>
+
+  <section class="block" id="s3">
+    <div class="sec-eyebrow">03 — THEORY &amp; MECHANISMS</div>
+    <h2 class="sec-title">Drain of Wealth: Theory &amp; Mechanisms (Recap)</h2>
+    <div class="box definition">
+      <div class="label">Drain of Wealth Theory</div>
+      Pioneered by <strong>Dadabhai Naoroji</strong> (<em>Poverty and Un-British Rule in India</em>, 1901) and extended by <strong>R.C. Dutt</strong> — the argument that a substantial share of India's income/wealth was transferred to Britain <strong>without any equivalent economic return</strong>, distinguishing it from ordinary trade or investment income.
+    </div>
+    <table>
+      <caption>Table 3.1 — Principal channels of the drain</caption>
+      <thead><tr><th>Channel</th><th>Nature</th></tr></thead>
+      <tbody>
+        <tr><td>Home Charges</td><td>Debt interest, pensions, India Office costs, stores purchases — paid in sterling from Indian revenues</td></tr>
+        <tr><td>Salaries/remittances of British officials &amp; employees</td><td>High salaries substantially saved/remitted to Britain rather than spent within India</td></tr>
+        <tr><td>Unrequited export surplus</td><td>India's persistent trade surplus was absorbed by drain payments rather than returning as capital goods or reserves</td></tr>
+        <tr><td>Repatriated profits of British capital</td><td>Profits of British-owned railways, plantations, trading &amp; managing agency houses substantially repatriated</td></tr>
+        <tr><td>Guaranteed railway interest</td><td>Financed by Indian taxpayers, flowing to British shareholders regardless of actual line profitability</td></tr>
+      </tbody>
+    </table>
+    <p class="small">See the companion notes on "Economy and State in the Imperial Context" for the full diagrammatic breakdown and the imperialist-vs-nationalist critique of this theory (Sections 5-7 there) — this note builds on that foundation to focus on quantification, trade, and capital.</p>
+  </section>
+
+  <section class="block" id="s4">
+    <div class="sec-eyebrow">04 — QUANTIFICATION</div>
+    <h2 class="sec-title">Quantifying the Drain — Estimates &amp; Debate</h2>
+    <table>
+      <caption>Table 4.1 — Illustrative drain/Home Charges estimates across different eras (approximate, contested)</caption>
+      <thead><tr><th>Estimator/Era</th><th>Approx. estimate</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Dadabhai Naoroji (late 19th c.)</td><td>Roughly £30-40 million per annum (contemporary estimate, contested)</td><td>Home Charges + estimated unremitted trade surplus</td></tr>
+        <tr><td>R.C. Dutt</td><td>Broadly corroborated and extended Naoroji's order of magnitude</td><td>Detailed historical-fiscal analysis across successive administrations</td></tr>
+        <tr><td>Later economic historians (20th century reassessments)</td><td>Estimates vary considerably depending on what is counted as "drain" vs legitimate payment</td><td>Different treatment of military spending, infrastructure "returns," and valuation of administrative services</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">Why exact figures remain contested</div>
+      Quantifying the drain requires answering unavoidably <strong>normative</strong> questions: should <em>all</em> Home Charges count as "drain," or only the portion exceeding a "fair" payment for genuinely useful services? Should military spending used for extra-territorial imperial campaigns count entirely against India? Different assumptions yield very different totals — which is why historians today generally accept the qualitative/structural drain argument far more confidently than any single quantitative figure.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      Do not memorise a single "correct" number for the drain — examiners are more likely to test your understanding of <strong>why</strong> quantification is contested (the normative/valuation problem) than a specific figure.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part C</div><h2>International Trade under Colonial Rule</h2></div>
+
+  <section class="block" id="s5">
+    <div class="sec-eyebrow">05 — TRADE PATTERNS</div>
+    <h2 class="sec-title">Direction &amp; Composition of India's Foreign Trade</h2>
+    <h4>Composition — a classic colonial trade pattern</h4>
+    <table>
+      <caption>Table 5.1 — What India exported vs imported</caption>
+      <thead><tr><th></th><th>Exports (from India)</th><th>Imports (into India)</th></tr></thead>
+      <tbody>
+        <tr><td>Dominant composition</td><td><strong>Primary products/raw materials</strong>: raw cotton, jute, tea, opium (earlier period), oilseeds, wheat (in some periods), hides &amp; skins</td><td><strong>Manufactured goods</strong>: chiefly cotton piece-goods (textiles) from Lancashire, and later other manufactures, machinery</td></tr>
+        <tr><td>Classic pattern</td><td colspan="2">A textbook <strong>"colonial trade pattern"</strong> — raw material exporter / manufactured goods importer — the reverse of India's own historic pre-colonial role as a net <em>exporter</em> of fine manufactured textiles</td></tr>
+      </tbody>
+    </table>
+    <h4>Direction of trade</h4>
+    <ul>
+      <li><strong>Britain</strong> remained India's single largest trading partner throughout the colonial period, for both exports and imports — reinforcing the "imperial priorities" framing (Section 1)</li>
+      <li>Trade with other regions (rest of Asia, continental Europe) existed but was secondary in scale for most of the period</li>
+      <li>India's trade with the rest of the British Empire benefited from preferential treatment in various periods ("Imperial Preference")</li>
+    </ul>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The colonial trade pattern — raw material out, manufactures in — is directly linked to the <strong>de-industrialization debate</strong> (previous topic notes): the same asymmetric trade relationship that drained India's traditional handicraft base also structurally locked India into a primary-producer role in world trade.
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <div class="sec-eyebrow">06 — TERMS OF TRADE</div>
+    <h2 class="sec-title">Terms of Trade &amp; the Balance of Payments</h2>
+    <div class="box formula">
+      <div class="label">Net Barter Terms of Trade</div>
+      Terms of Trade = (Index of Export Prices / Index of Import Prices) × 100
+    </div>
+    <p>A country's terms of trade <strong>improve</strong> when export prices rise relative to import prices (more imports can be bought per unit of exports) and <strong>deteriorate</strong> in the opposite case. For much of the colonial period, as a primarily raw-material exporter facing manufactured-goods importer status, India's terms of trade were structurally vulnerable to the kind of long-run deterioration later formalised (for developing/primary-exporting countries generally) in the <strong>Prebisch-Singer thesis</strong> — though applying this retrospectively to colonial India requires care given data limitations.</p>
+
+    <h4>Balance of Trade vs Balance of Payments</h4>
+    <table>
+      <caption>Table 6.1 — The crucial distinction</caption>
+      <thead><tr><th>Concept</th><th>What it measures</th><th>Colonial India's position</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Balance of Trade</strong> (merchandise trade balance)</td><td>Exports of goods minus imports of goods</td><td>Persistently in <strong>surplus</strong> for most of the period — India exported more (by value) than it imported</td></tr>
+        <tr><td><strong>Balance of Payments</strong> (current account, incl. "invisibles")</td><td>Trade balance + services, income flows (interest, profits, Home Charges), transfers</td><td>The merchandise surplus was <strong>absorbed</strong> by outflows on the "invisibles" account — Home Charges, interest payments, repatriated profits — leaving little or nothing for India's own capital accumulation</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">The paradox worth remembering</div>
+      A persistent <strong>trade surplus</strong> is normally a sign of strength (a country earning more from the world than it spends). In colonial India's case, this "strength" was illusory from India's own standpoint — the surplus was structurally necessary <em>precisely because</em> it had to fund the Home Charges and other invisible outflows (the Drain), not because India was accumulating wealth or reserves.
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      This trade-surplus-but-still-a-drain point is one of the most conceptually important (and most frequently tested) ideas connecting Parts B and C of this topic — a trade surplus does not necessarily indicate an economy is "gaining" if the surplus is a forced/structural mechanism for outward resource transfer rather than a reflection of competitive strength and reinvested earnings.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <div class="part-banner"><div class="p-eyebrow">Part D</div><h2>Foreign Capital in the Indian Economy</h2></div>
+
+  <section class="block" id="s7">
+    <div class="sec-eyebrow">07 — FORMS OF CAPITAL</div>
+    <h2 class="sec-title">Forms &amp; Channels of Foreign Capital</h2>
+    <table>
+      <caption>Table 7.1 — Types of foreign (predominantly British) capital in colonial India</caption>
+      <thead><tr><th>Form</th><th>Description</th><th>Main sectors</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Portfolio/Government-guaranteed investment</strong></td><td>British investors purchasing government-guaranteed securities (e.g., railway debentures) — low risk, state-backed returns</td><td>Railways</td></tr>
+        <tr><td><strong>Managing-Agency-mediated direct investment</strong></td><td>British trading/agency houses directly establishing and controlling industrial/commercial enterprises in India (see prior topic notes, Section 10)</td><td>Jute (Calcutta), tea plantations, coal mining, shipping</td></tr>
+        <tr><td><strong>Government/public debt</strong></td><td>Loans raised by the colonial government in the London capital market, serviced via Home Charges</td><td>General administration, railway construction, famine/public works</td></tr>
+        <tr><td><strong>Banking &amp; insurance capital</strong></td><td>British-owned "Exchange Banks" dominating India's foreign trade finance; limited domestic banking penetration for much of the period</td><td>Trade finance, foreign exchange</td></tr>
+      </tbody>
+    </table>
+    <div class="box definition">
+      <div class="label">Why so little "genuine" Foreign Direct Investment risk-sharing?</div>
+      Much of British capital in India (especially railways) was structured to be effectively <strong>risk-free or low-risk</strong> for the investor — via government guarantees — meaning the risk of poor returns was borne by <strong>Indian taxpayers</strong>, not the British capital owners. This is a key reason economic historians hesitate to treat colonial-era "foreign investment" as equivalent to normal market-tested FDI.
+    </div>
+  </section>
+
+  <section class="block" id="s8">
+    <div class="sec-eyebrow">08 — SCALE &amp; EFFECTS</div>
+    <h2 class="sec-title">Extent, Sectoral Distribution &amp; Effects of Foreign Capital</h2>
+    <h4>Sectoral concentration</h4>
+    <ul>
+      <li><strong>Railways</strong> absorbed the single largest share of British capital invested in India, reflecting both its guaranteed-return structure and its strategic/commercial value to Britain</li>
+      <li><strong>Plantations</strong> (tea, indigo, later coffee/rubber in some regions) — almost entirely British-owned, export-oriented</li>
+      <li><strong>Jute industry</strong> (Calcutta) — overwhelmingly British managing-agency controlled</li>
+      <li><strong>Coal mining</strong> and some early engineering/shipping enterprises</li>
+      <li>By contrast, <strong>cotton textiles</strong> (Bombay/Ahmedabad) developed substantially on <strong>Indian</strong> capital (Parsi, Gujarati, later Marwari) — a notable exception to the general British-capital dominance pattern (see prior topic notes, Section 10)</li>
+    </ul>
+    <h4>Debated effects of foreign capital on the Indian economy</h4>
+    <table>
+      <caption>Table 8.1 — Costs and benefits, as debated by historians</caption>
+      <thead><tr><th>Argued benefits</th><th>Argued costs</th></tr></thead>
+      <tbody>
+        <tr><td>Brought capital, technology, and organisational/managerial expertise India otherwise lacked</td><td>Profits substantially repatriated rather than reinvested, limiting domestic capital accumulation (linking to the Drain, Part B)</td></tr>
+        <tr><td>Built infrastructure (railways) with genuine, lasting economic value</td><td>Investment was concentrated in sectors serving <strong>export/extraction</strong> interests (railways to ports, plantations, jute for export) rather than broad-based Indian industrial development</td></tr>
+        <tr><td>Created some employment and ancillary economic activity</td><td>Crowded out/constrained space for Indian entrepreneurship in the sectors it dominated (jute, plantations)</td></tr>
+      </tbody>
+    </table>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      A well-rounded answer on foreign capital should note the <strong>sectoral duality</strong>: British capital dominated railways/plantations/jute (guaranteed-return or export-extraction sectors), while Indian capital found more room to grow in cotton textiles — reflecting where colonial policy priorities left genuine opportunity versus where British interests were most entrenched.
+    </div>
+  </section>
+
+  <section class="block" id="s9">
+    <div class="sec-eyebrow">09 — THE GREAT REVERSAL</div>
+    <h2 class="sec-title">World Wars &amp; the Sterling Balances</h2>
+    <div class="box definition">
+      <div class="label">Sterling Balances</div>
+      Britain's accumulated <strong>debt to India</strong>, built up mainly during the Second World War, when India supplied goods, war materials, and — critically — financed a large share of British military expenditure incurred <em>within</em> India (troop costs, supplies for Allied forces in the Asian theatre). Britain paid for these obligations by crediting India with sterling balances (essentially IOUs held in London) rather than immediate real transfers.
+    </div>
+    <h4>The historic reversal</h4>
+    <table>
+      <caption>Table 9.1 — From debtor to creditor</caption>
+      <thead><tr><th>Period</th><th>India's position vis-à-vis Britain</th></tr></thead>
+      <tbody>
+        <tr><td>Throughout most of colonial rule (pre-WWII)</td><td>India was a <strong>net debtor</strong>/resource exporter to Britain (the Drain, Home Charges)</td></tr>
+        <tr><td>By the end of World War II (1945)</td><td>Remarkably, India had become a <strong>net creditor</strong> to Britain — Britain owed India substantial sterling balances (estimates commonly cited in the range of roughly £1,300 million, though figures vary by source and date) due to unpaid wartime expenditure obligations</td></tr>
+      </tbody>
+    </table>
+    <div class="box warn">
+      <div class="label">A complicated "victory"</div>
+      This reversal is sometimes misread as evidence the drain narrative was wrong or reversed — in fact it reflects an <strong>extraordinary, war-specific circumstance</strong> (Britain's own wartime financial exhaustion, and its reliance on Indian resources/manpower for the war effort) rather than a change in the underlying structural relationship. The sterling balances were also not simply "free" money — their release/repayment became a major post-independence negotiating issue, and inflationary wartime financing within India (printing money to pay for war purchases) had its own serious domestic costs (contributing to wartime inflation, arguably worsening the conditions behind the 1943 Bengal Famine).
+    </div>
+    <div class="box exam">
+      <div class="label">Exam angle</div>
+      The sterling balances episode is a favourite "connect the dots" question — it links imperial military priorities (Section 2, India funding the war effort), the drain-and-reversal narrative (Part B), and monetary/inflation history (wartime deficit financing) into a single, high-value analytical thread for essay-type questions.
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s10">
+    <div class="sec-eyebrow">10 — SYNTHESIS</div>
+    <h2 class="sec-title">Master Comparison Table</h2>
+    <table>
+      <thead><tr><th>Theme</th><th>Key mechanism/institution</th><th>Central tension</th></tr></thead>
+      <tbody>
+        <tr><td>Imperial priorities</td><td>Currency committees, trade policy, military budget</td><td>Metropolitan interest dressed as neutral administration</td></tr>
+        <tr><td>Military-strategic role</td><td>Indian Army used for extra-territorial imperial campaigns</td><td>India funding Britain's wider empire, not just its own defence</td></tr>
+        <tr><td>Drain of Wealth</td><td>Home Charges, repatriated profits, guaranteed railway interest</td><td>Unrequited transfer vs "payment for services" defence</td></tr>
+        <tr><td>Trade composition</td><td>Raw material exports / manufactured imports</td><td>Classic colonial trade pattern; reversal of pre-colonial role</td></tr>
+        <tr><td>Trade surplus vs drain</td><td>Persistent merchandise surplus absorbed by "invisibles" outflow</td><td>Surplus as strength vs surplus as forced extraction mechanism</td></tr>
+        <tr><td>Foreign capital</td><td>Guaranteed railway investment; Managing Agency-controlled jute/plantations</td><td>Risk borne by Indian taxpayers, returns captured by British investors</td></tr>
+        <tr><td>Sterling balances</td><td>WWII wartime expenditure financing</td><td>India as net creditor — an extraordinary, not structural, reversal</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block" id="s11">
+    <div class="sec-eyebrow">11 — QUICK REVISION</div>
+    <h2 class="sec-title">Concept &amp; Timeline Sheet</h2>
+    <div class="grid2">
+      <div class="box formula"><div class="label">Naoroji's key work</div><em>Poverty and Un-British Rule in India</em>, 1901</div>
+      <div class="box formula"><div class="label">Terms of Trade formula</div>(Export Price Index / Import Price Index) × 100</div>
+      <div class="box formula"><div class="label">Balance of Trade</div>Exports of goods − Imports of goods</div>
+      <div class="box formula"><div class="label">Balance of Payments</div>Trade Balance + Invisibles (services, income, transfers)</div>
+      <div class="box formula"><div class="label">Classic colonial trade pattern</div>Raw material exporter ↔ Manufactured goods importer</div>
+      <div class="box formula"><div class="label">Dominant foreign investment sector</div>Railways (guaranteed-return, largest share)</div>
+      <div class="box formula"><div class="label">Indian-capital-dominated sector</div>Cotton textiles (Bombay/Ahmedabad)</div>
+      <div class="box formula"><div class="label">British-capital-dominated sectors</div>Jute (Calcutta), tea plantations, coal</div>
+      <div class="box formula"><div class="label">Sterling Balances</div>WWII-era British debt to India (~£1,300 mn cited, varies by source)</div>
+      <div class="box formula"><div class="label">Prebisch-Singer thesis</div>Long-run deterioration in primary-exporter terms of trade (later formalisation)</div>
+    </div>
+
+    <div class="divider-label">at a glance</div>
+    <div class="chiprow">
+      <span class="chip">Imperial priorities = the unifying thread across all colonial economic policy</span>
+      <span class="chip">Trade surplus ≠ economic strength here — it funded the drain</span>
+      <span class="chip">Foreign capital risk borne by Indian taxpayers (guarantees)</span>
+      <span class="chip">India: net debtor for centuries → net creditor by 1945</span>
+      <span class="chip">Sterling balances ≠ reversal of the drain thesis</span>
+      <span class="chip">Cotton textiles = the Indian-capital exception</span>
+    </div>
+  </section>
+
+  <!-- ================================================================================= -->
+  <section class="block" id="s12">
+    <div class="sec-eyebrow">12 — SELF-TEST</div>
+    <h2 class="sec-title">Practice MCQs</h2>
+    <p class="small">Click each question to reveal the answer &amp; explanation.</p>
+
+    <details class="q">
+      <summary>Q1. Colonial India's classic trade pattern involved exporting mainly: <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Manufactured machinery &nbsp; (b) <strong>Raw materials/primary products (cotton, jute, tea)</strong> &nbsp; (c) Finished textiles in large volumes &nbsp; (d) Refined petroleum<br><br>
+      <span class="correct">Answer: (b)</span> — while importing manufactured goods, chiefly cotton piece-goods, the reverse of India's pre-colonial role.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q2. Despite a persistent merchandise trade surplus, colonial India did not accumulate reserves/capital because: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) India had no exports at all &nbsp; (b) <strong>The surplus was absorbed by "invisible" outflows — Home Charges, repatriated profits, and interest payments</strong> &nbsp; (c) All surplus was spent on food imports &nbsp; (d) The surplus was reinvested entirely within India<br><br>
+      <span class="correct">Answer: (b)</span> — the balance of payments (not just the trade balance) tells the full story.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q3. Foreign capital investment in Indian railways was distinctive because: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) It was entirely risk-borne by British investors &nbsp; (b) <strong>Returns were guaranteed by the colonial government, shifting investment risk onto Indian taxpayers</strong> &nbsp; (c) No British capital was ever invested in railways &nbsp; (d) Indian capital financed all railway construction<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q4. Which industry, unusually, developed substantially on Indian (rather than British) capital? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Jute (Calcutta) &nbsp; (b) Tea plantations &nbsp; (c) <strong>Cotton textiles (Bombay/Ahmedabad)</strong> &nbsp; (d) Coal mining<br><br>
+      <span class="correct">Answer: (c)</span> — pioneered largely by Parsi and Gujarati entrepreneurs.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q5. The "Sterling Balances" that accumulated by the end of World War II represented: <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) India's continued debt to Britain &nbsp; (b) <strong>Britain's debt to India, arising from wartime expenditure India financed</strong> &nbsp; (c) A permanent reversal of the colonial economic relationship &nbsp; (d) A new form of the Home Charges<br><br>
+      <span class="correct">Answer: (b)</span> — an extraordinary, war-specific circumstance rather than proof that the structural drain relationship had disappeared.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q6. India's Army being used extensively for British campaigns outside India is significant because it shows: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) India had no military obligations at all &nbsp; (b) <strong>A share of India's military expenditure served Britain's wider imperial strategic interests, not just India's own defence</strong> &nbsp; (c) Britain fully reimbursed India for all such deployments &nbsp; (d) India's Army was entirely British-funded<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q7. The Terms of Trade is calculated as: <span class="qmeta">Numerical</span></summary>
+      <div class="ans">(a) Import Price Index / Export Price Index &nbsp; (b) <strong>(Export Price Index / Import Price Index) × 100</strong> &nbsp; (c) Exports − Imports &nbsp; (d) Exports + Imports<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q8. Which sector was most dominated by British Managing Agency capital? <span class="qmeta">Recall</span></summary>
+      <div class="ans">(a) Cotton textiles &nbsp; (b) <strong>Jute industry (Calcutta)</strong> &nbsp; (c) Handloom weaving &nbsp; (d) Village handicrafts<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q9. Why do historians generally avoid citing a single precise figure for the "Drain of Wealth"? <span class="qmeta">Conceptual</span></summary>
+      <div class="ans">(a) No estimates were ever attempted &nbsp; (b) <strong>Quantification depends on unavoidably normative choices — e.g., how much of military/administrative spending should count as "drain" vs a fair payment for services</strong> &nbsp; (c) The drain never actually occurred &nbsp; (d) All historians agree on one exact figure<br><br>
+      <span class="correct">Answer: (b)</span>.</div>
+    </details>
+
+    <details class="q">
+      <summary>Q10. Deficit financing (money creation) to fund WWII expenditure within India is linked by many historians to: <span class="qmeta">Application</span></summary>
+      <div class="ans">(a) Improved food security in Bengal &nbsp; (b) <strong>Wartime inflation that worsened conditions contributing to the 1943 Bengal Famine</strong> &nbsp; (c) A fall in India's sterling balances &nbsp; (d) The end of the Managing Agency System<br><br>
+      <span class="correct">Answer: (b)</span> — connecting monetary history to the famine topic covered in the Agriculture notes.</div>
+    </details>
+  </section>
+
+  <footer>
+    Imperial Priorities, Drain of Wealth, International Trade &amp; Capital — CUET PG Indian Economic History Notes · Compiled for exam preparation · Companion to "Economy and State in the Imperial Context" and "Agriculture, Railways and Industry" notes. Sources: Dadabhai Naoroji, R.C. Dutt, Tirthankar Roy's and Dietmar Rothermund's colonial economic histories, standard accounts of WWII sterling balance settlements.
+  </footer>
+
+</main>
+</div>
+</body>
+</html>
